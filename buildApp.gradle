@@ -22,6 +22,7 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             applicationIdSuffix ".debug"
+            // 字符串
             resValue "string", "app_name", Config.appName + suffix + ".debug"
         }
 
@@ -52,7 +53,7 @@ dependencies {
     for (def entrySet : ConfigUtils.getApplyPkgs().entrySet()) {
         api entrySet.value.dep
     }
-
+    // 是否依赖 mock 包的数据
     if (Config.depConfig.feature_mock.isApply) {
         api Config.depConfig.feature_mock.dep
     }
