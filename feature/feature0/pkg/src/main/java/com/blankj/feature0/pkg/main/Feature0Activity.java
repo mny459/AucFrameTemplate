@@ -1,8 +1,9 @@
 package com.blankj.feature0.pkg.main;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.view.View;
+
+import androidx.annotation.Nullable;
 
 import com.blankj.common.CommonTitleActivity;
 import com.blankj.feature0.pkg.BusConifg;

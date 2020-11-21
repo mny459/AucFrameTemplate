@@ -19,6 +19,11 @@ dependencies {
 
     api(Config.depConfig.hilt.dep)
     api(Config.depConfig.hiltViewModule.dep)
+    api(Config.depConfig.glide.dep)
     kapt(Config.depConfig.hiltCompiler.dep)
     kapt(Config.depConfig.hiltViewModuleCompiler.dep)
+    kapt(Config.depConfig.glide_compiler.dep) {
+        exclude module: 'jsr305'
+    }
+    kapt(Config.depConfig.roomCompiler.dep)
 }

@@ -32,6 +32,68 @@ android {
 }
 
 dependencies {
+    api(Config.depConfig.appcompat.dep)
+    api(Config.depConfig.coreKtx.dep)
+    api(Config.depConfig.recyclerView.dep)
+    api(Config.depConfig.constraintlayout.dep)
+    api(Config.depConfig.multidex.dep)
+
+    api(Config.depConfig.fragment.dep)
+    api(Config.depConfig.fragmentKtx.dep)
+
+    api(Config.depConfig.lifecycleRuntime.dep)
+    api(Config.depConfig.viewModel.dep)
+    api(Config.depConfig.viewModelKtx.dep)
+    api(Config.depConfig.liveData.dep)
+    api(Config.depConfig.liveDataKtx.dep)
+
+    api(Config.depConfig.roomRuntime.dep)
+    api(Config.depConfig.roomKtx.dep)
+    kapt(Config.depConfig.roomCompiler.dep)
+    api(Config.depConfig.pagingRuntime.dep)
+    api(Config.depConfig.pagingRuntimeKtx.dep)
+
+    api(Config.depConfig.runtime.dep)
+    api(Config.depConfig.fragmentKtx.dep)
+    api(Config.depConfig.uiKtx.dep)
+    api(Config.depConfig.material.dep)
+
+    api(Config.depConfig.kotlin.dep)
+    api(Config.depConfig.kotlinReflect.dep)
+    api(Config.depConfig.anko.dep)
+    api(Config.depConfig.coroutinesCore.dep)
+    api(Config.depConfig.coroutinesAndroid.dep)
+    api(Config.depConfig.material.dep)
+
+    //network
+    api(Config.depConfig.retrofit.dep) {
+        exclude module: 'okhttp'
+        exclude module: 'okio'
+    }
+    implementation(Config.depConfig.gsonConverter.dep) {
+        exclude module: 'gson'
+        exclude module: 'okhttp'
+        exclude module: 'okio'
+        exclude module: 'retrofit'
+    }
+
+    api(Config.depConfig.okHttp4.dep)
+
+    api(Config.depConfig.gson.dep)
+    api(Config.depConfig.glide.dep)
+    kapt(Config.depConfig.glide_compiler.dep) {
+        exclude module: 'jsr305'
+    }
+    api(Config.depConfig.utilcode.dep)
+
+    api(Config.depConfig.hilt.dep)
+    api(Config.depConfig.hiltViewModule.dep)
+    kapt(Config.depConfig.hiltCompiler.dep)
+    kapt(Config.depConfig.hiltViewModuleCompiler.dep)
+
+    api(Config.depConfig.qmui.dep)
+    api(Config.depConfig.mmkv.dep)
+
 //    //network
     api(Config.depConfig.retrofit.dep) {
         exclude module: 'okhttp'
@@ -43,12 +105,18 @@ dependencies {
         exclude module: 'okio'
         exclude module: 'retrofit'
     }
-//
-    api(Config.depConfig.okHttp4.dep)
 
-//    kapt(Config.depConfig.glide_compiler.dep) {
-//        exclude module: 'jsr305'
-//    }
+    api(Config.depConfig.appcompat.dep)
+    api(Config.depConfig.hilt.dep)
+    api(Config.depConfig.okHttp4.dep)
+    api(Config.depConfig.hiltViewModule.dep)
+    api(Config.depConfig.glide.dep)
+    kapt(Config.depConfig.hiltCompiler.dep)
+    kapt(Config.depConfig.hiltViewModuleCompiler.dep)
+    kapt(Config.depConfig.glide_compiler.dep) {
+        exclude module: 'jsr305'
+    }
+    kapt(Config.depConfig.roomCompiler.dep)
 
     testImplementation(Config.depConfig.jUnit.dep)
     androidTestImplementation(Config.depConfig.androidJunit.dep)

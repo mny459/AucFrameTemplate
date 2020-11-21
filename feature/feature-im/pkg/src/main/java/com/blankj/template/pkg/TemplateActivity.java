@@ -1,8 +1,9 @@
 package com.blankj.template.pkg;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.view.View;
+
+import androidx.annotation.Nullable;
 
 import com.blankj.common.CommonTitleActivity;
 
