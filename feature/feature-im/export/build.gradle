@@ -1,0 +1,77 @@
+android {
+    defaultConfig {
+        multiDexEnabled true
+        manifestPlaceholders = [
+                GETUI_APP_ID    : rootProject.ext.GETUI_APP_ID,
+                GETUI_APP_KEY   : rootProject.ext.GETUI_APP_KEY,
+                GETUI_APP_SECRET: rootProject.ext.GETUI_APP_SECRET,
+                PACKAGE_NAME    : applicationId
+        ]
+        buildConfigField("String", "SERVER_URL", "\"${rootProject.ext.SERVER_URL}\"")
+    }
+
+    buildTypes {
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            //请勿在线上版本配置MASTERSECRET的值，避免泄漏
+            buildConfigField("String", "MASTERSECRET", "\"${rootProject.ext.MASTERSECRET}\"")
+        }
+
+        release {
+            minifyEnabled true
+            shrinkResources true
+            zipAlignEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            //请勿在线上版本配置MASTERSECRET的值，避免泄漏
+            buildConfigField("String", "MASTERSECRET", "\"\"")
+        }
+    }
+
+    lintOptions {
+        disable 'InvalidPackage'
+        disable "ResourceType"
+        abortOnError false
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+
+    implementation(Config.depConfig.cardview.dep)
+    implementation(Config.depConfig.brvah.dep)
+    implementation(Config.depConfig.refresh_core.dep)
+    implementation(Config.depConfig.refresh_headerClassics.dep)
+    implementation(Config.depConfig.refresh_footerClassics.dep)
+    implementation(Config.depConfig.circleimageview.dep)
+
+    api(Config.depConfig.hilt.dep)
+    api(Config.depConfig.hiltViewModule.dep)
+    kapt(Config.depConfig.hiltCompiler.dep)
+    kapt(Config.depConfig.hiltViewModuleCompiler.dep)
+
+    implementation "net.qiujuer.genius:ui:2.0.0"
+    implementation "net.qiujuer.genius:res:2.0.0"
+    implementation "net.qiujuer.genius:kit-reflect:2.0.0"
+    implementation "pub.devrel:easypermissions:3.0.0"
+    implementation "com.github.yalantis:ucrop:2.2.6-native"
+    implementation "com.aliyun.dpa:oss-android-sdk:2.3.0"
+    //test
+    testImplementation(Config.depConfig.jUnit.dep)
+    androidTestImplementation(Config.depConfig.androidJunit.dep)
+    androidTestImplementation(Config.depConfig.androidRunner.dep)
+    def espressoVersion = '3.2.0'
+    implementation "androidx.test.espresso:espresso-idling-resource:$espressoVersion"
+    testImplementation "androidx.test.espresso:espresso-core:$espressoVersion"
+    testImplementation "androidx.test.espresso:espresso-contrib:$espressoVersion"
+    testImplementation "androidx.test.espresso:espresso-intents:$espressoVersion"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$espressoVersion"
+    androidTestImplementation "androidx.test.espresso:espresso-contrib:$espressoVersion"
+    androidTestImplementation "androidx.test.espresso:espresso-intents:$espressoVersion"
+    androidTestImplementation "androidx.test.espresso.idling:idling-concurrent:$espressoVersion"
+
+    implementation 'com.getui:sdk:2.14.1.0'
+    // 空气面板
+//    implementation 'net.qiujuer.widget:airpanel:1.4.0'
+    kapt(Config.depConfig.roomCompiler.dep)
+}

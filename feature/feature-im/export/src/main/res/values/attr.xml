@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+ Tencent is pleased to support the open source community by making QMUI_Android available.
+
+ Copyright (C) 2017-2018 THL A29 Limited, a Tencent company. All rights reserved.
+
+ Licensed under the MIT License (the "License"); you may not use this file except in
+ compliance with the License. You may obtain a copy of the License at
+
+ http://opensource.org/licenses/MIT
+
+ Unless required by applicable law or agreed to in writing, software distributed under the License is
+ distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
+ either express or implied. See the License for the specific language governing permissions and
+ limitations under the License.
+-->
+
+<resources>
+    <attr name="app_primary_dark_color" format="color" /> <!-- 深一点的主题色 -->
+    <attr name="app_primary_color" format="color" /> <!-- 主题色 -->
+    <attr name="app_primary_light_color" format="color" /> <!-- 浅一点的主题色 -->
+
+    <attr name="app_accent_color" format="color" /> <!-- 次重要的组件颜色 -->
+
+    <attr name="app_text_icon_color" format="color" /> <!-- 文字/图标 -->
+    <attr name="app_text_primary_color" format="color" /> <!-- 主要文字 -->
+    <attr name="app_text_secondary_color" format="color" /> <!-- 次要文字 -->
+
+    <attr name="app_divider_color" format="color" /> <!-- 分割线 -->
+    <attr name="app_content_bg_color" format="color" /> <!-- 内容的背景色 -->
+    <attr name="app_window_bg" format="color" /> <!-- 默认的背景色 -->
+</resources>

@@ -3,8 +3,9 @@ package com.blankj.feature1.pkg.main;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.view.View;
+
+import androidx.annotation.Nullable;
 
 import com.blankj.common.CommonTitleActivity;
 import com.blankj.feature1.pkg.R;

@@ -1,17 +1,34 @@
 class Config {
 
-    static applicationId = 'com.blankj.aucframe'            // TODO: MODIFY
-    static appName = 'AucFrame'                             // TODO: MODIFY
+    static applicationId = 'com.mny.mojito'
+    static appName = 'Mojito'
 
-    static compileSdkVersion = 27                           // TODO: MODIFY
-    static minSdkVersion = 21                               // TODO: MODIFY
-    static targetSdkVersion = 27                            // TODO: MODIFY
-    static versionCode = 1_000_000                          // TODO: MODIFY
-    static versionName = '1.0.0'// E.g. 1.9.72 => 1,009,072 // TODO: MODIFY
+    static compileSdkVersion = 29
+    static minSdkVersion = 21
+    static targetSdkVersion = 29
+    static versionCode = 1_000_000
+    static buildToolsVersion = '29.0.3'
+    static versionName = '1.0.0'// E.g. 1.9.72 => 1,009,072
 
-    static gradlePluginVersion = '3.5.0'
-    static kotlinVersion = '1.3.50'
+    static gradlePluginVersion = '4.1.1'
+    static kotlinVersion = '1.4.10'
     static supportVersion = '27.1.1'
+    static nav_version = "2.3.0-beta01"
+    static room_version = "2.2.5"
+    static hiltVersion = "2.28-alpha"
+    static hiltViewModuleVersion = "1.0.0-alpha01"
+
+    static version = "2.0.1"
+
+    static kotlin_version = "1.3.72"
+    static anko_version = "0.10.8"
+    static fragment_version = "1.3.0-alpha05"
+    static lifecycle_version = "2.2.0"
+    static paging_version = "3.0.0-alpha07"
+    static glide_version = "4.11.0"
+    static coroutineVersion = "1.4.1"
+    static retrofit_version = "2.9.0"
+
 
     static depConfig = [
             /*Never delete this line*/
@@ -24,27 +41,171 @@ class Config {
             feature_feature1_app       : new DepConfig(false, true , ":feature:feature1:app"),
             feature_feature1_pkg       : new DepConfig(true , true , ":feature:feature1:pkg"),
             feature_feature1_export    : new DepConfig(true , true , ":feature:feature1:export"),
+            feature_feature_im_app     : new DepConfig(false, true , ":feature:feature-im:app"),
+            feature_feature_im_pkg     : new DepConfig(true , true , ":feature:feature-im:pkg"),
+            feature_feature_im_export  : new DepConfig(false, true , ":feature:feature-im:export"),
+            feature_feature_im_face_app: new DepConfig(false, true , ":feature:feature-im-face:app"),
+            feature_feature_im_face_pkg: new DepConfig(false, true , ":feature:feature-im-face:pkg"),
+            feature_feature_im_face_export: new DepConfig(true , true , ":feature:feature-im-face:export"),
+            feature_feature_im_lang_app: new DepConfig(false, true , ":feature:feature-im-lang:app"),
+            feature_feature_im_lang_pkg: new DepConfig(false, true , ":feature:feature-im-lang:pkg"),
+            feature_feature_im_lang_export: new DepConfig(true , true , ":feature:feature-im-lang:export"),
+            feature_feature_wan_app    : new DepConfig(false, true , ":feature:feature-wan:app"),
+            feature_feature_wan_pkg    : new DepConfig(true , true , ":feature:feature-wan:pkg"),
+            feature_feature_wan_export : new DepConfig(true , true , ":feature:feature-wan:export"),
             lib_base                   : new DepConfig(true , true , ":lib:base"),
             lib_common                 : new DepConfig(true , true , ":lib:common"),
+            lib_mojito                 : new DepConfig(true , true , ":lib:mojito"),
             /*Never delete this line*/
 //            feature_template_app       : new DepConfig(":feature:template:app"),
 //            feature_template_pkg       : new DepConfig(":feature:template:pkg"),
 //            feature_template_export    : new DepConfig(":feature:template:export"),
-            plugin_gradle              : new DepConfig(pluginPath: "com.android.tools.build:gradle:$gradlePluginVersion"),
-            plugin_kotlin              : new DepConfig(pluginPath: "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"),
-            plugin_api                 : new DepConfig(pluginPath: "com.blankj:api-gradle-plugin:1.2", pluginId: "com.blankj.api"),
-            plugin_bus                 : new DepConfig(pluginPath: "com.blankj:bus-gradle-plugin:2.4", pluginId: "com.blankj.bus"),
+            plugin_gradle             : new DepConfig(pluginPath: "com.android.tools.build:gradle:$gradlePluginVersion"),
+            plugin_kotlin             : new DepConfig(pluginPath: "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"),
+            plugin_hilt               : new DepConfig(pluginPath: "com.google.dagger:hilt-android-gradle-plugin:2.28-alpha", pluginId: "dagger.hilt.android.plugin"),
+            plugin_api                : new DepConfig(pluginPath: "com.blankj:api-gradle-plugin:1.2", pluginId: "com.blankj.api"),
+            plugin_bus                : new DepConfig(pluginPath: "com.blankj:bus-gradle-plugin:2.4", pluginId: "com.blankj.bus"),
 
-            support_appcompat_v7       : new DepConfig("com.android.support:appcompat-v7:$supportVersion"),
-            support_design             : new DepConfig("com.android.support:design:$supportVersion"),
-            support_multidex           : new DepConfig("com.android.support:multidex:1.0.2"),
-            support_constraint         : new DepConfig("com.android.support.constraint:constraint-layout:1.1.3"),
+            support_appcompat_v7      : new DepConfig("com.android.support:appcompat-v7:$supportVersion"),
+            support_design            : new DepConfig("com.android.support:design:$supportVersion"),
+            support_multidex          : new DepConfig("com.android.support:multidex:1.0.2"),
+            support_constraint        : new DepConfig("com.android.support.constraint:constraint-layout:1.1.3"),
 
-            kotlin                     : new DepConfig("org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion"),
-            utilcode                   : new DepConfig("com.blankj:utilcode:1.28.0"),
-            free_proguard              : new DepConfig("com.blankj:free-proguard:1.0.1"),
-            swipe_panel                : new DepConfig("com.blankj:swipe-panel:1.1"),
+            kotlin                    : new DepConfig("org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion"),
+            utilcode                  : new DepConfig("com.blankj:utilcode:1.28.0"),
+            free_proguard             : new DepConfig("com.blankj:free-proguard:1.0.1"),
+            swipe_panel               : new DepConfig("com.blankj:swipe-panel:1.1"),
 
-            leakcanary_android         : new DepConfig("com.squareup.leakcanary:leakcanary-android:2.1"),
+            leakcanary_android        : new DepConfig("com.squareup.leakcanary:leakcanary-android:2.1"),
+            arouter                   : new DepConfig("com.alibaba:arouter-api:1.3.1"),
+            compiler                  : new DepConfig("com.alibaba:arouter-compiler:1.1.4"),
+            kotlinReflect             : new DepConfig("org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"),
+            anko                      : new DepConfig("org.jetbrains.anko:anko:$anko_version"),
+            kotlinAndroidExtensions   : new DepConfig("org.jetbrains.kotlin:kotlin-android-extensions:$kotlin_version"),
+            coroutinesAndroid         : new DepConfig("org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutineVersion"),
+            coroutinesCore            : new DepConfig("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutineVersion"),
+
+            appcompat                 : new DepConfig("androidx.appcompat:appcompat:1.3.0-alpha01"),
+            recyclerView              : new DepConfig("androidx.recyclerview:recyclerview:1.2.0-alpha03"),
+            coreKtx                   : new DepConfig("androidx.core:core-ktx:1.2.0"),
+            activityKtx               : new DepConfig("androidx.activity:activity-ktx:1.2.0-alpha04"),
+            constraintlayout          : new DepConfig("androidx.constraintlayout:constraintlayout:2.0.0-beta6"),
+            cardview                  : new DepConfig("androidx.cardview:cardview:1.0.0"),
+            multidex                  : new DepConfig("androidx.multidex:multidex:2.0.0"),
+            legacy                    : new DepConfig("androidx.legacy:legacy-support-v4:1.0.0"),
+            viewpager                 : new DepConfig("androidx.viewpager:viewpager:1.0.0"),
+            viewpager2                : new DepConfig("androidx.viewpager2:viewpager2:1.0.0"),
+
+
+
+            fragment                  : new DepConfig("androidx.fragment:fragment:$fragment_version"),
+            fragmentKtx               : new DepConfig("androidx.fragment:fragment-ktx:$fragment_version"),
+            fragmentTesting           : new DepConfig("androidx.fragment:fragment-testing:$fragment_version"),
+
+
+            lifecycleRuntime          : new DepConfig("androidx.lifecycle:lifecycle-runtime:$lifecycle_version"),
+
+            viewModel                 : new DepConfig("androidx.lifecycle:lifecycle-viewmodel:$lifecycle_version"),
+            viewModelKtx              : new DepConfig("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"),
+
+            liveData                  : new DepConfig("androidx.lifecycle:lifecycle-livedata:$lifecycle_version"),
+            liveDataKtx               : new DepConfig("androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"),
+
+            viewModelSavedState       : new DepConfig("androidx.lifecycle:lifecycle-viewmodel-savedstate:$lifecycle_version"),
+            commonJava8               : new DepConfig("androidx.lifecycle:lifecycle-common-java8:$lifecycle_version"),
+            service                   : new DepConfig("androidx.lifecycle:lifecycle-service:$lifecycle_version"),
+
+
+            // 无需直接引用
+            runtime                   : new DepConfig("androidx.navigation:navigation-runtime:$nav_version"),
+
+            navigation_fragment       : new DepConfig("androidx.navigation:navigation-fragment:$nav_version"),
+            navigation_fragmentKtx    : new DepConfig("androidx.navigation:navigation-fragment-ktx:$nav_version"),
+
+            ui                        : new DepConfig("androidx.navigation:navigation-ui:$nav_version"),
+            uiKtx                     : new DepConfig("androidx.navigation:navigation-ui-ktx:$nav_version"),
+
+            // Dynamic Feature Module Support
+            dynamic                   : new DepConfig("androidx.navigation:navigation-dynamic-features-fragment:$nav_version"),
+
+            // Testing Navigation
+            testing                   : new DepConfig("androidx.navigation:navigation-testing:$nav_version"),
+
+
+            roomRuntime               : new DepConfig("androidx.room:room-runtime:$room_version"),
+
+            // for java use annotationProcessor , for kotlin use kapt
+            roomCompiler              : new DepConfig("androidx.room:room-compiler:$room_version"),
+
+            // optional - Kotlin Extensions and Coroutines support for Room
+            roomKtx                   : new DepConfig("androidx.room:room-ktx:$room_version"),
+
+            // optional - RxJava support for Room
+            roomrxjava2               : new DepConfig("androidx.room:room-rxjava2:$room_version"),
+
+            // optional - Guava support for Room, including Optional and ListenableFuture
+            roomGuava                 : new DepConfig("androidx.room:room-guava:$room_version"),
+
+            // Test helpers
+            roomTesting               : new DepConfig("androidx.room:room-testing:$room_version"),
+
+            pagingRuntime             : new DepConfig("androidx.paging:paging-runtime:$paging_version"),
+            pagingRuntimeKtx          : new DepConfig("androidx.paging:paging-runtime-ktx:$paging_version"),
+
+            // optional - RxJava support
+            rxjava2                   : new DepConfig("androidx.paging:paging-rxjava2:$paging_version"),
+            rxjava2Ktx                : new DepConfig("androidx.paging:paging-rxjava2-ktx:$paging_version"),
+
+            // alternatively - without Android dependencies for testing),
+            testingCommon             : new DepConfig("androidx.paging:paging-common:$paging_version"),
+            testingCommonKtx          : new DepConfig("androidx.paging:paging-common-ktx:$paging_version"),
+
+
+            jUnit                     : new DepConfig("junit:junit:4.12"),
+            androidJunit              : new DepConfig("androidx.test.ext:junit:1.1.1"),
+            androidJUnitRunner        : new DepConfig("androidx.test.runner.AndroidJUnitRunner"),
+            androidRunner             : new DepConfig("androidx.test:runner:1.2.0"),
+            espresso                  : new DepConfig("androidx.test.espresso:espresso-core:3.2.0"),
+
+            materialiconlib           : new DepConfig("net.steamcrafted:materialiconlib:1.1.5"),
+            permission                : new DepConfig("com.yanzhenjie.permission:x:2.0.1"),
+            auc                       : new DepConfig("com.blankj:utilcodex:1.29.0"),
+            brvah                     : new DepConfig("com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.6"),
+            mmkv                      : new DepConfig("com.tencent:mmkv-static:1.2.1"),
+
+
+
+            hilt                      : new DepConfig("com.google.dagger:hilt-android:$hiltVersion"),
+            hiltCompiler              : new DepConfig("com.google.dagger:hilt-android-compiler:$hiltVersion"),
+            hiltViewModule            : new DepConfig("androidx.hilt:hilt-lifecycle-viewmodel:${hiltViewModuleVersion}"),
+            hiltViewModuleCompiler    : new DepConfig("androidx.hilt:hilt-compiler:${hiltViewModuleVersion}"),
+
+            material                  : new DepConfig("com.google.android.material:material:1.2.0-alpha05"),
+            gson                      : new DepConfig("com.google.code.gson:gson:2.8.6"),
+
+            glide                     : new DepConfig("com.github.bumptech.glide:glide:$glide_version"),
+            glide_compiler            : new DepConfig("com.github.bumptech.glide:compiler:$glide_version"),
+
+            retrofit                  : new DepConfig("com.squareup.retrofit2:retrofit:${retrofit_version}"),
+            gsonConverter             : new DepConfig("com.squareup.retrofit2:converter-gson:${retrofit_version}"),
+            okHttp4                   : new DepConfig("com.squareup.okhttp3:okhttp:4.6.0"),
+
+            androideventbus           : new DepConfig("org.simple:androideventbus:1.0.5.1"),
+            eventbus                  : new DepConfig("org.greenrobot:eventbus:3.1.1"),
+
+
+            refresh_core              : new DepConfig("com.scwang.smart:refresh-layout-kernel:$version"),   //核心必须依赖
+            refresh_headerClassics    : new DepConfig("com.scwang.smart:refresh-header-classics:$version"), //经典刷新头
+            refresh_headerRadar       : new DepConfig("com.scwang.smart:refresh-header-radar:$version"),   //雷达刷新头
+            refresh_headerFalsify     : new DepConfig("com.scwang.smart:refresh-header-falsify:$version"),   //虚拟刷新头
+            refresh_headerMaterial    : new DepConfig("com.scwang.smart:refresh-header-material:$version"),  //谷歌刷新头
+            refresh_headerTwoLevel    : new DepConfig("com.scwang.smart:refresh-header-two-level:$version"), //二级刷新头
+            refresh_footerBall        : new DepConfig("com.scwang.smart:refresh-footer-ball:$version"),   //球脉冲加载
+            refresh_footerClassics    : new DepConfig("com.scwang.smart:refresh-footer-classics:$version"),   //经典加载
+
+            qmui                      : new DepConfig("com.qmuiteam:qmui:2.0.0-alpha10"),
+
+            roundedImageView          : new DepConfig("com.makeramen:roundedimageview:2.3.0"),
+            circleimageview           : new DepConfig("de.hdodenhof:circleimageview:3.1.0"),
     ]
 }

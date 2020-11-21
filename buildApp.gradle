@@ -4,6 +4,8 @@ apply {
     plugin "kotlin-android-extensions"
     plugin Config.depConfig.plugin_api.pluginId
     plugin Config.depConfig.plugin_bus.pluginId
+    plugin "kotlin-kapt"
+    plugin "dagger.hilt.android.plugin"
 }
 
 android {
@@ -56,6 +58,16 @@ dependencies {
     if (Config.depConfig.feature_mock.isApply) {
         api Config.depConfig.feature_mock.dep
     }
+
+    api(Config.depConfig.hilt.dep)
+    api(Config.depConfig.hiltViewModule.dep)
+    kapt(Config.depConfig.hiltCompiler.dep)
+    kapt(Config.depConfig.hiltViewModuleCompiler.dep)
+    kapt(Config.depConfig.hiltViewModuleCompiler.dep)
+    kapt(Config.depConfig.glide_compiler.dep) {
+        exclude module: 'jsr305'
+    }
+    kapt(Config.depConfig.roomCompiler.dep)
 }
 
 def getSuffix() {

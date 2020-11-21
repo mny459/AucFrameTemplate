@@ -1,13 +1,14 @@
 package com.blankj.common;
 
 import android.annotation.SuppressLint;
-import android.support.annotation.LayoutRes;
-import android.support.design.widget.CoordinatorLayout;
-import android.support.v7.app.ActionBar;
-import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
+
+import androidx.annotation.LayoutRes;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.widget.Toolbar;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
 
 import com.blankj.utilcode.util.BarUtils;
 import com.blankj.utilcode.util.ColorUtils;

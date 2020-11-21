@@ -13,7 +13,20 @@
     {"isApply": true, "useLocal": true, "localPath": ":feature:feature1:app"},
     {"isApply": true, "useLocal": true, "localPath": ":feature:feature1:pkg"},
     {"isApply": true, "useLocal": true, "localPath": ":feature:feature1:export"},
+    {"isApply": true, "useLocal": true, "localPath": ":feature:feature-im:app"},
+    {"isApply": true, "useLocal": true, "localPath": ":feature:feature-im:pkg"},
+    {"isApply": false, "useLocal": true, "localPath": ":feature:feature-im:export"},
+    {"isApply": true, "useLocal": true, "localPath": ":feature:feature-im-face:app"},
+    {"isApply": false, "useLocal": true, "localPath": ":feature:feature-im-face:pkg"},
+    {"isApply": true, "useLocal": true, "localPath": ":feature:feature-im-face:export"},
+    {"isApply": true, "useLocal": true, "localPath": ":feature:feature-im-lang:app"},
+    {"isApply": false, "useLocal": true, "localPath": ":feature:feature-im-lang:pkg"},
+    {"isApply": true, "useLocal": true, "localPath": ":feature:feature-im-lang:export"},
+    {"isApply": true, "useLocal": true, "localPath": ":feature:feature-wan:app"},
+    {"isApply": true, "useLocal": true, "localPath": ":feature:feature-wan:pkg"},
+    {"isApply": true, "useLocal": true, "localPath": ":feature:feature-wan:export"},
     {"isApply": true, "useLocal": true, "localPath": ":lib:base"},
-    {"isApply": true, "useLocal": true, "localPath": ":lib:common"}
+    {"isApply": true, "useLocal": true, "localPath": ":lib:common"},
+    {"isApply": true, "useLocal": true, "localPath": ":lib:mojito"}
   ]
 }

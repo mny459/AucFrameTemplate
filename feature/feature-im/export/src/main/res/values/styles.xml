@@ -1,0 +1,59 @@
+<resources>
+    <!-- 只有 Widget Style -->
+    <style name="WanTopBar" parent="QMUI.TopBar">
+        <item name="android:background">?attr/colorPrimary</item>
+        <item name="qmui_topbar_height">56dp</item>
+        <item name="qmui_topbar_image_btn_height">48dp</item>
+        <item name="qmui_topbar_left_back_drawable_id">@drawable/ic_back</item>
+        <item name="qmui_topbar_title_color">?attr/colorOnPrimary</item>
+    </style>
+
+    <style name="CommonTextView" parent="TextAppearance.AppCompat">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/sp_14</item>
+        <item name="android:textColor">?attr/app_text_primary_color</item>
+    </style>
+
+    <style name="CommonTextView.Secondary">
+        <item name="android:textColor">?attr/app_text_secondary_color</item>
+    </style>
+
+    <style name="CommonTextView.Small">
+        <item name="android:textSize">@dimen/sp_12</item>
+    </style>
+
+    <style name="CommonTextView.Small.Secondary">
+        <item name="android:textColor">?attr/app_text_secondary_color</item>
+    </style>
+
+    <style name="CommonTextView.Large">
+        <item name="android:textSize">@dimen/sp_16</item>
+    </style>
+
+    <style name="CommonTextView.Large.Secondary">
+        <item name="android:textColor">?attr/app_text_secondary_color</item>
+    </style>
+
+    <style name="ViewLine">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/line</item>
+        <item name="android:background">@color/gray_eceff3</item>
+    </style>
+
+    <style name="ViewLine.1DP">
+        <item name="android:layout_height">@dimen/dp_1</item>
+        <item name="android:background">@color/gray_d7dce8</item>
+    </style>
+
+    <style name="ViewLine.V">
+        <item name="android:layout_width">@dimen/line</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+
+    <style name="ViewLine.1DP.V">
+        <item name="android:layout_width">@dimen/dp_1</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+
+</resources>

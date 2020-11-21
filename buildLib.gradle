@@ -2,17 +2,24 @@ apply {
     plugin "com.android.library"
     plugin "kotlin-android"
     plugin "kotlin-android-extensions"
+    plugin "kotlin-kapt"
+    plugin "dagger.hilt.android.plugin"
 }
-
 android {
     compileSdkVersion Config.compileSdkVersion
-
     defaultConfig {
         minSdkVersion Config.minSdkVersion
         versionCode Config.versionCode
         versionName Config.versionName
 
         consumerProguardFiles 'proguard-rules.pro'
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments += ["room.schemaLocation":
+                                      "$projectDir/schemas".toString()]
+            }
+        }
     }
 
     buildTypes {
@@ -25,6 +32,16 @@ android {
     lintOptions {
         abortOnError false
     }
+
+    useLibrary 'org.apache.http.legacy'
+
+    compileOptions {
+        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_1_8
+    }
+
+    useLibrary 'org.apache.http.legacy'
+
 }
 
 dependencies {
@@ -36,4 +53,12 @@ dependencies {
     } else if (project.name.endsWith("_export")) {
         api Config.depConfig.lib_common.dep
     }
+    api(Config.depConfig.hilt.dep)
+    api(Config.depConfig.hiltViewModule.dep)
+    kapt(Config.depConfig.hiltCompiler.dep)
+    kapt(Config.depConfig.hiltViewModuleCompiler.dep)
+    kapt(Config.depConfig.glide_compiler.dep) {
+        exclude module: 'jsr305'
+    }
+    kapt(Config.depConfig.roomCompiler.dep)
 }

@@ -1,0 +1,57 @@
+apply {
+    plugin "com.android.library"
+    plugin "kotlin-android"
+    plugin "kotlin-android-extensions"
+    plugin "kotlin-kapt"
+    plugin "dagger.hilt.android.plugin"
+}
+
+android {
+    compileSdkVersion Config.compileSdkVersion
+    buildToolsVersion Config.buildToolsVersion
+    useLibrary 'org.apache.http.legacy'
+
+    compileOptions {
+        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_1_8
+    }
+
+    defaultConfig {
+        minSdkVersion Config.minSdkVersion
+        targetSdkVersion Config.targetSdkVersion
+        versionCode Config.versionCode
+        versionName Config.versionName
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+//    //network
+    api(Config.depConfig.retrofit.dep) {
+        exclude module: 'okhttp'
+        exclude module: 'okio'
+    }
+    implementation(Config.depConfig.gsonConverter.dep) {
+        exclude module: 'gson'
+        exclude module: 'okhttp'
+        exclude module: 'okio'
+        exclude module: 'retrofit'
+    }
+//
+    api(Config.depConfig.okHttp4.dep)
+
+//    kapt(Config.depConfig.glide_compiler.dep) {
+//        exclude module: 'jsr305'
+//    }
+
+    testImplementation(Config.depConfig.jUnit.dep)
+    androidTestImplementation(Config.depConfig.androidJunit.dep)
+    androidTestImplementation(Config.depConfig.androidRunner.dep)
+    androidTestImplementation(Config.depConfig.espresso.dep)
+}
