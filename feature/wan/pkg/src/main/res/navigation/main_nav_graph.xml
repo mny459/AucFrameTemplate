@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.mny.wan.pkg.presentation.main.home.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/weChatFragment"
+        android:name="com.mny.wan.pkg.presentation.main.wechat.WeChatFragment"
+        android:label="fragment_we_chat"
+        tools:layout="@layout/fragment_we_chat" />
+
+    <fragment
+        android:id="@+id/projectFragment"
+        android:name="com.mny.wan.pkg.presentation.main.project.ProjectFragment"
+        android:label="fragment_project"
+        tools:layout="@layout/fragment_project" />
+
+    <fragment
+        android:id="@+id/systemFragment"
+        android:name="com.mny.wan.pkg.presentation.main.system.SystemFragment"
+        android:label="fragment_system"
+        tools:layout="@layout/fragment_system" />
+
+    <fragment
+        android:id="@+id/mineFragment"
+        android:name="com.mny.wan.pkg.presentation.main.mine.MineFragment"
+        android:label="fragment_mine"
+        tools:layout="@layout/fragment_mine" />
+</navigation>
