@@ -1,4 +1,4 @@
-package com.mny.login.data.remote.service
+package com.mny.wan.pkg.data.remote.service
 
 object WanApi {
     const val API = "https://www.wanandroid.com"

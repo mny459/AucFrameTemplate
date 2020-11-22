@@ -1,0 +1,11 @@
+apply {
+    plugin "kotlin-kapt"
+    plugin "dagger.hilt.android.plugin"
+}
+
+dependencies {
+    api(Config.depConfig.hilt.dep)
+    api(Config.depConfig.hiltViewModule.dep)
+    kapt(Config.depConfig.hiltCompiler.dep)
+    kapt(Config.depConfig.hiltViewModuleCompiler.dep)
+}

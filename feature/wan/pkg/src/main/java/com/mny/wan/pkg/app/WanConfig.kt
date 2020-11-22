@@ -3,7 +3,7 @@ package com.mny.wan.pkg.app
 import android.app.Application
 import android.content.Context
 import androidx.fragment.app.FragmentManager
-import com.mny.login.data.remote.service.WanApi
+import com.mny.wan.pkg.data.remote.service.WanApi
 import com.mny.wan.base.delegate.AppLifecycle
 import com.mny.wan.di.module.GlobalModuleConfig
 import com.mny.wan.di.module.OkHttpConfiguration

@@ -5,7 +5,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.OnLifecycleEvent
 import com.mny.wan.pkg.data.remote.model.BaseResponse
 import com.mny.wan.data.IRepository
-import com.mny.wan.http.Result
+import com.mny.wan.http.MojitoResult
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.coroutineScope
@@ -29,44 +29,44 @@ abstract class BaseRepository {
         return call.invoke()
     }
 
-    suspend fun <T : Any> safeHttpRequest(call: suspend () -> Result<T>, errorMessage: String = ""): Result<T> {
+    suspend fun <T : Any> safeHttpRequest(call: suspend () -> MojitoResult<T>, errorMessage: String = ""): MojitoResult<T> {
         return try {
             call()
         } catch (e: Exception) {
             // An exception was thrown when calling the API so we're converting this to an IOException
-            Result.Error(IOException(errorMessage, e))
+            MojitoResult.Error(IOException(errorMessage, e))
         }
     }
 
-    suspend fun <DATA : Any> executeRequest(dataBlock: suspend FlowCollector<Result<DATA>>.() -> Unit,
+    suspend fun <DATA : Any> executeRequest(dataBlock: suspend FlowCollector<MojitoResult<DATA>>.() -> Unit,
                                             successBlock: (suspend CoroutineScope.() -> Unit)? = null,
-                                            errorBlock: (suspend FlowCollector<Result<DATA>>.() -> Unit)? = null,
-                                            emitWhenError: Boolean = true): Result<DATA> {
+                                            errorBlock: (suspend FlowCollector<MojitoResult<DATA>>.() -> Unit)? = null,
+                                            emitWhenError: Boolean = true): MojitoResult<DATA> {
         return coroutineScope {
-            var result: Result<DATA> = Result.Error(Exception("初始状态"))
-            flow<Result<DATA>>(dataBlock)
+            var mojitoResult: MojitoResult<DATA> = MojitoResult.Error(Exception("初始状态"))
+            flow<MojitoResult<DATA>>(dataBlock)
                     .catch { cause ->
                         if (errorBlock != null) {
                             errorBlock()
                         } else if (emitWhenError) {
-                            emit(Result.Error(Exception("有错误", cause)))
+                            emit(MojitoResult.Error(Exception("有错误", cause)))
                         }
                         Log.e("Mojito-Error", "executeRequest: ", cause)
                     }
                     .flowOn(Dispatchers.IO)
                     .collect {
-                        result = it
+                        mojitoResult = it
                         successBlock?.let { it() }
                     }
-            result
+            mojitoResult
         }
     }
 
-    fun <Model, DomainModel : Any> resultConvert(response: BaseResponse<Model>, toDomain: (model: Model) -> DomainModel): Result<DomainModel> {
+    fun <Model, DomainModel : Any> resultConvert(response: BaseResponse<Model>, toDomain: (model: Model) -> DomainModel): MojitoResult<DomainModel> {
         return if (!response.isSuccess()) {
-            Result.Error(IOException(response.errorMsg))
+            MojitoResult.Error(IOException(response.errorMsg))
         } else {
-            Result.Success(toDomain.invoke(response.data))
+            MojitoResult.Success(toDomain.invoke(response.data))
         }
 
     }

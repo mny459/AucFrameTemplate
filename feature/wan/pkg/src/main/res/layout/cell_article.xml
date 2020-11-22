@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/groupProject"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        app:constraint_referenced_ids="tvDesc,imgProject"
+        tools:visibility="visible" />
+
+    <TextView
+        android:id="@+id/tvUserType"
+        style="@style/CommonTextView.Small"
+        android:layout_marginStart="@dimen/dp_16"
+        android:layout_marginTop="@dimen/dp_8"
+        android:background="@drawable/item_round_8dp"
+        android:paddingLeft="@dimen/dp_4"
+        android:paddingTop="@dimen/dp_2"
+        android:paddingRight="@dimen/dp_4"
+        android:paddingBottom="@dimen/dp_2"
+        android:textColor="@color/colorPrimary"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="用户名" />
+
+    <TextView
+        android:id="@+id/tvPublisher"
+        style="@style/CommonTextView.Small"
+        android:layout_marginStart="@dimen/dp_8"
+        android:textColor="@color/gray_66"
+        app:layout_constraintBottom_toBottomOf="@id/tvUserType"
+        app:layout_constraintLeft_toRightOf="@id/tvUserType"
+        app:layout_constraintTop_toTopOf="@id/tvUserType"
+        tools:text="用户名" />
+
+    <TextView
+        android:id="@+id/tvPublishTime"
+        style="@style/CommonTextView.Small"
+        android:layout_marginEnd="@dimen/dp_16"
+        android:textColor="@color/gray_66"
+        app:layout_constraintBottom_toBottomOf="@id/tvUserType"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tvUserType"
+        tools:text="刚刚" />
+
+    <ImageView
+        android:id="@+id/imgProject"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="@dimen/dp_4"
+        android:src="@mipmap/ic_launcher"
+        android:visibility="gone"
+        app:layout_constrainedHeight="true"
+        app:layout_constraintBottom_toTopOf="@id/imgCollect"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintRight_toRightOf="@id/tvPublishTime"
+        app:layout_constraintTop_toBottomOf="@id/tvPublishTime"
+        tools:visibility="visible" />
+
+    <TextView
+        android:id="@+id/tvTitle"
+        style="@style/CommonTextView"
+        android:layout_width="0dp"
+        android:layout_marginTop="@dimen/dp_8"
+        android:layout_marginEnd="4dp"
+        android:paddingEnd="4dp"
+        app:layout_constrainedWidth="true"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="@id/tvUserType"
+        app:layout_constraintRight_toLeftOf="@id/imgProject"
+        app:layout_constraintTop_toBottomOf="@id/tvUserType"
+        app:layout_goneMarginEnd="0dp"
+        tools:text="我是文章标题我是文章标题我是文章标题我是文章标题我是文章标题我是文章标题我是文章标题" />
+
+    <TextView
+        android:id="@+id/tvDesc"
+        style="@style/CommonTextView"
+        android:layout_width="0dp"
+        android:layout_marginTop="@dimen/dp_4"
+        android:layout_marginRight="@dimen/dp_4"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:textColor="@color/gray_66"
+        android:visibility="gone"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="@id/tvUserType"
+        app:layout_constraintRight_toLeftOf="@id/imgProject"
+        app:layout_constraintTop_toBottomOf="@id/tvTitle"
+        tools:text="我是文章概述我是文章概述我是文章概述我是文章概述我是文章概述"
+        tools:visibility="visible" />
+
+    <TextView
+        android:id="@+id/tvPin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="置顶"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@id/imgCollect"
+        app:layout_constraintLeft_toLeftOf="@id/tvUserType"
+        app:layout_constraintTop_toTopOf="@id/imgCollect"
+        tools:visibility="visible" />
+
+    <TextView
+        android:id="@+id/tvChapter"
+        style="@style/CommonTextView.Small"
+        android:layout_marginStart="@dimen/dp_8"
+        android:textColor="@color/gray_66"
+        app:layout_constraintBottom_toBottomOf="@id/imgCollect"
+        app:layout_constraintLeft_toRightOf="@id/tvPin"
+        app:layout_constraintTop_toTopOf="@id/imgCollect"
+        app:layout_goneMarginStart="0dp"
+        tools:text="问答 官方" />
+
+    <ImageView
+        android:id="@+id/imgCollect"
+        android:layout_width="@dimen/dp_24"
+        android:layout_height="@dimen/dp_24"
+        android:layout_marginTop="@dimen/dp_8"
+        android:src="@drawable/selector_collect"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="@id/tvPublishTime"
+        app:layout_constraintTop_toBottomOf="@id/tvDesc"
+        app:layout_goneMarginTop="@dimen/dp_8" />
+
+    <View
+        style="@style/ViewLine"
+        android:layout_width="0dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintLeft_toLeftOf="@id/tvUserType"
+        app:layout_constraintRight_toRightOf="@id/tvPublishTime"
+        app:layout_constraintTop_toBottomOf="@id/imgCollect" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

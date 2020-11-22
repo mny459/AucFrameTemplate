@@ -2,12 +2,11 @@ package com.mny.wan.pkg.presentation.login
 
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.viewModelScope
-import com.blankj.utilcode.util.ToastUtils
 import com.mny.wan.pkg.domain.usecase.LoginUseCase
 import com.mny.wan.mvvm.BaseAction
 import com.mny.wan.mvvm.BaseState
 import com.mny.wan.mvvm.BaseViewModel
-import com.mny.wan.http.Result
+import com.mny.wan.http.MojitoResult
 import com.mny.wan.pkg.data.local.UserInfoManager
 import kotlinx.coroutines.launch
 
@@ -18,13 +17,13 @@ internal class LoginViewModel @ViewModelInject constructor(private val mLoginUse
         viewModelScope.launch {
             sendAction(Action.LoginStart)
             when (val result = mLoginUseCase.login(username, password)) {
-                is Result.Success -> {
+                is MojitoResult.Success -> {
                     result.data?.apply {
                         UserInfoManager.saveUserInfo(this)
                     }
                     sendAction(Action.LoginSuccess)
                 }
-                is Result.Error -> {
+                is MojitoResult.Error -> {
                     sendAction(Action.LoginFailure("${result.exception.message}"))
                 }
             }

@@ -1,10 +1,19 @@
 plugins {
     id 'kotlin-android'
+    id "kotlin-kapt"
+    id "dagger.hilt.android.plugin"
 }
 
 dependencies {
-    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation(Config.depConfig.refresh_core.dep)
+    implementation(Config.depConfig.refresh_headerClassics.dep)
+    implementation(Config.depConfig.refresh_footerClassics.dep)
+    implementation(Config.depConfig.brvah.dep)
+    api 'com.youth.banner:banner:1.4.10'
+    api(Config.depConfig.hilt.dep)
+    api(Config.depConfig.hiltViewModule.dep)
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    kapt(Config.depConfig.hiltCompiler.dep)
+    kapt(Config.depConfig.hiltViewModuleCompiler.dep)
 }

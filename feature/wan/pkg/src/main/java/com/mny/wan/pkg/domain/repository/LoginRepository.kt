@@ -3,7 +3,7 @@ package com.mny.wan.pkg.domain.repository
 
 import com.mny.wan.pkg.data.remote.model.BaseResponse
 import com.mny.wan.pkg.domain.model.UserInfoDomainModel
-import com.mny.wan.http.Result
+import com.mny.wan.http.MojitoResult
 
 
 /**
@@ -11,9 +11,9 @@ import com.mny.wan.http.Result
  */
 interface LoginRepository {
 
-    suspend fun login(username: String, password: String): Result<UserInfoDomainModel>
+    suspend fun login(username: String, password: String): MojitoResult<UserInfoDomainModel>
 
-    suspend fun register(username: String, password: String, rePassword: String): Result<UserInfoDomainModel>
+    suspend fun register(username: String, password: String, rePassword: String): MojitoResult<UserInfoDomainModel>
 
     suspend fun logout(): BaseResponse<String>
 }
