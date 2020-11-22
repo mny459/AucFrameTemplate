@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--  Theme 和 Theme Overlay  -->
+    <style name="BaseAppTheme" parent="QMUI.Compat.NoActionBar">
+        <!--        <item name="colorAccent">@color/color_FF4081</item>-->
+        <!--        &lt;!&ndash;主色&ndash;&gt;-->
+        <!--        <item name="colorPrimary">@color/color_00D394</item>-->
+        <!-- 复写3个主要的色彩. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <!--        &lt;!&ndash;背景色&ndash;&gt;-->
+        <!--        <item name="colorSurface">@color/color_F7F7F8</item>-->
+        <!--        &lt;!&ndash;背景色&ndash;&gt;-->
+        <!--        <item name="colorError">@color/color_EA4E3D</item>-->
+        <!--        &lt;!&ndash;背景色上面的颜色&ndash;&gt;-->
+        <!--        <item name="colorOnSurface">@color/color_0C101B</item>-->
+        <!--        &lt;!&ndash;主色上面的颜色&ndash;&gt;-->
+        <!--        <item name="colorOnPrimary">@color/color_FFFFFF</item>-->
+        <!--分割线的颜色-->
+        <item name="app_divider_color">@color/color_FFFFFF</item>
+        <item name="app_text_primary_color">@color/color_0C101B</item>
+        <item name="app_text_secondary_color">@color/color_B6B7BA</item>
+
+        <!-- 想使用5.0的Activity过渡动画，就要加上这个，或者在代码里面设置 -->
+        <item name="android:windowContentTransitions">true</item>
+        <!--下面的内容要在5.0上才好用,启用转换过程都会更加流畅自然,指定进入和退出的动画可以重叠 -->
+        <item name="android:windowAllowEnterTransitionOverlap">false</item>
+        <item name="android:windowAllowReturnTransitionOverlap">false</item>
+        <!--  标题栏 -->
+        <item name="QMUITopBarStyle">@style/WanTopBar</item>
+
+        <!--背景色-->
+        <item name="android:windowBackground">@color/windowsBackground</item>
+
+        <!--设置没有Title, 隐藏 ActionBar 和 NoActionBar 是一个意思-->
+        <item name="windowActionBar">false</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="windowNoTitle">true</item>
+        <!--ToolBar高度-->
+        <item name="actionBarSize">48dp</item>
+        <!-- 左上角返回Icon -->
+        <item name="homeAsUpIndicator">@drawable/ic_back</item>
+
+        <!-- 初始化自己定义的3个属性值 -->
+        <item name="toolbarTitleSize">18sp</item>
+        <item name="toolbarTitleColor">@color/white_alpha_224</item>
+        <item name="toolbarMenuIconColor">@color/white_alpha_224</item>
+        <!-- 自定义 SearchView 的样式 -->
+        <item name="searchViewStyle">@style/Widget.SearchView</item>
+        <item name="android:searchViewStyle">@style/Widget.SearchView</item>
+    </style>
+
+    <style name="BaseAppTheme.SplashTheme">
+        <item name="android:windowBackground">@drawable/splash</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.private" parent="BaseAppTheme">
+        <!-- 复写3个主要的色彩. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+
+        <!--背景色-->
+        <item name="android:windowBackground">@color/windowsBackground</item>
+
+        <!--设置没有Title-->
+        <item name="windowActionBar">false</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="windowNoTitle">true</item>
+        <!--ToolBar高度-->
+        <item name="actionBarSize">48dp</item>
+        <!-- 左上角返回Icon -->
+        <item name="homeAsUpIndicator">@drawable/ic_back</item>
+
+        <!--初始化自己定义的3个属性值-->
+        <item name="toolbarTitleSize">18sp</item>
+        <item name="toolbarTitleColor">@color/white_alpha_224</item>
+        <item name="toolbarMenuIconColor">@color/white_alpha_224</item>
+
+    </style>
+
+    <style name="AppTheme.Base" parent="Theme.private">
+        <!--去除默认阴影-->
+        <item name="android:elevation">0dp</item>
+        <item name="android:outlineProvider">none</item>
+        <!--设置底部导航颜色-->
+        <item name="android:navigationBarColor">@color/colorAccent</item>
+    </style>
+
+
+    <style name="AppTheme" parent="AppTheme.Base">
+        <!--
+        <item name="toolbarStyle">@style/Widget.Toolbar</item>
+        <item name="toolbarNavigationButtonStyle">@style/Widget.ToolbarNavigationButtonStyle</item>
+        <item name="actionOverflowButtonStyle">@style/Widget.ActionButton.Overflow</item>
+        <item name="actionOverflowMenuStyle">@style/Widget.PopupMenu.Overflow</item>
+        -->
+
+        <!--顶部导航条中的Icon和二级字体的颜色-->
+        <item name="colorControlNormal">@color/white_alpha_240</item>
+        <item name="colorControlActivated">@color/textPrimary</item>
+    </style>
+
+    <style name="AppTheme.TransStatusBar.Base" parent="AppTheme">
+        <!--去除顶部的状态栏-->
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowAnimationStyle">@null</item>
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:windowFrame">@null</item>
+    </style>
+
+    <style name="AppTheme.TransStatusBar" parent="AppTheme.TransStatusBar.Base">
+        <item name="android:statusBarColor">@null</item>
+    </style>
+
+    <style name="AppTheme.Main" parent="AppTheme.TransStatusBar">
+        <item name="toolbarTitleColor">@color/white</item>
+        <item name="toolbarMenuIconColor">@color/white</item>
+        <item name="colorControlHighlight">@color/textSecond</item>
+        <item name="android:windowBackground">@color/windowsBackgroundLight</item>
+    </style>
+
+    <style name="AppTheme.Account" parent="AppTheme.TransStatusBar" />
+
+    <style name="AppTheme.Message" parent="AppTheme.TransStatusBar">
+        <item name="android:windowBackground">@color/windowsBackgroundLight</item>
+    </style>
+
+    <style name="AppTheme.Group.Create" parent="AppTheme.TransStatusBar">
+        <item name="colorPrimary">@color/colorAccent</item>
+        <item name="colorPrimaryDark">@color/colorAccent</item>
+        <item name="colorAccent">@color/white</item>
+    </style>
+
+
+    <style name="TextAppearance.Title" parent="@style/TextAppearance.AppCompat.Title">
+        <item name="android:textSize">?attr/toolbarTitleSize</item>
+        <item name="android:textColor">?attr/toolbarTitleColor</item>
+    </style>
+
+    <style name="Widget.SearchView" parent="Widget.AppCompat.SearchView">
+        <!--修改搜索框左边的搜索按钮图标-->
+        <item name="searchHintIcon">@null</item>
+    </style>
+
+</resources>

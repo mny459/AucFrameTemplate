@@ -8,6 +8,8 @@ apply {
 dependencies {
     api Config.depConfig.lib_base.dep
     api Config.depConfig.lib_mojito.dep
+    api Config.depConfig.lib_lang.dep
+    api Config.depConfig.lib_face.dep
 
     api(Config.depConfig.hilt.dep)
     api(Config.depConfig.hiltViewModule.dep)

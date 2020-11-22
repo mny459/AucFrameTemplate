@@ -10,6 +10,7 @@ apply {
 
 android {
     compileSdkVersion Config.compileSdkVersion
+
     defaultConfig {
         minSdkVersion Config.minSdkVersion
         versionCode Config.versionCode
@@ -17,6 +18,13 @@ android {
         applicationId Config.applicationId + suffix
         targetSdkVersion Config.targetSdkVersion
         multiDexEnabled true
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments += ["room.schemaLocation":
+                                      "$projectDir/schemas".toString()]
+            }
+        }
     }
 
     buildTypes {
@@ -44,6 +52,11 @@ android {
         maxProcessCount 8
         dexInProcess = true
     }
+
+    compileOptions {
+        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_1_8
+    }
 }
 
 dependencies {
@@ -62,7 +75,6 @@ dependencies {
     api(Config.depConfig.hilt.dep)
     api(Config.depConfig.hiltViewModule.dep)
     kapt(Config.depConfig.hiltCompiler.dep)
-    kapt(Config.depConfig.hiltViewModuleCompiler.dep)
     kapt(Config.depConfig.hiltViewModuleCompiler.dep)
     kapt(Config.depConfig.glide_compiler.dep) {
         exclude module: 'jsr305'

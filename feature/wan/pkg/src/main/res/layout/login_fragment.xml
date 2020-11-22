@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.qmuiteam.qmui.widget.QMUIWindowInsetLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".presentation.login.LoginFragment">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="?attr/qmui_topbar_height">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_16"
+            android:layout_marginTop="@dimen/dp_16"
+            android:layout_marginEnd="@dimen/dp_16"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="用户名"
+                android:inputType="textEmailAddress"
+                android:selectAllOnFocus="true"
+                android:text="MNY459" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_16"
+            android:layout_marginTop="@dimen/dp_4"
+            android:layout_marginEnd="@dimen/dp_16"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tilName">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="密码"
+                android:imeOptions="actionDone"
+                android:inputType="textPassword"
+                android:text="0789253870wa"
+                android:selectAllOnFocus="true" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/btnLogin"
+            style="@style/CommonTextView.Large"
+            android:layout_width="0dp"
+            android:layout_gravity="start"
+            android:layout_marginStart="@dimen/dp_16"
+            android:layout_marginTop="@dimen/dp_16"
+            android:layout_marginEnd="@dimen/dp_16"
+            android:background="@drawable/ripple_btn_8dp"
+            android:enabled="true"
+            android:text="登录"
+            android:textColor="@color/qmui_config_color_white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tilPassword"
+            app:layout_constraintVertical_bias="0.1" />
+
+        <TextView
+            android:id="@+id/btnRegister"
+            style="@style/CommonTextView.Small"
+            android:layout_marginTop="@dimen/dp_16"
+            android:text="注册"
+            android:textColor="@color/colorPrimary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnLogin"
+            app:layout_constraintVertical_bias="0.1" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.qmuiteam.qmui.widget.QMUIWindowInsetLayout>

@@ -16,6 +16,10 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
     }
 
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+
     defaultConfig {
         minSdkVersion Config.minSdkVersion
         targetSdkVersion Config.targetSdkVersion
@@ -44,6 +48,7 @@ dependencies {
     api(Config.depConfig.lifecycleRuntime.dep)
     api(Config.depConfig.viewModel.dep)
     api(Config.depConfig.viewModelKtx.dep)
+    api(Config.depConfig.viewModelSavedState.dep)
     api(Config.depConfig.liveData.dep)
     api(Config.depConfig.liveDataKtx.dep)
 
@@ -53,10 +58,11 @@ dependencies {
     api(Config.depConfig.pagingRuntime.dep)
     api(Config.depConfig.pagingRuntimeKtx.dep)
 
-    api(Config.depConfig.runtime.dep)
-    api(Config.depConfig.fragmentKtx.dep)
-    api(Config.depConfig.uiKtx.dep)
-    api(Config.depConfig.material.dep)
+    api(Config.depConfig.navigation_runtime.dep)
+    api(Config.depConfig.navigation_fragment.dep)
+    api(Config.depConfig.navigation_fragmentKtx.dep)
+    api(Config.depConfig.navigation_ui.dep)
+    api(Config.depConfig.navigation_uiKtx.dep)
 
     api(Config.depConfig.kotlin.dep)
     api(Config.depConfig.kotlinReflect.dep)
