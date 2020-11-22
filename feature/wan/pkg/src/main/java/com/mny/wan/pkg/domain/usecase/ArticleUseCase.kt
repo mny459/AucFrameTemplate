@@ -5,9 +5,11 @@ import com.mny.wan.pkg.data.remote.model.BeanArticle
 import com.mny.wan.pkg.domain.paging.*
 import com.mny.wan.pkg.domain.repository.WanRepository
 import javax.inject.Inject
+import javax.inject.Singleton
 
+@Singleton
 class ArticleUseCase @Inject constructor(
-    val mRepository: WanRepository
+    private val mRepository: WanRepository
 ) {
 
     fun homeArticlePageSource(): PagingSource<Int, BeanArticle> {

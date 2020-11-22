@@ -8,11 +8,12 @@ import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ActivityComponent
+import dagger.hilt.android.components.ApplicationComponent
 
 /**
  * Desc:
  */
-@InstallIn(ActivityComponent::class)
+@InstallIn(ApplicationComponent::class)
 @Module
 abstract class WanModule {
     @Binds

@@ -60,6 +60,11 @@ abstract class BaseArticleFragment(@LayoutRes contentLayoutId: Int) :
                 .collect { mRvArticles?.scrollToPosition(0) }
         }
     }
-
+    //   lifecycleScope.launchWhenCreated {
+    //            @OptIn(ExperimentalCoroutinesApi::class)
+    //            mViewModel.mArticleList.collectLatest {
+    //                mAdapter.submitData(it)
+    //            }
+    //        }
     abstract fun initArticleObserver()
 }

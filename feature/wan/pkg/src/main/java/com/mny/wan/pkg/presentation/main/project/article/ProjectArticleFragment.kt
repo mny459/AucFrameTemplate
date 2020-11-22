@@ -2,58 +2,50 @@ package com.mny.wan.pkg.presentation.main.project.article
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
+import com.mny.wan.base.BaseFragment
 import com.mny.wan.pkg.R
+import com.mny.wan.pkg.base.BaseArticleFragment
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.flow.collectLatest
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+private const val ARG_CID = "c_id"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [ProjectArticleFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
-class ProjectArticleFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+@AndroidEntryPoint
+class ProjectArticleFragment : BaseArticleFragment(R.layout.fragment_project_article) {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
+    private var mCid: Int = 0
+    private val mViewModel: ProjectArticleViewModel by viewModels()
+    override fun initArticleObserver() {
+        lifecycleScope.launchWhenCreated {
+            @OptIn(ExperimentalCoroutinesApi::class)
+            mViewModel.mArticleList.collectLatest {
+                mAdapter.submitData(it)
+            }
         }
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_project_article, container, false)
+    override fun initArgs(bundle: Bundle?) {
+        super.initArgs(bundle)
+        bundle?.let {
+            mCid = it.getInt(ARG_CID, 0)
+        }
+    }
+
+    override fun initData(savedInstanceState: Bundle?) {
+        super.initData(savedInstanceState)
+        mViewModel.initCId(mCid)
+        mViewModel.loadData()
     }
 
     companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment ProjectArticleFragment.
-         */
-        // TODO: Rename and change types and number of parameters
         @JvmStatic
-        fun newInstance(param1: String, param2: String) =
+        fun newInstance(cid: Int) =
             ProjectArticleFragment().apply {
                 arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+                    putInt(ARG_CID, cid)
                 }
             }
     }
