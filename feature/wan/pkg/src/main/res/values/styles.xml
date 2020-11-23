@@ -1,7 +1,7 @@
 <resources>
     <!-- 只有 Widget Style -->
     <style name="WanTopBar" parent="QMUI.TopBar">
-        <item name="android:background">?attr/colorPrimary</item>
+        <item name="android:background">@color/colorPrimary</item>
         <item name="qmui_topbar_height">56dp</item>
         <item name="qmui_topbar_image_btn_height">48dp</item>
         <item name="qmui_topbar_left_back_drawable_id">@drawable/ic_back</item>
@@ -12,11 +12,11 @@
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textSize">@dimen/sp_14</item>
-        <item name="android:textColor">?attr/app_text_primary_color</item>
+        <item name="android:textColor">@color/colorPrimaryText</item>
     </style>
 
     <style name="CommonTextView.Secondary">
-        <item name="android:textColor">?attr/app_text_secondary_color</item>
+        <item name="android:textColor">@color/colorSecondaryText</item>
     </style>
 
     <style name="CommonTextView.Small">
@@ -24,7 +24,7 @@
     </style>
 
     <style name="CommonTextView.Small.Secondary">
-        <item name="android:textColor">?attr/app_text_secondary_color</item>
+        <item name="android:textColor">@color/colorSecondaryText</item>
     </style>
 
     <style name="CommonTextView.Large">
@@ -32,7 +32,7 @@
     </style>
 
     <style name="CommonTextView.Large.Secondary">
-        <item name="android:textColor">?attr/app_text_secondary_color</item>
+        <item name="android:textColor">@color/colorSecondaryText</item>
     </style>
 
     <style name="ViewLine">

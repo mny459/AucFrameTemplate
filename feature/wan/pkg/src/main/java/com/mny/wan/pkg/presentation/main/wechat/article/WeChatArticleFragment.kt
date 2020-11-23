@@ -1,23 +1,19 @@
-package com.mny.wan.pkg.presentation.main.project.article
+package com.mny.wan.pkg.presentation.main.wechat.article
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
-import com.mny.wan.base.BaseFragment
 import com.mny.wan.pkg.R
 import com.mny.wan.pkg.base.BaseArticleFragment
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.collectLatest
 
-
-
 @AndroidEntryPoint
-class ProjectArticleFragment : BaseArticleFragment(R.layout.fragment_project_article) {
+class WeChatArticleFragment : BaseArticleFragment(R.layout.fragment_we_chat_article) {
 
-    private var mCid: Int = 0
-    private val mViewModel: ProjectArticleViewModel by viewModels()
+    private var mWeChatId: Int = 0
+    private val mViewModel: WeChatArticleViewModel by viewModels()
     override fun initArticleObserver() {
         lifecycleScope.launchWhenCreated {
             @OptIn(ExperimentalCoroutinesApi::class)
@@ -30,23 +26,24 @@ class ProjectArticleFragment : BaseArticleFragment(R.layout.fragment_project_art
     override fun initArgs(bundle: Bundle?) {
         super.initArgs(bundle)
         bundle?.let {
-            mCid = it.getInt(ARG_CID, 0)
+            mWeChatId = it.getInt(ARG_WE_CHAT_ID, 0)
         }
     }
 
     override fun initData(savedInstanceState: Bundle?) {
         super.initData(savedInstanceState)
-        mViewModel.initCId(mCid)
+        mViewModel.initCId(mWeChatId)
         mViewModel.loadData()
     }
 
     companion object {
-        private const val ARG_CID = "c_id"
+        private const val ARG_WE_CHAT_ID = "we_chat_id"
+
         @JvmStatic
-        fun newInstance(cid: Int) =
-            ProjectArticleFragment().apply {
+        fun newInstance(weChatId: Int) =
+            WeChatArticleFragment().apply {
                 arguments = Bundle().apply {
-                    putInt(ARG_CID, cid)
+                    putInt(ARG_WE_CHAT_ID, weChatId)
                 }
             }
     }

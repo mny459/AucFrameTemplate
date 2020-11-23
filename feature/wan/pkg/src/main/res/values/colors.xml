@@ -21,19 +21,6 @@
     <color name="gray_divider">#BDBDBD</color>
     <color name="color_f4f4f4">#f4f4f4</color>
 
-    <!--    主题颜色配|置开始 -->
-    <!--     通用主题色    -->
-    <color name="colorTextIcon">#FFFFFF</color>
-    <color name="colorPrimaryText">#212121</color>
-    <color name="colorSecondaryText">#757575</color>
-    <color name="colorDivider">#BDBDBD</color>
-    <!--    主题 蓝色 -->
-    <color name="colorBlueDarkPrimary">#1976D2</color>
-    <color name="colorBluePrimary">#2196F3</color>
-    <color name="colorBlueLighterPrimary">#BBDEFB</color>
-    <color name="colorBlueAccent">#03A9F4</color>
-
-
     <color name="color_00D394">#00D394</color>
     <color name="color_0C101B">#0C101B</color>
     <color name="color_B6B7BA">#B6B7BA</color>
@@ -361,4 +348,61 @@
     <color name="yellow_a200">#ffff00</color>
     <color name="yellow_a400">#ffea00</color>
     <color name="yellow_a700">#ffd600</color>
+
+    <!-- common -->
+    <color name="app_color_blue">#00A8E1</color>
+    <color name="app_color_blue_disabled">#8000A8E1</color>
+    <color name="app_color_blue_pressed">#c000A8E1</color>
+
+    <color name="app_color_blue_2">#31BDF3</color>
+    <color name="app_color_blue_2_disabled">#7F31BDF3</color>
+    <color name="app_color_blue_2_pressed">#7F31BDF3</color>
+
+    <color name="app_color_blue_3">#EBF9FF</color>
+    <color name="app_color_blue_3_disabled">#7FEBF9FF</color>
+    <color name="app_color_blue_3_pressed">#7FEBF9FF</color>
+
+    <color name="app_color_theme_1">#EF5362</color> <!-- Grapefruit -->
+    <color name="app_color_theme_2">#FE6D4B</color> <!-- Bittersweet -->
+    <color name="app_color_theme_3">#FFCF47</color> <!-- Sunflower -->
+    <color name="app_color_theme_4">#9FD661</color> <!-- Grass -->
+    <color name="app_color_theme_5">#3FD0AD</color> <!-- Mint -->
+    <color name="app_color_theme_6">#2BBDF3</color> <!-- Aqua -->
+    <color name="app_color_theme_7">#5A9AEF</color> <!-- Blue Jeans -->
+    <color name="app_color_theme_8">#AC8FEF</color> <!-- Lavender -->
+    <color name="app_color_theme_9">#EE85C1</color> <!-- Pink Rose -->
+
+    <color name="app_color_description">@color/qmui_config_color_gray_5</color>
+
+    <color name="bar_divider">#D4D6D8</color>
+    <color name="tab_panel_bg">#ffffff</color>
+    <color name="tab_panel_divider">@color/bar_divider</color>
+
+    <!-- Components 组件 -->
+    <color name="radiusImageView_border_color">@color/app_color_theme_2</color>
+    <color name="radiusImageView_selected_border_color">@color/app_color_theme_1</color>
+    <color name="radiusImageView_selected_mask_color">#7FEF5362</color>
+
+    <!-- Helper 系列界面 -->
+
+    <!-- ColorHelper 颜色工具 -->
+    <color name="colorHelper_square_alpha_background">@color/app_color_theme_4</color>
+    <color name="colorHelper_square_from_ratio_background">@color/app_color_blue</color>
+    <color name="colorHelper_square_to_ratio_background">@color/app_color_theme_3</color>
+
+
+    <!--    通用颜色 -->
+    <color name="color_white">@android:color/white</color>
+    <!--    主题颜色配|置开始 -->
+    <!--     通用主题色    -->
+    <color name="colorTextIcon">#FFFFFF</color>
+    <color name="colorPrimaryText">#212121</color>
+    <color name="colorSecondaryText">#757575</color>
+    <color name="colorDivider">#BDBDBD</color>
+    <!--    主题 蓝色 -->
+    <color name="colorBlueDarkPrimary">#1976D2</color>
+    <color name="colorBluePrimary">#2196F3</color>
+    <color name="colorBlueLighterPrimary">#BBDEFB</color>
+    <color name="colorBlueAccent">#03A9F4</color>
+
 </resources>

@@ -1,4 +1,4 @@
-package com.mny.wan.pkg.presentation.main.project
+package com.mny.wan.pkg.presentation.main.wechat
 
 import androidx.hilt.Assisted
 import androidx.hilt.lifecycle.ViewModelInject
@@ -10,16 +10,18 @@ import com.mny.wan.mvvm.BaseAction
 import com.mny.wan.mvvm.BaseState
 import com.mny.wan.mvvm.BaseViewModel
 import com.mny.wan.pkg.data.remote.model.BeanProject
+import com.mny.wan.pkg.data.remote.model.BeanSystemParent
 import com.mny.wan.pkg.domain.usecase.ProjectUseCase
+import com.mny.wan.pkg.domain.usecase.WeChatUseCase
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
-class ProjectViewModel @ViewModelInject constructor(
-    private val mUseCase: ProjectUseCase,
+class WeChatViewModel @ViewModelInject constructor(
+    private val mUseCase: WeChatUseCase,
     @Assisted mSavedStateHandle: SavedStateHandle
 ) :
-    BaseViewModel<ProjectViewModel.ViewState, ProjectViewModel.Action>(ViewState()) {
-    val mTabs = MutableLiveData<MutableList<BeanProject>>()
+    BaseViewModel<WeChatViewModel.ViewState, WeChatViewModel.Action>(ViewState()) {
+    val mTabs = MutableLiveData<MutableList<BeanSystemParent>>()
     override fun onLoadData() {
         super.onLoadData()
         viewModelScope.launch {

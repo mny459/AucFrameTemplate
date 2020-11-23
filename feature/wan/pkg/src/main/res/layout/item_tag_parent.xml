@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/tvTagParent"
+    style="@style/CommonTextView"
+    android:layout_width="match_parent"
+    android:layout_height="44dp"
+    android:gravity="bottom|start"
+    android:orientation="vertical"
+    android:padding="@dimen/dp_8"
+    tools:text="常用网站">
+
+</TextView>

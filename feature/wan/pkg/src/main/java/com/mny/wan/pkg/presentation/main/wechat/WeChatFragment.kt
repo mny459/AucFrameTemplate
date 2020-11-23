@@ -1,60 +1,80 @@
 package com.mny.wan.pkg.presentation.main.wechat
 
-import android.os.Bundle
+import android.text.Html
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
+import androidx.viewpager2.widget.ViewPager2
+import com.google.android.material.tabs.TabLayout
+import com.google.android.material.tabs.TabLayoutMediator
+import com.mny.wan.base.BaseFragment
+import com.mny.wan.entension.observe
 import com.mny.wan.pkg.R
+import com.mny.wan.pkg.data.remote.model.BeanSystemParent
+import com.mny.wan.pkg.presentation.adapter.CommonFragmentAdapter
+import com.mny.wan.pkg.presentation.main.wechat.article.WeChatArticleFragment
+import dagger.hilt.android.AndroidEntryPoint
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+@AndroidEntryPoint
+class WeChatFragment: BaseFragment(R.layout.fragment_we_chat) {
+    private var mTabLayout: TabLayout? = null
+    private var mViewPage: ViewPager2? = null
 
-/**
- * A simple [Fragment] subclass.
- * Use the [WeChatFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
-class WeChatFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+    private val mFragments = mutableListOf<Fragment>()
+    private lateinit var mVpAdapter: CommonFragmentAdapter
+    private val mViewModel: WeChatViewModel by viewModels()
+    override fun initObserver() {
+        super.initObserver()
+        observe(mViewModel.mTabs, ProjectObserver())
+    }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
+    override fun initView(view: View) {
+        super.initView(view)
+        mTabLayout = view.findViewById(R.id.tab_layout)
+        mViewPage = view.findViewById(R.id.view_pager)
+        mTabLayout?.apply {
+            mTabLayout?.tabMode = TabLayout.MODE_SCROLLABLE
+            //为TabLayout添加Tab选择事件监听
+            addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
+                override fun onTabSelected(tab: TabLayout.Tab) {
+                    //当标签被选择时回调
+                }
+
+                override fun onTabUnselected(tab: TabLayout.Tab) {
+                    //当标签从选择变为非选择时回调
+                }
+
+                override fun onTabReselected(tab: TabLayout.Tab) {
+                    //当标签被重新选择时回调
+                }
+            })
         }
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_we_chat, container, false)
+    inner class ProjectObserver : Observer<MutableList<BeanSystemParent>> {
+        override fun onChanged(tabs: MutableList<BeanSystemParent>) {
+            mTabLayout?.apply {
+                removeAllTabs()
+                mFragments.clear()
+
+                tabs.forEach { projectType ->
+                    mFragments.add(WeChatArticleFragment.newInstance(projectType.id))
+                }
+
+                mVpAdapter = CommonFragmentAdapter(this@WeChatFragment, mFragments)
+                mViewPage?.adapter = mVpAdapter
+                TabLayoutMediator(this, mViewPage!!) { tab, position ->
+                    tab.text = "${Html.fromHtml(tabs[position].name)}"
+                }.attach()
+            }
+        }
+
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment WeChatFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            WeChatFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+
+    override fun onFirstInit() {
+        super.onFirstInit()
+        mViewModel.loadData()
     }
 }

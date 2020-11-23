@@ -1,23 +1,25 @@
-package com.mny.wan.pkg.presentation.main.project.article
+package com.mny.wan.pkg.presentation.collect
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
-import com.mny.wan.base.BaseFragment
 import com.mny.wan.pkg.R
 import com.mny.wan.pkg.base.BaseArticleFragment
+import com.mny.wan.pkg.presentation.main.wechat.article.WeChatArticleFragment
+import com.mny.wan.pkg.presentation.main.wechat.article.WeChatArticleViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.collectLatest
 
-
-
 @AndroidEntryPoint
-class ProjectArticleFragment : BaseArticleFragment(R.layout.fragment_project_article) {
+class CollectFragment : BaseArticleFragment(R.layout.fragment_collect) {
 
-    private var mCid: Int = 0
-    private val mViewModel: ProjectArticleViewModel by viewModels()
+    private val mViewModel: WeChatArticleViewModel by viewModels()
+
     override fun initArticleObserver() {
         lifecycleScope.launchWhenCreated {
             @OptIn(ExperimentalCoroutinesApi::class)
@@ -27,27 +29,13 @@ class ProjectArticleFragment : BaseArticleFragment(R.layout.fragment_project_art
         }
     }
 
-    override fun initArgs(bundle: Bundle?) {
-        super.initArgs(bundle)
-        bundle?.let {
-            mCid = it.getInt(ARG_CID, 0)
-        }
-    }
-
     override fun initData(savedInstanceState: Bundle?) {
         super.initData(savedInstanceState)
-        mViewModel.initCId(mCid)
         mViewModel.loadData()
     }
 
     companion object {
-        private const val ARG_CID = "c_id"
         @JvmStatic
-        fun newInstance(cid: Int) =
-            ProjectArticleFragment().apply {
-                arguments = Bundle().apply {
-                    putInt(ARG_CID, cid)
-                }
-            }
+        fun newInstance() = CollectFragment()
     }
 }
