@@ -12,8 +12,8 @@ import javax.inject.Inject
  * PagingSource: 负责真正的数据加载工作
  */
 abstract class ArticlePageSource constructor(
-    private val mRepository: WanRepository,
-    private val startPage: Int
+    protected val mRepository: WanRepository,
+    protected val startPage: Int
 ) :
     PagingSource<Int, BeanArticle>() {
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, BeanArticle> {

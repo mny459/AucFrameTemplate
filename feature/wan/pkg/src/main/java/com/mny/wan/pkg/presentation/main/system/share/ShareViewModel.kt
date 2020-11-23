@@ -21,7 +21,7 @@ class ShareViewModel @ViewModelInject constructor(
     mSavedStateHandle
 ) {
 
-    override fun getArticlePageSource(): PagingSource<Int, BeanArticle> =
+    override fun getArticlePageSource(keyArticle: Any): PagingSource<Int, BeanArticle> =
         mUseCase.shareArticlePageSource()
 
     data class ViewState(

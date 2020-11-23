@@ -29,4 +29,14 @@ class WanRepositoryImpl @Inject constructor() : BaseRepository(), WanRepository 
         return mRepository.obtainRetrofitService(WanService::class.java)
             .fetchNavTree()
     }
+
+    override suspend fun fetchHotKey(): BaseResponse<MutableList<BeanHotKey>> {
+        return mRepository.obtainRetrofitService(WanService::class.java)
+            .hotKey()
+    }
+
+    override suspend fun search(url: String, keyword: String): BaseResponse<BeanArticleList> {
+        return mRepository.obtainRetrofitService(WanService::class.java)
+            .search(url, keyword)
+    }
 }

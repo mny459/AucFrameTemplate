@@ -18,16 +18,16 @@ abstract class BaseArticleViewModel<ViewState : BaseState, ViewAction : BaseActi
 ) :
     BaseViewModel<ViewState, ViewAction>(initialState) {
     companion object {
-        private const val KEY_ARTICLE = "articles"
-        private const val DEFAULT_PAGE = 0
+         const val KEY_ARTICLE = "articles"
+        protected const val DEFAULT_PAGE = 0
     }
 
-    private val mClearListCh = Channel<Unit>(Channel.CONFLATED)
+    protected val mClearListCh = Channel<Unit>(Channel.CONFLATED)
 
     // PagingData: 负责通知DataSource何时获取数据，以及如何获取数据
     val mArticleList: Flow<PagingData<BeanArticle>> = flowOf(
         mClearListCh.receiveAsFlow().map { PagingData.empty<BeanArticle>() },
-        mSavedStateHandle.getLiveData<Int>(KEY_ARTICLE)
+        mSavedStateHandle.getLiveData<Any>(KEY_ARTICLE)
             .asFlow()
             .flatMapLatest {
                 LogUtils.d("ArticlePageSource mArticleList = ${it}")
@@ -43,7 +43,7 @@ abstract class BaseArticleViewModel<ViewState : BaseState, ViewAction : BaseActi
                         maxSize = 200
                     )
                 ) {
-                    getArticlePageSource()
+                    getArticlePageSource(it)
                 }.flow
             }
             .cachedIn(viewModelScope)
@@ -54,11 +54,11 @@ abstract class BaseArticleViewModel<ViewState : BaseState, ViewAction : BaseActi
         fetchArticleList()
     }
 
-    fun fetchArticleList() {
+    open fun fetchArticleList() {
         LogUtils.d("ArticlePageSource fetchArticleList")
         mClearListCh.offer(Unit)
         mSavedStateHandle.set(KEY_ARTICLE, DEFAULT_PAGE)
     }
 
-    abstract fun getArticlePageSource(): PagingSource<Int, BeanArticle>
+    abstract fun getArticlePageSource(keyArticle: Any): PagingSource<Int, BeanArticle>
 }

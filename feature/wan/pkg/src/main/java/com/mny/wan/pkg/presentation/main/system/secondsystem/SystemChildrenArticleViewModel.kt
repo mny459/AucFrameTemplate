@@ -2,21 +2,13 @@ package com.mny.wan.pkg.presentation.main.system.secondsystem
 
 import androidx.hilt.Assisted
 import androidx.hilt.lifecycle.ViewModelInject
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.SavedStateHandle
-import androidx.lifecycle.viewModelScope
 import androidx.paging.PagingSource
-import com.mny.wan.http.MojitoResult
 import com.mny.wan.mvvm.BaseAction
 import com.mny.wan.mvvm.BaseState
-import com.mny.wan.mvvm.BaseViewModel
 import com.mny.wan.pkg.base.BaseArticleViewModel
 import com.mny.wan.pkg.data.remote.model.BeanArticle
-import com.mny.wan.pkg.data.remote.model.BeanProject
 import com.mny.wan.pkg.domain.usecase.ArticleUseCase
-import com.mny.wan.pkg.domain.usecase.ProjectUseCase
-import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.launch
 
 class SystemChildrenArticleViewModel @ViewModelInject constructor(
     private val mUseCase: ArticleUseCase,
@@ -66,7 +58,7 @@ class SystemChildrenArticleViewModel @ViewModelInject constructor(
         )
     }
 
-    override fun getArticlePageSource(): PagingSource<Int, BeanArticle> =
+    override fun getArticlePageSource(keyArticle: Any): PagingSource<Int, BeanArticle> =
         mUseCase.systemArticlePageSource(mCId)
 
 }

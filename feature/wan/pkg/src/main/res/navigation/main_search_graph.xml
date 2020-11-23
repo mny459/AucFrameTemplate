@@ -12,7 +12,7 @@
         tools:layout="@layout/fragment_search" />
     <fragment
         android:id="@+id/searchResultFragment"
-        android:name="com.mny.wan.pkg.SearchResultFragment"
+        android:name="com.mny.wan.pkg.presentation.search.SearchResultFragment"
         android:label="fragment_search_result"
         tools:layout="@layout/fragment_search_result" />
 </navigation>

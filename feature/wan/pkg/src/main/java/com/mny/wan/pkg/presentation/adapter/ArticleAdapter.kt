@@ -15,6 +15,7 @@ import com.mny.wan.entension.loadProjectPreview
 import com.mny.wan.pkg.R
 import com.mny.wan.pkg.data.local.UserInfoManager
 import com.mny.wan.pkg.data.remote.model.BeanArticle
+import com.mny.wan.pkg.presentation.webview.WebViewActivity
 import java.util.*
 import javax.inject.Inject
 
@@ -95,7 +96,7 @@ class ArticleViewHolder(private val view: View) : RecyclerView.ViewHolder(view) 
                 mGroupProject.visibility = View.GONE
             }
             view.setOnClickListener {
-//                WebViewUtils.showWebView(mContext, link)
+                WebViewActivity.show(link)
             }
             mIvCollect.isSelected = item.collect
             mIvCollect.setOnClickListener {

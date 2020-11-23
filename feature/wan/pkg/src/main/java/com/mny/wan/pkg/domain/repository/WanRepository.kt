@@ -9,4 +9,6 @@ interface WanRepository {
     suspend fun fetchWeChatTree(): BaseResponse<MutableList<BeanSystemParent>>
     suspend fun fetchSystemTree(): BaseResponse<MutableList<BeanSystemParent>>
     suspend fun fetchNavTree(): BaseResponse<MutableList<BeanNav>>
+    suspend fun fetchHotKey(): BaseResponse<MutableList<BeanHotKey>>
+    suspend fun search(url: String, keyword: String): BaseResponse<BeanArticleList>
 }

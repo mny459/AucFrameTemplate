@@ -4,18 +4,13 @@ import androidx.hilt.Assisted
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.*
 import androidx.paging.*
-import com.blankj.utilcode.util.LogUtils
 import com.mny.wan.mvvm.BaseAction
 import com.mny.wan.mvvm.BaseState
-import com.mny.wan.mvvm.BaseViewModel
 import com.mny.wan.pkg.base.BaseArticleViewModel
 import com.mny.wan.pkg.data.remote.model.BeanArticle
 import com.mny.wan.pkg.data.remote.model.BeanArticleList
 import com.mny.wan.pkg.data.remote.model.BeanBanner
-import com.mny.wan.pkg.domain.paging.ArticlePageSource
 import com.mny.wan.pkg.domain.usecase.ArticleUseCase
-import kotlinx.coroutines.channels.Channel
-import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 
 class HomeViewModel @ViewModelInject constructor(
@@ -38,7 +33,7 @@ class HomeViewModel @ViewModelInject constructor(
         return articleList
     }
 
-    override fun getArticlePageSource(): PagingSource<Int, BeanArticle> =
+    override fun getArticlePageSource(keyArticle: Any): PagingSource<Int, BeanArticle> =
         mUseCase.homeArticlePageSource()
 
     fun fetchBannerList() {

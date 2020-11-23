@@ -16,8 +16,8 @@ class ArticleUseCase @Inject constructor(
         return HomeArticlePageSource(mRepository)
     }
 
-    fun searchArticlePageSource(): PagingSource<Int, BeanArticle> {
-        return SearchArticlePageSource(mRepository)
+    fun searchArticlePageSource(keyword: Any): PagingSource<Int, BeanArticle> {
+        return SearchArticlePageSource(mRepository, keyword as String)
     }
 
     fun shareArticlePageSource(): PagingSource<Int, BeanArticle> {
