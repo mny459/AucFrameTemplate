@@ -7,17 +7,23 @@ import android.view.View
 import android.view.ViewGroup
 import android.webkit.*
 import android.widget.FrameLayout
+import androidx.fragment.app.activityViewModels
 import com.blankj.utilcode.util.LogUtils
 import com.blankj.utilcode.util.NetworkUtils
 import com.mny.wan.base.BaseFragment
 import com.mny.wan.pkg.R
 import com.qmuiteam.qmui.widget.dialog.QMUIDialog
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.web_view_fragment.*
 
 /**
  * 原生WebView的使用
  */
+@AndroidEntryPoint
 class WebViewFragment : BaseFragment(R.layout.web_view_fragment) {
+
+    private val mViewModel: WebViewViewModel by activityViewModels()
+
     // 初始传入的 Url
     private var mUrl = ""
 
@@ -74,7 +80,7 @@ class WebViewFragment : BaseFragment(R.layout.web_view_fragment) {
         initWebView(view)
         initSettings()
         initClient()
-        loadContent(mUrl)
+        loadContent(mViewModel.stateLiveData.value?.url ?: "")
     }
 
     //<editor-fold desc="初始化WebView">

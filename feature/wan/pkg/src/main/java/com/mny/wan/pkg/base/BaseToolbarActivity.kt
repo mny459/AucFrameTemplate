@@ -7,7 +7,9 @@ import com.mny.wan.base.BaseActivity
 import com.mny.wan.pkg.R
 
 abstract class BaseToolbarActivity : BaseActivity() {
+
     protected var mToolbar: Toolbar? = null
+
     override fun initView(savedInstanceState: Bundle?) {
         super.initView(savedInstanceState)
         mToolbar = findViewById<Toolbar>(R.id.toolbar)
