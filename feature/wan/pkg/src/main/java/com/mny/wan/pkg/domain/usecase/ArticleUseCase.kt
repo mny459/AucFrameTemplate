@@ -43,5 +43,8 @@ class ArticleUseCase @Inject constructor(
     fun weChatArticlePageSource(cid: Int): PagingSource<Int, BeanArticle> {
         return WeChatArticlePageSource(mRepository, cid)
     }
+    fun qAArticlePageSource(): PagingSource<Int, BeanArticle> {
+        return QAArticlePageSource(mRepository)
+    }
 
 }

@@ -50,6 +50,11 @@ class ShareArticlePageSource constructor(mRepository: WanRepository) :
     override fun getUrlWithPage(page: Int): String = UrlManager.urlShareArticleList(page)
 }
 
+class QAArticlePageSource constructor(mRepository: WanRepository) :
+    ArticlePageSource(mRepository, 0) {
+    override fun getUrlWithPage(page: Int): String = UrlManager.qaArticleList(page)
+}
+
 class CollectArticlePageSource constructor(mRepository: WanRepository) :
     ArticlePageSource(mRepository, 0) {
     override fun getUrlWithPage(page: Int): String = UrlManager.urlCollectArticleList(page)

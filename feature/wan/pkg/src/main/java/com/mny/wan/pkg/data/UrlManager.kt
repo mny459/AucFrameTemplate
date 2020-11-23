@@ -28,4 +28,7 @@ object UrlManager {
     fun urlMineShareArticleList(page: Int): String =
         "/user/lg/private_articles/${page}/json"
 
+    fun qaArticleList(page: Int): String =
+        "/wenda/list/${page}/json "
+
 }
