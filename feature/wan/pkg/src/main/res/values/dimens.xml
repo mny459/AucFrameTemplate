@@ -9,7 +9,7 @@
     <!--状态栏高度-->
     <dimen name="statusBarSize">25dp</dimen>
     <!--状态栏和标题栏高度一起-->
-    <dimen name="actionBarWithStatusBarSize">73dp</dimen>
+    <dimen name="actionBarWithStatusBarSize">48dp</dimen>
 
     <!--名字字体的大小-->
     <dimen name="fontNameSize">15sp</dimen>

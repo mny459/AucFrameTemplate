@@ -1,12 +1,10 @@
 <resources>
-    <!-- 只有 Widget Style -->
-    <style name="WanTopBar" parent="QMUI.TopBar">
-        <item name="android:background">@color/colorPrimary</item>
-        <item name="qmui_topbar_height">56dp</item>
-        <item name="qmui_topbar_image_btn_height">48dp</item>
-        <item name="qmui_topbar_left_back_drawable_id">@drawable/ic_back</item>
-        <item name="qmui_topbar_title_color">?attr/colorOnPrimary</item>
-    </style>
+    <!-- Style 只作用于单个 Widget，不具备继承传递性质 -->
+    <!-- 文本 14sp -->
+    <style name="ArticleMain" parent="TextAppearance.AppCompat.Body2" />
+    <!--  文本 12sp  -->
+    <style name="ArticleSecondary" parent="TextAppearance.AppCompat.Caption" />
+
 
     <style name="CommonTextView" parent="TextAppearance.AppCompat">
         <item name="android:layout_width">wrap_content</item>
@@ -54,6 +52,21 @@
     <style name="ViewLine.1DP.V">
         <item name="android:layout_width">@dimen/dp_1</item>
         <item name="android:layout_height">match_parent</item>
+    </style>
+    <!--  Toolbar 上面的搜索的样式  -->
+    <style name="Widget.SearchView" parent="Widget.AppCompat.SearchView">
+        <!--修改搜索框左边的搜索按钮图标-->
+        <item name="searchHintIcon">@null</item>
+    </style>
+
+    <style name="Widget.BottomNavigationView" parent="Widget.MaterialComponents.BottomNavigationView" />
+
+    <style name="Widget.FloatingActionButton" parent="Widget.MaterialComponents.FloatingActionButton">
+        <item name="android:background">?attr/colorAccent</item>
+        <item name="tint">?attr/colorOnPrimary</item>
+    </style>
+
+    <style name="Widget.AppBarLayout" parent="Widget.MaterialComponents.AppBarLayout.Primary">
     </style>
 
 </resources>

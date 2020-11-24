@@ -35,8 +35,8 @@
 
 
     <!--基础主色-->
-    <color name="colorPrimary">#31373d</color>
-    <color name="colorPrimaryDark">#31373d</color>
+    <color name="colorPrimary">#009688</color>
+    <color name="colorPrimaryDark">#00796B</color>
     <color name="colorAccent">#1572fc</color>
     <color name="colorLight">@color/white</color>
     <color name="colorAccentAlpha">#801572fc</color>

@@ -15,7 +15,9 @@
 
     <TextView
         android:id="@+id/tvUserType"
-        style="@style/CommonTextView.Small"
+        style="@style/ArticleSecondary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/dp_16"
         android:layout_marginTop="@dimen/dp_8"
         android:background="@drawable/item_round_8dp"
@@ -30,7 +32,9 @@
 
     <TextView
         android:id="@+id/tvPublisher"
-        style="@style/CommonTextView.Small.Secondary"
+        style="@style/ArticleSecondary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/dp_8"
         android:textColor="@color/gray_66"
         app:layout_constraintBottom_toBottomOf="@id/tvUserType"
@@ -40,7 +44,9 @@
 
     <TextView
         android:id="@+id/tvPublishTime"
-        style="@style/CommonTextView.Small.Secondary"
+        style="@style/ArticleSecondary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginEnd="@dimen/dp_16"
         android:textColor="@color/gray_66"
         app:layout_constraintBottom_toBottomOf="@id/tvUserType"
@@ -52,8 +58,9 @@
 
     <TextView
         android:id="@+id/tvTitle"
-        style="@style/CommonTextView"
+        style="@style/ArticleMain"
         android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/dp_8"
         android:layout_marginEnd="4dp"
         android:paddingStart="0dp"
@@ -68,13 +75,13 @@
 
     <TextView
         android:id="@+id/tvDesc"
-        style="@style/CommonTextView.Secondary"
+        style="@style/ArticleMain"
         android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/dp_4"
         android:layout_marginEnd="@dimen/dp_4"
         android:ellipsize="end"
         android:singleLine="true"
-        android:textColor="@color/gray_66"
         android:visibility="gone"
         app:layout_constrainedWidth="true"
         app:layout_constraintEnd_toStartOf="@id/imgProject"
@@ -104,10 +111,10 @@
 
     <TextView
         android:id="@+id/tvPin"
+        style="@style/ArticleSecondary"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="置顶"
-        style="@style/CommonTextView"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="@id/imgCollect"
         app:layout_constraintStart_toStartOf="@id/tvUserType"
@@ -116,7 +123,9 @@
 
     <TextView
         android:id="@+id/tvChapter"
-        style="@style/CommonTextView.Small.Secondary"
+        style="@style/ArticleSecondary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/dp_8"
         android:textColor="@color/gray_66"
         app:layout_constraintBottom_toBottomOf="@id/imgCollect"
