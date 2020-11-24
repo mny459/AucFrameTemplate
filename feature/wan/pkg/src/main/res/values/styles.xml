@@ -54,19 +54,25 @@
         <item name="android:layout_height">match_parent</item>
     </style>
     <!--  Toolbar 上面的搜索的样式  -->
-    <style name="Widget.SearchView" parent="Widget.AppCompat.SearchView">
+    <style name="Wan.SearchView" parent="Widget.AppCompat.SearchView">
         <!--修改搜索框左边的搜索按钮图标-->
         <item name="searchHintIcon">@null</item>
     </style>
 
-    <style name="Widget.BottomNavigationView" parent="Widget.MaterialComponents.BottomNavigationView" />
+    <style name="Wan.BottomNavigationView" parent="Widget.MaterialComponents.BottomNavigationView" />
 
-    <style name="Widget.FloatingActionButton" parent="Widget.MaterialComponents.FloatingActionButton">
+    <style name="Wan.FloatingActionButton" parent="Widget.MaterialComponents.FloatingActionButton">
         <item name="android:background">?attr/colorAccent</item>
         <item name="tint">?attr/colorOnPrimary</item>
     </style>
 
-    <style name="Widget.AppBarLayout" parent="Widget.MaterialComponents.AppBarLayout.Primary">
+    <style name="Wan.AppBarLayout" parent="Widget.MaterialComponents.AppBarLayout.Primary">
+    </style>
+
+    <style name="Wan.Toolbar" parent="Widget.MaterialComponents.Toolbar">
+    </style>
+
+    <style name="Wan.TabLayout" parent="Widget.MaterialComponents.TabLayout.PrimarySurface">
     </style>
 
 </resources>

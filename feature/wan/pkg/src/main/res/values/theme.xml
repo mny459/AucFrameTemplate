@@ -53,8 +53,12 @@
         <item name="toolbarTitleColor">@color/white_alpha_224</item>
         <item name="toolbarMenuIconColor">@color/white_alpha_224</item>
         <!-- 自定义 SearchView 的样式 -->
-        <item name="searchViewStyle">@style/Widget.SearchView</item>
-        <item name="android:searchViewStyle">@style/Widget.SearchView</item>
+        <item name="searchViewStyle">@style/Wan.SearchView</item>
+        <item name="toolbarStyle">@style/Wan.Toolbar</item>
+        <item name="tabStyle">@style/Wan.TabLayout</item>
+        <item name="appBarLayoutStyle">@style/Wan.AppBarLayout</item>
+        <item name="bottomNavigationStyle">@style/Wan.BottomNavigationView</item>
+        <item name="floatingActionButtonStyle">@style/Wan.FloatingActionButton</item>
     </style>
 
     <style name="BaseAppTheme.SplashTheme">

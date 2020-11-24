@@ -20,7 +20,6 @@ abstract class ArticlePageSource constructor(
         // 如果key是null，那就加载第0页的数据
         val page = params.key ?: startPage
         return try {
-            delay(500)
             val suffixUrl = getUrlWithPage(page)
             LogUtils.d("ArticlePageSource $suffixUrl $params")
             val response = mRepository.fetchHomeArticles(suffixUrl)

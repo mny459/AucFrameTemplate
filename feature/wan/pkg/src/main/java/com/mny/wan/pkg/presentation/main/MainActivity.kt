@@ -20,9 +20,7 @@ class MainActivity : BaseActivity() {
         val navView: BottomNavigationView = findViewById(R.id.navigation)
         val navController = Navigation.findNavController(this, R.id.nav_host_fragment)
         NavigationUI.setupWithNavController(navView, navController)
-        navController.addOnDestinationChangedListener { _, destination, _ ->
-            tv_title.text = destination.label
-        }
+//        navController.addOnDestinationChangedListener { _, destination, _ -> }
     }
 
     override fun onSupportNavigateUp(): Boolean {

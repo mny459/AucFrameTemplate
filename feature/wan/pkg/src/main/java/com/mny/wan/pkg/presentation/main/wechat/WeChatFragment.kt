@@ -6,6 +6,7 @@ import android.view.View
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.viewpager2.widget.ViewPager2
+import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import com.mny.wan.base.BaseFragment
@@ -17,9 +18,10 @@ import com.mny.wan.pkg.presentation.main.wechat.article.WeChatArticleFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class WeChatFragment: BaseFragment(R.layout.fragment_we_chat) {
+class WeChatFragment : BaseFragment(R.layout.fragment_we_chat) {
     private var mTabLayout: TabLayout? = null
     private var mViewPage: ViewPager2? = null
+    private var mToolbar: MaterialToolbar? = null
 
     private val mFragments = mutableListOf<Fragment>()
     private lateinit var mVpAdapter: CommonFragmentAdapter
@@ -33,6 +35,8 @@ class WeChatFragment: BaseFragment(R.layout.fragment_we_chat) {
         super.initView(view)
         mTabLayout = view.findViewById(R.id.tab_layout)
         mViewPage = view.findViewById(R.id.view_pager)
+        mToolbar = view.findViewById(R.id.toolbar)
+        mToolbar?.title = "公众号文章"
         mTabLayout?.apply {
             mTabLayout?.tabMode = TabLayout.MODE_SCROLLABLE
             //为TabLayout添加Tab选择事件监听

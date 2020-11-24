@@ -6,31 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".presentation.main.MainActivity">
 
-    <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/appbar"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        style="@style/Widget.AppBarLayout"
-        android:elevation="@dimen/dp_2"
-        android:outlineProvider="bounds">
-
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:paddingStart="@dimen/dp_4"
-            android:paddingEnd="@dimen/dp_4">
-
-            <TextView
-                android:id="@+id/tv_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:text="@string/app_name"
-                android:textAppearance="@style/TextAppearance.Title" />
-        </FrameLayout>
-    </com.google.android.material.appbar.AppBarLayout>
-
     <fragment
         android:id="@+id/nav_host_fragment"
         android:name="androidx.navigation.fragment.NavHostFragment"
@@ -43,7 +18,7 @@
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/navigation"
-        style="@style/Widget.BottomNavigationView"
+        style="@style/Wan.BottomNavigationView"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_52"
         android:layout_gravity="bottom"
