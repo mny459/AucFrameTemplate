@@ -8,22 +8,22 @@
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/weChatFragment"
-        android:icon="@drawable/ic_home"
-        android:title="@string/action_group"
+        android:icon="@drawable/ic_wechat"
+        android:title="@string/action_we_chat_public"
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/projectFragment"
-        android:icon="@drawable/ic_home"
-        android:title="@string/action_contact"
+        android:icon="@drawable/ic_project"
+        android:title="@string/action_project"
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/systemFragment"
-        android:icon="@drawable/ic_home"
-        android:title="@string/action_contact"
+        android:icon="@drawable/ic_system"
+        android:title="@string/action_system"
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/QAFragment"
-        android:icon="@drawable/ic_home"
-        android:title="@string/action_contact"
+        android:icon="@drawable/ic_qa"
+        android:title="@string/action_qa"
         app:showAsAction="ifRoom" />
 </menu>

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-<!--    <color name="colorPrimary">#3FA862</color>-->
-<!--    <color name="colorPrimaryDark">#3FA862</color>-->
-<!--    <color name="colorAccent">#FF4081</color>-->
+    <!--    <color name="colorPrimary">#3FA862</color>-->
+    <!--    <color name="colorPrimaryDark">#3FA862</color>-->
+    <!--    <color name="colorAccent">#FF4081</color>-->
     <color name="white">#FFFFFF</color>
 
     <color name="black_23242b">#23242B</color>
@@ -37,7 +37,7 @@
     <!--基础主色-->
     <color name="colorPrimary">#009688</color>
     <color name="colorPrimaryDark">#00796B</color>
-    <color name="colorAccent">#1572fc</color>
+    <color name="colorAccent">@android:color/transparent</color>
     <color name="colorLight">@color/white</color>
     <color name="colorAccentAlpha">#801572fc</color>
 

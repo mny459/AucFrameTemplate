@@ -9,7 +9,7 @@
         <item name="colorOnPrimary">@color/color_FFFFFF</item>
         <!-- App的次要颜色 -->
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorAccent">?attr/colorPrimary</item>
         <!-- 部件的表面颜色，如卡片、表格、菜单等 -->
         <item name="colorSurface">@color/color_F7F7F8</item>
         <!-- 部件显示的内容的颜色-->
