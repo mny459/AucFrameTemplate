@@ -21,23 +21,6 @@ import kotlinx.android.synthetic.main.web_view_fragment.*
  */
 @AndroidEntryPoint
 class WebViewFragment : BaseFragment(R.layout.web_view_fragment) {
-
-    private val mViewModel: WebViewViewModel by activityViewModels()
-
-    // 初始传入的 Url
-    private var mUrl = ""
-
-    // 每一次跳转保存的实时 Url
-    private var mCurrentUrl = ""
-
-    // 当前标题
-    private var mTitle = ""
-    private var mWebView: WebView? = null
-
-    // 当前内容是否已经加入到浮窗
-    internal var mIsAddedToFloating = false
-    private var mFloatMaxHintDialog: QMUIDialog? = null
-
     companion object {
         const val ALPHA_DISABLE = 0.5F
         const val ALPHA_ENABLE = 1F
@@ -50,11 +33,10 @@ class WebViewFragment : BaseFragment(R.layout.web_view_fragment) {
         }
     }
 
-    override fun initArgs(bundle: Bundle?) {
-        super.initArgs(bundle)
-        mUrl = bundle?.getString(KEY_URL, mUrl) ?: mUrl
-        mCurrentUrl = mUrl
-    }
+    private val mViewModel: WebViewViewModel by activityViewModels()
+
+    // 当前标题
+    private var mWebView: WebView? = null
 
     override fun initView(view: View) {
         super.initView(view)
@@ -92,8 +74,7 @@ class WebViewFragment : BaseFragment(R.layout.web_view_fragment) {
         // 为了避免内存泄漏，采用 new 的方式来构建 WebView
         mWebView = WebView(mActivity?.applicationContext)
         mWebView?.layoutParams = layoutParams
-        view.findViewById<FrameLayout>(R.id.webViewContainer)
-            .addView(mWebView)
+        view.findViewById<FrameLayout>(R.id.webViewContainer).addView(mWebView)
     }
     //</editor-fold>
 
@@ -141,8 +122,9 @@ class WebViewFragment : BaseFragment(R.layout.web_view_fragment) {
 
             override fun onReceivedTitle(view: WebView?, title: String?) {
                 super.onReceivedTitle(view, title)
-                mTitle = title?.trim() ?: mTitle
-                LogUtils.d("${view?.title} === ${title}")
+                title?.apply {
+                    mViewModel.updateTitle(this.trim())
+                }
             }
         }
 
@@ -209,17 +191,13 @@ class WebViewFragment : BaseFragment(R.layout.web_view_fragment) {
 
     override fun onDestroy() {
         // 避免内存泄漏
-        mWebView?.loadDataWithBaseURL(null, "", "text/html", "utf-8", null)
-        mWebView?.clearHistory()
-        (mWebView?.parent as? ViewGroup)?.removeView(mWebView)
-        mWebView?.destroy()
+        mWebView?.apply {
+            loadDataWithBaseURL(null, "", "text/html", "utf-8", null)
+            clearHistory()
+            (parent as ViewGroup).removeView(this)
+            destroy()
+        }
         super.onDestroy()
     }
     //</editor-fold>
-
-    fun loadUrl(url: String) {
-        mWebView?.loadUrl(url)
-    }
-
-    private fun idPath() = mCurrentUrl
 }

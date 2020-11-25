@@ -1,4 +1,4 @@
-package com.mny.kotlin.wanandroid.ui.webview
+package com.mny.wan.pkg.presentation.webview
 
 import android.webkit.WebView
 

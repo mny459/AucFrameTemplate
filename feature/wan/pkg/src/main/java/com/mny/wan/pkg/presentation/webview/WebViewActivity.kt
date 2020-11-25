@@ -29,6 +29,7 @@ class WebViewActivity : BaseToolbarActivity() {
 
     override fun initView(savedInstanceState: Bundle?) {
         super.initView(savedInstanceState)
+        title = ""
         mViewModel.initUrl(mUrl)
     }
 

@@ -1,6 +1,5 @@
 package com.mny.wan.pkg.presentation.adapter.tag
 
-import com.blankj.utilcode.util.LogUtils
 import com.chad.library.adapter.base.BaseViewHolder
 import com.chad.library.adapter.base.provider.BaseItemProvider
 import com.mny.wan.pkg.R
@@ -17,7 +16,7 @@ import org.jetbrains.anko.sdk27.coroutines.onClick
  */
 class TagChildProvider : BaseItemProvider<BeanMultiType, BaseViewHolder>() {
     private var mOnChildClicked: ((data: Any) -> Unit)? = null
-    override fun layout(): Int = R.layout.item_tag_child
+    override fun layout(): Int = R.layout.cell_tag_child
     override fun viewType(): Int = BeanMultiType.TYPE_CHILD
     override fun convert(helper: BaseViewHolder, data: BeanMultiType?, position: Int) {
         data?.data?.apply {

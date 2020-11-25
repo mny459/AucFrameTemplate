@@ -4,7 +4,6 @@ import android.content.Context
 import android.util.AttributeSet
 import android.view.MotionEvent
 import androidx.recyclerview.widget.RecyclerView
-
 /**
  * 解决 RecyclverView 和 ViewPager2 滑动冲突的问题
  */
@@ -31,9 +30,8 @@ class RecyclerView2 @JvmOverloads constructor(
                     parent.requestDisallowInterceptTouchEvent(canScrollVertically(startY - endY))
                 }
             }
-            MotionEvent.ACTION_UP, MotionEvent.ACTION_CANCEL -> parent.requestDisallowInterceptTouchEvent(
-                false
-            )
+            MotionEvent.ACTION_UP, MotionEvent.ACTION_CANCEL ->
+                parent.requestDisallowInterceptTouchEvent(false)
         }
         return super.dispatchTouchEvent(ev)
     }

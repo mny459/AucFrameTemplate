@@ -13,7 +13,7 @@ import com.mny.wan.pkg.data.remote.model.BeanSystemParent
  * @Desc
  */
 class TagParentProvider : BaseItemProvider<BeanMultiType, BaseViewHolder>() {
-    override fun layout(): Int = R.layout.item_tag_parent
+    override fun layout(): Int = R.layout.cell_tag_parent
 
     override fun viewType(): Int = BeanMultiType.TYPE_PARENT
     override fun convert(helper: BaseViewHolder, data: BeanMultiType?, position: Int) {
