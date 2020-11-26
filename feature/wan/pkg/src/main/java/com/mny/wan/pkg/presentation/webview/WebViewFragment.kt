@@ -1,5 +1,7 @@
 package com.mny.wan.pkg.presentation.webview
 
+import android.content.Intent
+import android.net.Uri
 import android.net.http.SslError
 import android.os.Build
 import android.os.Bundle
@@ -8,15 +10,14 @@ import android.view.ViewGroup
 import android.webkit.*
 import android.widget.FrameLayout
 import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.Observer
 import com.blankj.utilcode.util.LogUtils
 import com.blankj.utilcode.util.NetworkUtils
 import com.mny.wan.base.BaseFragment
 import com.mny.wan.entension.observe
 import com.mny.wan.pkg.R
-import com.qmuiteam.qmui.widget.dialog.QMUIDialog
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.web_view_fragment.*
+
 
 /**
  * 原生WebView的使用
@@ -98,10 +99,25 @@ class WebViewFragment : BaseFragment(R.layout.web_view_fragment) {
             }
 
             override fun shouldOverrideUrlLoading(view: WebView?, url: String?): Boolean {
-                // 拦截 url 本地加载，不在浏览器中打开
                 LogUtils.d("shouldOverrideUrlLoading - $url")
-                view?.loadUrl(url)
+                if (url == null) return false
+                if (url.startsWith("http://") || url.startsWith("https://")) {
+                    view?.loadUrl(url)
+                }
                 return true
+                //                try {
+//                    if (!url.startsWith("http://") && !url.startsWith("https://")) {
+//                        val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+//                        startActivity(intent)
+//                        return true
+//                    }
+//                } catch (e: Exception) {
+//                    //防止crash (如果手机上没有安装处理某个scheme开头的url的APP, 会导致crash)
+//                    //没有安装该app时，返回true，表示拦截自定义链接，但不跳转，避免弹出上面的错误页面
+//                    return true
+//                }
+                //返回值是true的时候控制去WebView打开，为false调用系统浏览器或第三方浏览器
+                // 拦截 url 本地加载，不在浏览器中打开
             }
 
             // 处理 https
