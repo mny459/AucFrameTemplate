@@ -3,6 +3,7 @@ package com.mny.wan.pkg.presentation.main.system
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.RecyclerView
@@ -24,7 +25,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class SystemTagFragment : BaseFragment(R.layout.fragment_system_tag) {
     private var mTag = TAG_SYSTEM
     private var mRvTags: RecyclerView? = null
-    private val mViewModel: SystemTagViewModel by viewModels<SystemTagViewModel>()
+    private val mViewModel: SystemTagViewModel by activityViewModels<SystemTagViewModel>()
 
     override fun initArgs(bundle: Bundle?) {
         super.initArgs(bundle)

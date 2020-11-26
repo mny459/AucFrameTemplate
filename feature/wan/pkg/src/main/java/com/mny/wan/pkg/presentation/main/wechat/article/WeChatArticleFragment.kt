@@ -1,6 +1,7 @@
 package com.mny.wan.pkg.presentation.main.wechat.article
 
 import android.os.Bundle
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.mny.wan.pkg.R
@@ -13,7 +14,7 @@ import kotlinx.coroutines.flow.collectLatest
 class WeChatArticleFragment : BaseArticleFragment(R.layout.fragment_we_chat_article) {
 
     private var mWeChatId: Int = 0
-    private val mViewModel: WeChatArticleViewModel by viewModels()
+    private val mViewModel: WeChatArticleViewModel by activityViewModels()
     override fun initArticleObserver() {
         lifecycleScope.launchWhenCreated {
             @OptIn(ExperimentalCoroutinesApi::class)

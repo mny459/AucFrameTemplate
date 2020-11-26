@@ -13,18 +13,18 @@ class Config {
     static gradlePluginVersion = '4.1.1'
     static kotlinVersion = '1.4.10'
     static supportVersion = '27.1.1'
-    static nav_version = "2.3.0-beta01"
+    static nav_version = "2.3.1"
     static room_version = "2.2.5"
     static hiltVersion = "2.28-alpha"
-    static hiltViewModuleVersion = "1.0.0-alpha01"
+    static hiltViewModuleVersion = "1.0.0-alpha02"
 
     static version = "2.0.1"
 
     static kotlin_version = "1.3.72"
     static anko_version = "0.10.8"
-    static fragment_version = "1.3.0-alpha05"
+    static fragment_version = "1.3.0-beta01"
     static lifecycle_version = "2.2.0"
-    static paging_version = "3.0.0-alpha07"
+    static paging_version = "3.0.0-alpha09"
     static glide_version = "4.11.0"
     static coroutineVersion = "1.4.1"
     static retrofit_version = "2.9.0"

@@ -48,10 +48,6 @@
         <!-- 左上角返回Icon -->
         <item name="homeAsUpIndicator">@drawable/ic_back</item>
 
-        <!-- 初始化自己定义的3个属性值 -->
-        <item name="toolbarTitleSize">18sp</item>
-        <item name="toolbarTitleColor">@color/white_alpha_224</item>
-        <item name="toolbarMenuIconColor">@color/white_alpha_224</item>
         <!-- 自定义 SearchView 的样式 -->
         <item name="searchViewStyle">@style/Wan.SearchView</item>
         <item name="toolbarStyle">@style/Wan.Toolbar</item>
@@ -89,10 +85,9 @@
         <item name="android:statusBarColor">@null</item>
     </style>
 
-    <style name="TextAppearance.Title" parent="@style/TextAppearance.AppCompat.Title">
-        <item name="android:textSize">?attr/toolbarTitleSize</item>
-        <item name="android:textColor">?attr/toolbarTitleColor</item>
+    <style name="AppTheme.Launcher" parent="AppTheme">
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowBackground">@drawable/launcher_bg</item>
     </style>
-
 
 </resources>

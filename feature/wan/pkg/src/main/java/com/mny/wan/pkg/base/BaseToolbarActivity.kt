@@ -20,7 +20,6 @@ abstract class BaseToolbarActivity : BaseActivity() {
         mToolbar?.apply {
             // 启用 Toolbar
             setSupportActionBar(this)
-            setTitleTextAppearance(mActivity, R.style.TextAppearance_Title)
         }
         supportActionBar?.apply {
             // 添加默认的返回图标

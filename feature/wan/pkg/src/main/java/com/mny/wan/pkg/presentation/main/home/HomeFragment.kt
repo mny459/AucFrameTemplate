@@ -1,6 +1,7 @@
 package com.mny.wan.pkg.presentation.main.home
 
 import android.view.View
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -13,7 +14,7 @@ import kotlinx.coroutines.flow.collectLatest
 
 @AndroidEntryPoint
 class HomeFragment : BaseArticleFragment(R.layout.fragment_home) {
-    private val mViewModel: HomeViewModel by viewModels()
+    private val mViewModel: HomeViewModel by activityViewModels()
 
     override fun initView(view: View) {
         super.initView(view)

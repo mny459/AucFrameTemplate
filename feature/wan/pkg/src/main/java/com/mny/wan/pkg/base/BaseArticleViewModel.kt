@@ -61,4 +61,5 @@ abstract class BaseArticleViewModel<ViewState : BaseState, ViewAction : BaseActi
     }
 
     abstract fun getArticlePageSource(keyArticle: Any): PagingSource<Int, BeanArticle>
+
 }

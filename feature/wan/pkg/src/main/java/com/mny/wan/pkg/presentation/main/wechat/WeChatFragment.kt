@@ -3,6 +3,7 @@ package com.mny.wan.pkg.presentation.main.wechat
 import android.text.Html
 import androidx.fragment.app.Fragment
 import android.view.View
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.viewpager2.widget.ViewPager2
@@ -25,7 +26,7 @@ class WeChatFragment : BaseFragment(R.layout.fragment_we_chat) {
 
     private val mFragments = mutableListOf<Fragment>()
     private lateinit var mVpAdapter: CommonFragmentAdapter
-    private val mViewModel: WeChatViewModel by viewModels()
+    private val mViewModel: WeChatViewModel by activityViewModels()
     override fun initObserver() {
         super.initObserver()
         observe(mViewModel.mTabs, ProjectObserver())

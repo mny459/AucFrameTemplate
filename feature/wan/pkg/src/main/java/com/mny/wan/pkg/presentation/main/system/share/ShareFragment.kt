@@ -1,5 +1,6 @@
 package com.mny.wan.pkg.presentation.main.system.share
 
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.mny.wan.pkg.R
@@ -11,7 +12,7 @@ import kotlinx.coroutines.flow.collectLatest
 @AndroidEntryPoint
 class ShareFragment : BaseArticleFragment(R.layout.fragment_share) {
 
-    private val mViewModel by viewModels<ShareViewModel>()
+    private val mViewModel by activityViewModels<ShareViewModel>()
 
     override fun initArticleObserver() {
         lifecycleScope.launchWhenCreated {

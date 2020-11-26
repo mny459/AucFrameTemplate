@@ -60,7 +60,7 @@ class CollectArticlePageSource constructor(mRepository: WanRepository) :
 }
 
 class MineShareArticlePageSource constructor(mRepository: WanRepository) :
-    ArticlePageSource(mRepository, 0) {
+    ArticlePageSource(mRepository, 1) {
     override fun getUrlWithPage(page: Int): String = UrlManager.urlMineShareArticleList(page)
 }
 
@@ -70,11 +70,11 @@ class SystemArticlePageSource constructor(mRepository: WanRepository, private va
 }
 
 class ProjectArticlePageSource constructor(mRepository: WanRepository, private val cid: Int) :
-    ArticlePageSource(mRepository, 0) {
+    ArticlePageSource(mRepository, 1) {
     override fun getUrlWithPage(page: Int): String = UrlManager.urlProjectArticleList(page, cid)
 }
 
 class WeChatArticlePageSource constructor(mRepository: WanRepository, private val cid: Int) :
-    ArticlePageSource(mRepository, 0) {
+    ArticlePageSource(mRepository, 1) {
     override fun getUrlWithPage(page: Int): String = UrlManager.urlWeChatArticleList(page, cid)
 }

@@ -2,6 +2,7 @@ package com.mny.wan.mvvm
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.blankj.utilcode.util.LogUtils
 import com.mny.wan.BuildConfig
 import com.mny.wan.entension.asLiveData
 import kotlin.properties.Delegates
@@ -83,4 +84,8 @@ abstract class BaseViewModel<ViewState : BaseState, ViewAction : BaseAction>(ini
             }
 
 
+    override fun onCleared() {
+        super.onCleared()
+        LogUtils.d("onCleared - ${this.javaClass.canonicalName}")
+    }
 }

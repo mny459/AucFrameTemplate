@@ -2,6 +2,7 @@ package com.mny.wan.pkg.presentation.main.project.article
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.mny.wan.base.BaseFragment
@@ -17,7 +18,7 @@ import kotlinx.coroutines.flow.collectLatest
 class ProjectArticleFragment : BaseArticleFragment(R.layout.fragment_project_article) {
 
     private var mCid: Int = 0
-    private val mViewModel: ProjectArticleViewModel by viewModels()
+    private val mViewModel: ProjectArticleViewModel by activityViewModels()
     override fun initArticleObserver() {
         lifecycleScope.launchWhenCreated {
             @OptIn(ExperimentalCoroutinesApi::class)
