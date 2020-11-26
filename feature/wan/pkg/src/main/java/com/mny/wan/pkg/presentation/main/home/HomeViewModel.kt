@@ -4,17 +4,20 @@ import androidx.hilt.Assisted
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.*
 import androidx.paging.*
+import com.mny.wan.http.MojitoResult
 import com.mny.wan.mvvm.BaseAction
 import com.mny.wan.mvvm.BaseState
 import com.mny.wan.pkg.base.BaseArticleViewModel
 import com.mny.wan.pkg.data.remote.model.BeanArticle
-import com.mny.wan.pkg.data.remote.model.BeanArticleList
 import com.mny.wan.pkg.data.remote.model.BeanBanner
 import com.mny.wan.pkg.domain.usecase.ArticleUseCase
+import com.mny.wan.pkg.domain.usecase.HomeUseCase
+import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 class HomeViewModel @ViewModelInject constructor(
-    private val mUseCase: ArticleUseCase,
+    private val mUseCase: HomeUseCase,
+    private val mArticleUseCase: ArticleUseCase,
     @Assisted mSavedStateHandle: SavedStateHandle
 ) : BaseArticleViewModel<HomeViewModel.ViewState, HomeViewModel.Action>(
     ViewState(),
@@ -22,28 +25,56 @@ class HomeViewModel @ViewModelInject constructor(
 ) {
 
     val mBannerList = MutableLiveData<List<BeanBanner>>()
-
-    private fun mergeArticleList(
-        articleList: BeanArticleList?,
-        topArticleList: MutableList<BeanArticle>?
-    ): BeanArticleList? {
-        topArticleList?.apply {
-            articleList?.articles?.addAll(0, topArticleList!!)
-        }
-        return articleList
-    }
+    val mTopArticles = MutableLiveData<List<BeanArticle>>()
 
     override fun getArticlePageSource(keyArticle: Any): PagingSource<Int, BeanArticle> =
-        mUseCase.homeArticlePageSource()
+        mArticleUseCase.homeArticlePageSource()
 
-    fun fetchBannerList() {
+    override fun onLoadData() {
+        fetchBannerList()
+        fetchTopArticles()
+        super.onLoadData()
+    }
+
+    private fun fetchTopArticles() {
         viewModelScope.launch {
-//            val result = withContext(Dispatchers.IO) {
-//                RetrofitClient.wanAndroidService()
-//                    .fetchBannerList().dataConvert()
-//            }
-//
-//            mBannerList.postValue(result)
+            mUseCase.fetchTopArticles()
+                .collect {
+                    when (it) {
+                        is MojitoResult.Success -> {
+                            it.data.apply {
+                                mTopArticles.postValue(this)
+                            }
+                        }
+                        is MojitoResult.Error -> {
+                        }
+                        MojitoResult.Loading -> {
+                        }
+                        else -> {
+                        }
+                    }
+                }
+        }
+    }
+
+    private fun fetchBannerList() {
+        viewModelScope.launch {
+            mUseCase.fetchBannerList()
+                .collect {
+                    when (it) {
+                        is MojitoResult.Success -> {
+                            it.data.apply {
+                                mBannerList.postValue(this)
+                            }
+                        }
+                        is MojitoResult.Error -> {
+                        }
+                        MojitoResult.Loading -> {
+                        }
+                        else -> {
+                        }
+                    }
+                }
         }
     }
 

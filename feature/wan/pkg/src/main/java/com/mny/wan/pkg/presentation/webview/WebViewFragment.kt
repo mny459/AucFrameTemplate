@@ -8,9 +8,11 @@ import android.view.ViewGroup
 import android.webkit.*
 import android.widget.FrameLayout
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.Observer
 import com.blankj.utilcode.util.LogUtils
 import com.blankj.utilcode.util.NetworkUtils
 import com.mny.wan.base.BaseFragment
+import com.mny.wan.entension.observe
 import com.mny.wan.pkg.R
 import com.qmuiteam.qmui.widget.dialog.QMUIDialog
 import dagger.hilt.android.AndroidEntryPoint
@@ -62,7 +64,15 @@ class WebViewFragment : BaseFragment(R.layout.web_view_fragment) {
         initWebView(view)
         initSettings()
         initClient()
-        loadContent(mViewModel.stateLiveData.value?.url ?: "")
+    }
+
+    override fun initObserver() {
+        super.initObserver()
+        observe(mViewModel.stateLiveData) { state ->
+            state?.apply {
+                loadContent(state.url)
+            }
+        }
     }
 
     //<editor-fold desc="初始化WebView">
@@ -83,12 +93,13 @@ class WebViewFragment : BaseFragment(R.layout.web_view_fragment) {
         mWebView?.webViewClient = object : WebViewClient() {
             override fun onPageFinished(view: WebView?, url: String?) {
                 super.onPageFinished(view, url)
-                LogUtils.v("onPageFinished $url")
+                LogUtils.d("onPageFinished $url")
                 view?.apply { changGoForwardButton(this) }
             }
 
             override fun shouldOverrideUrlLoading(view: WebView?, url: String?): Boolean {
                 // 拦截 url 本地加载，不在浏览器中打开
+                LogUtils.d("shouldOverrideUrlLoading - $url")
                 view?.loadUrl(url)
                 return true
             }
@@ -100,6 +111,7 @@ class WebViewFragment : BaseFragment(R.layout.web_view_fragment) {
                 error: SslError?
             ) {
 //                super.onReceivedSslError(view, handler, error)
+                LogUtils.e("onReceivedSslError - $error")
                 handler?.proceed()
             }
 
@@ -110,7 +122,7 @@ class WebViewFragment : BaseFragment(R.layout.web_view_fragment) {
                 failingUrl: String?
             ) {
                 super.onReceivedError(view, errorCode, description, failingUrl)
-                LogUtils.d("errorOnLoadWebUrl errorCode = $errorCode, description = $description failingUrl = $failingUrl")
+                LogUtils.e("errorOnLoadWebUrl errorCode = $errorCode, description = $description failingUrl = $failingUrl")
             }
         }
 
@@ -181,6 +193,7 @@ class WebViewFragment : BaseFragment(R.layout.web_view_fragment) {
         // 内容里不能出现 ’#’, ‘%’, ‘\’ , ‘?’ 这四个字符，若出现了需用 %23, %25, %27, %3f 对应来替代，否则会出现异常
         // 参数2：展示内容的类型
         // 参数3：字节码
+        LogUtils.d("loadContent $url")
         mWebView?.loadUrl(url)
     }
 

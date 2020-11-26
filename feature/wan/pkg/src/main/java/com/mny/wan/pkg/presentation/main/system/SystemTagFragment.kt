@@ -13,12 +13,10 @@ import com.google.android.flexbox.FlexboxLayoutManager
 import com.google.android.flexbox.JustifyContent
 import com.mny.wan.base.BaseFragment
 import com.mny.wan.pkg.R
-import com.mny.wan.pkg.data.remote.model.BeanMultiType
-import com.mny.wan.pkg.data.remote.model.BeanNav
-import com.mny.wan.pkg.data.remote.model.BeanSystemChildren
-import com.mny.wan.pkg.data.remote.model.BeanSystemParent
+import com.mny.wan.pkg.data.remote.model.*
 import com.mny.wan.pkg.presentation.adapter.tag.TagAdapter
 import com.mny.wan.pkg.presentation.main.system.secondsystem.SystemChildrenActivity
+import com.mny.wan.pkg.presentation.webview.WebViewActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -52,7 +50,6 @@ class SystemTagFragment : BaseFragment(R.layout.fragment_system_tag) {
                     this,
                     object : Observer<MutableList<BeanNav>> {
                         override fun onChanged(list: MutableList<BeanNav>?) {
-                            LogUtils.d("${list?.size}")
                             refreshNavData(list)
                         }
                     })
@@ -109,12 +106,15 @@ class SystemTagFragment : BaseFragment(R.layout.fragment_system_tag) {
                 data.add(BeanMultiType(child, BeanMultiType.TYPE_CHILD))
             }
         }
-        val adapter = TagAdapter(data)
+        val adapter = TagAdapter(data) {
+            if (it is BeanArticle) {
+                WebViewActivity.show(it.link)
+            }
+        }
         mRvTags?.adapter = adapter
     }
 
     companion object {
-
         const val TAG = "tag"
         const val TAG_SYSTEM = 0
         const val TAG_NAV = 1

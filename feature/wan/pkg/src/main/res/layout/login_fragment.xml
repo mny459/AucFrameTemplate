@@ -10,7 +10,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="?attr/qmui_topbar_height">
+        android:layout_marginTop="?attr/actionBarSize">
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/tilName"
@@ -51,22 +51,23 @@
                 android:hint="密码"
                 android:imeOptions="actionDone"
                 android:inputType="textPassword"
-                android:text="0789253870wa"
-                android:selectAllOnFocus="true" />
+                android:selectAllOnFocus="true"
+                android:text="0789253870wa" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
             android:id="@+id/btnLogin"
-            style="@style/CommonTextView.Large"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
             android:layout_width="0dp"
-            android:layout_gravity="start"
+            android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/dp_16"
             android:layout_marginTop="@dimen/dp_16"
             android:layout_marginEnd="@dimen/dp_16"
-            android:background="@drawable/ripple_btn_8dp"
+            android:background="?attr/colorPrimary"
             android:enabled="true"
+            android:gravity="center"
             android:text="登录"
-            android:textColor="@color/qmui_config_color_white"
+            android:textColor="?attr/colorOnPrimary"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tilPassword"
@@ -74,10 +75,12 @@
 
         <TextView
             android:id="@+id/btnRegister"
-            style="@style/CommonTextView.Small"
+            style="@style/TextAppearance.MaterialComponents.Body2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dp_16"
             android:text="注册"
-            android:textColor="@color/colorPrimary"
+            android:textColor="?attr/colorPrimary"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/btnLogin"
