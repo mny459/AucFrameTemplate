@@ -1,6 +1,7 @@
 package com.mny.wan.pkg.utils
 
 import com.blankj.utilcode.util.Utils
+import com.mny.wan.integration.KVHelper
 import com.tencent.mmkv.MMKV
 
 /**
@@ -8,7 +9,7 @@ import com.tencent.mmkv.MMKV
  * @Date 2019/8/20 14:28
  * @Desc
  */
-object MMKVUtils {
+object MMKVUtils : KVHelper {
     private var mmkvs = hashMapOf<String, MMKV>()
     const val DEFALUT_PATH = "mk"
 
@@ -43,61 +44,58 @@ object MMKVUtils {
     }
 
     // Boolean
-    fun put(id: String, key: String, value: Boolean): Boolean {
-        return getMmkv(id).encode(key, value)
+    override fun put(key: String, value: Boolean, name: String): Boolean {
+        return getMmkv(name).encode(key, value)
     }
 
-    fun getBool(id: String, key: String, defaultValue: Boolean): Boolean {
-        return getMmkv(id).decodeBool(key, defaultValue)
+    override fun getBool(key: String, defaultValue: Boolean, name: String): Boolean {
+        return getMmkv(name).decodeBool(key, defaultValue)
     }
 
     // Int
-    fun put(id: String, key: String, value: Int): Boolean {
-        return getMmkv(id).encode(key, value)
+    override fun put(key: String, value: Int, name: String): Boolean {
+        return getMmkv(name).encode(key, value)
     }
 
-    fun getInt(id: String, key: String, defaultValue: Int): Int {
-        return getMmkv(id).decodeInt(key, defaultValue)
+    override fun getInt(key: String, defaultValue: Int, name: String): Int {
+        return getMmkv(name).decodeInt(key, defaultValue)
     }
 
     // Long
-    fun put(id: String, key: String, value: Long): Boolean {
-        return getMmkv(id).encode(key, value)
+    override fun put(key: String, value: Long, name: String): Boolean {
+        return getMmkv(name).encode(key, value)
     }
 
-    fun getLong(id: String, key: String, defaultValue: Long): Long {
-        return getMmkv(id).decodeLong(key, defaultValue)
+    override fun getLong(key: String, defaultValue: Long, name: String): Long {
+        return getMmkv(name).decodeLong(key, defaultValue)
     }
 
     // Float
-    fun put(id: String, key: String, value: Float): Boolean {
-        return getMmkv(id).encode(key, value)
+    override fun put(key: String, value: Float, name: String): Boolean {
+        return getMmkv(name).encode(key, value)
     }
 
-    fun getFloat(id: String, key: String, defaultValue: Float): Float {
-        return getMmkv(id).decodeFloat(key, defaultValue)
+    override fun getFloat(key: String, defaultValue: Float, name: String): Float {
+        return getMmkv(name).decodeFloat(key, defaultValue)
     }
 
     // Double
-    fun put(id: String, key: String, value: Double): Boolean {
-        return getMmkv(id).encode(key, value)
+    override fun put(key: String, value: Double, name: String): Boolean {
+        return getMmkv(name).encode(key, value)
     }
 
-    fun getDouble(id: String, key: String, defaultValue: Double): Double {
-        return getMmkv(id).decodeDouble(key, defaultValue)
+    override fun getDouble(key: String, defaultValue: Double, name: String): Double {
+        return getMmkv(name).decodeDouble(key, defaultValue)
     }
 
     // String
-    fun put(id: String, key: String, value: String): Boolean {
-        return put(DEFALUT_PATH, id, key, value)
+    override fun put(key: String, value: String, name: String): Boolean {
+        return getMmkv(name).encode(key, value)
     }
 
-    fun put(path: String, id: String, key: String, value: String): Boolean {
-        return getMmkv(id, path).encode(key, value)
-    }
 
-    fun getString(id: String, key: String, defaultValue: String): String {
-        return getMmkv(id).decodeString(key, defaultValue)
+    override fun getString(key: String, defaultValue: String, name: String): String {
+        return getMmkv(name).decodeString(key, defaultValue)
     }
 
 }
