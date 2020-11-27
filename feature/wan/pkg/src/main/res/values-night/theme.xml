@@ -3,16 +3,13 @@
     <!-- Theme 和 Theme Overlay -->
     <!-- Theme Overlay 的作用主要表示可以覆盖 parent = ""-->
     <!-- https://juejin.cn/post/6844904200673968141#heading-6 在 Context 中使用  Theme 和 Theme Overlay -->
-    <!-- 通过 ?attr/ 的方式来引用主题属性 ? 代表在当前主题中搜索 -->
-    <!-- colorPrimarySurface 在暗色和亮色主题下会自动区分 -->
+    <!-- 通过 ?attr/ 的方式来引用主题属性 ? 代表在当前主题中搜索-->
     <style name="BaseAppTheme" parent="Theme.MaterialComponents.NoActionBar">
         <!-- 主题颜色 分割线 -->
         <!-- App的主要颜色 -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <!-- 主色上显示内容的颜色-->
         <item name="colorOnPrimary">@color/color_FFFFFF</item>
-        <!-- 二级主色调 -->
-        <item name="colorSecondary">@color/colorPrimary</item>
         <!-- App的次要颜色 -->
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">?attr/colorPrimary</item>

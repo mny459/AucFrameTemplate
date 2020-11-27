@@ -18,7 +18,7 @@
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/navigation"
-        style="@style/Wan.BottomNavigationView"
+        style="@style/Widget.Wan.BottomNavigationView"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_52"
         android:layout_gravity="bottom"

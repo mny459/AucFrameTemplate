@@ -175,7 +175,7 @@ class Config {
             hiltViewModule         : new DepConfig("androidx.hilt:hilt-lifecycle-viewmodel:${hiltViewModuleVersion}"),
             hiltViewModuleCompiler : new DepConfig("androidx.hilt:hilt-compiler:${hiltViewModuleVersion}"),
 
-            material               : new DepConfig("com.google.android.material:material:1.2.0-alpha05"),
+            material               : new DepConfig("com.google.android.material:material:1.2.1"),
             gson                   : new DepConfig("com.google.code.gson:gson:2.8.6"),
 
             glide                  : new DepConfig("com.github.bumptech.glide:glide:$glide_version"),

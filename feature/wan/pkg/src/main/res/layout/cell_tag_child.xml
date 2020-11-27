@@ -2,7 +2,7 @@
 <TextView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/tvTagChild"
-    style="@style/ArticleMain"
+    style="@style/TextAppearance.Wan.ArticleTitle"
     android:layout_marginStart="@dimen/dp_8"
     android:layout_marginTop="@dimen/dp_4"
     android:layout_width="wrap_content"

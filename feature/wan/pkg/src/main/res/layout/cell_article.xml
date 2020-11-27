@@ -15,7 +15,7 @@
 
     <TextView
         android:id="@+id/tvUserType"
-        style="@style/ArticleSecondary"
+        style="@style/TextAppearance.Wan.ArticleDesc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/dp_16"
@@ -30,7 +30,7 @@
 
     <TextView
         android:id="@+id/tvPublisher"
-        style="@style/ArticleSecondary"
+        style="@style/TextAppearance.Wan.ArticleDesc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/dp_8"
@@ -42,7 +42,7 @@
 
     <TextView
         android:id="@+id/tvPublishTime"
-        style="@style/ArticleSecondary"
+        style="@style/TextAppearance.Wan.ArticleDesc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="@dimen/dp_16"
@@ -56,7 +56,7 @@
 
     <TextView
         android:id="@+id/tvTitle"
-        style="@style/ArticleMain"
+        style="@style/TextAppearance.Wan.ArticleTitle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/dp_8"
@@ -73,7 +73,7 @@
 
     <TextView
         android:id="@+id/tvDesc"
-        style="@style/ArticleMain"
+        style="@style/TextAppearance.Wan.ArticleTitle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/dp_4"
@@ -109,7 +109,7 @@
 
     <TextView
         android:id="@+id/tvPin"
-        style="@style/ArticleSecondary"
+        style="@style/TextAppearance.Wan.ArticleDesc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/item_round_8dp"
@@ -125,7 +125,7 @@
 
     <TextView
         android:id="@+id/tvChapter"
-        style="@style/ArticleSecondary"
+        style="@style/TextAppearance.Wan.ArticleDesc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/dp_8"

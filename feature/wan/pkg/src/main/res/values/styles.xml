@@ -1,10 +1,25 @@
 <resources>
     <!-- Style 只作用于单个 Widget，不具备继承传递性质 -->
+    <!-- Style 的学习文章主要参考 https://juejin.cn/post/6844904200673968141#heading-1 -->
     <!-- 文本 14sp -->
-    <style name="ArticleMain" parent="TextAppearance.AppCompat.Body2" />
-    <!--  文本 12sp  -->
-    <style name="ArticleSecondary" parent="TextAppearance.AppCompat.Caption" />
+    <!-- Theme 的命名规则：Theme.AppName(or module name).主色名字 -->
+    <!-- Style 的命名规则：Widget.AppName(or module name).控件名字.颜色名字(可选) -->
+    <!-- 文本样式 的命名规则：TextAppearance.AppName(or module name).控件名字.颜色名字 -->
+    <!-- Style 的命名规则：ThemeOverlay.AppName(or module name).控件名字.颜色名字 -->
 
+    <style name="TextAppearance.Wan.ArticleTitle" parent="TextAppearance.MaterialComponents.Body2" />
+
+    <style name="TextAppearance.Wan.Button" parent="TextAppearance.MaterialComponents.Body1" />
+    <!--  文本 12sp  -->
+    <style name="TextAppearance.Wan.ArticleDesc" parent="TextAppearance.MaterialComponents.Caption" />
+    <!-- https://juejin.cn/post/6844904200673968141#heading-22 -->
+    <style name="ShapeAppearance.Wan.Button" parent="ShapeAppearance.MaterialComponents.MediumComponent">
+        <item name="cornerSize">@dimen/dp_16</item>
+    </style>
+
+    <style name="Widget.Wan.Button" parent="Widget.MaterialComponents.Button">
+        <item name="android:layout_height">56dp</item>
+    </style>
 
     <style name="CommonTextView" parent="TextAppearance.AppCompat">
         <item name="android:layout_width">wrap_content</item>
@@ -54,28 +69,28 @@
         <item name="android:layout_height">match_parent</item>
     </style>
     <!--  Toolbar 上面的搜索的样式  -->
-    <style name="Wan.SearchView" parent="Widget.AppCompat.SearchView">
+    <style name="Widget.Wan.SearchView" parent="Widget.AppCompat.SearchView">
         <!--修改搜索框左边的搜索按钮图标-->
         <item name="searchHintIcon">@null</item>
     </style>
 
-    <style name="Wan.BottomNavigationView" parent="Widget.MaterialComponents.BottomNavigationView">
+    <style name="Widget.Wan.BottomNavigationView" parent="Widget.MaterialComponents.BottomNavigationView">
         <item name="labelVisibilityMode">labeled</item>
     </style>
 
-    <style name="Wan.FloatingActionButton" parent="Widget.MaterialComponents.FloatingActionButton">
+    <style name="Widget.Wan.FloatingActionButton" parent="Widget.MaterialComponents.FloatingActionButton">
         <item name="android:background">?attr/colorPrimary</item>
         <item name="tint">?attr/colorOnPrimary</item>
     </style>
 
-    <style name="Wan.AppBarLayout" parent="Widget.MaterialComponents.AppBarLayout.Primary"></style>
+    <style name="Widget.Wan.AppBarLayout" parent="Widget.MaterialComponents.AppBarLayout.Primary" />
 
-    <style name="Wan.Toolbar" parent="Widget.MaterialComponents.Toolbar">
+    <style name="Widget.Wan.Toolbar" parent="Widget.MaterialComponents.Toolbar">
         <item name="titleTextColor">?attr/colorOnPrimary</item>
         <item name="android:background">?attr/colorPrimary</item>
     </style>
 
-    <style name="Wan.TabLayout" parent="Widget.MaterialComponents.TabLayout.Colored">
+    <style name="Widget.Wan.TabLayout" parent="Widget.MaterialComponents.TabLayout.Colored">
         <!--        <item name="android:background">?attr/colorPrimary</item>-->
     </style>
 
