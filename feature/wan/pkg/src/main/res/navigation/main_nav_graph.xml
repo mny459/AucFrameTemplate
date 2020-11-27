@@ -37,7 +37,7 @@
 
     <!--    <fragment-->
 <!--        android:id="@+id/mineFragment"-->
-<!--        android:name="com.mny.wan.pkg.presentation.main.mine.MineFragment"-->
+<!--        android:name="com.mny.wan.pkg.presentation.mine.MineFragment"-->
 <!--        android:label="fragment_mine"-->
 <!--        tools:layout="@layout/fragment_mine" />-->
 

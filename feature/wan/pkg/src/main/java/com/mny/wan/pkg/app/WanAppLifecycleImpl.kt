@@ -4,6 +4,7 @@ import android.app.Application
 import android.content.Context
 import com.blankj.utilcode.util.LogUtils
 import com.mny.wan.base.delegate.AppLifecycle
+import com.mny.wan.pkg.data.local.UserHelper
 import com.mny.wan.utils.MojitoLog
 
 class WanAppLifecycleImpl : AppLifecycle {
@@ -14,6 +15,7 @@ class WanAppLifecycleImpl : AppLifecycle {
     override fun onCreate(application: Application) {
         MojitoLog.d("DemoAppLifecycleImpl - onCreate")
         LogUtils.getConfig().globalTag = "Wan"
+        UserHelper.initUserInfo()
     }
 
     override fun onTerminate(application: Application) {

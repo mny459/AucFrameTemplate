@@ -3,6 +3,7 @@ package com.mny.wan.pkg.data.local
 import com.blankj.utilcode.util.GsonUtils
 import com.blankj.utilcode.util.LogUtils
 import com.blankj.utilcode.util.Utils
+import com.mny.wan.pkg.data.remote.model.UserInfoModel
 import com.mny.wan.pkg.domain.model.UserInfoDomainModel
 import com.tencent.mmkv.MMKV
 
@@ -11,13 +12,13 @@ import com.tencent.mmkv.MMKV
  * @Date 2019/10/23 14:15
  * @Desc
  */
-object UserInfoManager {
+object UserHelper {
     private const val EMPTY = ""
     private const val KEY_USER_INFO = "user_info"
     private const val KEY_TOKEN_PASS = "token_pass"
     private const val KEY_LOGIN_STATUS = "login_status"
     private var mIsLogin = false
-    private var mUserInfo: UserInfoDomainModel? = null
+    private var mUserInfo: UserInfoModel? = null
     private var mTokenPass: String = EMPTY
 
     private var mmkv: MMKV
@@ -28,14 +29,25 @@ object UserInfoManager {
         mmkv = MMKV.defaultMMKV()
     }
 
-    fun saveUserInfo(info: UserInfoDomainModel) {
+    fun login(info: UserInfoModel) {
         mmkv.encode(KEY_USER_INFO, GsonUtils.toJson(info))
         mmkv.encode(KEY_LOGIN_STATUS, true)
+//        saveTokenPass(info.token)
         mUserInfo = info
         mIsLogin = true
     }
 
-    fun clearUserInfo() {
+    fun saveTokenPass(tokenPass: String) {
+        mTokenPass = tokenPass
+        mmkv.encode(KEY_TOKEN_PASS, tokenPass)
+    }
+
+
+    fun loginOut() {
+        clearUserInfo()
+    }
+
+    private fun clearUserInfo() {
         mmkv.encode(KEY_USER_INFO, EMPTY)
         mmkv.encode(KEY_LOGIN_STATUS, false)
         mUserInfo = null
@@ -43,17 +55,12 @@ object UserInfoManager {
         clearTokenPass()
     }
 
-    fun userInfo(): UserInfoDomainModel? = mUserInfo
-
-    fun saveTokenPass(tokenPass: String) {
-        mmkv.encode(KEY_TOKEN_PASS, tokenPass)
-        mTokenPass = tokenPass
-    }
-
-    fun clearTokenPass() {
+    private fun clearTokenPass() {
         mmkv.encode(KEY_TOKEN_PASS, EMPTY)
         mTokenPass = EMPTY
     }
+
+    fun userInfo(): UserInfoModel? = mUserInfo
 
     fun getTokenPass(): String = mTokenPass
 
@@ -62,13 +69,14 @@ object UserInfoManager {
     fun initUserInfo() {
         val userInfo = mmkv.decodeString(KEY_USER_INFO, EMPTY)
         mUserInfo = if (userInfo.isNullOrEmpty()) null else GsonUtils.fromJson(
-                userInfo,
-                UserInfoDomainModel::class.java
+            userInfo,
+            UserInfoModel::class.java
         )
+
         mIsLogin = mmkv.decodeBool(KEY_LOGIN_STATUS, false)
 
         val tokenPass = mmkv.decodeString(KEY_TOKEN_PASS, EMPTY)
         mTokenPass = tokenPass
-        LogUtils.d("$mUserInfo")
+        LogUtils.d("initUserInfo mIsLogin = $mIsLogin tokenPass = $tokenPass userInfo = $mUserInfo")
     }
 }

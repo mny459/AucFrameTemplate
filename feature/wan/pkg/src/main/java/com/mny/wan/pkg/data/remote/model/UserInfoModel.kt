@@ -1,4 +1,4 @@
-package com.mny.login.data.remote.model
+package com.mny.wan.pkg.data.remote.model
 
 import android.text.TextUtils
 import com.mny.wan.pkg.domain.model.UserInfoDomainModel
@@ -20,12 +20,3 @@ data class UserInfoModel(
         val type: Int,
         val username: String
 )
-
-fun UserInfoModel.toDomainModel(): UserInfoDomainModel {
-    val name = when {
-        !TextUtils.isEmpty(username) -> username
-        !TextUtils.isEmpty(publicName) -> publicName
-        else -> publicName
-    }
-    return UserInfoDomainModel(name, collectIds)
-}

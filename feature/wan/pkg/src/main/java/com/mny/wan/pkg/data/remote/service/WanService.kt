@@ -1,6 +1,6 @@
 package com.mny.wan.pkg.data.remote.service
 
-import com.mny.login.data.remote.model.UserInfoModel
+import com.mny.wan.pkg.data.remote.model.UserInfoModel
 import com.mny.wan.pkg.data.remote.model.*
 import kotlinx.coroutines.flow.Flow
 import retrofit2.http.*

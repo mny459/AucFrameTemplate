@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.blankj.utilcode.util.NetworkUtils
 import com.mny.wan.entension.loadProjectPreview
 import com.mny.wan.pkg.R
-import com.mny.wan.pkg.data.local.UserInfoManager
+import com.mny.wan.pkg.data.local.UserHelper
 import com.mny.wan.pkg.data.remote.model.BeanArticle
 import com.mny.wan.pkg.presentation.webview.WebViewActivity
 import java.util.*
@@ -103,7 +103,7 @@ class ArticleViewHolder(private val view: View) : RecyclerView.ViewHolder(view) 
                 if (!NetworkUtils.isConnected()) {
                     return@setOnClickListener
                 }
-                if (!UserInfoManager.isLogin()) {
+                if (!UserHelper.isLogin()) {
                     return@setOnClickListener
                 }
 //                mIvCollect.isSelected = if (mIsCollectArticle) !mIsCollectArticle else !item.collect

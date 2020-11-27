@@ -13,6 +13,7 @@ import com.mny.wan.pkg.data.remote.model.BeanArticle
 import com.mny.wan.pkg.data.remote.model.BeanBanner
 import com.mny.wan.pkg.presentation.adapter.BannerAdapter
 import com.mny.wan.pkg.presentation.adapter.TopArticleAdapter
+import com.mny.wan.pkg.presentation.mine.MineActivity
 import com.mny.wan.pkg.presentation.search.SearchActivity
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -26,9 +27,11 @@ class HomeFragment : BaseArticleFragment(R.layout.fragment_home) {
     private val mTopArticleAdapter: TopArticleAdapter by lazy { TopArticleAdapter() }
     override fun initView(view: View) {
         super.initView(view)
-        view.findViewById<FloatingActionButton>(R.id.floatSearch).setOnClickListener {
-            SearchActivity.show()
-        }
+        view.findViewById<FloatingActionButton>(R.id.floatSearch)
+            ?.setOnClickListener {
+//                SearchActivity.show()
+                MineActivity.show()
+            }
         mAllAdapter.addAdapter(0, mBannerAdapter)
         mAllAdapter.addAdapter(1, mTopArticleAdapter)
         mAllAdapter.addAdapter(2, mAdapter)

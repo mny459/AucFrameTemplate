@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.MenuItem
 import androidx.navigation.Navigation
 import androidx.navigation.ui.NavigationUI
+import com.blankj.utilcode.util.ActivityUtils
 import com.blankj.utilcode.util.LogUtils
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.mny.wan.base.BaseActivity
@@ -34,5 +35,11 @@ class MainActivity : BaseActivity() {
         LogUtils.d("onOptionsItemSelected ${item.itemId}")
         return NavigationUI.onNavDestinationSelected(item, navController) ||
                 super.onOptionsItemSelected(item)
+    }
+
+    companion object {
+        fun show() {
+            ActivityUtils.startActivity(MainActivity::class.java)
+        }
     }
 }

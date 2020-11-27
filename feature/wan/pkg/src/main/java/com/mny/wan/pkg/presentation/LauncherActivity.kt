@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.lifecycle.lifecycleScope
 import com.mny.wan.base.BaseActivity
+import com.mny.wan.pkg.data.local.UserHelper
 import com.mny.wan.pkg.presentation.login.LoginActivity
 import com.mny.wan.pkg.presentation.main.MainActivity
 import kotlinx.coroutines.delay
@@ -16,7 +17,10 @@ class LauncherActivity : BaseActivity() {
         super.initObserver()
         lifecycleScope.launch {
             delay(1000)
-            val intent = Intent(this@LauncherActivity, MainActivity::class.java)
+            val intent = Intent(
+                this@LauncherActivity,
+                if (UserHelper.isLogin()) MainActivity::class.java else LoginActivity::class.java
+            )
             startActivity(intent)
             this@LauncherActivity.finish()
         }
