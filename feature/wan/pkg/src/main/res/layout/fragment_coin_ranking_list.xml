@@ -4,22 +4,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".presentation.collect.CollectFragment">
+    tools:context=".presentation.coin.CoinRankingListFragment">
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/refresh"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_articles"
+        <com.mny.wan.pkg.widget.RecyclerView2
+            android:id="@+id/rv_coin_rank"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:nestedScrollingEnabled="false"
             android:overScrollMode="never"
             tools:itemCount="5"
-            tools:listitem="@layout/cell_article" />
+            tools:listitem="@layout/cell_coin_ranking" />
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
 </FrameLayout>

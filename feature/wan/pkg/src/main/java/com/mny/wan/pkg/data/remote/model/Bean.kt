@@ -27,7 +27,9 @@ data class BaseListData<T>(
     val size: Int = 0, // 30
     @SerializedName("total")
     val total: Int = 0 // 6240
-)
+) {
+    fun isLastPage(): Boolean = curPage >= 5
+}
 
 data class BeanArticleList(
     @SerializedName("datas")

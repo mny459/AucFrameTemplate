@@ -29,6 +29,9 @@ object UrlManager {
         "/user/lg/private_articles/${page}/json"
 
     fun qaArticleList(page: Int): String =
-        "/wenda/list/${page}/json "
+        "/wenda/list/${page}/json"
+
+    fun coinArticleList(page: Int): String =
+        "/lg/coin/list/${page}/json"
 
 }

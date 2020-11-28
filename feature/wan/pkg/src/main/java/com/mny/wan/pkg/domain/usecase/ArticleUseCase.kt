@@ -2,6 +2,8 @@ package com.mny.wan.pkg.domain.usecase
 
 import androidx.paging.PagingSource
 import com.mny.wan.pkg.data.remote.model.BeanArticle
+import com.mny.wan.pkg.data.remote.model.BeanCoinOpDetail
+import com.mny.wan.pkg.data.remote.model.BeanRanking
 import com.mny.wan.pkg.domain.paging.*
 import com.mny.wan.pkg.domain.repository.WanRepository
 import javax.inject.Inject
@@ -43,8 +45,17 @@ class ArticleUseCase @Inject constructor(
     fun weChatArticlePageSource(cid: Int): PagingSource<Int, BeanArticle> {
         return WeChatArticlePageSource(mRepository, cid)
     }
+
     fun qAArticlePageSource(): PagingSource<Int, BeanArticle> {
         return QAArticlePageSource(mRepository)
+    }
+
+    fun coinDetailPageSource(): PagingSource<Int, BeanCoinOpDetail> {
+        return CoinDetailPageSource(mRepository)
+    }
+
+    fun coinRankPageSource(): PagingSource<Int, BeanRanking> {
+        return CoinRankPageSource(mRepository)
     }
 
 }

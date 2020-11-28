@@ -18,7 +18,7 @@ import kotlinx.coroutines.flow.collectLatest
 @AndroidEntryPoint
 class CollectFragment : BaseArticleFragment(R.layout.fragment_collect) {
 
-    private val mViewModel: WeChatArticleViewModel by viewModels()
+    private val mViewModel: CollectArticleViewModel by viewModels()
 
     override fun initArticleObserver() {
         lifecycleScope.launchWhenCreated {

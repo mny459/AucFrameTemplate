@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CommonRowView">
+        <attr name="title" format="string"/>
+        <attr name="subtitle" format="string"/>
+        <attr name="subtitleOn" format="string"/>
+        <attr name="subtitleOff" format="string"/>
+        <attr name="showSwitch" format="boolean"/>
+    </declare-styleable>
+</resources>

@@ -12,6 +12,8 @@ import androidx.paging.LoadStateAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.mny.wan.pkg.R
 import com.mny.wan.pkg.presentation.adapter.ArticleAdapter
+import com.mny.wan.pkg.presentation.adapter.CoinDetailAdapter
+import com.mny.wan.pkg.presentation.adapter.CoinRankAdapter
 
 class ArticleLoadStateAdapter(private val mArticleAdapter: ArticleAdapter) :
     LoadStateAdapter<LoadStateFooterViewHolder>() {
@@ -24,6 +26,34 @@ class ArticleLoadStateAdapter(private val mArticleAdapter: ArticleAdapter) :
         loadState: LoadState
     ): LoadStateFooterViewHolder {
         return LoadStateFooterViewHolder.create(parent) { mArticleAdapter.retry() }
+    }
+}
+
+class CoinDetailLoadStateAdapter(private val mCoinDetailAdapter: CoinDetailAdapter) :
+    LoadStateAdapter<LoadStateFooterViewHolder>() {
+    override fun onBindViewHolder(holder: LoadStateFooterViewHolder, loadState: LoadState) {
+        holder.bindTo(loadState)
+    }
+
+    override fun onCreateViewHolder(
+        parent: ViewGroup,
+        loadState: LoadState
+    ): LoadStateFooterViewHolder {
+        return LoadStateFooterViewHolder.create(parent) { mCoinDetailAdapter.retry() }
+    }
+}
+
+class CoinRankLoadStateAdapter(private val mCoinDetailAdapter: CoinRankAdapter) :
+    LoadStateAdapter<LoadStateFooterViewHolder>() {
+    override fun onBindViewHolder(holder: LoadStateFooterViewHolder, loadState: LoadState) {
+        holder.bindTo(loadState)
+    }
+
+    override fun onCreateViewHolder(
+        parent: ViewGroup,
+        loadState: LoadState
+    ): LoadStateFooterViewHolder {
+        return LoadStateFooterViewHolder.create(parent) { mCoinDetailAdapter.retry() }
     }
 }
 

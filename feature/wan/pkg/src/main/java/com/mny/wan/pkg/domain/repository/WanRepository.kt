@@ -13,4 +13,6 @@ interface WanRepository {
     suspend fun fetchHotKey(): BaseResponse<MutableList<BeanHotKey>>
     suspend fun search(url: String, keyword: String): BaseResponse<BeanArticleList>
     suspend fun fetchBannerList(): BaseResponse<MutableList<BeanBanner>>
+    suspend fun fetchCoinList(page: Int): BaseResponse<BaseListData<BeanCoinOpDetail>>
+    suspend fun fetchCoinRankList(page: Int): BaseResponse<BaseListData<BeanRanking>>
 }
