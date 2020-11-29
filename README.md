@@ -2,7 +2,7 @@
 - ViewBinding
 - 登录注册
 - 收藏（全局ViewModel）
-- 主题切换
+- 主题切换`
 - 语言切换
 - 启动页
 - AppIcon

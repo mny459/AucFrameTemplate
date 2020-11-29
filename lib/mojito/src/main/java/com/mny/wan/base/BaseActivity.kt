@@ -31,8 +31,9 @@ abstract class BaseActivity : AppCompatActivity(), IActivity {
                 return
             }
         } catch (e: Exception) {
+            LogUtils.v("$e")
             if (e is InflateException) throw e
-            e.printStackTrace()
+//            e.printStackTrace()
         }
         initView(savedInstanceState)
         initObserver()

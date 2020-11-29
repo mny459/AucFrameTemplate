@@ -55,7 +55,6 @@ abstract class BaseArticleViewModel<ViewState : BaseState, ViewAction : BaseActi
     }
 
     open fun fetchArticleList() {
-        LogUtils.d("ArticlePageSource fetchArticleList")
         mClearListCh.offer(Unit)
         mSavedStateHandle.set(KEY_ARTICLE, DEFAULT_PAGE)
     }

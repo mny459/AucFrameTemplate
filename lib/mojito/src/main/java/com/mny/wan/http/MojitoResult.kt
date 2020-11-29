@@ -5,10 +5,10 @@ package com.mny.wan.http
  * 但不同于抽象类的是，您必须把层级声明在同一文件中，或者嵌套在类的内部。
  */
 sealed class MojitoResult<out T : Any> {
-
+    object Loading : MojitoResult<Nothing>()
     data class Success<out T : Any>(val data: T?) : MojitoResult<T>()
     data class Error(val exception: Exception) : MojitoResult<Nothing>()
-    object Loading : MojitoResult<Nothing>()
+
     override fun toString(): String {
         return when (this) {
             is Success<*> -> "Success[data=$data]"
@@ -17,6 +17,7 @@ sealed class MojitoResult<out T : Any> {
         }
     }
 }
+
 /**
  * `true` if [MojitoResult] is of type [Success] & holds non-null [Success.data].
  */

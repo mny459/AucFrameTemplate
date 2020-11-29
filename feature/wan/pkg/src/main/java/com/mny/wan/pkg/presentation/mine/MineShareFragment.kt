@@ -1,20 +1,16 @@
-package com.mny.wan.pkg.presentation.main.system.share
+package com.mny.wan.pkg.presentation.mine
 
-import android.os.Bundle
 import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.mny.wan.pkg.R
 import com.mny.wan.pkg.base.BaseArticleFragment
-import com.mny.wan.pkg.presentation.main.system.SystemTagFragment
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.collectLatest
 
 @AndroidEntryPoint
-class ShareFragment : BaseArticleFragment(R.layout.fragment_share) {
-
-    private val mViewModel by activityViewModels<ShareViewModel>()
+class MineShareFragment : BaseArticleFragment(R.layout.fragment_mine_share) {
+    private val mViewModel by activityViewModels<MineShareViewModel>()
 
     override fun initArticleObserver() {
         lifecycleScope.launchWhenCreated {
@@ -28,9 +24,5 @@ class ShareFragment : BaseArticleFragment(R.layout.fragment_share) {
     override fun onFirstInit() {
         super.onFirstInit()
         mViewModel.loadData()
-    }
-
-    companion object {
-        fun newInstance(): ShareFragment = ShareFragment()
     }
 }

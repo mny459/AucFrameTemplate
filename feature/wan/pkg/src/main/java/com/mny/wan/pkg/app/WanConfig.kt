@@ -46,15 +46,11 @@ class WanConfig : ModuleConfig {
                             override fun loadForRequest(url: HttpUrl): List<Cookie> {
                                 val list = cookieStore[url.host]
                                 return if (list.isNullOrEmpty()) {
-                                    LogUtils.d(
-                                        "${UserHelper.isLogin()} ======= ${UserHelper.getTokenPass().isNotEmpty()}"
-                                    )
                                     val tokenPass =UserHelper.getTokenPass()
                                     if (UserHelper.isLogin() && tokenPass.isNotEmpty()
                                     ) {
                                         val cookie = arrayListOf<Cookie>()
                                         val userInfo = UserHelper.userInfo()
-                                        LogUtils.d("loadForRequest $userInfo")
                                         userInfo?.apply {
                                             cookie.add(
                                                 Cookie.Builder()

@@ -1,8 +1,5 @@
 package com.mny.wan.pkg.data.remote.model
 
-import android.text.TextUtils
-import com.mny.wan.pkg.domain.model.UserInfoDomainModel
-
 /**
  * Desc:
  */

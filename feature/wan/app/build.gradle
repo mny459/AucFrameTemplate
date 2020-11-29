@@ -2,7 +2,38 @@ apply {
     plugin "kotlin-kapt"
     plugin "dagger.hilt.android.plugin"
 }
+android{
+    // 签名配置
+    signingConfigs {
+        release {
+            try {
+                storeFile file("./keystore/CommonSigning.jks")
+                storePassword "zombie"
+                keyAlias "mny459"
+                keyPassword "zombie"
+            } catch (ex) {
+                throw new InvalidUserDataException(ex.toString())
+            }
+        }
 
+        debug {
+            storeFile file("./keystore/debug.keystore")
+        }
+    }
+    buildTypes {
+        release {
+            debuggable true
+            minifyEnabled false
+            signingConfig signingConfigs.release
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            debuggable true
+            minifyEnabled false
+            signingConfig signingConfigs.debug
+        }
+    }
+}
 dependencies {
     api(Config.depConfig.hilt.dep)
     api(Config.depConfig.hiltViewModule.dep)

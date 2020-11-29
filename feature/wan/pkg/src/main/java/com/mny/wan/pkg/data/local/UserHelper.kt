@@ -4,7 +4,6 @@ import com.blankj.utilcode.util.GsonUtils
 import com.blankj.utilcode.util.LogUtils
 import com.blankj.utilcode.util.Utils
 import com.mny.wan.pkg.data.remote.model.UserInfoModel
-import com.mny.wan.pkg.domain.model.UserInfoDomainModel
 import com.tencent.mmkv.MMKV
 
 /**
