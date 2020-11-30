@@ -15,6 +15,7 @@ import com.mny.wan.entension.observe
 import com.mny.wan.pkg.R
 import com.mny.wan.pkg.data.remote.model.BeanSystemParent
 import com.mny.wan.pkg.presentation.adapter.CommonFragmentAdapter
+import com.mny.wan.pkg.presentation.main.home.HomeFragment
 import com.mny.wan.pkg.presentation.main.wechat.article.WeChatArticleFragment
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -81,5 +82,11 @@ class WeChatFragment : BaseFragment(R.layout.fragment_we_chat) {
     override fun onFirstInit() {
         super.onFirstInit()
         mViewModel.loadData()
+    }
+
+
+    companion object {
+        @JvmStatic
+        fun newInstance() = WeChatFragment()
     }
 }

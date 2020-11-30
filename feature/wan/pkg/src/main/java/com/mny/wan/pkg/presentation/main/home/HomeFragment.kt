@@ -1,5 +1,6 @@
 package com.mny.wan.pkg.presentation.main.home
 
+import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
@@ -13,6 +14,7 @@ import com.mny.wan.pkg.data.remote.model.BeanArticle
 import com.mny.wan.pkg.data.remote.model.BeanBanner
 import com.mny.wan.pkg.presentation.adapter.BannerAdapter
 import com.mny.wan.pkg.presentation.adapter.TopArticleAdapter
+import com.mny.wan.pkg.presentation.main.wechat.article.WeChatArticleFragment
 import com.mny.wan.pkg.presentation.mine.MineActivity
 import com.mny.wan.pkg.presentation.search.SearchActivity
 import dagger.hilt.android.AndroidEntryPoint
@@ -68,5 +70,10 @@ class HomeFragment : BaseArticleFragment(R.layout.fragment_home) {
                 mTopArticleAdapter.replaceTopArticles(this)
             }
         }
+    }
+
+    companion object {
+        @JvmStatic
+        fun newInstance() = HomeFragment()
     }
 }

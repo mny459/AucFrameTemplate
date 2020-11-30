@@ -10,7 +10,6 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.mny.wan.base.BaseActivity
 import com.mny.wan.pkg.R
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.android.synthetic.main.activity_main.*
 
 
 @AndroidEntryPoint
@@ -20,6 +19,9 @@ class MainActivity : BaseActivity() {
     override fun initView(savedInstanceState: Bundle?) {
         val navView: BottomNavigationView = findViewById(R.id.navigation)
         val navController = Navigation.findNavController(this, R.id.nav_host_fragment)
+//        val appBarConfiguration = AppBarConfiguration(setOf(
+//            R.id.homeFragment, R.id.weChatFragment, R.id.projectFragment, R.id.systemFragment, R.id.QAFragment))
+//        setupActionBarWithNavController(navController, appBarConfiguration)
         NavigationUI.setupWithNavController(navView, navController)
 //        navController.addOnDestinationChangedListener { _, destination, _ -> }
     }

@@ -14,10 +14,12 @@ import com.mny.wan.base.delegate.IFragment
  *        Email：mny9@outlook.com
  *        Desc:
  */
-abstract class BaseFragment(@LayoutRes contentLayoutId: Int) : Fragment(contentLayoutId), IFragment {
+abstract class BaseFragment(@LayoutRes contentLayoutId: Int) : Fragment(contentLayoutId),
+    IFragment {
 
     protected var mActivity: BaseActivity? = null
     private var mRootView: View? = null
+
     // 标示是否第一次初始化数据
     protected var mIsFirstInitData = true;
 
@@ -27,12 +29,15 @@ abstract class BaseFragment(@LayoutRes contentLayoutId: Int) : Fragment(contentL
         initArgs(arguments)
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         if (mRootView == null) {
-
             val view = super.onCreateView(inflater, container, savedInstanceState)
-            if (view != null) initView(view)
             mRootView = view
+            if (view != null) initView(view)
         } else {
             // 把当前 root 从其父控件中移除
             (mRootView?.parent as? ViewGroup)?.apply {

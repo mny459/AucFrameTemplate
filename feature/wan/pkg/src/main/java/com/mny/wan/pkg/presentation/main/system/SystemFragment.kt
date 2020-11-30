@@ -9,6 +9,7 @@ import com.mny.wan.base.BaseFragment
 import com.mny.wan.pkg.R
 import com.mny.wan.pkg.presentation.adapter.CommonFragmentAdapter
 import com.mny.wan.pkg.presentation.main.system.share.ShareFragment
+import com.mny.wan.pkg.presentation.main.wechat.WeChatFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -55,5 +56,10 @@ class SystemFragment : BaseFragment(R.layout.fragment_system) {
             }.attach()
         }
 
+    }
+
+    companion object {
+        @JvmStatic
+        fun newInstance() = SystemFragment()
     }
 }

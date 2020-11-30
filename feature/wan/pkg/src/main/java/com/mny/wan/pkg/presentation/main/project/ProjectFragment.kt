@@ -15,6 +15,7 @@ import com.mny.wan.pkg.R
 import com.mny.wan.pkg.data.remote.model.BeanProject
 import com.mny.wan.pkg.presentation.adapter.CommonFragmentAdapter
 import com.mny.wan.pkg.presentation.main.project.article.ProjectArticleFragment
+import com.mny.wan.pkg.presentation.main.wechat.WeChatFragment
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.*
 
@@ -78,6 +79,11 @@ class ProjectFragment : BaseFragment(R.layout.fragment_project) {
     override fun onFirstInit() {
         super.onFirstInit()
         mViewModel.loadData()
+    }
+
+    companion object {
+        @JvmStatic
+        fun newInstance() = ProjectFragment()
     }
 
 }

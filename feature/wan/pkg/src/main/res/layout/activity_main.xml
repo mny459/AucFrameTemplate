@@ -11,24 +11,8 @@
         android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="@dimen/dp_52"
         app:defaultNavHost="true"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         app:navGraph="@navigation/main_nav_graph" />
-
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/navigation"
-        style="@style/Widget.Wan.BottomNavigationView"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/dp_52"
-        android:layout_gravity="bottom"
-        android:background="?attr/colorPrimary"
-        android:elevation="@dimen/dp_4"
-        android:outlineProvider="bounds"
-        android:translationZ="@dimen/dp_8"
-        app:itemIconTint="?attr/colorOnPrimary"
-        app:itemTextColor="?attr/colorOnPrimary"
-        app:menu="@menu/navigation_items"
-        tools:visibility="visible" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
