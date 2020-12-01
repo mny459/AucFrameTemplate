@@ -17,6 +17,8 @@ class MainActivity : BaseActivity() {
     override fun layoutId(savedInstanceState: Bundle?): Int = R.layout.activity_main
 
     override fun initView(savedInstanceState: Bundle?) {
+//        https://stackoverflow.com/questions/60875538/save-state-of-fragment-a-when-navigating-from-bottomnavigationview-to-fragment-b
+        // 不支持
         val navView: BottomNavigationView = findViewById(R.id.navigation)
         val navController = Navigation.findNavController(this, R.id.nav_host_fragment)
 //        val appBarConfiguration = AppBarConfiguration(setOf(
