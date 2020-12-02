@@ -4,7 +4,6 @@ import android.text.Html
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayout
@@ -67,6 +66,7 @@ class ProjectFragment : BaseFragment(R.layout.fragment_project) {
 
                 mVpAdapter = CommonFragmentAdapter(this@ProjectFragment, mFragments)
                 mViewPage?.adapter = mVpAdapter
+                mViewPage?.offscreenPageLimit = ViewPager2.OFFSCREEN_PAGE_LIMIT_DEFAULT
                 TabLayoutMediator(this, mViewPage!!) { tab, position ->
                     tab.text = "${Html.fromHtml(tabs[position].name)}"
                 }.attach()
