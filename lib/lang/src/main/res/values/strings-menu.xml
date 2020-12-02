@@ -6,4 +6,5 @@
     <string name="action_system">体系</string>
     <string name="action_mine">我的</string>
     <string name="action_qa">问答</string>
+    <string name="action_discover">发现</string>
 </resources>

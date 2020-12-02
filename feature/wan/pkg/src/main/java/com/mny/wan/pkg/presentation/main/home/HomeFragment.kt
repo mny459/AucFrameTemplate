@@ -31,8 +31,8 @@ class HomeFragment : BaseArticleFragment(R.layout.fragment_home) {
         super.initView(view)
         view.findViewById<FloatingActionButton>(R.id.floatSearch)
             ?.setOnClickListener {
-//                SearchActivity.show()
-                MineActivity.show()
+                SearchActivity.show()
+//                MineActivity.show()
             }
         mAllAdapter.addAdapter(0, mBannerAdapter)
         mAllAdapter.addAdapter(1, mTopArticleAdapter)

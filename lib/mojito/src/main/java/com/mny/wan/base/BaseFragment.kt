@@ -18,7 +18,7 @@ abstract class BaseFragment(@LayoutRes contentLayoutId: Int) : Fragment(contentL
     IFragment {
 
     protected var mActivity: BaseActivity? = null
-    private var mRootView: View? = null
+    protected var mRootView: View? = null
 
     // 标示是否第一次初始化数据
     protected var mIsFirstInitData = true;

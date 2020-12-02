@@ -9,6 +9,8 @@ import androidx.fragment.app.viewModels
 import com.mny.wan.base.BaseFragment
 import com.mny.wan.entension.observe
 import com.mny.wan.pkg.R
+import com.mny.wan.pkg.base.BaseBindingFragment
+import com.mny.wan.pkg.databinding.FragmentMineBinding
 import com.mny.wan.pkg.presentation.coin.CoinDetailActivity
 import com.mny.wan.pkg.presentation.collect.CollectActivity
 import com.mny.wan.pkg.utils.ThemeHelper
@@ -16,41 +18,27 @@ import com.mny.wan.pkg.widget.CommonRowView
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class MineFragment : BaseFragment(R.layout.fragment_mine) {
+class MineFragment : BaseBindingFragment<FragmentMineBinding>() {
     private val mViewModel: MineViewModel by viewModels()
-    private var mTvName: TextView? = null
-    private var mTvCredits: TextView? = null
-    private var mIvLogout: ImageView? = null
-    private var mGroupUserInfo: Group? = null
-    private var mRowTheme: CommonRowView? = null
-    private var mRowCollect: CommonRowView? = null
-    private var mRowSettings: CommonRowView? = null
-    private var mRowAbout: CommonRowView? = null
     override fun initView(view: View) {
         super.initView(view)
-        mTvName = view.findViewById(R.id.tvName)
-        mTvCredits = view.findViewById(R.id.tvCredits)
-        mIvLogout = view.findViewById(R.id.imgLogout)
-        mGroupUserInfo = view.findViewById(R.id.groupUserInfo)
-        mRowTheme = view.findViewById(R.id.row_theme)
-        mRowCollect = view.findViewById(R.id.row_collect)
-        mRowSettings = view.findViewById(R.id.row_settings)
-        mIvLogout?.setOnClickListener {
+
+        mBinding?.imgLogout?.setOnClickListener {
             mViewModel.logout()
         }
-        mRowCollect?.setOnClickListener {
+        mBinding?.rowCollect?.setOnClickListener {
             CollectActivity.show()
         }
-        mRowTheme?.setOnCheckedChangeListener { _, checked ->
+        mBinding?.rowTheme?.setOnCheckedChangeListener { _, checked ->
             if (checked) {
                 ThemeHelper.setNightMode()
             } else {
                 ThemeHelper.setLightMode()
             }
         }
-        mRowSettings?.setOnClickListener {  }
-        mRowAbout?.setOnClickListener {  }
-        mTvCredits?.setOnClickListener { CoinDetailActivity.show() }
+        mBinding?.rowSettings?.setOnClickListener { }
+        mBinding?.rowAbout?.setOnClickListener { }
+        mBinding?.tvCredits?.setOnClickListener { CoinDetailActivity.show() }
     }
 
     override fun onFirstInit() {
@@ -62,13 +50,13 @@ class MineFragment : BaseFragment(R.layout.fragment_mine) {
         super.initObserver()
         observe(mViewModel.stateLiveData) {
             it?.user?.apply {
-                mTvName?.text = "${username}"
-                mGroupUserInfo?.visibility = View.VISIBLE
+                mBinding?.tvName?.text = "${username}"
+                mBinding?.groupUserInfo?.visibility = View.VISIBLE
             }
             it?.coin?.apply {
-                mTvCredits?.paint?.flags = Paint.UNDERLINE_TEXT_FLAG
-                mTvCredits?.paint?.isAntiAlias = true
-                mTvCredits?.text = "积分：$coinCount 排名：$rank"
+                mBinding?.tvCredits?.paint?.flags = Paint.UNDERLINE_TEXT_FLAG
+                mBinding?.tvCredits?.paint?.isAntiAlias = true
+                mBinding?.tvCredits?.text = "积分：$coinCount 排名：$rank"
             }
         }
     }

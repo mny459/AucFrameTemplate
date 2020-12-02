@@ -10,24 +10,26 @@ import com.google.android.flexbox.FlexboxLayoutManager
 import com.google.android.flexbox.JustifyContent
 import com.mny.wan.base.BaseFragment
 import com.mny.wan.pkg.R
+import com.mny.wan.pkg.base.BaseBindingFragment
 import com.mny.wan.pkg.data.remote.model.BeanHotKey
 import com.mny.wan.pkg.data.remote.model.BeanMultiType
+import com.mny.wan.pkg.databinding.FragmentSearchBinding
 import com.mny.wan.pkg.presentation.adapter.tag.TagAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class SearchFragment : BaseFragment(R.layout.fragment_search) {
-    private var mRvHotKey: RecyclerView? = null
+class SearchFragment : BaseBindingFragment<FragmentSearchBinding>() {
+    //    private var mRvHotKey: RecyclerView? = null
     private val mViewModel: SearchViewModel by activityViewModels()
     override fun initView(view: View) {
         super.initView(view)
-        mRvHotKey = view.findViewById(R.id.rvSearch)
+//        mRvHotKey = view.findViewById(R.id.rvSearch)
         val layoutManager = FlexboxLayoutManager(mActivity)
         layoutManager.flexDirection = FlexDirection.ROW
         layoutManager.justifyContent = JustifyContent.FLEX_START
-        mRvHotKey?.layoutManager = layoutManager
+        mBinding?.rvSearch?.layoutManager = layoutManager
 
-        mViewModel.mHotKey?.observe(this, object : Observer<MutableList<BeanHotKey>> {
+        mViewModel.mHotKey.observe(this, object : Observer<MutableList<BeanHotKey>> {
             override fun onChanged(t: MutableList<BeanHotKey>?) {
                 t?.apply {
                     val tags = mutableListOf<BeanMultiType>()
@@ -41,7 +43,7 @@ class SearchFragment : BaseFragment(R.layout.fragment_search) {
                             mViewModel.search(it.name)
                         }
                     }
-                    mRvHotKey?.adapter = adapter
+                    mBinding?.rvSearch?.adapter = adapter
                 }
             }
         })

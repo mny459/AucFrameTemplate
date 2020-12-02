@@ -2,28 +2,40 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/homeFragment"
+        android:id="@+id/main_home_nav_graph"
         android:icon="@drawable/ic_home"
         android:title="@string/action_home"
         app:showAsAction="ifRoom" />
+    <!--    <item-->
+    <!--        android:id="@+id/weChatFragment"-->
+    <!--        android:icon="@drawable/ic_wechat"-->
+    <!--        android:title="@string/action_we_chat_public"-->
+    <!--        app:showAsAction="ifRoom" />-->
+    <!--    <item-->
+    <!--        android:id="@+id/projectFragment"-->
+    <!--        android:icon="@drawable/ic_project"-->
+    <!--        android:title="@string/action_project"-->
+    <!--        app:showAsAction="ifRoom" />-->
+    <!--    <item-->
+    <!--        android:id="@+id/systemFragment"-->
+    <!--        android:icon="@drawable/ic_system"-->
+    <!--        android:title="@string/action_system"-->
+    <!--        app:showAsAction="ifRoom" />-->
     <item
-        android:id="@+id/weChatFragment"
-        android:icon="@drawable/ic_wechat"
-        android:title="@string/action_we_chat_public"
-        app:showAsAction="ifRoom" />
-    <item
-        android:id="@+id/projectFragment"
-        android:icon="@drawable/ic_project"
-        android:title="@string/action_project"
-        app:showAsAction="ifRoom" />
-    <item
-        android:id="@+id/systemFragment"
-        android:icon="@drawable/ic_system"
-        android:title="@string/action_system"
-        app:showAsAction="ifRoom" />
-    <item
-        android:id="@+id/QAFragment"
+        android:id="@+id/main_qa_nav_graph"
         android:icon="@drawable/ic_qa"
         android:title="@string/action_qa"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/main_discover_nav_graph"
+        android:icon="@drawable/ic_discover"
+        android:iconTint="@color/black"
+        android:title="@string/action_discover"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/main_mine_nav_graph"
+        android:icon="@drawable/ic_mine"
+        android:title="@string/action_mine"
         app:showAsAction="ifRoom" />
 </menu>

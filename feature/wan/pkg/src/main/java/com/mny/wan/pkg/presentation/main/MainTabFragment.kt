@@ -38,7 +38,11 @@ class MainTabFragment : BaseFragment(R.layout.fragment_main_tab) {
     override fun initView(view: View) {
         super.initView(view)
         mViewPager = view.findViewById(R.id.view_pager)
-        mViewPager?.adapter = mVpAdapter
+        mViewPager?.apply {
+            adapter = mVpAdapter
+            // 禁止 ViewPager 滑动切换
+            isUserInputEnabled = false
+        }
         mBottomNavView = view.findViewById(R.id.navigation)
         mBottomNavView?.apply {
             LogUtils.d("===================================")
