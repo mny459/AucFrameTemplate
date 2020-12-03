@@ -23,3 +23,28 @@ sealed class MojitoResult<out T : Any> {
  */
 val MojitoResult<*>.succeeded
     get() = this is MojitoResult.Success && data != null
+
+inline fun <reified T : Any> MojitoResult<T>.doSuccess(success: (data: T?) -> Unit) {
+    if (this is MojitoResult.Success) {
+        success.invoke(data)
+    }
+}
+
+inline fun <reified T : Any> MojitoResult<T>.doFailure(failure: (Throwable?) -> Unit) {
+    if (this is MojitoResult.Error) {
+        failure.invoke(exception)
+    }
+}
+
+inline fun <reified T : Any> MojitoResult<T>.doLoading(loading: () -> Unit) {
+    if (this is MojitoResult.Loading) {
+        loading.invoke()
+    }
+}
+
+// TODO
+inline fun <reified T : Any> MojitoResult<T>.doComplete(completer: () -> Unit) {
+    if (this is MojitoResult.Loading) {
+        completer.invoke()
+    }
+}

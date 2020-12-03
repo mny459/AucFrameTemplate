@@ -12,3 +12,5 @@
 ## 已知问题
 - Navigation 不保存状态
 - ViewPager2 和 RecyclerView 滑动冲突
+
+./gradlew dependencyUpdates

@@ -19,34 +19,32 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class SearchFragment : BaseBindingFragment<FragmentSearchBinding>() {
-    //    private var mRvHotKey: RecyclerView? = null
+
     private val mViewModel: SearchViewModel by activityViewModels()
+
     override fun initView(view: View) {
         super.initView(view)
-//        mRvHotKey = view.findViewById(R.id.rvSearch)
         val layoutManager = FlexboxLayoutManager(mActivity)
         layoutManager.flexDirection = FlexDirection.ROW
         layoutManager.justifyContent = JustifyContent.FLEX_START
         mBinding?.rvSearch?.layoutManager = layoutManager
 
-        mViewModel.mHotKey.observe(this, object : Observer<MutableList<BeanHotKey>> {
-            override fun onChanged(t: MutableList<BeanHotKey>?) {
-                t?.apply {
-                    val tags = mutableListOf<BeanMultiType>()
-                    tags.add(BeanMultiType("热门搜索", BeanMultiType.TYPE_PARENT))
-                    this.forEach {
-                        tags.add(BeanMultiType(it, BeanMultiType.TYPE_CHILD))
-                    }
-                    val adapter = TagAdapter(tags) {
-                        if (it is BeanHotKey) {
-                            LogUtils.d("$it")
-                            mViewModel.search(it.name)
-                        }
-                    }
-                    mBinding?.rvSearch?.adapter = adapter
+        mViewModel.mHotKey.observe(this) { hotKeys ->
+            hotKeys?.apply {
+                val tags = mutableListOf<BeanMultiType>()
+                tags.add(BeanMultiType("热门搜索", BeanMultiType.TYPE_PARENT))
+                this.forEach {
+                    tags.add(BeanMultiType(it, BeanMultiType.TYPE_CHILD))
                 }
+                val adapter = TagAdapter(tags) {
+                    if (it is BeanHotKey) {
+                        LogUtils.d("$it")
+                        mViewModel.search(it.name)
+                    }
+                }
+                mBinding?.rvSearch?.adapter = adapter
             }
-        })
+        }
     }
 
     override fun onFirstInit() {

@@ -23,10 +23,6 @@ class MainActivity : BaseActivity() {
         if (savedInstanceState == null) {
             setupBottomNavigationBar()
         }
-//        val navView: BottomNavigationView = findViewById(R.id.navigation)
-//        val navController = Navigation.findNavController(this, R.id.nav_host_fragment)
-//
-//        NavigationUI.setupWithNavController(navView, navController)
     }
 
     override fun onRestoreInstanceState(savedInstanceState: Bundle) {
@@ -42,7 +38,7 @@ class MainActivity : BaseActivity() {
         val navGraphIds = listOf(
             R.navigation.main_home_nav_graph,
             R.navigation.main_qa_nav_graph,
-            R.navigation.main_discover_nav_graph,
+//            R.navigation.main_discover_nav_graph,
             R.navigation.main_mine_nav_graph
         )
         // Setup the bottom navigation view with a list of navigation graphs

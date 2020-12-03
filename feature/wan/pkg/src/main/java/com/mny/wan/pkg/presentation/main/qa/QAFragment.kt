@@ -11,7 +11,9 @@ import kotlinx.coroutines.flow.collectLatest
 
 @AndroidEntryPoint
 class QAFragment : BaseArticleFragment(R.layout.fragment_q_a) {
+
     private val mViewModel: QAViewModel by activityViewModels()
+
     override fun initArticleObserver() {
         lifecycleScope.launchWhenCreated {
             @OptIn(ExperimentalCoroutinesApi::class)

@@ -6,14 +6,14 @@
     android:layout_height="match_parent"
     tools:context=".presentation.mine.MineFragment">
 
-    <!--    <View-->
-    <!--        android:layout_width="0dp"-->
-    <!--        android:layout_height="0dp"-->
-    <!--        android:background="@color/colorPrimary"-->
-    <!--        app:layout_constraintBottom_toTopOf="@id/userItems"-->
-    <!--        app:layout_constraintLeft_toLeftOf="parent"-->
-    <!--        app:layout_constraintRight_toRightOf="parent"-->
-    <!--        app:layout_constraintTop_toTopOf="parent" />-->
+    <View
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="?attr/colorPrimary"
+        app:layout_constraintBottom_toTopOf="@id/ll_settings"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.constraintlayout.widget.Group
         android:id="@+id/groupUserInfo"
@@ -30,7 +30,8 @@
         android:padding="@dimen/dp_16"
         android:src="@drawable/ic_logout"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="?attr/colorOnPrimary" />
 
     <ImageView
         android:id="@+id/imgAvatar"
@@ -40,13 +41,15 @@
         android:src="@drawable/ic_android"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="?attr/colorOnPrimary" />
 
     <TextView
         android:id="@+id/tvName"
         style="@style/CommonTextView.Large"
         android:layout_marginTop="@dimen/dp_16"
         android:text="点我登录"
+        android:textColor="?attr/colorOnPrimary"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/imgAvatar" />
@@ -56,13 +59,16 @@
         style="@style/CommonTextView"
         android:layout_marginTop="@dimen/dp_8"
         android:text="积分："
+        android:textColor="?attr/colorOnPrimary"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvName" />
 
     <LinearLayout
+        android:id="@+id/ll_settings"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
         android:orientation="vertical"
         app:layout_constraintTop_toBottomOf="@id/tvCredits">
 

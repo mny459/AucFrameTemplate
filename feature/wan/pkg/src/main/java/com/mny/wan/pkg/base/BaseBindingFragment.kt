@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.viewbinding.ViewBinding
 import com.mny.wan.base.BaseFragment
 import java.lang.reflect.ParameterizedType
+import kotlin.reflect.KClass
 
 abstract class BaseBindingFragment<VB : ViewBinding> : BaseFragment(0) {
     protected var mBinding: VB? = null

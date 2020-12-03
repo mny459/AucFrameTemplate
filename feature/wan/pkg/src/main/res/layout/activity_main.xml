@@ -28,12 +28,8 @@
         style="@style/Widget.Wan.BottomNavigationView"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_52"
-        android:background="?attr/colorPrimary"
-        android:elevation="@dimen/dp_4"
         android:outlineProvider="bounds"
         android:translationZ="@dimen/dp_8"
-        app:itemIconTint="?attr/colorOnPrimary"
-        app:itemTextColor="?attr/colorOnPrimary"
         app:menu="@menu/navigation_items"
         tools:visibility="visible" />
 

@@ -16,7 +16,7 @@ fun Fragment.enterFullScreen() {
     // and API 19 (KitKat). It is safe to use them, as they are inlined
     // at compile-time and do nothing on earlier devices.
     lifecycleScope.launch {
-        delay(100)
+        delay(10)
         val flags = View.SYSTEM_UI_FLAG_LOW_PROFILE or
                 View.SYSTEM_UI_FLAG_FULLSCREEN or
                 View.SYSTEM_UI_FLAG_LAYOUT_STABLE or

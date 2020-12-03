@@ -1,6 +1,5 @@
 package com.mny.wan.pkg.presentation.main.home
 
-import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
@@ -12,10 +11,10 @@ import com.mny.wan.pkg.R
 import com.mny.wan.pkg.base.BaseArticleFragment
 import com.mny.wan.pkg.data.remote.model.BeanArticle
 import com.mny.wan.pkg.data.remote.model.BeanBanner
+import com.mny.wan.pkg.extension.enterFullScreen
+import com.mny.wan.pkg.extension.quitFullScreen
 import com.mny.wan.pkg.presentation.adapter.BannerAdapter
 import com.mny.wan.pkg.presentation.adapter.TopArticleAdapter
-import com.mny.wan.pkg.presentation.main.wechat.article.WeChatArticleFragment
-import com.mny.wan.pkg.presentation.mine.MineActivity
 import com.mny.wan.pkg.presentation.search.SearchActivity
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -47,8 +46,21 @@ class HomeFragment : BaseArticleFragment(R.layout.fragment_home) {
                 mAdapter.submitData(it)
             }
         }
-        observe(mViewModel.mBannerList, BannerObserver())
-        observe(mViewModel.mTopArticles, TopArticleObserver())
+        observe(mViewModel.mBannerList) {
+            it?.apply {
+                refreshBanner(this)
+            }
+        }
+
+        observe(mViewModel.mTopArticles) {
+            it?.apply {
+                mTopArticleAdapter.replaceTopArticles(this)
+            }
+        }
+    }
+
+    private fun refreshBanner(banners: List<BeanBanner>) {
+        mBannerAdapter.replaceBanners(banners)
     }
 
     override fun onFirstInit() {
@@ -56,20 +68,14 @@ class HomeFragment : BaseArticleFragment(R.layout.fragment_home) {
         mViewModel.loadData()
     }
 
-    inner class BannerObserver : Observer<List<BeanBanner>> {
-        override fun onChanged(t: List<BeanBanner>?) {
-            t?.apply {
-                mBannerAdapter.replaceBanners(this)
-            }
-        }
+    override fun onResume() {
+        super.onResume()
+        enterFullScreen()
     }
 
-    inner class TopArticleObserver : Observer<List<BeanArticle>> {
-        override fun onChanged(t: List<BeanArticle>?) {
-            t?.apply {
-                mTopArticleAdapter.replaceTopArticles(this)
-            }
-        }
+    override fun onPause() {
+        super.onPause()
+        quitFullScreen()
     }
 
     companion object {

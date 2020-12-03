@@ -35,21 +35,17 @@ class WebViewActivity : BaseToolbarActivity() {
 
     override fun initObserver() {
         super.initObserver()
-        observe(mViewModel.stateLiveData, WebViewObserver())
+        observe(mViewModel.stateLiveData) {
+            it?.apply {
+                mToolbar?.title = title
+            }
+        }
     }
 
     override fun onNewIntent(intent: Intent?) {
         super.onNewIntent(intent)
         mUrl = intent?.getStringExtra(KEY_URL) ?: mUrl
         LogUtils.d("mUrl = $mUrl")
-    }
-
-    inner class WebViewObserver : Observer<WebViewViewModel.ViewState> {
-        override fun onChanged(t: WebViewViewModel.ViewState?) {
-            t?.apply {
-                mToolbar?.title = title
-            }
-        }
     }
 
     companion object {

@@ -13,13 +13,16 @@ import com.mny.wan.pkg.base.BaseBindingFragment
 import com.mny.wan.pkg.databinding.FragmentMineBinding
 import com.mny.wan.pkg.presentation.coin.CoinDetailActivity
 import com.mny.wan.pkg.presentation.collect.CollectActivity
+import com.mny.wan.pkg.presentation.setting.ThemeSettingsActivity
 import com.mny.wan.pkg.utils.ThemeHelper
 import com.mny.wan.pkg.widget.CommonRowView
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MineFragment : BaseBindingFragment<FragmentMineBinding>() {
+
     private val mViewModel: MineViewModel by viewModels()
+
     override fun initView(view: View) {
         super.initView(view)
 
@@ -36,7 +39,9 @@ class MineFragment : BaseBindingFragment<FragmentMineBinding>() {
                 ThemeHelper.setLightMode()
             }
         }
-        mBinding?.rowSettings?.setOnClickListener { }
+        mBinding?.rowSettings?.setOnClickListener {
+            ThemeSettingsActivity.show()
+        }
         mBinding?.rowAbout?.setOnClickListener { }
         mBinding?.tvCredits?.setOnClickListener { CoinDetailActivity.show() }
     }
@@ -50,7 +55,7 @@ class MineFragment : BaseBindingFragment<FragmentMineBinding>() {
         super.initObserver()
         observe(mViewModel.stateLiveData) {
             it?.user?.apply {
-                mBinding?.tvName?.text = "${username}"
+                mBinding?.tvName?.text = "$username"
                 mBinding?.groupUserInfo?.visibility = View.VISIBLE
             }
             it?.coin?.apply {

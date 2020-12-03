@@ -29,6 +29,11 @@ class SearchActivity : BaseToolbarActivity() {
         title = "搜索"
     }
 
+    override fun initObserver() {
+        super.initObserver()
+        mViewModel.observerSearchKeys()
+    }
+
     @SuppressLint("RestrictedApi")
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         // 初始化菜单
@@ -72,11 +77,8 @@ class SearchActivity : BaseToolbarActivity() {
 
                 override fun onQueryTextChange(s: String): Boolean {
                     // 当文字改变的时候，不会实时搜索，只在为null的情况下进行搜索
-                    if (TextUtils.isEmpty(s)) {
-                        search("")
-                        return true
-                    }
-                    return false
+                    search(s)
+                    return true
                 }
             })
         }

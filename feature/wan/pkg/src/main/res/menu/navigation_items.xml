@@ -26,12 +26,12 @@
         android:icon="@drawable/ic_qa"
         android:title="@string/action_qa"
         app:showAsAction="ifRoom" />
-    <item
-        android:id="@+id/main_discover_nav_graph"
-        android:icon="@drawable/ic_discover"
-        android:iconTint="@color/black"
-        android:title="@string/action_discover"
-        app:showAsAction="ifRoom" />
+<!--    <item-->
+<!--        android:id="@+id/main_discover_nav_graph"-->
+<!--        android:icon="@drawable/ic_discover"-->
+<!--        android:iconTint="@color/black"-->
+<!--        android:title="@string/action_discover"-->
+<!--        app:showAsAction="ifRoom" />-->
 
     <item
         android:id="@+id/main_mine_nav_graph"

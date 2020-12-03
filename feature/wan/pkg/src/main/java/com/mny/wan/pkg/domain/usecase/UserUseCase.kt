@@ -14,7 +14,7 @@ import java.lang.Exception
  * Desc:
  */
 class UserUseCase @Inject constructor(private val mRepository: LoginRepository) {
-
+    
     suspend fun login(username: String, password: String): Flow<MojitoResult<UserInfoModel>> {
         return flow {
             val response = mRepository.login(username, password)

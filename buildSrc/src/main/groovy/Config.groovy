@@ -13,7 +13,7 @@ class Config {
     static gradlePluginVersion = '4.1.1'
     static kotlinVersion = '1.4.10'
     static supportVersion = '27.1.1'
-    static nav_version = "2.3.1"
+    static nav_version = "2.3.2"
     static room_version = "2.2.5"
     static hiltVersion = "2.28-alpha"
     static hiltViewModuleVersion = "1.0.0-alpha02"
@@ -59,8 +59,9 @@ class Config {
             plugin_gradle          : new DepConfig(pluginPath: "com.android.tools.build:gradle:$gradlePluginVersion"),
             plugin_kotlin          : new DepConfig(pluginPath: "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"),
             plugin_hilt            : new DepConfig(pluginPath: "com.google.dagger:hilt-android-gradle-plugin:2.28-alpha", pluginId: "dagger.hilt.android.plugin"),
-            plugin_api             : new DepConfig(pluginPath: "com.blankj:api-gradle-plugin:1.2", pluginId: "com.blankj.api"),
-            plugin_bus             : new DepConfig(pluginPath: "com.blankj:bus-gradle-plugin:2.4", pluginId: "com.blankj.bus"),
+            plugin_api             : new DepConfig(pluginPath: "com.blankj:api-gradle-plugin:1.5", pluginId: "com.blankj.api"),
+            plugin_bus             : new DepConfig(pluginPath: "com.blankj:bus-gradle-plugin:2.6", pluginId: "com.blankj.bus"),
+            plugin_version_check   : new DepConfig(pluginPath: "com.github.ben-manes:gradle-versions-plugin:0.36.0"),
 
             support_appcompat_v7   : new DepConfig("com.android.support:appcompat-v7:$supportVersion"),
             support_design         : new DepConfig("com.android.support:design:$supportVersion"),
@@ -68,11 +69,11 @@ class Config {
             support_constraint     : new DepConfig("com.android.support.constraint:constraint-layout:1.1.3"),
 
             kotlin                 : new DepConfig("org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion"),
-            utilcode               : new DepConfig("com.blankj:utilcode:1.29.0"),
-            free_proguard          : new DepConfig("com.blankj:free-proguard:1.0.1"),
-            swipe_panel            : new DepConfig("com.blankj:swipe-panel:1.1"),
+            utilcode               : new DepConfig("com.blankj:utilcode:1.30.5"),
+            free_proguard          : new DepConfig("com.blankj:free-proguard:1.0.2"),
+            swipe_panel            : new DepConfig("com.blankj:swipe-panel:1.2"),
 
-            leakcanary_android     : new DepConfig("com.squareup.leakcanary:leakcanary-android:2.1"),
+            leakcanary_android     : new DepConfig("com.squareup.leakcanary:leakcanary-android:2.5"),
             arouter                : new DepConfig("com.alibaba:arouter-api:1.3.1"),
             compiler               : new DepConfig("com.alibaba:arouter-compiler:1.1.4"),
             kotlinReflect          : new DepConfig("org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"),
@@ -83,9 +84,9 @@ class Config {
 
             appcompat              : new DepConfig("androidx.appcompat:appcompat:1.3.0-alpha01"),
             recyclerView           : new DepConfig("androidx.recyclerview:recyclerview:1.2.0-alpha03"),
-            coreKtx                : new DepConfig("androidx.core:core-ktx:1.2.0"),
+            coreKtx                : new DepConfig("androidx.core:core-ktx:1.3.2"),
             activityKtx            : new DepConfig("androidx.activity:activity-ktx:1.2.0-alpha04"),
-            constraintlayout       : new DepConfig("androidx.constraintlayout:constraintlayout:2.0.0-beta6"),
+            constraintlayout       : new DepConfig("androidx.constraintlayout:constraintlayout:2.0.4"),
             cardview               : new DepConfig("androidx.cardview:cardview:1.0.0"),
             multidex               : new DepConfig("androidx.multidex:multidex:2.0.0"),
             legacy                 : new DepConfig("androidx.legacy:legacy-support-v4:1.0.0"),
@@ -112,7 +113,7 @@ class Config {
             service                : new DepConfig("androidx.lifecycle:lifecycle-service:$lifecycle_version"),
 
 
-            // 无需直接引用
+            // ����ֱ������
             navigation_runtime     : new DepConfig("androidx.navigation:navigation-runtime:$nav_version"),
 
             navigation_fragment    : new DepConfig("androidx.navigation:navigation-fragment:$nav_version"),
@@ -165,8 +166,7 @@ class Config {
 
             materialiconlib        : new DepConfig("net.steamcrafted:materialiconlib:1.1.5"),
             permission             : new DepConfig("com.yanzhenjie.permission:x:2.0.1"),
-            brvah                  : new DepConfig("com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.6"),
-            mmkv                   : new DepConfig("com.tencent:mmkv-static:1.2.1"),
+            mmkv                   : new DepConfig("com.tencent:mmkv-static:1.2.6"),
 
 
 
@@ -183,24 +183,28 @@ class Config {
 
             retrofit               : new DepConfig("com.squareup.retrofit2:retrofit:${retrofit_version}"),
             gsonConverter          : new DepConfig("com.squareup.retrofit2:converter-gson:${retrofit_version}"),
-            okHttp4                : new DepConfig("com.squareup.okhttp3:okhttp:4.6.0"),
+            okHttp4                : new DepConfig("com.squareup.okhttp3:okhttp:4.9.0"),
 
             androideventbus        : new DepConfig("org.simple:androideventbus:1.0.5.1"),
             eventbus               : new DepConfig("org.greenrobot:eventbus:3.1.1"),
 
 
-            refresh_core           : new DepConfig("com.scwang.smart:refresh-layout-kernel:$version"),   //核心必须依赖
-            refresh_headerClassics : new DepConfig("com.scwang.smart:refresh-header-classics:$version"), //经典刷新头
-            refresh_headerRadar    : new DepConfig("com.scwang.smart:refresh-header-radar:$version"),   //雷达刷新头
-            refresh_headerFalsify  : new DepConfig("com.scwang.smart:refresh-header-falsify:$version"),   //虚拟刷新头
-            refresh_headerMaterial : new DepConfig("com.scwang.smart:refresh-header-material:$version"),  //谷歌刷新头
-            refresh_headerTwoLevel : new DepConfig("com.scwang.smart:refresh-header-two-level:$version"), //二级刷新头
-            refresh_footerBall     : new DepConfig("com.scwang.smart:refresh-footer-ball:$version"),   //球脉冲加载
-            refresh_footerClassics : new DepConfig("com.scwang.smart:refresh-footer-classics:$version"),   //经典加载
+            refresh_core           : new DepConfig("com.scwang.smart:refresh-layout-kernel:$version"),   //���ı�������
+            refresh_headerClassics : new DepConfig("com.scwang.smart:refresh-header-classics:$version"), //����ˢ��ͷ
+            refresh_headerRadar    : new DepConfig("com.scwang.smart:refresh-header-radar:$version"),   //�״�ˢ��ͷ
+            refresh_headerFalsify  : new DepConfig("com.scwang.smart:refresh-header-falsify:$version"),   //����ˢ��ͷ
+            refresh_headerMaterial : new DepConfig("com.scwang.smart:refresh-header-material:$version"),  //�ȸ�ˢ��ͷ
+            refresh_headerTwoLevel : new DepConfig("com.scwang.smart:refresh-header-two-level:$version"), //����ˢ��ͷ
+            refresh_footerBall     : new DepConfig("com.scwang.smart:refresh-footer-ball:$version"),   //���������
+            refresh_footerClassics : new DepConfig("com.scwang.smart:refresh-footer-classics:$version"),   //�������
 
             qmui                   : new DepConfig("com.qmuiteam:qmui:2.0.0-alpha10"),
 
             roundedImageView       : new DepConfig("com.makeramen:roundedimageview:2.3.0"),
             circleimageview        : new DepConfig("de.hdodenhof:circleimageview:3.1.0"),
+            banner                 : new DepConfig("com.youth.banner:banner:2.1.0"),
+            datastore              : new DepConfig("androidx.datastore:datastore:1.0.0-alpha03"),
+            flexbox                : new DepConfig("com.google.android:flexbox:1.1.1"),
+            brvah                  : new DepConfig("com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.50"),
     ]
 }

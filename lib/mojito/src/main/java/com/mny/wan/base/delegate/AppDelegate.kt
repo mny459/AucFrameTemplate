@@ -2,7 +2,9 @@ package com.mny.wan.base.delegate
 
 import android.app.Application
 import android.content.Context
+import androidx.fragment.app.FragmentManager
 import com.blankj.utilcode.util.CrashUtils
+import com.blankj.utilcode.util.LogUtils
 import com.mny.wan.di.factory.GlobalConfigFactory
 import com.mny.wan.di.module.GlobalModuleConfig
 import com.mny.wan.integration.ManifestParser
@@ -18,6 +20,7 @@ class AppDelegate(private val mApplication: Application?,
                   private var mModuleConfigs: MutableList<ModuleConfig> = mutableListOf(),
                   private val mAppLifecycleList: MutableList<AppLifecycle> = mutableListOf(),
                   private val mActivityLifecycleList: MutableList<Application.ActivityLifecycleCallbacks> = mutableListOf(),
+                  private val mFragmentLifecycleList: MutableList<FragmentManager.FragmentLifecycleCallbacks> = mutableListOf(),
                   private var mActivityLifecycle: Application.ActivityLifecycleCallbacks? = MojitoActivityLifecycle()
 ) : AppLifecycle {
 
@@ -28,6 +31,7 @@ class AppDelegate(private val mApplication: Application?,
             mModuleConfigs.forEach {
                 it.injectAppLifecycle(this, mAppLifecycleList)
                 it.injectActivityLifecycle(this, mActivityLifecycleList)
+                it.injectFragmentLifecycle(this, mFragmentLifecycleList)
             }
         }
     }
@@ -44,8 +48,8 @@ class AppDelegate(private val mApplication: Application?,
         }
         mActivityLifecycleList.forEach { mApplication?.registerActivityLifecycleCallbacks(it) }
         mAppLifecycleList.forEach { it.onCreate(application) }
-        CrashUtils.init { crashInfo, e ->
-//            LogUtils.e("$crashInfo", e)
+        CrashUtils.init { crashInfo ->
+            LogUtils.e("$crashInfo")
         }
     }
 

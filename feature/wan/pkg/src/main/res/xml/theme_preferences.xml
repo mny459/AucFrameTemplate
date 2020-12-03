@@ -1,0 +1,24 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ListPreference
+        android:entries="@array/theme_values"
+        android:entryValues="@array/theme_values">
+
+    </ListPreference>
+    <SwitchPreferenceCompat
+        android:summary="开启后，将跟随系统打开或关闭深色模式"
+        app:allowDividerBelow="true"
+        app:iconSpaceReserved="false"
+        app:key="follow_system"
+        app:title="跟随系统" />
+
+    <SwitchPreferenceCompat
+        android:summary="开启后，将跟随系统打开或关闭深色模式"
+        android:summaryOff="普通模式"
+        android:summaryOn="深色模式"
+        app:allowDividerAbove="true"
+        app:dependency="follow_system"
+        app:iconSpaceReserved="false"
+        app:title="手动选择" />
+
+</PreferenceScreen>

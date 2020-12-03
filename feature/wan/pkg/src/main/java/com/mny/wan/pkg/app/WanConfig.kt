@@ -46,7 +46,7 @@ class WanConfig : ModuleConfig {
                             override fun loadForRequest(url: HttpUrl): List<Cookie> {
                                 val list = cookieStore[url.host]
                                 return if (list.isNullOrEmpty()) {
-                                    val tokenPass =UserHelper.getTokenPass()
+                                    val tokenPass = UserHelper.getTokenPass()
                                     if (UserHelper.isLogin() && tokenPass.isNotEmpty()
                                     ) {
                                         val cookie = arrayListOf<Cookie>()
@@ -121,5 +121,6 @@ class WanConfig : ModuleConfig {
         lifecycles: MutableList<FragmentManager.FragmentLifecycleCallbacks>
     ) {
         MojitoLog.d("injectFragmentLifecycle")
+        lifecycles.add(WanFragmentLifecycleImpl())
     }
 }

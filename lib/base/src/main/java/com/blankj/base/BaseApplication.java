@@ -72,7 +72,7 @@ public class BaseApplication extends Application {
     private void initCrash() {
         CrashUtils.init(new CrashUtils.OnCrashListener() {
             @Override
-            public void onCrash(String crashInfo, Throwable e) {
+            public void onCrash(CrashUtils.CrashInfo crashInfo) {
                 LogUtils.e(crashInfo);
                 AppUtils.relaunchApp();
             }

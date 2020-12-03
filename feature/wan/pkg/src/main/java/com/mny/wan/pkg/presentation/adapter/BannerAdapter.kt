@@ -6,10 +6,9 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.mny.wan.pkg.R
 import com.mny.wan.pkg.data.remote.model.BeanBanner
-import com.mny.wan.pkg.imageloader.GlideImageLoader
 import com.mny.wan.pkg.presentation.webview.WebViewActivity
 import com.youth.banner.Banner
-import com.youth.banner.BannerConfig
+import com.youth.banner.config.IndicatorConfig
 import com.youth.banner.listener.OnBannerListener
 
 class BannerAdapter : RecyclerView.Adapter<BannerViewHolder>() {
@@ -34,19 +33,18 @@ class BannerAdapter : RecyclerView.Adapter<BannerViewHolder>() {
     }
 }
 
-class BannerViewHolder(view: View) : RecyclerView.ViewHolder(view), OnBannerListener {
-    val mBanner: Banner = view.findViewById<Banner>(R.id.banner)
-    var mBanners: List<String>? = null
+class BannerViewHolder(view: View) : RecyclerView.ViewHolder(view), OnBannerListener<String> {
+    val mBanner: Banner<String, BannerImageAdapter> = view.findViewById(R.id.banner)
+    lateinit var mBannerImageAdapter: BannerImageAdapter
 
     init {
-        mBanner.setImageLoader(GlideImageLoader())
-        mBanner.setIndicatorGravity(BannerConfig.RIGHT)
+        mBanner.setIndicatorGravity(IndicatorConfig.Direction.RIGHT)
         mBanner.setOnBannerListener(this)
     }
 
     fun bind(banners: List<String>) {
-        mBanners = banners
-        mBanner.setImages(banners)
+        mBannerImageAdapter = BannerImageAdapter(banners)
+        mBanner.adapter = mBannerImageAdapter
         //banner设置方法全部调用完毕时最后调用
         mBanner.start()
     }
@@ -59,9 +57,11 @@ class BannerViewHolder(view: View) : RecyclerView.ViewHolder(view), OnBannerList
         }
     }
 
-    override fun OnBannerClick(position: Int) {
-        mBanners?.apply {
-            WebViewActivity.show(get(position))
+    override fun OnBannerClick(data: String?, position: Int) {
+        data?.apply {
+            WebViewActivity.show(this)
         }
     }
+
+
 }

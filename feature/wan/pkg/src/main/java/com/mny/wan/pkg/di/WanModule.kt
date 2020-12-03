@@ -28,12 +28,3 @@ abstract class WanModule {
     @Binds
     abstract fun bindWanRepository(repository: WanRepositoryImpl): WanRepository
 }
-
-//@InstallIn(ApplicationComponent::class)
-//@Module
-//interface WanAppModule {
-//    @Singleton
-//    @Provides
-//    fun provideWanService(repository: IRepository): WanService =
-//        repository.obtainRetrofitService(WanService::class.java)
-//}

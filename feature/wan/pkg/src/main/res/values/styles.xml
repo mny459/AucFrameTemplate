@@ -76,6 +76,8 @@
 
     <style name="Widget.Wan.BottomNavigationView" parent="Widget.MaterialComponents.BottomNavigationView">
         <item name="labelVisibilityMode">labeled</item>
+        <!-- 神坑属性 -->
+        <item name="elevation">0dp</item>
     </style>
 
     <style name="Widget.Wan.FloatingActionButton" parent="Widget.MaterialComponents.FloatingActionButton">
