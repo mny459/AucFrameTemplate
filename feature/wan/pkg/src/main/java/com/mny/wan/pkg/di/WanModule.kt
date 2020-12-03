@@ -1,6 +1,5 @@
 package com.mny.wan.pkg.di
 
-import com.mny.wan.data.IRepository
 import com.mny.wan.pkg.data.remote.service.WanService
 import com.mny.wan.pkg.data.repository.LoginRepositoryImpl
 import com.mny.wan.pkg.data.repository.WanRepositoryImpl
@@ -10,8 +9,8 @@ import dagger.Binds
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
-import dagger.hilt.android.components.ActivityComponent
 import dagger.hilt.android.components.ApplicationComponent
+import retrofit2.Retrofit
 import javax.inject.Singleton
 
 /**
@@ -27,4 +26,14 @@ abstract class WanModule {
     @Singleton
     @Binds
     abstract fun bindWanRepository(repository: WanRepositoryImpl): WanRepository
+}
+
+@InstallIn(ApplicationComponent::class)
+@Module
+object WanNetModule {
+    @Provides
+    @Singleton
+    fun providePokemonService(retrofit: Retrofit): WanService {
+        return retrofit.create(WanService::class.java)
+    }
 }

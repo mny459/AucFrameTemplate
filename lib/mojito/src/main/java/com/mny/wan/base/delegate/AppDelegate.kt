@@ -49,7 +49,7 @@ class AppDelegate(private val mApplication: Application?,
         mActivityLifecycleList.forEach { mApplication?.registerActivityLifecycleCallbacks(it) }
         mAppLifecycleList.forEach { it.onCreate(application) }
         CrashUtils.init { crashInfo ->
-            LogUtils.e("$crashInfo")
+//            LogUtils.e("$crashInfo")
         }
     }
 

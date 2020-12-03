@@ -18,6 +18,13 @@ abstract class BaseActivity : AppCompatActivity(), IActivity {
         mActivity = this
         initWindow(savedInstanceState)
         super.onCreate(savedInstanceState)
+        if (!initContentView(savedInstanceState)) return
+        initView(savedInstanceState)
+        initObserver()
+        initData(savedInstanceState)
+    }
+
+    open fun initContentView(savedInstanceState: Bundle?): Boolean {
         try {
             if (initArgs(intent.extras, savedInstanceState)) {
                 val layoutResID = layoutId(savedInstanceState)
@@ -28,16 +35,14 @@ abstract class BaseActivity : AppCompatActivity(), IActivity {
             } else {
                 LogUtils.d("Activity 间跳转的参数不对，${this.javaClass.name}")
                 finish()
-                return
+                return false
             }
         } catch (e: Exception) {
             LogUtils.v("$e")
             if (e is InflateException) throw e
-//            e.printStackTrace()
+    //            e.printStackTrace()
         }
-        initView(savedInstanceState)
-        initObserver()
-        initData(savedInstanceState)
+        return true
     }
 
     override fun initWindow(savedInstanceState: Bundle?) {}

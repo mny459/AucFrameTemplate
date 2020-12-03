@@ -9,32 +9,29 @@ import com.mny.wan.base.BaseActivity
 import java.lang.reflect.ParameterizedType
 
 abstract class BaseBindingActivity<VB : ViewBinding> : BaseActivity() {
-    private lateinit var mBinding: VB
-    override fun onCreate(savedInstanceState: Bundle?) {
-        mActivity = this
-        initWindow(savedInstanceState)
-        super.onCreate(savedInstanceState)
+    protected lateinit var mBinding: VB
+
+    override fun initContentView(savedInstanceState: Bundle?): Boolean {
         try {
             if (initArgs(intent.extras, savedInstanceState)) {
                 // 通过反射实例化 ViewBinding
                 val type = javaClass.genericSuperclass as ParameterizedType
                 val aClass = type.actualTypeArguments[0] as Class<*>
                 val method = aClass.getDeclaredMethod("inflate", LayoutInflater::class.java)
-                mBinding = method.invoke(null, layoutInflater) as VB
-                setContentView(mBinding.root)
+                val binding = method.invoke(null, layoutInflater) as VB
+                setContentView(binding.root)
+                mBinding = binding
             } else {
                 LogUtils.d("Activity 间跳转的参数不对，${this.javaClass.name}")
                 finish()
-                return
+                return false
             }
         } catch (e: Exception) {
             LogUtils.v("$e")
             if (e is InflateException) throw e
 //            e.printStackTrace()
         }
-        initView(savedInstanceState)
-        initObserver()
-        initData(savedInstanceState)
+        return true
     }
 
     override fun layoutId(savedInstanceState: Bundle?): Int = 0

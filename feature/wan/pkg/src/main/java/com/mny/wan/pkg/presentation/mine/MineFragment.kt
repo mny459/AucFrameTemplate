@@ -13,6 +13,7 @@ import com.mny.wan.pkg.base.BaseBindingFragment
 import com.mny.wan.pkg.databinding.FragmentMineBinding
 import com.mny.wan.pkg.presentation.coin.CoinDetailActivity
 import com.mny.wan.pkg.presentation.collect.CollectActivity
+import com.mny.wan.pkg.presentation.main.qa.QAFragment
 import com.mny.wan.pkg.presentation.setting.ThemeSettingsActivity
 import com.mny.wan.pkg.utils.ThemeHelper
 import com.mny.wan.pkg.widget.CommonRowView
@@ -64,5 +65,10 @@ class MineFragment : BaseBindingFragment<FragmentMineBinding>() {
                 mBinding?.tvCredits?.text = "积分：$coinCount 排名：$rank"
             }
         }
+    }
+
+    companion object {
+        @JvmStatic
+        fun newInstance() = MineFragment()
     }
 }

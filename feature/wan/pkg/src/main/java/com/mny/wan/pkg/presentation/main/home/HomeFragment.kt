@@ -1,10 +1,14 @@
 package com.mny.wan.pkg.presentation.main.home
 
+import android.graphics.Color
 import android.view.View
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.ConcatAdapter
+import com.blankj.utilcode.util.BarUtils
+import com.blankj.utilcode.util.LogUtils
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.mny.wan.entension.observe
 import com.mny.wan.pkg.R
@@ -26,8 +30,11 @@ class HomeFragment : BaseArticleFragment(R.layout.fragment_home) {
     private val mAllAdapter: ConcatAdapter by lazy { ConcatAdapter() }
     private val mBannerAdapter: BannerAdapter by lazy { BannerAdapter() }
     private val mTopArticleAdapter: TopArticleAdapter by lazy { TopArticleAdapter() }
+    private var mBarView: View? = null
     override fun initView(view: View) {
         super.initView(view)
+        LogUtils.d("initView ============== ")
+        mBarView = view.findViewById(R.id.barStatusImageViewFragmentFakeStatusBar)
         view.findViewById<FloatingActionButton>(R.id.floatSearch)
             ?.setOnClickListener {
                 SearchActivity.show()
@@ -40,6 +47,7 @@ class HomeFragment : BaseArticleFragment(R.layout.fragment_home) {
     }
 
     override fun initArticleObserver() {
+        LogUtils.d("initArticleObserver ============== ")
         lifecycleScope.launchWhenCreated {
             @OptIn(ExperimentalCoroutinesApi::class)
             mViewModel.mArticleList.collectLatest {
@@ -70,12 +78,19 @@ class HomeFragment : BaseArticleFragment(R.layout.fragment_home) {
 
     override fun onResume() {
         super.onResume()
+//        mBarView?.apply {
+//            BarUtils.setStatusBarLightMode(this, Color.argb(0, 0, 0, 0))
+//            BarUtils.setStatusBarColor(this, Color.argb(0, 0, 0, 0))
+//        }
         enterFullScreen()
     }
 
     override fun onPause() {
         super.onPause()
         quitFullScreen()
+//        mActivity?.apply {
+//            BarUtils.setStatusBarColor(this, ContextCompat.getColor(this, R.color.colorPrimary))
+//        }
     }
 
     companion object {

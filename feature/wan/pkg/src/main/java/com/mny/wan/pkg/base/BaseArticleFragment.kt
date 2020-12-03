@@ -60,6 +60,7 @@ abstract class BaseArticleFragment(@LayoutRes contentLayoutId: Int) :
                 .collect { mRvArticles?.scrollToPosition(0) }
         }
     }
+
     //   lifecycleScope.launchWhenCreated {
     //            @OptIn(ExperimentalCoroutinesApi::class)
     //            mViewModel.mArticleList.collectLatest {
@@ -67,4 +68,11 @@ abstract class BaseArticleFragment(@LayoutRes contentLayoutId: Int) :
     //            }
     //        }
     abstract fun initArticleObserver()
+
+    override fun onDestroyView() {
+        mRefresh = null
+        mRvArticles?.adapter = null
+        mRvArticles = null
+        super.onDestroyView()
+    }
 }

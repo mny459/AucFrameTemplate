@@ -49,14 +49,19 @@ abstract class BaseFragment(@LayoutRes contentLayoutId: Int) : Fragment(contentL
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        initObserver()
         if (mIsFirstInitData) {
+            initObserver()
             // 触发一次以后就不会触发
             mIsFirstInitData = false
             // 触发
             onFirstInit()
         }
         initData(savedInstanceState)
+    }
+
+    override fun onDestroyView() {
+        mRootView = null
+        super.onDestroyView()
     }
 
     override fun onDetach() {
