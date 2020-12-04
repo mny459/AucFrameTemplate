@@ -7,6 +7,7 @@ import com.blankj.utilcode.util.LogUtils
 import com.mny.wan.pkg.R
 import com.mny.wan.pkg.base.BaseBindingActivity
 import com.mny.wan.pkg.databinding.ActivityWanMainBinding
+import com.mny.wan.pkg.extension.enterFullScreen
 import com.mny.wan.pkg.presentation.adapter.CommonFragmentAdapterForActivity
 import com.mny.wan.pkg.presentation.main.home.HomeFragment
 import com.mny.wan.pkg.presentation.main.qa.QAFragment
@@ -36,6 +37,11 @@ class WanMainActivity : BaseBindingActivity<ActivityWanMainBinding>() {
         )
     }
 
+    override fun initWindow(savedInstanceState: Bundle?) {
+        super.initWindow(savedInstanceState)
+        setTheme(R.style.AppTheme)
+        enterFullScreen()
+    }
     override fun initView(savedInstanceState: Bundle?) {
         super.initView(savedInstanceState)
         mBinding.viewPager.adapter = mVpAdapter

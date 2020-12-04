@@ -1,76 +1,85 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
     tools:context=".presentation.mine.MineFragment">
 
-    <View
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:background="?attr/colorPrimary"
-        app:layout_constraintBottom_toTopOf="@id/ll_settings"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <androidx.constraintlayout.widget.Group
-        android:id="@+id/groupUserInfo"
-        android:layout_width="wrap_content"
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbar"
+        style="@style/Widget.Wan.AppBarLayout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:visibility="gone"
-        app:constraint_referenced_ids="imgLogout,tvCredits"
-        tools:visibility="visible" />
+        android:elevation="@dimen/dp_2"
+        android:fitsSystemWindows="true"
+        android:outlineProvider="bounds">
 
-    <ImageView
-        android:id="@+id/imgLogout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="@dimen/dp_16"
-        android:src="@drawable/ic_logout"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:tint="?attr/colorOnPrimary" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="32dp">
 
-    <ImageView
-        android:id="@+id/imgAvatar"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="60dp"
-        android:src="@drawable/ic_android"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:tint="?attr/colorOnPrimary" />
+            <androidx.constraintlayout.widget.Group
+                android:id="@+id/groupUserInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                app:constraint_referenced_ids="imgLogout,tvCredits"
+                tools:visibility="visible" />
 
-    <TextView
-        android:id="@+id/tvName"
-        style="@style/CommonTextView.Large"
-        android:layout_marginTop="@dimen/dp_16"
-        android:text="点我登录"
-        android:textColor="?attr/colorOnPrimary"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/imgAvatar" />
+            <ImageView
+                android:id="@+id/imgLogout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/dp_16"
+                android:src="@drawable/ic_logout"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:tint="?attr/colorOnPrimary" />
 
-    <TextView
-        android:id="@+id/tvCredits"
-        style="@style/CommonTextView"
-        android:layout_marginTop="@dimen/dp_8"
-        android:text="积分："
-        android:textColor="?attr/colorOnPrimary"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvName" />
+            <ImageView
+                android:id="@+id/imgAvatar"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginTop="60dp"
+                android:src="@drawable/ic_android"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:tint="?attr/colorOnPrimary" />
+
+            <TextView
+                android:id="@+id/tvName"
+                style="@style/CommonTextView.Large"
+                android:layout_marginTop="@dimen/dp_16"
+                android:text="点我登录"
+                android:textColor="?attr/colorOnPrimary"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/imgAvatar" />
+
+            <TextView
+                android:id="@+id/tvCredits"
+                style="@style/CommonTextView"
+                android:layout_marginTop="@dimen/dp_8"
+                android:text="积分："
+                android:textColor="?attr/colorOnPrimary"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvName" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.appbar.AppBarLayout>
 
     <LinearLayout
         android:id="@+id/ll_settings"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:background="?attr/colorSurface"
         android:orientation="vertical"
-        app:layout_constraintTop_toBottomOf="@id/tvCredits">
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <com.mny.wan.pkg.widget.CommonRowView
             android:id="@+id/row_collect"
@@ -101,4 +110,4 @@
     </LinearLayout>
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

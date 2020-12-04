@@ -76,22 +76,22 @@ class HomeFragment : BaseArticleFragment(R.layout.fragment_home) {
         mViewModel.loadData()
     }
 
-    override fun onResume() {
-        super.onResume()
-//        mBarView?.apply {
-//            BarUtils.setStatusBarLightMode(this, Color.argb(0, 0, 0, 0))
-//            BarUtils.setStatusBarColor(this, Color.argb(0, 0, 0, 0))
-//        }
-        enterFullScreen()
-    }
-
-    override fun onPause() {
-        super.onPause()
-        quitFullScreen()
-//        mActivity?.apply {
-//            BarUtils.setStatusBarColor(this, ContextCompat.getColor(this, R.color.colorPrimary))
-//        }
-    }
+//    override fun onResume() {
+//        super.onResume()
+////        mBarView?.apply {
+////            BarUtils.setStatusBarLightMode(this, Color.argb(0, 0, 0, 0))
+////            BarUtils.setStatusBarColor(this, Color.argb(0, 0, 0, 0))
+////        }
+//        enterFullScreen()
+//    }
+//
+//    override fun onPause() {
+//        super.onPause()
+//        quitFullScreen()
+////        mActivity?.apply {
+////            BarUtils.setStatusBarColor(this, ContextCompat.getColor(this, R.color.colorPrimary))
+////        }
+//    }
 
     companion object {
         @JvmStatic
