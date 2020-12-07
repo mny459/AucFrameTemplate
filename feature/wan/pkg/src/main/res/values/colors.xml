@@ -3,6 +3,7 @@
     <!-- 这里面放的都是静态的颜色 -->
     <!-- 建议将带有透明度的色值放在 ColorDrawable 上 -->
     <!-- 颜色的命名最好是带有语义的命名 -->
+
     <color name="white">#FFFFFFFF</color>
 
     <color name="black_23242b">#23242B</color>
@@ -378,4 +379,10 @@
     <color name="colorBlueLighterPrimary">#BBDEFB</color>
     <color name="colorBlueAccent">#03A9F4</color>
 
+
+    <color name="white_e7e7e7">#e7e7e7</color>
+    <color name="black_222222">#222222</color>
+    <color name="gray_abb4bf">#abb4bf</color>
+    <color name="gray_929292">#929292</color>
+    <color name="blue_0c85ff">#0c85ff</color>
 </resources>

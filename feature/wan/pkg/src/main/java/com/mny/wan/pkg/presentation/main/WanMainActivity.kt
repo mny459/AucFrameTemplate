@@ -16,6 +16,7 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class WanMainActivity : BaseBindingActivity<ActivityWanMainBinding>() {
+
     private val mVpAdapter: CommonFragmentAdapterForActivity by lazy {
         CommonFragmentAdapterForActivity(
             this,
@@ -42,6 +43,7 @@ class WanMainActivity : BaseBindingActivity<ActivityWanMainBinding>() {
         setTheme(R.style.AppTheme)
         enterFullScreen()
     }
+
     override fun initView(savedInstanceState: Bundle?) {
         super.initView(savedInstanceState)
         mBinding.viewPager.adapter = mVpAdapter

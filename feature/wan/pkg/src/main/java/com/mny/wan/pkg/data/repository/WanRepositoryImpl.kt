@@ -54,8 +54,18 @@ class WanRepositoryImpl @Inject constructor() : BaseRepository(), WanRepository 
             .coinList(page)
     }
 
-    override suspend fun fetchCoinRankList(page: Int):  BaseResponse<BaseListData<BeanRanking>> {
+    override suspend fun fetchCoinRankList(page: Int): BaseResponse<BaseListData<BeanRanking>> {
         return mRepository.obtainRetrofitService(WanService::class.java)
             .rankList(page)
+    }
+
+    override suspend fun collectArticle(id: Int): BaseResp {
+        return mRepository.obtainRetrofitService(WanService::class.java)
+            .collectWanArticle(id)
+    }
+
+    override suspend fun cancelCollectArticle(id: Int): BaseResp {
+        return mRepository.obtainRetrofitService(WanService::class.java)
+            .cancelCollectWanArticle(id)
     }
 }

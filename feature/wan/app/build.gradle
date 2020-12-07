@@ -39,4 +39,5 @@ dependencies {
     api(Config.depConfig.hiltViewModule.dep)
     kapt(Config.depConfig.hiltCompiler.dep)
     kapt(Config.depConfig.hiltViewModuleCompiler.dep)
+    kapt(Config.depConfig.roomCompiler.dep)
 }

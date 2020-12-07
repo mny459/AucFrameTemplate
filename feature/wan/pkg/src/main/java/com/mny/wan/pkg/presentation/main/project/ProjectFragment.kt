@@ -16,6 +16,7 @@ import com.mny.wan.pkg.presentation.adapter.CommonFragmentAdapter
 import com.mny.wan.pkg.presentation.main.project.article.ProjectArticleFragment
 import com.mny.wan.pkg.presentation.main.wechat.WeChatFragment
 import dagger.hilt.android.AndroidEntryPoint
+import java.lang.ref.WeakReference
 import java.util.*
 
 @AndroidEntryPoint

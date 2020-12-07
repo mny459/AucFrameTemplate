@@ -11,17 +11,21 @@ import com.mny.wan.base.BaseFragment
 import com.mny.wan.pkg.R
 import com.mny.wan.pkg.presentation.adapter.ArticleAdapter
 import com.mny.wan.pkg.widget.loadstate.ArticleLoadStateAdapter
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.distinctUntilChangedBy
 import kotlinx.coroutines.flow.filter
+import javax.inject.Inject
 
 abstract class BaseArticleFragment(@LayoutRes contentLayoutId: Int) :
     BaseFragment(contentLayoutId) {
     protected var mRvArticles: RecyclerView? = null
     protected var mRefresh: SwipeRefreshLayout? = null
+
+    @Inject
     protected lateinit var mAdapter: ArticleAdapter
 
     override fun initObserver() {
@@ -31,7 +35,8 @@ abstract class BaseArticleFragment(@LayoutRes contentLayoutId: Int) :
 
     override fun initView(view: View) {
         super.initView(view)
-        mAdapter = ArticleAdapter()
+//        mAdapter = ArticleAdapter()
+        lifecycleScope
         mRvArticles = view.findViewById(R.id.rv_articles)
         mRefresh = view.findViewById(R.id.refresh)
         mRefresh?.setOnRefreshListener {
@@ -39,6 +44,7 @@ abstract class BaseArticleFragment(@LayoutRes contentLayoutId: Int) :
         }
 
         mRvArticles?.apply {
+            mAdapter.viewLifecycleOwner = this@BaseArticleFragment
             adapter = mAdapter.withLoadStateFooter(ArticleLoadStateAdapter(mAdapter))
         }
 

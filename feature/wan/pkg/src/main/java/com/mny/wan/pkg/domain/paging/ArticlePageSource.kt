@@ -20,8 +20,12 @@ abstract class ArticlePageSource constructor(
             val suffixUrl = getUrlWithPage(page)
             LogUtils.d("ArticlePageSource $suffixUrl $params")
             val response = mRepository.fetchArticlesByUrl(suffixUrl)
+
             if (response.isSuccess()) {
                 val data = response.data
+                if (this is CollectArticlePageSource){
+                    data.articles.forEach { it.collect = true }
+                }
                 LoadResult.Page(
                     data = data.articles,
                     prevKey = null,

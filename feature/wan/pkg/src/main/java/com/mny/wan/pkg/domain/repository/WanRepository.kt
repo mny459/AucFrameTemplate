@@ -15,4 +15,6 @@ interface WanRepository {
     suspend fun fetchBannerList(): BaseResponse<MutableList<BeanBanner>>
     suspend fun fetchCoinList(page: Int): BaseResponse<BaseListData<BeanCoinOpDetail>>
     suspend fun fetchCoinRankList(page: Int): BaseResponse<BaseListData<BeanRanking>>
+    suspend fun collectArticle(id: Int): BaseResp
+    suspend fun cancelCollectArticle(id: Int): BaseResp
 }

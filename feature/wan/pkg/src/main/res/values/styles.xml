@@ -68,6 +68,8 @@
         <item name="android:layout_width">@dimen/dp_1</item>
         <item name="android:layout_height">match_parent</item>
     </style>
+
+
     <!--  Toolbar 上面的搜索的样式  -->
     <style name="Widget.Wan.SearchView" parent="Widget.AppCompat.SearchView">
         <!--修改搜索框左边的搜索按钮图标-->
@@ -85,7 +87,9 @@
         <item name="tint">?attr/colorOnPrimary</item>
     </style>
 
-    <style name="Widget.Wan.AppBarLayout" parent="Widget.MaterialComponents.AppBarLayout.Primary" />
+    <style name="Widget.Wan.AppBarLayout" parent="Widget.MaterialComponents.AppBarLayout.Primary">
+        <item name="elevation">0dp</item>
+    </style>
 
     <style name="Widget.Wan.Toolbar" parent="Widget.MaterialComponents.Toolbar">
         <item name="titleTextColor">?attr/colorOnPrimary</item>

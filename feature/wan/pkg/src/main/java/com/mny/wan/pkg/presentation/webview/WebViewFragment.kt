@@ -1,7 +1,5 @@
 package com.mny.wan.pkg.presentation.webview
 
-import android.content.Intent
-import android.net.Uri
 import android.net.http.SslError
 import android.os.Build
 import android.os.Bundle
@@ -16,8 +14,6 @@ import com.mny.wan.base.BaseFragment
 import com.mny.wan.entension.observe
 import com.mny.wan.pkg.R
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.android.synthetic.main.web_view_fragment.*
-
 
 /**
  * 原生WebView的使用
@@ -214,8 +210,8 @@ class WebViewFragment : BaseFragment(R.layout.web_view_fragment) {
     }
 
     private fun changGoForwardButton(view: WebView) {
-        imgBack?.alpha = if (view.canGoBack()) ALPHA_ENABLE else ALPHA_DISABLE
-        imgForward?.alpha = if (view.canGoForward()) ALPHA_ENABLE else ALPHA_DISABLE
+//        imgBack?.alpha = if (view.canGoBack()) ALPHA_ENABLE else ALPHA_DISABLE
+//        imgForward?.alpha = if (view.canGoForward()) ALPHA_ENABLE else ALPHA_DISABLE
     }
 
     override fun onDestroy() {

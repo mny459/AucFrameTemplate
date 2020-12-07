@@ -1,6 +1,5 @@
 package com.mny.wan.pkg.presentation.collect
 
-import android.content.Intent
 import android.os.Bundle
 import com.blankj.utilcode.util.ActivityUtils
 import com.mny.wan.base.BaseActivity

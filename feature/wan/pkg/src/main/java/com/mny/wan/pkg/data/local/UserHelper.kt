@@ -3,7 +3,7 @@ package com.mny.wan.pkg.data.local
 import com.blankj.utilcode.util.GsonUtils
 import com.blankj.utilcode.util.LogUtils
 import com.blankj.utilcode.util.Utils
-import com.mny.wan.pkg.data.remote.model.UserInfoModel
+import com.mny.wan.pkg.data.remote.model.BeanUserInfo
 import com.tencent.mmkv.MMKV
 
 /**
@@ -17,7 +17,7 @@ object UserHelper {
     private const val KEY_TOKEN_PASS = "token_pass"
     private const val KEY_LOGIN_STATUS = "login_status"
     private var mIsLogin = false
-    private var mUserInfo: UserInfoModel? = null
+    private var mUserInfo: BeanUserInfo? = null
     private var mTokenPass: String = EMPTY
 
     private var mmkv: MMKV
@@ -28,7 +28,7 @@ object UserHelper {
         mmkv = MMKV.defaultMMKV()
     }
 
-    fun login(info: UserInfoModel) {
+    fun login(info: BeanUserInfo) {
         mmkv.encode(KEY_USER_INFO, GsonUtils.toJson(info))
         mmkv.encode(KEY_LOGIN_STATUS, true)
 //        saveTokenPass(info.token)
@@ -59,7 +59,7 @@ object UserHelper {
         mTokenPass = EMPTY
     }
 
-    fun userInfo(): UserInfoModel? = mUserInfo
+    fun userInfo(): BeanUserInfo? = mUserInfo
 
     fun getTokenPass(): String = mTokenPass
 
@@ -69,7 +69,7 @@ object UserHelper {
         val userInfo = mmkv.decodeString(KEY_USER_INFO, EMPTY)
         mUserInfo = if (userInfo.isNullOrEmpty()) null else GsonUtils.fromJson(
             userInfo,
-            UserInfoModel::class.java
+            BeanUserInfo::class.java
         )
 
         mIsLogin = mmkv.decodeBool(KEY_LOGIN_STATUS, false)

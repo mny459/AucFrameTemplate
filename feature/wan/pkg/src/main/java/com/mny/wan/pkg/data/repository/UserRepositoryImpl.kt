@@ -1,19 +1,24 @@
 package com.mny.wan.pkg.data.repository
 
 import com.mny.wan.pkg.data.remote.model.BaseResponse
-import com.mny.wan.pkg.domain.repository.LoginRepository
+import com.mny.wan.pkg.domain.repository.UserRepository
 import com.mny.wan.pkg.data.remote.service.WanService
 import com.mny.wan.pkg.base.BaseRepository
+import com.mny.wan.pkg.data.local.dao.UserDao
+import com.mny.wan.pkg.data.local.entity.CoinEntity
+import com.mny.wan.pkg.data.local.entity.CollectionEntity
+import com.mny.wan.pkg.data.local.entity.UserEntity
 import com.mny.wan.pkg.data.remote.model.BeanCoin
-import com.mny.wan.pkg.data.remote.model.UserInfoModel
+import com.mny.wan.pkg.data.remote.model.BeanUserInfo
 import javax.inject.Inject
 
 /**
  * Desc:
  */
-class LoginRepositoryImpl @Inject constructor() : BaseRepository(), LoginRepository {
+class UserRepositoryImpl @Inject constructor(val userDao: UserDao) : BaseRepository(),
+    UserRepository {
 
-    override suspend fun login(username: String, password: String): BaseResponse<UserInfoModel> {
+    override suspend fun login(username: String, password: String): BaseResponse<BeanUserInfo> {
         return mRepository.obtainRetrofitService(WanService::class.java)
             .login(username, password)
     }
@@ -22,7 +27,7 @@ class LoginRepositoryImpl @Inject constructor() : BaseRepository(), LoginReposit
         username: String,
         password: String,
         rePassword: String
-    ): BaseResponse<UserInfoModel> {
+    ): BaseResponse<BeanUserInfo> {
         return mRepository.obtainRetrofitService(WanService::class.java)
             .register(username, password, rePassword)
     }
@@ -35,5 +40,13 @@ class LoginRepositoryImpl @Inject constructor() : BaseRepository(), LoginReposit
     override suspend fun fetchCoinInfo(): BaseResponse<BeanCoin> {
         return mRepository.obtainRetrofitService(WanService::class.java)
             .coinInfo()
+    }
+
+    override fun saveUser(user: UserEntity, collections: List<CollectionEntity>) {
+        userDao.insertUser(user, collections)
+    }
+
+    override fun saveCoin(coinEntity: CoinEntity) {
+        userDao.insertCoin(coinEntity)
     }
 }

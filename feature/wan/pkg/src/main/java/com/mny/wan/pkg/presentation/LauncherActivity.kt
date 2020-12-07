@@ -8,6 +8,7 @@ import com.mny.wan.base.BaseActivity
 import com.mny.wan.pkg.data.local.UserHelper
 import com.mny.wan.pkg.presentation.login.LoginActivity
 import com.mny.wan.pkg.presentation.main.MainActivity
+import com.mny.wan.pkg.presentation.main.MainNavFixActivity
 import com.mny.wan.pkg.presentation.main.WanMainActivity
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -20,7 +21,9 @@ class LauncherActivity : BaseActivity() {
             delay(1000)
             val intent = Intent(
                 this@LauncherActivity,
-                if (UserHelper.isLogin()) WanMainActivity::class.java else LoginActivity::class.java
+//                if (UserHelper.isLogin()) WanMainActivity::class.java else LoginActivity::class.java
+//                if (UserHelper.isLogin()) WanMainActivity::class.java else LoginActivity::class.java
+                if (UserHelper.isLogin()) MainNavFixActivity::class.java else LoginActivity::class.java
             )
             startActivity(intent)
             this@LauncherActivity.finish()

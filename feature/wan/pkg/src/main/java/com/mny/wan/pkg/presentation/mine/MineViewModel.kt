@@ -11,7 +11,7 @@ import com.mny.wan.mvvm.BaseAction
 import com.mny.wan.mvvm.BaseState
 import com.mny.wan.mvvm.BaseViewModel
 import com.mny.wan.pkg.data.remote.model.BeanCoin
-import com.mny.wan.pkg.data.remote.model.UserInfoModel
+import com.mny.wan.pkg.data.remote.model.BeanUserInfo
 import com.mny.wan.pkg.domain.usecase.UserUseCase
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
@@ -77,12 +77,12 @@ class MineViewModel @ViewModelInject constructor(
     }
 
     data class ViewState(
-        val user: UserInfoModel? = null,
+        val user: BeanUserInfo? = null,
         val coin: BeanCoin? = null
     ) : BaseState
 
     sealed class Action : BaseAction {
-        class UpdateUser(val user: UserInfoModel) : Action()
+        class UpdateUser(val user: BeanUserInfo) : Action()
         class UpdateCoin(val coin: BeanCoin) : Action()
     }
 

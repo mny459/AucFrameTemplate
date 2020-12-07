@@ -7,15 +7,24 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.constraintlayout.widget.Group
+import androidx.lifecycle.LifecycleOwner
+import androidx.lifecycle.findViewTreeLifecycleOwner
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.viewModelScope
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.blankj.utilcode.util.LogUtils
 import com.blankj.utilcode.util.NetworkUtils
 import com.mny.wan.entension.loadProjectPreview
 import com.mny.wan.pkg.R
 import com.mny.wan.pkg.data.local.UserHelper
 import com.mny.wan.pkg.data.remote.model.BeanArticle
+import com.mny.wan.pkg.presentation.CollectViewModel
 import com.mny.wan.pkg.presentation.webview.WebViewActivity
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.launch
 import java.util.*
 import javax.inject.Inject
 
@@ -24,8 +33,10 @@ import javax.inject.Inject
  * @Date 2019/10/17 16:03
  * @Desc PagingDataAdapter: Paging 要求继承的 Adapter
  */
-class ArticleAdapter @Inject constructor() :
+class ArticleAdapter @Inject constructor(private val mCollectViewModel: CollectViewModel) :
     PagingDataAdapter<BeanArticle, ArticleViewHolder>(COMPARATOR) {
+    var viewLifecycleOwner: LifecycleOwner? = null
+
     companion object {
         private val PAYLOAD_SCORE = Any()
         val COMPARATOR = object : DiffUtil.ItemCallback<BeanArticle>() {
@@ -64,10 +75,20 @@ class ArticleAdapter @Inject constructor() :
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ArticleViewHolder =
-        ArticleViewHolder.create(parent)
+        ArticleViewHolder.create(parent, mCollectViewModel, viewLifecycleOwner!!)
+
+    override fun onViewDetachedFromWindow(holder: ArticleViewHolder) {
+        super.onViewDetachedFromWindow(holder)
+        holder.cancelObserverCollect()
+    }
 }
 
-class ArticleViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
+class ArticleViewHolder(
+    private val view: View,
+    val viewModel: CollectViewModel,
+    val viewLifecycleOwner: LifecycleOwner
+) :
+    RecyclerView.ViewHolder(view) {
     private var mGroupProject: Group = view.findViewById(R.id.groupProject)
     private var mTvUserType: TextView = view.findViewById(R.id.tvUserType)
     private var mTvPublisher: TextView = view.findViewById(R.id.tvPublisher)
@@ -78,8 +99,11 @@ class ArticleViewHolder(private val view: View) : RecyclerView.ViewHolder(view) 
     private var mTvChapter: TextView = view.findViewById(R.id.tvChapter)
     private var mIvProject: ImageView = view.findViewById(R.id.imgProject)
     private var mIvCollect: ImageView = view.findViewById(R.id.imgCollect)
-
+    private var mCollectJob: Job? = null
+    private var mCancelCollectJob: Job? = null
+    private var mItem: BeanArticle? = null
     fun bind(item: BeanArticle?) {
+        mItem = item
         item?.apply {
             mTvTitle.text = Html.fromHtml(title)
             mTvPublishTime.text = Html.fromHtml(niceDate)
@@ -106,19 +130,55 @@ class ArticleViewHolder(private val view: View) : RecyclerView.ViewHolder(view) 
                 if (!UserHelper.isLogin()) {
                     return@setOnClickListener
                 }
-//                mIvCollect.isSelected = if (mIsCollectArticle) !mIsCollectArticle else !item.collect
-                item.collect = mIvCollect.isSelected
-//                mCollectListener?.invoke(helper.adapterPosition, item, imgCollect.isSelected)
+                if (item.collect) {
+                    viewModel.cancelCollect(id)
+                } else {
+                    viewModel.collect(id)
+                }
             }
+            observerCollect(this)
         }
 
     }
 
+    private fun observerCollect(item: BeanArticle) {
+        viewLifecycleOwner.apply {
+            mCollectJob = lifecycleScope.launch {
+                viewModel.collectIds.collect {
+                    LogUtils.d("收藏的id $it 当前文章 ${item.id}")
+                    if (it != 0 && it == item.id) {
+                        item.collect = true
+                        mIvCollect.isSelected = item.collect
+                    }
+                }
+            }
+            mCancelCollectJob = lifecycleScope.launch {
+                viewModel.cancelCollectIds.collect {
+                    LogUtils.d("取消收藏的id $it 当前文章 ${item.id}")
+                    if (it != 0 && it == item.id) {
+                        item.collect = false
+                        mIvCollect.isSelected = item.collect
+                    }
+                }
+            }
+
+        }
+    }
+
+    fun cancelObserverCollect() {
+        mCollectJob?.cancel()
+        mCancelCollectJob?.cancel()
+    }
+
     companion object {
-        fun create(parent: ViewGroup): ArticleViewHolder {
+        fun create(
+            parent: ViewGroup,
+            viewModel: CollectViewModel,
+            viewLifecycleOwner: LifecycleOwner
+        ): ArticleViewHolder {
             val view = LayoutInflater.from(parent.context)
                 .inflate(R.layout.cell_article, parent, false)
-            return ArticleViewHolder(view)
+            return ArticleViewHolder(view, viewModel, viewLifecycleOwner)
         }
     }
 }

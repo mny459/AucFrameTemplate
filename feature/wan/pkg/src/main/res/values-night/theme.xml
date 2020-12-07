@@ -1,28 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Theme 和 Theme Overlay -->
-    <!-- Theme Overlay 的作用主要表示可以覆盖 parent = ""-->
-    <!-- https://juejin.cn/post/6844904200673968141#heading-6 在 Context 中使用  Theme 和 Theme Overlay -->
-    <!-- 通过 ?attr/ 的方式来引用主题属性 ? 代表在当前主题中搜索-->
-    <style name="BaseAppTheme" parent="Theme.MaterialComponents.NoActionBar">
+
+    <style name="AppTheme" parent="BaseAppTheme">
+        <!-- 去除默认阴影 -->
+        <item name="android:elevation">0dp</item>
+        <item name="android:outlineProvider">none</item>
+        <!-- 设置底部导航颜色 -->
+        <item name="android:navigationBarColor">@color/colorAccent</item>
         <!-- 主题颜色 分割线 -->
         <!-- App的主要颜色 -->
-        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimary">@color/blue_0c85ff</item>
         <!-- 主色上显示内容的颜色-->
         <item name="colorOnPrimary">@color/color_FFFFFF</item>
         <!-- App的次要颜色 -->
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">?attr/colorPrimary</item>
         <!-- 部件的表面颜色，如卡片、表格、菜单等 -->
-        <item name="colorSurface">@color/color_F7F7F8</item>
+        <item name="colorSurface">@color/black_222222</item>
         <!-- 部件显示的内容的颜色-->
         <item name="colorOnSurface">@android:color/black</item>
         <!-- 错误显示的颜色-->
         <item name="colorError">@color/color_EA4E3D</item>
         <!-- 文字的主色 -->
-        <item name="android:textColorPrimary">@color/color_0C101B</item>
+        <item name="android:textColorPrimary">@color/white_e7e7e7</item>
         <!-- 文字的二级颜色 -->
-        <item name="android:textColorSecondary">@color/color_B6B7BA</item>
+        <item name="android:textColorSecondary">@color/white_e7e7e7</item>
 
         <!-- 正常状态下图标/控件的颜色 -->
         <item name="colorControlNormal">?attr/colorOnPrimary</item>
@@ -58,42 +60,6 @@
         <item name="appBarLayoutStyle">@style/Widget.Wan.AppBarLayout</item>
         <item name="bottomNavigationStyle">@style/Widget.Wan.BottomNavigationView</item>
         <item name="floatingActionButtonStyle">@style/Widget.Wan.FloatingActionButton</item>
-    </style>
-
-    <style name="BaseAppTheme.SplashTheme">
-        <item name="android:windowBackground">@drawable/splash</item>
-        <item name="android:statusBarColor">@android:color/transparent</item>
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
-    </style>
-
-    <style name="AppTheme" parent="BaseAppTheme">
-        <!-- 去除默认阴影 -->
-        <item name="android:elevation">0dp</item>
-        <item name="android:outlineProvider">none</item>
-        <!-- 设置底部导航颜色 -->
-        <item name="android:navigationBarColor">@color/colorAccent</item>
-    </style>
-
-    <style name="AppTheme.TransStatusBar.Base" parent="AppTheme">
-        <!--去除顶部的状态栏-->
-        <item name="android:windowTranslucentStatus">true</item>
-        <item name="android:windowIsTranslucent">true</item>
-        <item name="android:windowAnimationStyle">@null</item>
-        <item name="android:windowIsFloating">false</item>
-        <item name="android:windowFrame">@null</item>
-    </style>
-
-    <style name="AppTheme.TransStatusBar" parent="AppTheme.TransStatusBar.Base">
-        <item name="android:statusBarColor">@null</item>
-    </style>
-
-    <style name="AppTheme.Launcher" parent="AppTheme">
-        <item name="android:windowBackground">@drawable/launcher_bg</item>
-        <item name="android:windowFullscreen">true</item>
-        <item name="android:windowAnimationStyle">@null</item>
-        <item name="android:windowContentTransitions">false</item>
-        <item name="android:windowDrawsSystemBarBackgrounds">false</item>
     </style>
 
 </resources>

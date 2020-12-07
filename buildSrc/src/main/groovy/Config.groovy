@@ -78,7 +78,7 @@ class Config {
             compiler               : new DepConfig("com.alibaba:arouter-compiler:1.1.4"),
             kotlinReflect          : new DepConfig("org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"),
             anko                   : new DepConfig("org.jetbrains.anko:anko:$anko_version"),
-            kotlinAndroidExtensions: new DepConfig("org.jetbrains.kotlin:kotlin-android-extensions:$kotlin_version"),
+            kotlinAndroidExtensions: new DepConfig(false,"org.jetbrains.kotlin:kotlin-android-extensions:$kotlin_version"),
             coroutinesAndroid      : new DepConfig("org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutineVersion"),
             coroutinesCore         : new DepConfig("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutineVersion"),
 

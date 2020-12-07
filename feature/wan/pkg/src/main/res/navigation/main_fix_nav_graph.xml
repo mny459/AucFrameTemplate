@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fixfragment
+        android:id="@+id/homeFragment"
+        android:name="com.mny.wan.pkg.presentation.main.home.HomeFragment"
+        android:label="首页"
+        tools:layout="@layout/fragment_home" />
+
+    <fixfragment
+        android:id="@+id/QAFragment"
+        android:name="com.mny.wan.pkg.presentation.main.qa.QAFragment"
+        android:label="问答"
+        tools:layout="@layout/fragment_q_a" />
+
+<!--    <fixfragment-->
+<!--        android:id="@+id/discoverFragment"-->
+<!--        android:name="com.mny.wan.pkg.presentation.main.discover.DiscoverFragment"-->
+<!--        android:label="Discover"-->
+<!--        tools:layout="@layout/fragment_discover" />-->
+
+<!--    <fragment-->
+<!--        android:id="@+id/weChatFragment"-->
+<!--        android:name="com.mny.wan.pkg.presentation.main.wechat.WeChatFragment"-->
+<!--        android:label="fragment_we_chat"-->
+<!--        tools:layout="@layout/fragment_we_chat" />-->
+
+<!--    <fragment-->
+<!--        android:id="@+id/projectFragment"-->
+<!--        android:name="com.mny.wan.pkg.presentation.main.project.ProjectFragment"-->
+<!--        android:label="fragment_project"-->
+<!--        tools:layout="@layout/fragment_project" />-->
+
+<!--    <fragment-->
+<!--        android:id="@+id/systemFragment"-->
+<!--        android:name="com.mny.wan.pkg.presentation.main.system.SystemFragment"-->
+<!--        android:label="fragment_system"-->
+<!--        tools:layout="@layout/fragment_system" />-->
+
+
+    <fixfragment
+        android:id="@+id/mineFragment"
+        android:name="com.mny.wan.pkg.presentation.mine.MineFragment"
+        android:label="我的"
+        tools:layout="@layout/fragment_mine" />
+
+</navigation>

@@ -1,8 +1,6 @@
 package com.mny.wan.pkg.data.remote.service
 
-import com.mny.wan.pkg.data.remote.model.UserInfoModel
 import com.mny.wan.pkg.data.remote.model.*
-import kotlinx.coroutines.flow.Flow
 import retrofit2.http.*
 
 interface WanService {
@@ -10,12 +8,7 @@ interface WanService {
     @FormUrlEncoded
     @POST("/user/login")
     suspend fun login(@Field("username") username: String, @Field("password") password: String)
-            : BaseResponse<UserInfoModel>
-
-    @FormUrlEncoded
-    @POST("/user/login")
-    suspend fun login1(@Field("username") username: String, @Field("password") password: String)
-            : Flow<BaseResponse<UserInfoModel>>
+            : BaseResponse<BeanUserInfo>
 
     @FormUrlEncoded
     @POST("/user/register")
@@ -23,7 +16,7 @@ interface WanService {
             @Field("username") username: String
             , @Field("password") password: String
             , @Field("repassword") rePassword: String
-    ): BaseResponse<UserInfoModel>
+    ): BaseResponse<BeanUserInfo>
 
     @GET("/user/logout/json")
     suspend fun logout(): BaseResponse<String>

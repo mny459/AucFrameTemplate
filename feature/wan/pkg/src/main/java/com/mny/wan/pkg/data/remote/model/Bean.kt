@@ -1,6 +1,7 @@
 package com.mny.wan.pkg.data.remote.model
 
 import com.google.gson.annotations.SerializedName
+import com.mny.wan.pkg.data.remote.service.WanApi
 import java.io.Serializable
 
 
@@ -10,7 +11,9 @@ import java.io.Serializable
  * @Desc
  */
 
-data class BaseResp(val errorCode: Int, val errorMsg: String)
+data class BaseResp(val errorCode: Int, val errorMsg: String){
+    fun isSuccess(): Boolean = errorCode == WanApi.RequestSuccess
+}
 
 data class BaseListData<T>(
     @SerializedName("curPage")

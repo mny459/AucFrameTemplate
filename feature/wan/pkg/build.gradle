@@ -18,8 +18,8 @@ android {
         }
     }
 
-    viewBinding {
-        enabled = true
+    buildFeatures {
+        viewBinding true
     }
 
 }
@@ -41,4 +41,5 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
     kapt(Config.depConfig.hiltCompiler.dep)
     kapt(Config.depConfig.hiltViewModuleCompiler.dep)
+    kapt(Config.depConfig.roomCompiler.dep)
 }
