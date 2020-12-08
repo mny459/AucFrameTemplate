@@ -8,7 +8,7 @@ import com.blankj.utilcode.util.LogUtils
 import com.google.android.flexbox.FlexDirection
 import com.google.android.flexbox.FlexboxLayoutManager
 import com.google.android.flexbox.JustifyContent
-import com.mny.wan.base.BaseFragment
+import com.mny.mojito.base.BaseFragment
 import com.mny.wan.pkg.R
 import com.mny.wan.pkg.base.BaseBindingFragment
 import com.mny.wan.pkg.data.remote.model.BeanHotKey

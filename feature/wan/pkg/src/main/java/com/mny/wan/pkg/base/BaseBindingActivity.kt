@@ -5,7 +5,7 @@ import android.view.InflateException
 import android.view.LayoutInflater
 import androidx.viewbinding.ViewBinding
 import com.blankj.utilcode.util.LogUtils
-import com.mny.wan.base.BaseActivity
+import com.mny.mojito.base.BaseActivity
 import java.lang.reflect.ParameterizedType
 
 abstract class BaseBindingActivity<VB : ViewBinding> : BaseActivity() {

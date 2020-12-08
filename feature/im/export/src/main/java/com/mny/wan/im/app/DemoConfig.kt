@@ -5,14 +5,14 @@ import android.content.Context
 import android.text.TextUtils
 import androidx.fragment.app.FragmentManager
 import com.google.gson.GsonBuilder
-import com.mny.wan.base.delegate.AppLifecycle
+import com.mny.mojito.base.delegate.AppLifecycle
 import com.mny.wan.im.data.api.Api
 import com.mny.wan.im.data.factory.AccountManager
 import com.mny.wan.di.module.GlobalModuleConfig
 import com.mny.wan.di.module.GsonConfiguration
 import com.mny.wan.di.module.OkHttpConfiguration
 import com.mny.wan.integration.ModuleConfig
-import com.mny.wan.utils.MojitoLog
+import com.mny.mojito.utils.MojitoLog
 import okhttp3.Cookie
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient

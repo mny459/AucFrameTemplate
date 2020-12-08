@@ -7,7 +7,7 @@ import android.text.TextUtils
 import androidx.activity.viewModels
 import androidx.navigation.Navigation
 import com.blankj.utilcode.util.LogUtils
-import com.mny.wan.base.BaseActivity
+import com.mny.mojito.base.BaseActivity
 import com.mny.wan.im.R
 import com.mny.wan.im.data.db.entity.Group
 import com.mny.wan.im.data.db.entity.Message

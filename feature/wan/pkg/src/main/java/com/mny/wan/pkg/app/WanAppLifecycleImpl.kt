@@ -3,9 +3,9 @@ package com.mny.wan.pkg.app
 import android.app.Application
 import android.content.Context
 import com.blankj.utilcode.util.LogUtils
-import com.mny.wan.base.delegate.AppLifecycle
+import com.mny.mojito.base.delegate.AppLifecycle
 import com.mny.wan.pkg.data.local.UserHelper
-import com.mny.wan.utils.MojitoLog
+import com.mny.mojito.utils.MojitoLog
 
 class WanAppLifecycleImpl : AppLifecycle {
     override fun attachBaseContext(base: Context) {

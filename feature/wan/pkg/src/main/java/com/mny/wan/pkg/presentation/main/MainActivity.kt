@@ -8,7 +8,7 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import com.blankj.utilcode.util.ActivityUtils
 import com.blankj.utilcode.util.LogUtils
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.mny.wan.base.BaseActivity
+import com.mny.mojito.base.BaseActivity
 import com.mny.wan.pkg.R
 import com.mny.wan.pkg.widget.setupWithNavController
 import dagger.hilt.android.AndroidEntryPoint

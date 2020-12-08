@@ -5,13 +5,11 @@ import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.viewModelScope
-import com.mny.wan.http.MojitoResult
-import com.mny.wan.mvvm.BaseAction
-import com.mny.wan.mvvm.BaseState
-import com.mny.wan.mvvm.BaseViewModel
-import com.mny.wan.pkg.data.remote.model.BeanProject
+import com.mny.mojito.http.MojitoResult
+import com.mny.mojito.mvvm.BaseAction
+import com.mny.mojito.mvvm.BaseState
+import com.mny.mojito.mvvm.BaseViewModel
 import com.mny.wan.pkg.data.remote.model.BeanSystemParent
-import com.mny.wan.pkg.domain.usecase.ProjectUseCase
 import com.mny.wan.pkg.domain.usecase.WeChatUseCase
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
@@ -28,7 +26,7 @@ class WeChatViewModel @ViewModelInject constructor(
             mUseCase.fetchProjectTree().collect { result ->
                 when (result) {
                     is MojitoResult.Success -> {
-                        mTabs.postValue(result.data)
+                        mTabs.postValue(result.data!!)
                     }
                     is MojitoResult.Error -> {
                     }

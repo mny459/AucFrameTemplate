@@ -5,7 +5,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
-import com.mny.wan.base.BaseFragment
+import com.mny.mojito.base.BaseFragment
 import com.mny.wan.pkg.R
 import com.mny.wan.pkg.base.BaseArticleFragment
 import dagger.hilt.android.AndroidEntryPoint

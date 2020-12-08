@@ -3,7 +3,7 @@ package com.mny.wan.im.base
 import android.os.Bundle
 import android.view.MenuItem
 import androidx.appcompat.widget.Toolbar
-import com.mny.wan.base.BaseActivity
+import com.mny.mojito.base.BaseActivity
 import com.mny.wan.im.R
 
 abstract class BaseToolbarActivity : BaseActivity() {

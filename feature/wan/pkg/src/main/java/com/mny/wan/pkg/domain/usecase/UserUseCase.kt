@@ -2,7 +2,7 @@ package com.mny.wan.pkg.domain.usecase
 
 import com.mny.wan.pkg.domain.repository.UserRepository
 import javax.inject.Inject
-import com.mny.wan.http.MojitoResult
+import com.mny.mojito.http.MojitoResult
 import com.mny.wan.pkg.data.local.UserHelper
 import com.mny.wan.pkg.data.local.toCollectionEntityList
 import com.mny.wan.pkg.data.local.toEntity

@@ -4,10 +4,10 @@ import android.app.Application
 import android.content.Context
 import com.blankj.utilcode.util.LogUtils
 import com.igexin.sdk.PushManager
-import com.mny.wan.base.delegate.AppLifecycle
+import com.mny.mojito.base.delegate.AppLifecycle
 import com.mny.wan.im.data.factory.AccountManager
 import com.mny.wan.im.gt.GTConfig
-import com.mny.wan.utils.MojitoLog
+import com.mny.mojito.utils.MojitoLog
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch

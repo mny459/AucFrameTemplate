@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.ConcatAdapter
 import com.blankj.utilcode.util.BarUtils
 import com.blankj.utilcode.util.LogUtils
 import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.mny.wan.entension.observe
+import com.mny.mojito.entension.observe
 import com.mny.wan.pkg.R
 import com.mny.wan.pkg.base.BaseArticleFragment
 import com.mny.wan.pkg.data.remote.model.BeanArticle

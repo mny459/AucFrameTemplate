@@ -4,8 +4,8 @@ import android.util.Log
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.OnLifecycleEvent
 import com.mny.wan.pkg.data.remote.model.BaseResponse
-import com.mny.wan.data.IRepository
-import com.mny.wan.http.MojitoResult
+import com.mny.mojito.data.IRepository
+import com.mny.mojito.http.MojitoResult
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.coroutineScope

@@ -6,8 +6,8 @@ import androidx.activity.viewModels
 import androidx.lifecycle.Observer
 import com.blankj.utilcode.util.ActivityUtils
 import com.blankj.utilcode.util.LogUtils
-import com.mny.wan.base.BaseActivity
-import com.mny.wan.entension.observe
+import com.mny.mojito.base.BaseActivity
+import com.mny.mojito.entension.observe
 import com.mny.wan.pkg.R
 import com.mny.wan.pkg.base.BaseToolbarActivity
 import dagger.hilt.android.AndroidEntryPoint

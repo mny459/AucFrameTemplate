@@ -1,6 +1,6 @@
 package com.mny.wan.app
 
-import com.mny.wan.base.BaseApplication
+import com.mny.mojito.base.BaseApplication
 import dagger.hilt.android.HiltAndroidApp
 
 @HiltAndroidApp

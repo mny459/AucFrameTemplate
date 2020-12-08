@@ -4,10 +4,10 @@ import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.viewModelScope
 import com.blankj.utilcode.util.ToastUtils
 import com.mny.wan.pkg.domain.usecase.UserUseCase
-import com.mny.wan.mvvm.BaseAction
-import com.mny.wan.mvvm.BaseState
-import com.mny.wan.mvvm.BaseViewModel
-import com.mny.wan.http.MojitoResult
+import com.mny.mojito.mvvm.BaseAction
+import com.mny.mojito.mvvm.BaseState
+import com.mny.mojito.mvvm.BaseViewModel
+import com.mny.mojito.http.MojitoResult
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 

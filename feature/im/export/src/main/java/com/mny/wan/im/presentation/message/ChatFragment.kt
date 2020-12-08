@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.appbar.AppBarLayout
 import com.google.android.material.appbar.CollapsingToolbarLayout
-import com.mny.wan.base.BaseFragment
+import com.mny.mojito.base.BaseFragment
 import com.mny.wan.im.R
 import com.mny.wan.im.widget.MessageLayout
 import com.mny.wan.im.widget.airpanel.AirPanel

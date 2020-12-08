@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.blankj.utilcode.util.LogUtils
 import com.blankj.utilcode.util.ToastUtils
-import com.mny.wan.base.BaseFragment
+import com.mny.mojito.base.BaseFragment
 import com.mny.wan.entension.observe
 import com.mny.wan.im.R
 import com.mny.wan.im.presentation.search.adapter.SearchGroupAdapter

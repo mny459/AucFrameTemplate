@@ -6,8 +6,8 @@ import androidx.navigation.Navigation
 import androidx.navigation.ui.NavigationUI
 import com.blankj.utilcode.util.LogUtils
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.mny.wan.base.BaseActivity
-import com.mny.wan.nav.NavGraphBuilder
+import com.mny.mojito.base.BaseActivity
+import com.mny.mojito.nav.NavGraphBuilder
 import com.mny.wan.pkg.R
 import com.mny.wan.pkg.extension.enterFullScreen
 import dagger.hilt.android.AndroidEntryPoint

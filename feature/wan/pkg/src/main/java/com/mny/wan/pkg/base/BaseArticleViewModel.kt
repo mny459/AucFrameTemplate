@@ -5,9 +5,9 @@ import androidx.lifecycle.asFlow
 import androidx.lifecycle.viewModelScope
 import androidx.paging.*
 import com.blankj.utilcode.util.LogUtils
-import com.mny.wan.mvvm.BaseAction
-import com.mny.wan.mvvm.BaseState
-import com.mny.wan.mvvm.BaseViewModel
+import com.mny.mojito.mvvm.BaseAction
+import com.mny.mojito.mvvm.BaseState
+import com.mny.mojito.mvvm.BaseViewModel
 import com.mny.wan.pkg.data.remote.model.BeanArticle
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.*

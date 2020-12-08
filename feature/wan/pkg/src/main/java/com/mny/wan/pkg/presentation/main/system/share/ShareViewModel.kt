@@ -4,8 +4,8 @@ import androidx.hilt.Assisted
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.*
 import androidx.paging.*
-import com.mny.wan.mvvm.BaseAction
-import com.mny.wan.mvvm.BaseState
+import com.mny.mojito.mvvm.BaseAction
+import com.mny.mojito.mvvm.BaseState
 import com.mny.wan.pkg.base.BaseArticleViewModel
 import com.mny.wan.pkg.data.remote.model.BeanArticle
 import com.mny.wan.pkg.domain.usecase.ArticleUseCase

@@ -6,7 +6,7 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.blankj.utilcode.util.LogUtils
-import com.mny.wan.base.BaseFragment
+import com.mny.mojito.base.BaseFragment
 import com.mny.wan.entension.observe
 import com.mny.wan.im.R
 import com.mny.wan.im.data.db.entity.Group

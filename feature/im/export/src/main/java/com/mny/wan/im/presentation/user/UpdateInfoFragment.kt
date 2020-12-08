@@ -13,7 +13,7 @@ import com.blankj.utilcode.util.LogUtils
 import com.blankj.utilcode.util.ResourceUtils
 import com.blankj.utilcode.util.ToastUtils
 import com.bumptech.glide.Glide
-import com.mny.wan.base.BaseFragment
+import com.mny.mojito.base.BaseFragment
 import com.mny.wan.im.R
 import com.mny.wan.im.extension.getPortraitTmpFile
 import com.mny.wan.im.extension.showLoading

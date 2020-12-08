@@ -10,8 +10,8 @@ import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
-import com.mny.wan.base.BaseFragment
-import com.mny.wan.entension.observe
+import com.mny.mojito.base.BaseFragment
+import com.mny.mojito.entension.observe
 import com.mny.wan.pkg.R
 import com.mny.wan.pkg.data.remote.model.BeanSystemParent
 import com.mny.wan.pkg.presentation.adapter.CommonFragmentAdapter

@@ -6,8 +6,8 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.constraintlayout.widget.Group
 import androidx.fragment.app.viewModels
-import com.mny.wan.base.BaseFragment
-import com.mny.wan.entension.observe
+import com.mny.mojito.base.BaseFragment
+import com.mny.mojito.entension.observe
 import com.mny.wan.pkg.R
 import com.mny.wan.pkg.base.BaseBindingFragment
 import com.mny.wan.pkg.databinding.FragmentMineBinding

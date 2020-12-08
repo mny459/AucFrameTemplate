@@ -2,7 +2,7 @@ package com.mny.wan.pkg.presentation.login
 
 import android.os.Bundle
 import android.view.View
-import com.mny.wan.base.BaseFragment
+import com.mny.mojito.base.BaseFragment
 import com.mny.wan.pkg.R
 
 import dagger.hilt.android.AndroidEntryPoint

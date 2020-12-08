@@ -1,6 +1,6 @@
 package com.mny.wan.pkg.domain.usecase
 
-import com.mny.wan.http.MojitoResult
+import com.mny.mojito.http.MojitoResult
 import com.mny.wan.pkg.domain.repository.WanRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.*

@@ -4,7 +4,7 @@ import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import com.mny.wan.base.BaseActivity
+import com.mny.mojito.base.BaseActivity
 import com.mny.wan.im.R
 import com.mny.wan.im.extension.loadBg
 import dagger.hilt.android.AndroidEntryPoint

@@ -12,7 +12,7 @@ import androidx.viewpager.widget.PagerAdapter
 import androidx.viewpager.widget.ViewPager
 import com.blankj.utilcode.util.ScreenUtils
 import com.google.android.material.tabs.TabLayout
-import com.mny.wan.base.BaseFragment
+import com.mny.mojito.base.BaseFragment
 import com.mny.wan.im.R
 import com.mny.wan.im.presentation.message.adapter.FaceAdapter
 import com.mny.wan.im.widget.GalleryView

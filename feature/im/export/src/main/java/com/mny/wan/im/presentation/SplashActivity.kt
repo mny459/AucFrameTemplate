@@ -7,7 +7,7 @@ import android.os.Bundle
 import android.util.Property
 import androidx.lifecycle.lifecycleScope
 import com.blankj.utilcode.util.ColorUtils
-import com.mny.wan.base.BaseActivity
+import com.mny.mojito.base.BaseActivity
 import com.mny.wan.im.R
 import com.mny.wan.im.data.factory.AccountManager
 import com.mny.wan.im.presentation.account.AccountActivity

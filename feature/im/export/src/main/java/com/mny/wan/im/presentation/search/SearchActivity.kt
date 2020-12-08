@@ -12,7 +12,7 @@ import android.widget.LinearLayout
 import androidx.activity.viewModels
 import androidx.appcompat.widget.SearchView
 import androidx.navigation.Navigation
-import com.mny.wan.base.BaseActivity
+import com.mny.mojito.base.BaseActivity
 import com.mny.wan.im.R
 import com.mny.wan.im.base.BaseToolbarActivity
 import dagger.hilt.android.AndroidEntryPoint

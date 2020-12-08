@@ -1,7 +1,7 @@
 package com.mny.wan.pkg.utils
 
 import com.blankj.utilcode.util.Utils
-import com.mny.wan.integration.KVHelper
+import com.mny.mojito.integration.KVHelper
 import com.tencent.mmkv.MMKV
 
 /**

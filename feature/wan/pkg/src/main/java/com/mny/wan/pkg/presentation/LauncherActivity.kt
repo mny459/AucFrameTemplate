@@ -4,7 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.lifecycle.lifecycleScope
-import com.mny.wan.base.BaseActivity
+import com.mny.mojito.base.BaseActivity
 import com.mny.wan.pkg.data.local.UserHelper
 import com.mny.wan.pkg.presentation.login.LoginActivity
 import com.mny.wan.pkg.presentation.main.MainActivity

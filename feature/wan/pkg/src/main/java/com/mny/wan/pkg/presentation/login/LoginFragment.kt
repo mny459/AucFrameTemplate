@@ -9,8 +9,8 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.blankj.utilcode.util.ToastUtils
-import com.mny.wan.base.BaseFragment
-import com.mny.wan.entension.observe
+import com.mny.mojito.base.BaseFragment
+import com.mny.mojito.entension.observe
 import com.mny.wan.pkg.R
 import com.mny.wan.pkg.extension.showLoading
 import com.mny.wan.pkg.presentation.main.MainActivity

@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.viewbinding.ViewBinding
-import com.mny.wan.base.BaseFragment
+import com.mny.mojito.base.BaseFragment
 import java.lang.reflect.ParameterizedType
 import kotlin.reflect.KClass
 

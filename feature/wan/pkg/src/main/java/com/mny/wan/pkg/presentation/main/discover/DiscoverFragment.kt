@@ -9,7 +9,7 @@ import androidx.viewpager2.widget.ViewPager2
 import com.blankj.utilcode.util.LogUtils
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
-import com.mny.wan.base.BaseFragment
+import com.mny.mojito.base.BaseFragment
 import com.mny.wan.pkg.R
 import com.mny.wan.pkg.presentation.adapter.CommonFragmentAdapter
 import com.mny.wan.pkg.presentation.main.project.ProjectFragment

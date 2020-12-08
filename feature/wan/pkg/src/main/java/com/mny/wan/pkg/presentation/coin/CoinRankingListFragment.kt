@@ -8,7 +8,7 @@ import androidx.paging.LoadState
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.blankj.utilcode.util.LogUtils
-import com.mny.wan.base.BaseFragment
+import com.mny.mojito.base.BaseFragment
 import com.mny.wan.pkg.R
 import com.mny.wan.pkg.presentation.adapter.CoinRankAdapter
 import com.mny.wan.pkg.widget.loadstate.CoinRankLoadStateAdapter

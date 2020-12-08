@@ -1,9 +1,9 @@
 package com.mny.wan.pkg.presentation.webview
 
 import androidx.hilt.lifecycle.ViewModelInject
-import com.mny.wan.mvvm.BaseAction
-import com.mny.wan.mvvm.BaseState
-import com.mny.wan.mvvm.BaseViewModel
+import com.mny.mojito.mvvm.BaseAction
+import com.mny.mojito.mvvm.BaseState
+import com.mny.mojito.mvvm.BaseViewModel
 
 class WebViewViewModel @ViewModelInject constructor(
 ) : BaseViewModel<WebViewViewModel.ViewState, WebViewViewModel.Action>(ViewState()) {

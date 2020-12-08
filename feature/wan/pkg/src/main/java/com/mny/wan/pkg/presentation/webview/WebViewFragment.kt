@@ -10,8 +10,8 @@ import android.widget.FrameLayout
 import androidx.fragment.app.activityViewModels
 import com.blankj.utilcode.util.LogUtils
 import com.blankj.utilcode.util.NetworkUtils
-import com.mny.wan.base.BaseFragment
-import com.mny.wan.entension.observe
+import com.mny.mojito.base.BaseFragment
+import com.mny.mojito.entension.observe
 import com.mny.wan.pkg.R
 import dagger.hilt.android.AndroidEntryPoint
 

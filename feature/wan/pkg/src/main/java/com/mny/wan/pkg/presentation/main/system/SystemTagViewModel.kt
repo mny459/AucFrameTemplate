@@ -6,10 +6,10 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.viewModelScope
-import com.mny.wan.http.MojitoResult
-import com.mny.wan.mvvm.BaseAction
-import com.mny.wan.mvvm.BaseState
-import com.mny.wan.mvvm.BaseViewModel
+import com.mny.mojito.http.MojitoResult
+import com.mny.mojito.mvvm.BaseAction
+import com.mny.mojito.mvvm.BaseState
+import com.mny.mojito.mvvm.BaseViewModel
 import com.mny.wan.pkg.data.remote.model.BeanNav
 import com.mny.wan.pkg.data.remote.model.BeanSystemParent
 import com.mny.wan.pkg.domain.usecase.SystemUseCase
