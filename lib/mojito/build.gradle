@@ -3,6 +3,7 @@ apply {
     plugin "kotlin-android"
     plugin "kotlin-kapt"
     plugin "dagger.hilt.android.plugin"
+    plugin 'maven-publish'
 }
 
 android {
@@ -127,4 +128,30 @@ dependencies {
     androidTestImplementation(Config.depConfig.androidJunit.dep)
     androidTestImplementation(Config.depConfig.androidRunner.dep)
     androidTestImplementation(Config.depConfig.espresso.dep)
+}
+
+afterEvaluate {
+    publishing {
+        publications {
+            // Creates a Maven publication called "release".
+            release(MavenPublication) {
+                // Applies the component for the release build variant.
+                from components.release
+
+                // You can then customize attributes of the publication as shown below.
+                groupId = 'com.github.mny459'
+                artifactId = 'mojito'
+                version = '0.0.2'
+            }
+        }
+    }
+}
+
+publishing {
+    repositories {
+        maven {
+            // change to point to your repo, e.g. http://my.org/repo
+            url "$buildDir/mojito"
+        }
+    }
 }
