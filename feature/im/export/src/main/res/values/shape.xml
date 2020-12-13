@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-<!--  形状相关  -->
-    <style name="ShapeAppearance.Mny.Test" parent="ShapeAppearance.MaterialComponents.SmallComponent" >
-        <item name="cornerFamily">rounded</item>
-    </style>
-</resources>

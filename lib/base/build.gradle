@@ -6,6 +6,7 @@ apply {
 }
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
+    api Config.depConfig.lib_mojito.dep
     api Config.depConfig.utilcode.dep
     api Config.depConfig.free_proguard.dep
     api Config.depConfig.swipe_panel.dep
