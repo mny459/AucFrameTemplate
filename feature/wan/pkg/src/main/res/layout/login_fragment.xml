@@ -27,7 +27,7 @@
                 android:id="@+id/etName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="用户名"
+                android:hint="@string/login_username"
                 android:inputType="textEmailAddress"
                 android:selectAllOnFocus="true"
                 android:text="MNY459" />
@@ -48,7 +48,7 @@
                 android:id="@+id/etPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="密码"
+                android:hint="@string/login_pwd"
                 android:imeOptions="actionDone"
                 android:inputType="textPassword"
                 android:selectAllOnFocus="true"
@@ -64,7 +64,7 @@
             android:layout_marginEnd="@dimen/dp_16"
             android:enabled="true"
             android:gravity="center"
-            android:text="登录"
+            android:text="@string/login"
             android:textAppearance="@style/TextAppearance.Wan.Button"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -78,13 +78,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dp_16"
-            android:text="注册"
+            android:text="@string/login_register"
             android:textColor="?attr/colorPrimary"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/btnLogin"
             app:layout_constraintVertical_bias="0.1" />
 
-
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </com.qmuiteam.qmui.widget.QMUIWindowInsetLayout>

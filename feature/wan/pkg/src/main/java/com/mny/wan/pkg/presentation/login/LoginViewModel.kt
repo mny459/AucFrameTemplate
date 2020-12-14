@@ -56,25 +56,6 @@ internal class LoginViewModel @ViewModelInject constructor(private val mUserUseC
         }
     }
 
-    fun logout() {
-        viewModelScope.launch {
-            mUserUseCase.logout()
-                .collect {
-                    when (it) {
-                        is MojitoResult.Success -> {
-                            ToastUtils.showShort("登出成功")
-                        }
-                        is MojitoResult.Error -> {
-                            ToastUtils.showShort("${it.exception.message}")
-                        }
-                        MojitoResult.Loading -> {
-//                            sendAction(Action.LoginStart)
-                        }
-                    }
-                }
-        }
-    }
-
     internal data class ViewState(
         val isLoading: Boolean = false,
         val loginSuccess: Boolean = false,

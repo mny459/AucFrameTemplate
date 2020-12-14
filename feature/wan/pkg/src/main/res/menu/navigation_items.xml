@@ -4,7 +4,7 @@
     <item
         android:id="@+id/main_home_nav_graph"
         android:icon="@drawable/ic_home"
-        android:title="@string/action_home"
+        android:title="@string/wan_nav_home"
         app:showAsAction="ifRoom" />
     <!--    <item-->
     <!--        android:id="@+id/weChatFragment"-->
@@ -24,7 +24,7 @@
     <item
         android:id="@+id/main_qa_nav_graph"
         android:icon="@drawable/ic_qa"
-        android:title="@string/action_qa"
+        android:title="@string/wan_nav_qa"
         app:showAsAction="ifRoom" />
 <!--    <item-->
 <!--        android:id="@+id/main_discover_nav_graph"-->
@@ -36,6 +36,6 @@
     <item
         android:id="@+id/main_mine_nav_graph"
         android:icon="@drawable/ic_mine"
-        android:title="@string/action_mine"
+        android:title="@string/wan_nav_mine"
         app:showAsAction="ifRoom" />
 </menu>

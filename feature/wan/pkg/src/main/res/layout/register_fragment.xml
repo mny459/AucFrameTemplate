@@ -30,7 +30,7 @@
             android:id="@+id/etName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="用户名"
+            android:hint="@string/login_username"
             android:inputType="textEmailAddress"
             android:selectAllOnFocus="true"
             tools:text="MNY459" />
@@ -51,7 +51,7 @@
             android:id="@+id/etPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="密码"
+            android:hint="@string/login_pwd"
             android:imeOptions="actionDone"
             android:inputType="textPassword"
             android:selectAllOnFocus="true" />
@@ -72,7 +72,7 @@
             android:id="@+id/etRePassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="确认密码"
+            android:hint="@string/login_confirm_pwd"
             android:imeOptions="actionDone"
             android:inputType="textPassword"
             android:selectAllOnFocus="true" />
@@ -90,7 +90,7 @@
         android:layout_marginEnd="@dimen/dp_16"
         android:background="?attr/colorPrimary"
         android:enabled="true"
-        android:text="注册"
+        android:text="@string/login_register"
         android:textColor="?attr/colorOnPrimary"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

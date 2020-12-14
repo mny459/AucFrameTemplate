@@ -8,6 +8,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import com.blankj.utilcode.util.StringUtils
 import com.blankj.utilcode.util.ToastUtils
 import com.mny.mojito.base.BaseFragment
 import com.mny.mojito.entension.observe
@@ -28,12 +29,13 @@ class LoginFragment : BaseFragment(R.layout.login_fragment) {
     private val mStateObserver = Observer<LoginViewModel.ViewState> {
         when {
             it.isLoading -> {
-                mLoadingDialog = mActivity?.showLoading("登录中")
+                mLoadingDialog =
+                    mActivity?.showLoading(StringUtils.getString(R.string.login_loading))
             }
             it.loginSuccess -> {
                 mLoadingDialog?.hide()
                 lifecycleScope.launch {
-                    ToastUtils.showShort("登录成功")
+                    ToastUtils.showShort(R.string.login_success)
                     delay(1000)
                     MainActivity.show()
                     mActivity?.finish()
