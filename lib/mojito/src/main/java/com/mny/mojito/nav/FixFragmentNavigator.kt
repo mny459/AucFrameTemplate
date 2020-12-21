@@ -58,8 +58,8 @@ class FixFragmentNavigator(
         val fragment = mManager.primaryNavigationFragment
         Log.d(TAG, "navigate: fragment = $fragment")
         if (fragment != null) {
-            ft.hide(fragment)
             ft.setMaxLifecycle(fragment, Lifecycle.State.STARTED);
+            ft.hide(fragment)
         }
         // 2. 显示目标 Fragment
         var frag: Fragment? = null
@@ -70,7 +70,7 @@ class FixFragmentNavigator(
         if (frag != null) {
             // 直接显示
             ft.show(frag)
-            ft.setMaxLifecycle(frag,Lifecycle.State.RESUMED)
+            ft.setMaxLifecycle(frag, Lifecycle.State.RESUMED)
         } else {
             // 先创建、在现实
             frag = instantiateFragment(mContext, mManager, className, args)
@@ -92,34 +92,36 @@ class FixFragmentNavigator(
         } catch (e: IllegalAccessException) {
             e.printStackTrace()
         }
+        // 是否是第一个 Fragment
         val initialNavigation = mBackStack!!.isEmpty()
         // TODO Build first class singleTop behavior for fragments
         val isSingleTopReplacement = (navOptions != null && !initialNavigation
                 && navOptions.shouldLaunchSingleTop()
-                && mBackStack.peekLast() == destId)
-
+                && mBackStack?.peekLast() == destId)
+        // 是否添加到回退栈
         val isAdded: Boolean
         isAdded = when {
             initialNavigation -> {
+                // 第一个 Fragment
                 true
             }
-            isSingleTopReplacement -> {
-                // Single Top means we only want one instance on the back stack
-                if (mBackStack.size > 1) {
-                    // If the Fragment to be replaced is on the FragmentManager's
-                    // back stack, a simple replace() isn't enough so we
-                    // remove it from the back stack and put our replacement
-                    // on the back stack in its place
-                    mManager.popBackStack(
-                        generateBackStackName(mBackStack.size, mBackStack.peekLast()),
-                        FragmentManager.POP_BACK_STACK_INCLUSIVE
-                    )
-                    ft.addToBackStack(generateBackStackName(mBackStack.size, destId))
-                }
-                false
-            }
+//            isSingleTopReplacement -> {
+//                // Single Top means we only want one instance on the back stack
+//                if (mBackStack.size > 1) {
+//                    // If the Fragment to be replaced is on the FragmentManager's
+//                    // back stack, a simple replace() isn't enough so we
+//                    // remove it from the back stack and put our replacement
+//                    // on the back stack in its place
+//                    mManager.popBackStack(
+//                        generateBackStackName(mBackStack.size, mBackStack.peekLast()),
+//                        FragmentManager.POP_BACK_STACK_INCLUSIVE
+//                    )
+//                    ft.addToBackStack(generateBackStackName(mBackStack.size, destId))
+//                }
+//                false
+//            }
             else -> {
-                ft.addToBackStack(generateBackStackName(mBackStack.size + 1, destId))
+//                ft.addToBackStack(generateBackStackName(mBackStack.size + 1, destId))
                 true
             }
         }

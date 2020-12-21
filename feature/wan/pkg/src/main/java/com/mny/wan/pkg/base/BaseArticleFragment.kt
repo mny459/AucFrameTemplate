@@ -35,8 +35,6 @@ abstract class BaseArticleFragment(@LayoutRes contentLayoutId: Int) :
 
     override fun initView(view: View) {
         super.initView(view)
-//        mAdapter = ArticleAdapter()
-        lifecycleScope
         mRvArticles = view.findViewById(R.id.rv_articles)
         mRefresh = view.findViewById(R.id.refresh)
         mRefresh?.setOnRefreshListener {

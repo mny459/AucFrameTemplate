@@ -22,5 +22,4 @@
             tools:listitem="@layout/cell_article" />
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
-
 </com.mny.wan.pkg.widget.NestedScrollableHost>

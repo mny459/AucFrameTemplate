@@ -20,7 +20,7 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             app:layout_scrollFlags="scroll|enterAlways"
-            app:title="积分详情" />
+            app:title="@string/wan_coin_detail" />
 
     </com.google.android.material.appbar.AppBarLayout>
 

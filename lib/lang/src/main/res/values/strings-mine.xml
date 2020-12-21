@@ -1,3 +1,9 @@
 <resources>
-
+    <string name="mine_click_to_login">点我登录</string>
+    <string name="settings">设置</string>
+    <string name="theme">主题</string>
+    <string name="theme_light">普通主题</string>
+    <string name="theme_dark">深色主题</string>
+    <string name="about">关于</string>
+    <string name="collection">收藏</string>
 </resources>

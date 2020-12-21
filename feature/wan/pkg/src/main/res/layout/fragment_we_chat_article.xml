@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".presentation.main.wechat.article.WeChatArticleFragment">
 
-
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/refresh"
         android:layout_width="match_parent"
