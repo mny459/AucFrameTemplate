@@ -10,7 +10,8 @@ import java.lang.reflect.ParameterizedType
 import kotlin.reflect.KClass
 
 abstract class BaseBindingFragment<VB : ViewBinding> : BaseFragment(0) {
-    protected var mBinding: VB? = null
+    private var _binding: VB? = null
+    protected val mBinding: VB get() = _binding!!
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -27,7 +28,7 @@ abstract class BaseBindingFragment<VB : ViewBinding> : BaseFragment(0) {
             )
             val binding = method.invoke(null, layoutInflater, container, false) as VB
             binding.apply {
-                mBinding = this
+                _binding = this
                 mRootView = this.root
                 initView(this.root)
             }
@@ -41,7 +42,7 @@ abstract class BaseBindingFragment<VB : ViewBinding> : BaseFragment(0) {
     }
 
     override fun onDestroyView() {
-        mBinding = null
+        _binding = null
         super.onDestroyView()
     }
 }

@@ -3,6 +3,7 @@ package com.mny.wan.pkg.presentation.collect
 import androidx.hilt.Assisted
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.SavedStateHandle
+import androidx.paging.PagingConfig
 import androidx.paging.PagingSource
 import com.mny.mojito.mvvm.BaseAction
 import com.mny.mojito.mvvm.BaseState
@@ -12,11 +13,11 @@ import com.mny.wan.pkg.domain.usecase.ArticleUseCase
 
 class CollectArticleViewModel @ViewModelInject constructor(
     private val mUseCase: ArticleUseCase,
-    @Assisted mSavedStateHandle: SavedStateHandle
+    @Assisted mSavedStateHandle: SavedStateHandle,
 ) :
     BaseArticleViewModel<CollectArticleViewModel.ViewState, CollectArticleViewModel.Action>(
         ViewState(),
-        mSavedStateHandle
+        mSavedStateHandle,
     ) {
 
     data class ViewState(

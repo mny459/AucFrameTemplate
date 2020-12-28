@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import androidx.viewbinding.ViewBinding
 import com.blankj.utilcode.util.LogUtils
 import com.mny.mojito.base.BaseActivity
+import com.mny.mojito.entension.inflate
 import java.lang.reflect.ParameterizedType
 
 abstract class BaseBindingActivity<VB : ViewBinding> : BaseActivity() {
