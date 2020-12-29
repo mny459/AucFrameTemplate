@@ -32,7 +32,8 @@ import javax.inject.Singleton
  * ================================================
  */
 @Singleton
-class ImageLoader @Inject constructor(var mStrategy: BaseImageLoaderStrategy<ImageConfig>? = null) {
+class ImageLoader @Inject constructor() {
+    var mStrategy: BaseImageLoaderStrategy<ImageConfig>? = null
 
     /**
      * 加载图片

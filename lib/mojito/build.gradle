@@ -132,6 +132,8 @@ dependencies {
     androidTestImplementation(Config.depConfig.androidJunit.dep)
     androidTestImplementation(Config.depConfig.androidRunner.dep)
     androidTestImplementation(Config.depConfig.espresso.dep)
+    api(Config.depConfig.liveEventBus.dep)
+
 }
 
 afterEvaluate {

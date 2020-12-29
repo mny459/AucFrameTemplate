@@ -68,7 +68,7 @@ class Config {
             compiler               : new DepConfig("com.alibaba:arouter-compiler:1.1.4"),
             kotlinReflect          : new DepConfig("org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"),
             anko                   : new DepConfig("org.jetbrains.anko:anko:$anko_version"),
-            kotlinAndroidExtensions: new DepConfig(false,"org.jetbrains.kotlin:kotlin-android-extensions:$kotlin_version"),
+            kotlinAndroidExtensions: new DepConfig(false, "org.jetbrains.kotlin:kotlin-android-extensions:$kotlin_version"),
             coroutinesAndroid      : new DepConfig("org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutineVersion"),
             coroutinesCore         : new DepConfig("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutineVersion"),
 
@@ -196,5 +196,6 @@ class Config {
             datastore              : new DepConfig("androidx.datastore:datastore:1.0.0-alpha03"),
             flexbox                : new DepConfig("com.google.android:flexbox:1.1.1"),
             brvah                  : new DepConfig("com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.50"),
+            liveEventBus           : new DepConfig("com.jeremyliao:live-event-bus-x:1.7.3"),
     ]
 }
