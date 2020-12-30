@@ -11,7 +11,7 @@ import java.io.Serializable
  * @Desc
  */
 
-data class BaseResp(val errorCode: Int, val errorMsg: String){
+data class BaseResp(val errorCode: Int, val errorMsg: String) {
     fun isSuccess(): Boolean = errorCode == WanApi.RequestSuccess
 }
 
@@ -55,7 +55,6 @@ data class BeanArticleList(
     override fun toString(): String {
         return "BeanArticleList(curPage=$curPage, offset=$offset, over=$over, pageCount=$pageCount, size=$size, total=$total)"
     }
-
 }
 
 data class BeanArticle(
@@ -215,7 +214,6 @@ data class BeanUserInfo(
     val type: Int,
     val username: String
 )
-
 
 data class BeanBanner(
     val desc: String,

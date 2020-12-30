@@ -1,11 +1,12 @@
 package com.mny.wan.pkg.data
 
 /**
- * @Author CaiRj
+ * @Author Mny459
  * @Date 2019/10/17 18:12
- * @Desc
+ * @Desc: WANAndroid 大部分 api
  */
 object UrlManager {
+
     fun urlHomeArticleList(page: Int): String = "/article/list/${page}/json"
 
     fun urlSystemArticleList(page: Int, cid: Int): String = "/article/list/${page}/json?cid=${cid}"

@@ -15,7 +15,7 @@ import javax.inject.Inject
 /**
  * Desc:
  */
-class UserRepositoryImpl @Inject constructor(val userDao: UserDao) : BaseRepository(),
+class UserRepositoryImpl @Inject constructor(private val userDao: UserDao) : BaseRepository(),
     UserRepository {
 
     override suspend fun login(username: String, password: String): BaseResponse<BeanUserInfo> {

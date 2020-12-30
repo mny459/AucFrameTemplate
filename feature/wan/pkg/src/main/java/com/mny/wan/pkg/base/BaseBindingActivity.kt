@@ -9,6 +9,9 @@ import com.mny.mojito.base.BaseActivity
 import com.mny.mojito.entension.inflate
 import java.lang.reflect.ParameterizedType
 
+/**
+ * 目前没有找到什么好的方式，就暂时先用反射的形式来初始化 ViewBinding 吧
+ */
 abstract class BaseBindingActivity<VB : ViewBinding> : BaseActivity() {
     protected lateinit var mBinding: VB
 

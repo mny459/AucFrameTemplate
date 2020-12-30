@@ -16,3 +16,5 @@
 ./gradlew dependencyUpdates
 
 [\u4e00-\u9fa5] 中文匹配正则表达式
+
+./gradlew iD -x lint

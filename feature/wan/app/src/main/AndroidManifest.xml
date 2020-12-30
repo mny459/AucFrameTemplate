@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.mny.wan.app">
 
+<!--    <permission android:name="android.permission.INSTALL_GRANT_RUNTIME_PERMISSIONS" />-->
     <application
         android:name=".WanApp"
         android:allowBackup="false"
