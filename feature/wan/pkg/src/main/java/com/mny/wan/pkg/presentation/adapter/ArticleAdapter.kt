@@ -8,9 +8,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.constraintlayout.widget.Group
 import androidx.lifecycle.LifecycleOwner
-import androidx.lifecycle.findViewTreeLifecycleOwner
 import androidx.lifecycle.lifecycleScope
-import androidx.lifecycle.viewModelScope
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
@@ -20,7 +18,7 @@ import com.mny.mojito.entension.loadProjectPreview
 import com.mny.wan.pkg.R
 import com.mny.wan.pkg.data.local.UserHelper
 import com.mny.wan.pkg.data.remote.model.BeanArticle
-import com.mny.wan.pkg.presentation.CollectViewModel
+import com.mny.wan.pkg.presentation.AppViewModel
 import com.mny.wan.pkg.presentation.webview.WebViewActivity
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.collect
@@ -33,7 +31,7 @@ import javax.inject.Inject
  * @Date 2019/10/17 16:03
  * @Desc PagingDataAdapter: Paging 要求继承的 Adapter
  */
-class ArticleAdapter @Inject constructor(private val mCollectViewModel: CollectViewModel) :
+class ArticleAdapter @Inject constructor(private val mAppViewModel: AppViewModel) :
     PagingDataAdapter<BeanArticle, ArticleViewHolder>(COMPARATOR) {
     var viewLifecycleOwner: LifecycleOwner? = null
 
@@ -75,7 +73,7 @@ class ArticleAdapter @Inject constructor(private val mCollectViewModel: CollectV
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ArticleViewHolder =
-        ArticleViewHolder.create(parent, mCollectViewModel, viewLifecycleOwner!!)
+        ArticleViewHolder.create(parent, mAppViewModel, viewLifecycleOwner!!)
 
     override fun onViewDetachedFromWindow(holder: ArticleViewHolder) {
         super.onViewDetachedFromWindow(holder)
@@ -85,7 +83,7 @@ class ArticleAdapter @Inject constructor(private val mCollectViewModel: CollectV
 
 class ArticleViewHolder(
     private val view: View,
-    val viewModel: CollectViewModel,
+    val viewModel: AppViewModel,
     val viewLifecycleOwner: LifecycleOwner
 ) :
     RecyclerView.ViewHolder(view) {
@@ -145,7 +143,7 @@ class ArticleViewHolder(
         viewLifecycleOwner.apply {
             mCollectJob = lifecycleScope.launch {
                 viewModel.collectIds.collect {
-                    LogUtils.d("收藏的id $it 当前文章 ${item.id}")
+//                    LogUtils.d("收藏的id $it 当前文章 ${item.id}")
                     if (it != 0 && it == item.id) {
                         item.collect = true
                         mIvCollect.isSelected = item.collect
@@ -154,7 +152,7 @@ class ArticleViewHolder(
             }
             mCancelCollectJob = lifecycleScope.launch {
                 viewModel.cancelCollectIds.collect {
-                    LogUtils.d("取消收藏的id $it 当前文章 ${item.id}")
+//                    LogUtils.d("取消收藏的id $it 当前文章 ${item.id}")
                     if (it != 0 && it == item.id) {
                         item.collect = false
                         mIvCollect.isSelected = item.collect
@@ -173,7 +171,7 @@ class ArticleViewHolder(
     companion object {
         fun create(
             parent: ViewGroup,
-            viewModel: CollectViewModel,
+            viewModel: AppViewModel,
             viewLifecycleOwner: LifecycleOwner
         ): ArticleViewHolder {
             val view = LayoutInflater.from(parent.context)

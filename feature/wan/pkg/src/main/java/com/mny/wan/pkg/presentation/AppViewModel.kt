@@ -15,11 +15,16 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class CollectViewModel @Inject constructor(
+class AppViewModel @Inject constructor(
     @ApplicationContext context: Context,
     private val mUseCase: CollectUseCase
 ) :
     AndroidViewModel(context as Application) {
+
+    private val mCollectIds = MutableStateFlow<Int>(0)
+    private val mCancelCollectIds = MutableStateFlow<Int>(0)
+    val collectIds: StateFlow<Int> = mCollectIds
+    val cancelCollectIds: StateFlow<Int> = mCancelCollectIds
 
     fun collect(articleId: Int) {
         viewModelScope.launch {
@@ -45,8 +50,4 @@ class CollectViewModel @Inject constructor(
         }
     }
 
-    private val mCollectIds = MutableStateFlow<Int>(0)
-    private val mCancelCollectIds = MutableStateFlow<Int>(0)
-    val collectIds: StateFlow<Int> = mCollectIds
-    val cancelCollectIds: StateFlow<Int> = mCancelCollectIds
 }

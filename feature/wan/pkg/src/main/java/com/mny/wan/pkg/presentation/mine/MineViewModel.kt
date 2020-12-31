@@ -1,15 +1,13 @@
 package com.mny.wan.pkg.presentation.mine
 
-import androidx.hilt.Assisted
 import androidx.hilt.lifecycle.ViewModelInject
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.viewModelScope
 import com.blankj.utilcode.util.ToastUtils
 import com.mny.mojito.http.MojitoResult
 import com.mny.mojito.mvvm.BaseAction
 import com.mny.mojito.mvvm.BaseState
 import com.mny.mojito.mvvm.BaseViewModel
+import com.mny.wan.pkg.data.local.UserHelper
 import com.mny.wan.pkg.data.remote.model.BeanCoin
 import com.mny.wan.pkg.data.remote.model.BeanUserInfo
 import com.mny.wan.pkg.domain.usecase.UserUseCase
@@ -18,9 +16,8 @@ import kotlinx.coroutines.launch
 
 class MineViewModel @ViewModelInject constructor(
     private val mUseCase: UserUseCase,
-    @Assisted mSavedStateHandle: SavedStateHandle
-) :
-    BaseViewModel<MineViewModel.ViewState, MineViewModel.Action>(ViewState()) {
+) : BaseViewModel<MineViewModel.ViewState, MineViewModel.Action>(ViewState()) {
+
     override fun onLoadData() {
         super.onLoadData()
         fetchUserInfo()
@@ -30,9 +27,7 @@ class MineViewModel @ViewModelInject constructor(
     private fun fetchUserInfo() {
         viewModelScope.launch {
             val user = mUseCase.fetchLocalUserInfo()
-            user?.apply {
-                sendAction(Action.UpdateUser(this))
-            }
+            sendAction(Action.UpdateUser(user))
         }
     }
 
@@ -42,6 +37,7 @@ class MineViewModel @ViewModelInject constructor(
                 .collect {
                     when (it) {
                         is MojitoResult.Success -> {
+                            UserHelper.loginOut()
                             it.data?.apply {
                                 sendAction(Action.UpdateCoin(this))
                             }
@@ -64,6 +60,7 @@ class MineViewModel @ViewModelInject constructor(
                     when (it) {
                         is MojitoResult.Success -> {
                             ToastUtils.showShort("退出登录成功")
+                            sendAction(Action.LoginOut)
                         }
                         is MojitoResult.Error -> {
                         }
@@ -82,13 +79,15 @@ class MineViewModel @ViewModelInject constructor(
     ) : BaseState
 
     sealed class Action : BaseAction {
-        class UpdateUser(val user: BeanUserInfo) : Action()
+        class UpdateUser(val user: BeanUserInfo?) : Action()
         class UpdateCoin(val coin: BeanCoin) : Action()
+        object LoginOut : Action()
     }
 
     override fun onReduceState(viewAction: Action): ViewState = when (viewAction) {
         is Action.UpdateUser -> state.copy(user = viewAction.user)
         is Action.UpdateCoin -> state.copy(coin = viewAction.coin)
+        Action.LoginOut -> state.copy(coin = null, user = null)
     }
 
 }

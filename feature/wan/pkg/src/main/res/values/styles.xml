@@ -14,7 +14,7 @@
     <style name="TextAppearance.Wan.ArticleDesc" parent="TextAppearance.MaterialComponents.Caption" />
     <!-- https://juejin.cn/post/6844904200673968141#heading-22 -->
     <style name="ShapeAppearance.Wan.Button" parent="ShapeAppearance.MaterialComponents.MediumComponent">
-        <item name="cornerSize">@dimen/dp_16</item>
+        <item name="cornerSize">28dp</item>
     </style>
 
     <style name="Widget.Wan.Button" parent="Widget.MaterialComponents.Button">

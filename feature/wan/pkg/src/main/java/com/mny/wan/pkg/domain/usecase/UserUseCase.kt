@@ -16,7 +16,7 @@ import java.lang.Exception
  * Desc:
  */
 class UserUseCase @Inject constructor(private val mRepository: UserRepository) {
-    
+
     suspend fun login(username: String, password: String): Flow<MojitoResult<BeanUserInfo>> {
         return flow {
             val response = mRepository.login(username, password)
@@ -25,7 +25,7 @@ class UserUseCase @Inject constructor(private val mRepository: UserRepository) {
                 UserHelper.login(userInfo)
                 val user = userInfo.toEntity()
                 val collections = userInfo.toCollectionEntityList()
-                mRepository.saveUser(user,collections)
+                mRepository.saveUser(user, collections)
                 val coinResp = mRepository.fetchCoinInfo()
                 if (coinResp.isSuccess()) {
                     mRepository.saveCoin(coinResp.data.toEntity())
@@ -85,11 +85,15 @@ class UserUseCase @Inject constructor(private val mRepository: UserRepository) {
 
     suspend fun fetchCoinInfo(): Flow<MojitoResult<BeanCoin>> {
         return flow {
-            val response = mRepository.fetchCoinInfo()
-            if (response.isSuccess()) {
-                emit(MojitoResult.Success(response.data))
+            if (UserHelper.isLogin()) {
+                val response = mRepository.fetchCoinInfo()
+                if (response.isSuccess()) {
+                    emit(MojitoResult.Success(response.data))
+                } else {
+                    emit(MojitoResult.Error(Exception(response.errorMsg)))
+                }
             } else {
-                emit(MojitoResult.Error(Exception(response.errorMsg)))
+                emit(MojitoResult.Error(Exception("请先登录")))
             }
         }.onStart {
             emit(MojitoResult.Loading)

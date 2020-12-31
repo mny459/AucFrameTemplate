@@ -8,6 +8,7 @@ import com.mny.mojito.mvvm.BaseAction
 import com.mny.mojito.mvvm.BaseState
 import com.mny.mojito.mvvm.BaseViewModel
 import com.mny.mojito.http.MojitoResult
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
@@ -16,6 +17,7 @@ internal class LoginViewModel @ViewModelInject constructor(private val mUserUseC
 
     fun login(username: String, password: String) {
         viewModelScope.launch {
+            delay(1000)
             mUserUseCase.login(username, password)
                 .collect {
                     when (it) {

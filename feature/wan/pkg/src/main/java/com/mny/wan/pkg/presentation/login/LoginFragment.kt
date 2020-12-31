@@ -29,8 +29,8 @@ class LoginFragment : BaseFragment(R.layout.login_fragment) {
     private val mStateObserver = Observer<LoginViewModel.ViewState> {
         when {
             it.isLoading -> {
-                mLoadingDialog =
-                    mActivity?.showLoading(StringUtils.getString(R.string.login_loading))
+//                mLoadingDialog =
+//                    mActivity?.showLoading(StringUtils.getString(R.string.login_loading))
             }
             it.loginSuccess -> {
                 mLoadingDialog?.hide()
@@ -65,5 +65,13 @@ class LoginFragment : BaseFragment(R.layout.login_fragment) {
     override fun initObserver() {
         super.initObserver()
         observe(mViewModel.stateLiveData, mStateObserver)
+    }
+
+    override fun onDestroyView() {
+        if (mLoadingDialog?.isShowing == true) {
+            mLoadingDialog?.hide()
+        }
+        mLoadingDialog = null;
+        super.onDestroyView()
     }
 }

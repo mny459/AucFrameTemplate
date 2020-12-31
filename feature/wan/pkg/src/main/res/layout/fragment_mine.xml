@@ -22,7 +22,7 @@
             android:paddingBottom="32dp">
 
             <androidx.constraintlayout.widget.Group
-                android:id="@+id/groupUserInfo"
+                android:id="@+id/group_user_info"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:visibility="gone"
@@ -51,14 +51,25 @@
                 app:tint="?attr/colorOnPrimary" />
 
             <TextView
-                android:id="@+id/tvName"
+                android:id="@+id/tv_login"
                 style="@style/CommonTextView.Large"
                 android:layout_marginTop="@dimen/dp_16"
                 android:text="@string/mine_click_to_login"
                 android:textColor="?attr/colorOnPrimary"
+                android:visibility="gone"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/imgAvatar" />
+
+            <TextView
+                android:id="@+id/tvName"
+                style="@style/CommonTextView.Large"
+                android:layout_marginTop="@dimen/dp_16"
+                android:textColor="?attr/colorOnPrimary"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/imgAvatar" />
+
 
             <TextView
                 android:id="@+id/tvCredits"

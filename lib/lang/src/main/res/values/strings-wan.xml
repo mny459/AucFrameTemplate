@@ -1,6 +1,7 @@
 <resources>
     <string name="wan_nav_home">首页</string>
     <string name="wan_nav_qa">问答</string>
+    <string name="wan_nav_discover">发现</string>
     <string name="wan_nav_mine">我的</string>
     <string name="wan_coin_detail">积分详情</string>
     <string name="wan_coin_rank">积分排名</string>

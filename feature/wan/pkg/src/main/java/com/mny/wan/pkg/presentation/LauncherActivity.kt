@@ -23,7 +23,8 @@ class LauncherActivity : BaseActivity() {
                 this@LauncherActivity,
 //                if (UserHelper.isLogin()) WanMainActivity::class.java else LoginActivity::class.java
 //                if (UserHelper.isLogin()) WanMainActivity::class.java else LoginActivity::class.java
-                if (UserHelper.isLogin()) MainNavFixActivity::class.java else LoginActivity::class.java
+//                if (UserHelper.isLogin()) MainNavFixActivity::class.java else LoginActivity::class.java
+                MainNavFixActivity::class.java
             )
             startActivity(intent)
             this@LauncherActivity.finish()
