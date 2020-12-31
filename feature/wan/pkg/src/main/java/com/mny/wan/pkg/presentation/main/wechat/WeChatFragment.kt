@@ -38,7 +38,7 @@ class WeChatFragment : BaseFragment(R.layout.fragment_we_chat) {
         mTabLayout = view.findViewById(R.id.tab_layout)
         mViewPage = view.findViewById(R.id.view_pager)
         mToolbar = view.findViewById(R.id.toolbar)
-        mToolbar?.title = "公众号文章"
+        mToolbar?.setTitle(R.string.we_chat_article)
         mTabLayout?.apply {
             mTabLayout?.tabMode = TabLayout.MODE_SCROLLABLE
             //为TabLayout添加Tab选择事件监听

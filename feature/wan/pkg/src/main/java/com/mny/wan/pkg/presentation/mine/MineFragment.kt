@@ -11,6 +11,9 @@ import com.mny.wan.pkg.databinding.FragmentMineBinding
 import com.mny.wan.pkg.presentation.coin.CoinDetailActivity
 import com.mny.wan.pkg.presentation.collect.CollectActivity
 import com.mny.wan.pkg.presentation.login.LoginActivity
+import com.mny.wan.pkg.presentation.main.project.ProjectActivity
+import com.mny.wan.pkg.presentation.main.system.share.ShareActivity
+import com.mny.wan.pkg.presentation.main.wechat.WeChatActivity
 import com.mny.wan.pkg.presentation.setting.ThemeSettingsActivity
 import com.mny.wan.pkg.utils.ThemeHelper
 import dagger.hilt.android.AndroidEntryPoint
@@ -27,10 +30,19 @@ class MineFragment : BaseBindingFragment<FragmentMineBinding>() {
             mViewModel.logout()
         }
         mBinding.tvLogin.setOnClickListener {
-            LoginActivity.go()
+            LoginActivity.show()
         }
         mBinding.rowCollect.setOnClickListener {
             CollectActivity.show()
+        }
+        mBinding.rowProject.setOnClickListener {
+            ProjectActivity.show()
+        }
+        mBinding.rowWeChatArticle.setOnClickListener {
+            WeChatActivity.show()
+        }
+        mBinding.rowSquare.setOnClickListener {
+            ShareActivity.show()
         }
         mBinding.rowTheme.setOnCheckedChangeListener { _, checked ->
             if (checked) {

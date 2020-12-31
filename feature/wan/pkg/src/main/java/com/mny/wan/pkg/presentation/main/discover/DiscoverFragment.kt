@@ -29,8 +29,6 @@ class DiscoverFragment : BaseFragment(R.layout.fragment_discover) {
     override fun initView(view: View) {
         super.initView(view)
         mFragments.add(SystemTagFragment.newInstance(SystemTagFragment.TAG_SYSTEM))
-        mFragments.add(ProjectFragment.newInstance())
-        mFragments.add(WeChatFragment.newInstance())
         mFragments.add(SystemTagFragment.newInstance(SystemTagFragment.TAG_NAV))
         mFragments.add(ShareFragment.newInstance())
         mVpAdapter = CommonFragmentAdapter(this@DiscoverFragment, mFragments)
@@ -57,8 +55,6 @@ class DiscoverFragment : BaseFragment(R.layout.fragment_discover) {
             TabLayoutMediator(this, mViewPage!!) { tab, position ->
                 tab.text = when (position) {
                     0 -> "体系"
-                    1 -> "项目"
-                    2 -> "公众号"
                     3 -> "导航"
                     4 -> "广场"
                     else -> ""

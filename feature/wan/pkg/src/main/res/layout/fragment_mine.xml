@@ -99,6 +99,24 @@
             app:title="@string/collection" />
 
         <com.mny.wan.pkg.widget.CommonRowView
+            android:id="@+id/row_project"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            app:title="@string/project" />
+
+        <com.mny.wan.pkg.widget.CommonRowView
+            android:id="@+id/row_we_chat_article"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            app:title="@string/we_chat_article" />
+
+        <com.mny.wan.pkg.widget.CommonRowView
+            android:id="@+id/row_square"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            app:title="@string/square" />
+
+        <com.mny.wan.pkg.widget.CommonRowView
             android:id="@+id/row_theme"
             android:layout_width="match_parent"
             android:layout_height="56dp"

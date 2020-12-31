@@ -6,4 +6,7 @@
     <string name="theme_dark">深色主题</string>
     <string name="about">关于</string>
     <string name="collection">我的收藏</string>
+    <string name="we_chat_article">公众号文章</string>
+    <string name="project">项目</string>
+    <string name="square">广场</string>
 </resources>

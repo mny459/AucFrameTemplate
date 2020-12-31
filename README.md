@@ -8,6 +8,7 @@
 - AppIcon
 - SP封装
 - 图片加载封装
+- 解决公众号文章的地方 ViewPager2和RecyclerView滑动冲突
 
 ## 已知问题
 - Navigation 不保存状态

@@ -17,29 +17,11 @@
         android:label="@string/wan_nav_qa"
         tools:layout="@layout/fragment_q_a" />
 
-    <fixfragment
-        android:id="@+id/discoverFragment"
-        android:name="com.mny.wan.pkg.presentation.main.discover.DiscoverFragment"
-        android:label="@string/wan_nav_discover"
-        tools:layout="@layout/fragment_discover" />
-
-    <!--    <fragment-->
-    <!--        android:id="@+id/weChatFragment"-->
-    <!--        android:name="com.mny.wan.pkg.presentation.main.wechat.WeChatFragment"-->
-    <!--        android:label="fragment_we_chat"-->
-    <!--        tools:layout="@layout/fragment_we_chat" />-->
-
-    <!--    <fragment-->
-    <!--        android:id="@+id/projectFragment"-->
-    <!--        android:name="com.mny.wan.pkg.presentation.main.project.ProjectFragment"-->
-    <!--        android:label="fragment_project"-->
-    <!--        tools:layout="@layout/fragment_project" />-->
-
-    <!--    <fragment-->
-    <!--        android:id="@+id/systemFragment"-->
-    <!--        android:name="com.mny.wan.pkg.presentation.main.system.SystemFragment"-->
-    <!--        android:label="fragment_system"-->
-    <!--        tools:layout="@layout/fragment_system" />-->
+    <fragment
+        android:id="@+id/systemFragment"
+        android:name="com.mny.wan.pkg.presentation.main.system.SystemFragment"
+        android:label="@string/wan_nav_system"
+        tools:layout="@layout/fragment_system" />
 
 
     <fixfragment
