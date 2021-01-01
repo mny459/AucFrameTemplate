@@ -94,32 +94,27 @@
 
         <com.mny.wan.pkg.widget.CommonRowView
             android:id="@+id/row_collect"
-            android:layout_width="match_parent"
-            android:layout_height="56dp"
+            style="@style/Widget.CommonRow"
             app:title="@string/collection" />
 
         <com.mny.wan.pkg.widget.CommonRowView
             android:id="@+id/row_project"
-            android:layout_width="match_parent"
-            android:layout_height="56dp"
+            style="@style/Widget.CommonRow"
             app:title="@string/project" />
 
         <com.mny.wan.pkg.widget.CommonRowView
             android:id="@+id/row_we_chat_article"
-            android:layout_width="match_parent"
-            android:layout_height="56dp"
+            style="@style/Widget.CommonRow"
             app:title="@string/we_chat_article" />
 
         <com.mny.wan.pkg.widget.CommonRowView
             android:id="@+id/row_square"
-            android:layout_width="match_parent"
-            android:layout_height="56dp"
+            style="@style/Widget.CommonRow"
             app:title="@string/square" />
 
         <com.mny.wan.pkg.widget.CommonRowView
             android:id="@+id/row_theme"
-            android:layout_width="match_parent"
-            android:layout_height="56dp"
+            style="@style/Widget.CommonRow"
             app:showSwitch="true"
             app:subtitleOff="@string/theme_light"
             app:subtitleOn="@string/theme_dark"
@@ -127,15 +122,9 @@
 
         <com.mny.wan.pkg.widget.CommonRowView
             android:id="@+id/row_settings"
-            android:layout_width="match_parent"
-            android:layout_height="56dp"
+            style="@style/Widget.CommonRow"
             app:title="@string/settings" />
 
-        <com.mny.wan.pkg.widget.CommonRowView
-            android:id="@+id/row_about"
-            android:layout_width="match_parent"
-            android:layout_height="56dp"
-            app:title="@string/about" />
     </LinearLayout>
 
 

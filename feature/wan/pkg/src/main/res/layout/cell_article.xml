@@ -3,8 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="?attr/colorSurface"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:background="?attr/colorSurface">
 
     <androidx.constraintlayout.widget.Group
         android:id="@+id/groupProject"
@@ -24,7 +24,7 @@
         android:background="@drawable/item_round_8dp"
         android:paddingHorizontal="@dimen/dp_4"
         android:paddingVertical="@dimen/dp_2"
-        android:textColor="?attr/colorPrimary"
+        android:textColor="?attr/colorAccent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="用户名" />
@@ -117,7 +117,7 @@
         android:paddingHorizontal="@dimen/dp_4"
         android:paddingVertical="@dimen/dp_2"
         android:text="置顶"
-        android:textColor="?attr/colorPrimary"
+        android:textColor="?attr/colorAccent"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="@id/imgCollect"
         app:layout_constraintStart_toStartOf="@id/tvUserType"

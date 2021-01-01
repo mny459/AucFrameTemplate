@@ -34,18 +34,6 @@
     <color name="color_EA4E3D">#EA4E3D</color>
     <color name="color_FF4081">#FF4081</color>
 
-
-    <!--基础主色-->
-    <color name="colorPrimary">#009688</color>
-    <color name="colorPrimaryDark">#00796B</color>
-    <color name="colorAccent">@android:color/transparent</color>
-    <color name="colorLight">@color/white</color>
-    <color name="colorAccentAlpha">#801572fc</color>
-
-    <!--背景色-->
-    <color name="windowsBackground">#f7f7f7</color>
-    <color name="windowsBackgroundLight">#f8f8f8</color>
-
     <!--字体颜色-->
     <color name="textPrimary">#4e5864</color>
     <color name="textSecond">#8d9ca9</color>
@@ -385,4 +373,19 @@
     <color name="gray_abb4bf">#abb4bf</color>
     <color name="gray_929292">#929292</color>
     <color name="blue_0c85ff">#0c85ff</color>
+
+    <!--基础主色-->
+    <color name="colorNightPrimary">#000000</color>
+    <color name="colorNightDarkPrimary">#000000</color>
+    <color name="colorNightSurface">#000000</color>
+    <color name="colorNightOnSurface">#FFFFFF</color>
+    <color name="colorNightWindowBackground">#000000</color>
+    <color name="colorNightAccent">@color/blue_0c85ff</color>
+    <color name="colorAccent">@android:color/transparent</color>
+    <color name="colorLight">@color/white</color>
+    <color name="colorAccentAlpha">#801572fc</color>
+
+    <!--背景色-->
+    <color name="windowsBackground">#f7f7f7</color>
+    <color name="windowsBackgroundLight">#f8f8f8</color>
 </resources>

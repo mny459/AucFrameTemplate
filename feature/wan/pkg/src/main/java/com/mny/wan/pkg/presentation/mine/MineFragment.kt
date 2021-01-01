@@ -14,6 +14,7 @@ import com.mny.wan.pkg.presentation.login.LoginActivity
 import com.mny.wan.pkg.presentation.main.project.ProjectActivity
 import com.mny.wan.pkg.presentation.main.system.share.ShareActivity
 import com.mny.wan.pkg.presentation.main.wechat.WeChatActivity
+import com.mny.wan.pkg.presentation.setting.SettingsActivity
 import com.mny.wan.pkg.presentation.setting.ThemeSettingsActivity
 import com.mny.wan.pkg.utils.ThemeHelper
 import dagger.hilt.android.AndroidEntryPoint
@@ -44,17 +45,9 @@ class MineFragment : BaseBindingFragment<FragmentMineBinding>() {
         mBinding.rowSquare.setOnClickListener {
             ShareActivity.show()
         }
-        mBinding.rowTheme.setOnCheckedChangeListener { _, checked ->
-            if (checked) {
-                ThemeHelper.setNightMode()
-            } else {
-                ThemeHelper.setLightMode()
-            }
-        }
         mBinding.rowSettings.setOnClickListener {
-            ThemeSettingsActivity.show()
+            SettingsActivity.show()
         }
-        mBinding.rowAbout.setOnClickListener { }
         mBinding.tvCredits.setOnClickListener { CoinDetailActivity.show() }
     }
 

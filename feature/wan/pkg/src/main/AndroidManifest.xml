@@ -8,7 +8,8 @@
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
 
     <application>
-        <activity android:name=".presentation.main.system.share.ShareActivity"></activity>
+        <activity android:name=".presentation.setting.SettingsActivity"></activity>
+        <activity android:name=".presentation.main.system.share.ShareActivity" />
         <activity android:name=".presentation.main.project.ProjectActivity" />
         <activity android:name=".presentation.main.wechat.WeChatActivity" />
         <activity android:name=".presentation.main.MainNavFixActivity" />

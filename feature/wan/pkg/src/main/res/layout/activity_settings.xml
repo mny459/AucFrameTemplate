@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".presentation.setting.SettingsActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:title="@string/settings" />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <com.mny.wan.pkg.widget.CommonRowView
+                android:id="@+id/row_theme_follow_system"
+                style="@style/Widget.CommonRow"
+                app:showSwitch="true"
+                app:subtitle="开启后，将跟随系统打开或关闭深色模式"
+                app:title="深色模式" />
+
+            <com.mny.wan.pkg.widget.CommonRowView
+                android:id="@+id/row_theme_switch"
+                style="@style/Widget.CommonRow"
+                app:showSwitch="true"
+                app:subtitleOff="浅色模式"
+                app:subtitleOn="深色模式"
+                app:title="App 主题" />
+
+            <com.mny.wan.pkg.widget.CommonRowView
+                android:id="@+id/row_about"
+                style="@style/Widget.CommonRow"
+                app:title="@string/about" />
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

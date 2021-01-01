@@ -21,6 +21,10 @@
         <item name="android:layout_height">56dp</item>
     </style>
 
+    <style name="TextAppearance.Wan.TabLayout.Tab" parent="TextAppearance.Design.Tab">
+        <item name="textAllCaps">false</item>
+    </style>
+
     <style name="CommonTextView" parent="TextAppearance.AppCompat">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
@@ -83,8 +87,8 @@
     </style>
 
     <style name="Widget.Wan.FloatingActionButton" parent="Widget.MaterialComponents.FloatingActionButton">
-        <item name="android:background">?attr/colorPrimary</item>
-        <item name="tint">?attr/colorOnPrimary</item>
+        <item name="android:background">?attr/colorAccent</item>
+        <item name="tint">?attr/colorAccent</item>
     </style>
 
     <style name="Widget.Wan.AppBarLayout" parent="Widget.MaterialComponents.AppBarLayout.Primary">
@@ -98,6 +102,12 @@
 
     <style name="Widget.Wan.TabLayout" parent="Widget.MaterialComponents.TabLayout.Colored">
         <!--        <item name="android:background">?attr/colorPrimary</item>-->
+        <item name="tabTextAppearance">@style/TextAppearance.Wan.TabLayout.Tab</item>
     </style>
 
+
+    <style name="Widget.CommonRow" parent="">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">?attr/listPreferredItemHeight</item>
+    </style>
 </resources>

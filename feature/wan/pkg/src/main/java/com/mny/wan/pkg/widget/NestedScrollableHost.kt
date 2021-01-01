@@ -24,6 +24,7 @@ import android.view.ViewConfiguration
 import android.widget.FrameLayout
 import androidx.viewpager2.widget.ViewPager2
 import androidx.viewpager2.widget.ViewPager2.ORIENTATION_HORIZONTAL
+import com.blankj.utilcode.util.LogUtils
 import kotlin.math.absoluteValue
 import kotlin.math.sign
 
@@ -72,6 +73,7 @@ class NestedScrollableHost : FrameLayout {
     }
 
     private fun handleInterceptTouchEvent(e: MotionEvent) {
+        LogUtils.d("handleInterceptTouchEvent ${parentViewPager?.orientation}")
         val orientation = parentViewPager?.orientation ?: return
 
         // Early return if child can't scroll in same direction as parent

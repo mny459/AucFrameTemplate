@@ -8,6 +8,7 @@ import android.view.View
 import android.widget.CompoundButton
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
+import com.blankj.utilcode.util.LogUtils
 import com.blankj.utilcode.util.ScreenUtils
 import com.blankj.utilcode.util.SizeUtils
 import com.google.android.material.switchmaterial.SwitchMaterial
@@ -49,6 +50,7 @@ class CommonRowView @JvmOverloads constructor(
             mTvSubtitle.visibility = View.GONE
         }
         updateSubtitle()
+        mSwitch.isClickable = false
         mSwitch.setOnCheckedChangeListener { buttonView: CompoundButton, isChecked: Boolean ->
             mOnCheckedChangeListener?.onCheckedChanged(buttonView, isChecked)
             updateSubtitle()
@@ -81,4 +83,21 @@ class CommonRowView @JvmOverloads constructor(
             mSubtitle ?: ""
         }
     }
+
+    override fun setEnabled(enabled: Boolean) {
+        super.setEnabled(enabled)
+        mSwitch.isEnabled = enabled
+        mTvTitle.isEnabled = enabled
+        mTvSubtitle.isEnabled = enabled
+    }
+
+    fun setChecked(checked: Boolean, log: Boolean) {
+        if (isChecked() == checked) return
+        mSwitch.isChecked = checked
+        if (log) {
+            LogUtils.d("$this setChecked $checked ${mSwitch.isChecked}")
+        }
+    }
+
+    fun isChecked() = mSwitch.isChecked
 }

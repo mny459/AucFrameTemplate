@@ -10,6 +10,8 @@ import com.mny.wan.pkg.presentation.login.LoginActivity
 import com.mny.wan.pkg.presentation.main.MainActivity
 import com.mny.wan.pkg.presentation.main.MainNavFixActivity
 import com.mny.wan.pkg.presentation.main.WanMainActivity
+import com.mny.wan.pkg.presentation.main.wechat.WeChatActivity
+import com.mny.wan.pkg.presentation.setting.SettingsActivity
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
@@ -24,6 +26,7 @@ class LauncherActivity : BaseActivity() {
 //                if (UserHelper.isLogin()) WanMainActivity::class.java else LoginActivity::class.java
 //                if (UserHelper.isLogin()) WanMainActivity::class.java else LoginActivity::class.java
 //                if (UserHelper.isLogin()) MainNavFixActivity::class.java else LoginActivity::class.java
+//                SettingsActivity::class.java
                 MainNavFixActivity::class.java
             )
             startActivity(intent)

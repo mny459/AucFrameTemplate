@@ -9,37 +9,37 @@
         <item name="android:navigationBarColor">@color/colorAccent</item>
         <!-- 主题颜色 分割线 -->
         <!-- App的主要颜色 -->
-        <item name="colorPrimary">@color/blue_0c85ff</item>
+        <item name="colorPrimary">@color/colorNightSurface</item>
         <!-- 主色上显示内容的颜色-->
-        <item name="colorOnPrimary">@color/color_FFFFFF</item>
+        <item name="colorOnPrimary">@color/colorNightOnSurface</item>
         <!-- App的次要颜色 -->
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">?attr/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorNightDarkPrimary</item>
+        <item name="colorAccent">@color/colorNightAccent</item>
         <!-- 部件的表面颜色，如卡片、表格、菜单等 -->
-        <item name="colorSurface">@color/black_222222</item>
+        <item name="colorSurface">@color/colorNightSurface</item>
         <!-- 部件显示的内容的颜色-->
-        <item name="colorOnSurface">@android:color/black</item>
+        <item name="colorOnSurface">@color/colorNightOnSurface</item>
         <!-- 错误显示的颜色-->
         <item name="colorError">@color/color_EA4E3D</item>
         <!-- 文字的主色 -->
-        <item name="android:textColorPrimary">@color/white_e7e7e7</item>
+        <item name="android:textColorPrimary">@color/colorNightOnSurface</item>
         <!-- 文字的二级颜色 -->
-        <item name="android:textColorSecondary">@color/white_e7e7e7</item>
+        <item name="android:textColorSecondary">@color/colorNightOnSurface</item>
 
         <!-- 正常状态下图标/控件的颜色 -->
         <item name="colorControlNormal">?attr/colorOnPrimary</item>
         <!-- 激活状态下图标/控件的颜色（例如 checked） -->
-        <item name="colorControlActivated">?attr/colorPrimary</item>
+        <item name="colorControlActivated">?attr/colorAccent</item>
 
         <!-- 应用窗口（Activity、Dialog等）背景色-->
-        <item name="android:windowBackground">@color/windowsBackground</item>
+        <item name="android:windowBackground">@color/colorNightWindowBackground</item>
         <!-- 主题颜色分割线 -->
 
         <!-- 主题大小 分割线 -->
         <!-- ActionBar、Toolbar的高度 -->
         <item name="actionBarSize">@dimen/dp_48</item>
         <!-- 列表项的标准高度 (最小值) -->
-        <item name="listPreferredItemHeight">@dimen/dp_48</item>
+        <item name="listPreferredItemHeight">@dimen/dp_58</item>
 
         <!-- 主题大小 分割线 -->
         <!--  主题动画分割线     -->
