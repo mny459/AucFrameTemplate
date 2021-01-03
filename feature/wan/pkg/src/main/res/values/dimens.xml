@@ -1,42 +1,16 @@
 <resources>
     <!-- Default screen margins, per the Android Design guidelines. -->
-
-    <!--头像高度-->
-    <dimen name="portraitMinSize">36dp</dimen>
-    <dimen name="portraitSize">40dp</dimen>
-    <dimen name="portraitMaxSize">64dp</dimen>
-
-    <!--状态栏高度-->
-    <dimen name="statusBarSize">25dp</dimen>
-    <!--状态栏和标题栏高度一起-->
-    <dimen name="actionBarWithStatusBarSize">48dp</dimen>
-
-    <!--名字字体的大小-->
-    <dimen name="fontNameSize">15sp</dimen>
-
-    <!-- =======================   -->
-
-    <dimen name="activity_horizontal_margin">16dp</dimen>
-    <dimen name="activity_vertical_margin">16dp</dimen>
-
     <dimen name="line">0.5dp</dimen>
     <dimen name="dp_1">1dp</dimen>
     <dimen name="dp_2">2dp</dimen>
     <dimen name="dp_4">4dp</dimen>
     <dimen name="dp_8">8dp</dimen>
-    <dimen name="dp_12">12dp</dimen>
-    <dimen name="dp_14">14dp</dimen>
     <dimen name="dp_16">16dp</dimen>
-    <dimen name="dp_20">20dp</dimen>
-    <dimen name="dp_40">40dp</dimen>
     <dimen name="dp_52">52dp</dimen>
     <dimen name="dp_58">58dp</dimen>
-    <dimen name="dp_68">68dp</dimen>
-    <dimen name="dp_76">76dp</dimen>
     <dimen name="dp_24">24dp</dimen>
     <dimen name="dp_48">48dp</dimen>
 
-    <dimen name="sp_12">12sp</dimen>
     <dimen name="sp_14">14sp</dimen>
     <dimen name="sp_16">16sp</dimen>
 </resources>

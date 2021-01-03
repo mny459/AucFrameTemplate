@@ -7,8 +7,11 @@ import androidx.paging.LoadState
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.blankj.utilcode.util.LogUtils
+import com.jeremyliao.liveeventbus.LiveEventBus
 import com.mny.mojito.base.BaseFragment
+import com.mny.mojito.entension.observe
 import com.mny.wan.pkg.R
+import com.mny.wan.pkg.event.CollectEvent
 import com.mny.wan.pkg.presentation.adapter.ArticleAdapter
 import com.mny.wan.pkg.widget.loadstate.ArticleLoadStateAdapter
 import dagger.hilt.android.AndroidEntryPoint
@@ -62,6 +65,14 @@ abstract class BaseArticleFragment(@LayoutRes contentLayoutId: Int) :
                 // Only react to cases where Remote REFRESH completes i.e., NotLoading.
                 .filter { it.refresh is LoadState.NotLoading }
                 .collect { mRvArticles?.scrollToPosition(0) }
+        }
+
+        lifecycleScope.launchWhenCreated {
+            LiveEventBus
+                .get(CollectEvent.javaClass.simpleName, CollectEvent::class.java)
+                .observe(this@BaseArticleFragment) { event ->
+
+                }
         }
     }
 

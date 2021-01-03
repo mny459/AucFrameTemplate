@@ -32,45 +32,14 @@
         <item name="android:textColor">@color/colorPrimaryText</item>
     </style>
 
-    <style name="CommonTextView.Secondary">
-        <item name="android:textColor">@color/colorSecondaryText</item>
-    </style>
-
-    <style name="CommonTextView.Small">
-        <item name="android:textSize">@dimen/sp_12</item>
-    </style>
-
-    <style name="CommonTextView.Small.Secondary">
-        <item name="android:textColor">@color/colorSecondaryText</item>
-    </style>
-
     <style name="CommonTextView.Large">
         <item name="android:textSize">@dimen/sp_16</item>
-    </style>
-
-    <style name="CommonTextView.Large.Secondary">
-        <item name="android:textColor">@color/colorSecondaryText</item>
     </style>
 
     <style name="ViewLine">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">@dimen/line</item>
         <item name="android:background">@color/gray_eceff3</item>
-    </style>
-
-    <style name="ViewLine.1DP">
-        <item name="android:layout_height">@dimen/dp_1</item>
-        <item name="android:background">@color/gray_d7dce8</item>
-    </style>
-
-    <style name="ViewLine.V">
-        <item name="android:layout_width">@dimen/line</item>
-        <item name="android:layout_height">match_parent</item>
-    </style>
-
-    <style name="ViewLine.1DP.V">
-        <item name="android:layout_width">@dimen/dp_1</item>
-        <item name="android:layout_height">match_parent</item>
     </style>
 
 
@@ -82,13 +51,15 @@
 
     <style name="Widget.Wan.BottomNavigationView" parent="Widget.MaterialComponents.BottomNavigationView">
         <item name="labelVisibilityMode">labeled</item>
+        <item name="itemIconTint">@color/wan_bottom_nav_item_tint</item>
+        <item name="itemTextColor">@color/wan_bottom_nav_item_tint</item>
         <!-- 神坑属性 -->
         <item name="elevation">0dp</item>
     </style>
 
     <style name="Widget.Wan.FloatingActionButton" parent="Widget.MaterialComponents.FloatingActionButton">
         <item name="android:background">?attr/colorAccent</item>
-        <item name="tint">?attr/colorAccent</item>
+        <item name="tint">?attr/colorOnPrimary</item>
     </style>
 
     <style name="Widget.Wan.AppBarLayout" parent="Widget.MaterialComponents.AppBarLayout.Primary">

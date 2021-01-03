@@ -21,9 +21,10 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class SystemTagFragment : BaseFragment(R.layout.fragment_system_tag) {
+
     private var mTag = TAG_SYSTEM
     private var mRvTags: RecyclerView? = null
-    private val mViewModel: SystemTagViewModel by activityViewModels<SystemTagViewModel>()
+    private val mViewModel: SystemTagViewModel by activityViewModels()
 
     override fun initArgs(bundle: Bundle?) {
         super.initArgs(bundle)
@@ -32,27 +33,17 @@ class SystemTagFragment : BaseFragment(R.layout.fragment_system_tag) {
 
     override fun initObserver() {
         super.initObserver()
-
+        LogUtils.d("initObserver = $mTag")
         when (mTag) {
             TAG_SYSTEM -> {
-                mViewModel.mSystemTree?.observe(
-                    this,
-                    object : Observer<MutableList<BeanSystemParent>> {
-                        override fun onChanged(list: MutableList<BeanSystemParent>?) {
-                            refreshSystemData(list)
-                        }
-                    })
-
-
+                mViewModel.mSystemTree.observe(this) { list ->
+                    refreshSystemData(list)
+                }
             }
             TAG_NAV -> {
-                mViewModel.mNavTree?.observe(
-                    this,
-                    object : Observer<MutableList<BeanNav>> {
-                        override fun onChanged(list: MutableList<BeanNav>?) {
-                            refreshNavData(list)
-                        }
-                    })
+                mViewModel.mNavTree.observe(this) { list ->
+                    refreshNavData(list)
+                }
             }
             else -> {
             }
@@ -76,7 +67,7 @@ class SystemTagFragment : BaseFragment(R.layout.fragment_system_tag) {
         mViewModel.loadData()
     }
 
-    fun refreshSystemData(list: MutableList<BeanSystemParent>?) {
+    private fun refreshSystemData(list: MutableList<BeanSystemParent>?) {
         val data = mutableListOf<BeanMultiType>()
         list?.forEach { parent ->
             data.add(BeanMultiType(parent, BeanMultiType.TYPE_PARENT))
@@ -98,7 +89,7 @@ class SystemTagFragment : BaseFragment(R.layout.fragment_system_tag) {
         mRvTags?.adapter = adapter
     }
 
-    fun refreshNavData(list: MutableList<BeanNav>?) {
+    private fun refreshNavData(list: MutableList<BeanNav>?) {
         val data = mutableListOf<BeanMultiType>()
         list?.forEach { parent ->
             data.add(BeanMultiType(parent, BeanMultiType.TYPE_PARENT))

@@ -56,11 +56,11 @@ class WanMainActivity : BaseBindingActivity<ActivityWanMainBinding>() {
             }
             true
         }
-        mBinding.viewPager?.registerOnPageChangeCallback(object :
+        mBinding.viewPager.registerOnPageChangeCallback(object :
             ViewPager2.OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {
                 super.onPageSelected(position)
-                mBinding.navigation?.menu?.getItem(position)?.isChecked = true
+                mBinding.navigation.menu.getItem(position)?.isChecked = true
             }
         })
     }

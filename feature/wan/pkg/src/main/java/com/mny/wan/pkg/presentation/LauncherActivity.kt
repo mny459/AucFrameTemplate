@@ -1,17 +1,10 @@
 package com.mny.wan.pkg.presentation
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.lifecycle.lifecycleScope
 import com.mny.mojito.base.BaseActivity
-import com.mny.wan.pkg.data.local.UserHelper
-import com.mny.wan.pkg.presentation.login.LoginActivity
-import com.mny.wan.pkg.presentation.main.MainActivity
-import com.mny.wan.pkg.presentation.main.MainNavFixActivity
-import com.mny.wan.pkg.presentation.main.WanMainActivity
-import com.mny.wan.pkg.presentation.main.wechat.WeChatActivity
-import com.mny.wan.pkg.presentation.setting.SettingsActivity
+import com.mny.wan.pkg.presentation.main.MainViewPagerActivity
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
@@ -27,7 +20,7 @@ class LauncherActivity : BaseActivity() {
 //                if (UserHelper.isLogin()) WanMainActivity::class.java else LoginActivity::class.java
 //                if (UserHelper.isLogin()) MainNavFixActivity::class.java else LoginActivity::class.java
 //                SettingsActivity::class.java
-                MainNavFixActivity::class.java
+                MainViewPagerActivity::class.java
             )
             startActivity(intent)
             this@LauncherActivity.finish()

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ripple xmlns:android="http://schemas.android.com/apk/res/android"
-    android:color="@color/colorPrimaryDark"
+    android:color="@color/colorPrimary"
     android:radius="@dimen/dp_8">
     <!--android:color= 波纹对颜色-->
     <!-- 添加边界item -->

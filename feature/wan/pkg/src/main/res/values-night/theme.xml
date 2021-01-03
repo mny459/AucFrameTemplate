@@ -9,7 +9,7 @@
         <item name="android:navigationBarColor">@color/colorAccent</item>
         <!-- 主题颜色 分割线 -->
         <!-- App的主要颜色 -->
-        <item name="colorPrimary">@color/colorNightSurface</item>
+        <item name="colorPrimary">@color/colorNighPrimary</item>
         <!-- 主色上显示内容的颜色-->
         <item name="colorOnPrimary">@color/colorNightOnSurface</item>
         <!-- App的次要颜色 -->

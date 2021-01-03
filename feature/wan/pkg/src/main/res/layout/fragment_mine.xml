@@ -113,14 +113,6 @@
             app:title="@string/square" />
 
         <com.mny.wan.pkg.widget.CommonRowView
-            android:id="@+id/row_theme"
-            style="@style/Widget.CommonRow"
-            app:showSwitch="true"
-            app:subtitleOff="@string/theme_light"
-            app:subtitleOn="@string/theme_dark"
-            app:title="@string/theme" />
-
-        <com.mny.wan.pkg.widget.CommonRowView
             android:id="@+id/row_settings"
             style="@style/Widget.CommonRow"
             app:title="@string/settings" />

@@ -8,15 +8,13 @@
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
 
     <application>
-        <activity android:name=".presentation.setting.SettingsActivity"></activity>
+        <activity android:name=".presentation.main.MainViewPagerActivity"></activity>
+        <activity android:name=".presentation.setting.SettingsActivity" />
         <activity android:name=".presentation.main.system.share.ShareActivity" />
         <activity android:name=".presentation.main.project.ProjectActivity" />
         <activity android:name=".presentation.main.wechat.WeChatActivity" />
         <activity android:name=".presentation.main.MainNavFixActivity" />
         <activity android:name=".presentation.main.WanMainActivity" />
-        <activity
-            android:name=".presentation.setting.ThemeSettingsActivity"
-            android:label="@string/title_activity_theme_settings" />
         <activity android:name=".presentation.coin.CoinDetailActivity" />
         <activity android:name=".presentation.mine.MineActivity" />
         <activity android:name=".presentation.LauncherActivity" />

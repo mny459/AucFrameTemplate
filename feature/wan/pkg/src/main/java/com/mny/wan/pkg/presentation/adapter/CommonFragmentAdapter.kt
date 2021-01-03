@@ -37,8 +37,8 @@ class CommonFragmentAdapterForActivity(
 
 class CommonFragmentViewPagerAdapter(
     fm: FragmentManager,
-    private val fragments: MutableList<Fragment>,
-    private val tabs: MutableList<String>,
+    private val fragments: List<Fragment>,
+    private val tabs: List<String> = emptyList(),
     private val keepWhenInvisible: Boolean = true
 ) : FragmentPagerAdapter(fm) {
     override fun getItem(position: Int): Fragment = fragments[position]

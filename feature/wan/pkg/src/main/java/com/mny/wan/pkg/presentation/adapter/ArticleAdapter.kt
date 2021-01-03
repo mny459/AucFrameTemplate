@@ -18,6 +18,7 @@ import com.mny.mojito.entension.loadProjectPreview
 import com.mny.wan.pkg.R
 import com.mny.wan.pkg.data.local.UserHelper
 import com.mny.wan.pkg.data.remote.model.BeanArticle
+import com.mny.wan.pkg.event.CollectEvent
 import com.mny.wan.pkg.presentation.AppViewModel
 import com.mny.wan.pkg.presentation.webview.WebViewActivity
 import kotlinx.coroutines.Job
@@ -79,6 +80,10 @@ class ArticleAdapter @Inject constructor(private val mAppViewModel: AppViewModel
         super.onViewDetachedFromWindow(holder)
         holder.cancelObserverCollect()
     }
+
+    fun notifyCollectStateChanged(event: CollectEvent) {
+
+    }
 }
 
 class ArticleViewHolder(
@@ -134,7 +139,7 @@ class ArticleViewHolder(
                     viewModel.collect(id)
                 }
             }
-            observerCollect(this)
+//            observerCollect(this)
         }
 
     }

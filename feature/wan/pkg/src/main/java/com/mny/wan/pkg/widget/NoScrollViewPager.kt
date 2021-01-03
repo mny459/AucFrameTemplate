@@ -12,7 +12,7 @@ import androidx.viewpager2.widget.ViewPager2
  * @Desc 可以禁止横向滑动的 ViewPager
  */
 class NoScrollViewPager(context: Context, attrs: AttributeSet?) : ViewPager(context, attrs) {
-    var mCanScroll: Boolean = true
+    private var mCanScroll: Boolean = true
     override fun onTouchEvent(ev: MotionEvent?): Boolean {
         return if (mCanScroll) super.onTouchEvent(ev)
         else false
@@ -25,5 +25,9 @@ class NoScrollViewPager(context: Context, attrs: AttributeSet?) : ViewPager(cont
 
     override fun setCurrentItem(item: Int) {
         super.setCurrentItem(item, false)
+    }
+
+    fun setDisableScroll() {
+        this.mCanScroll = false
     }
 }
