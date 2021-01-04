@@ -10,20 +10,22 @@
         <!-- App的主要颜色 -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <!-- 主色上显示内容的颜色-->
-        <item name="colorOnPrimary">@color/color_FFFFFF</item>
+        <item name="colorOnPrimary">@color/colorOnPrimary</item>
         <!-- 二级主色调 -->
-        <item name="colorSecondary">@color/colorPrimary</item>
+        <item name="colorSecondary">?attr/colorPrimary</item>
         <!-- App的次要颜色 -->
-        <item name="colorPrimaryDark">@color/colorPrimary</item>
-        <item name="colorAccent">?attr/colorPrimary</item>
+        <item name="colorPrimaryDark">?attr/colorPrimary</item>
+        <item name="colorAccent">@color/colorAccent</item>
         <!-- 部件的表面颜色，如卡片、表格、菜单等 -->
-        <item name="colorSurface">@android:color/white</item>
+        <item name="colorSurface">@color/colorSurface</item>
         <!-- 部件显示的内容的颜色-->
-        <item name="colorOnSurface">@android:color/black</item>
+        <item name="colorOnSurface">@color/colorOnSurface</item>
         <!-- 错误显示的颜色-->
-        <item name="colorError">@color/color_EA4E3D</item>
+        <item name="colorError">@color/colorError</item>
         <!-- 文字的主色 -->
         <item name="android:textColorPrimary">@color/color_0C101B</item>
+        <item name="app_text_primary_color">@color/appTextPrimaryColor</item>
+        <item name="app_text_secondary_color">@color/appTextSecondColor</item>
         <!-- 文字的二级颜色 -->
         <item name="android:textColorSecondary">@color/color_B6B7BA</item>
 
@@ -33,7 +35,7 @@
         <item name="colorControlActivated">?attr/colorPrimary</item>
 
         <!-- 应用窗口（Activity、Dialog等）背景色-->
-        <item name="android:windowBackground">@color/windowsBackground</item>
+        <item name="android:windowBackground">@color/colorWindowBackground</item>
         <!-- 主题颜色分割线 -->
 
         <!-- 主题大小 分割线 -->

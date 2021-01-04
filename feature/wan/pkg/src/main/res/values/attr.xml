@@ -15,5 +15,7 @@
 -->
 
 <resources>
-
+    <attr name="app_text_icon_color" format="color" /> <!-- 文字/图标 -->
+    <attr name="app_text_primary_color" format="color" /> <!-- 主要文字 -->
+    <attr name="app_text_secondary_color" format="color" /> <!-- 次要文字 -->
 </resources>

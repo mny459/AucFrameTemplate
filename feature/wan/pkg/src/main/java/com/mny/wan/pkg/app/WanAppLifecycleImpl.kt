@@ -18,7 +18,7 @@ class WanAppLifecycleImpl : AppLifecycle {
         MojitoLog.d("DemoAppLifecycleImpl - onCreate")
         LogUtils.getConfig().globalTag = "Wan"
         UserHelper.initUserInfo()
-        SettingHelper.setThemeDark()
+//        SettingHelper.setThemeDark()
     }
 
     override fun onTerminate(application: Application) {

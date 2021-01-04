@@ -1,14 +1,13 @@
 ## TODO
-- ViewBinding
-- 登录注册
+
+- 注册功能
+- 登录后的状态更新
 - 收藏（全局ViewModel）
-- 主题切换
 - 语言切换
-- 启动页
-- AppIcon
 - SP封装
 - 图片加载封装
-- 解决公众号文章的地方 ViewPager2和RecyclerView滑动冲突
+- ViewPager Fragment 懒加载
+- 热门搜索点击搜索
 
 ## 已知问题
 - Navigation 不保存状态

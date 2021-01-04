@@ -54,6 +54,7 @@ class SearchViewModel @ViewModelInject constructor(
     }
 
     fun search(name: String) {
+        if (mSearchStateFlow.value == name) return
         mSearchStateFlow.value = name;
 //        mClearListCh.offer(Unit)
 //        mSavedStateHandle.set(KEY_ARTICLE, name)

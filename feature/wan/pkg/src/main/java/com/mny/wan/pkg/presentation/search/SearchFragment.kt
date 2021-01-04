@@ -21,7 +21,6 @@ import dagger.hilt.android.AndroidEntryPoint
 class SearchFragment : BaseBindingFragment<FragmentSearchBinding>() {
 
     private val mViewModel: SearchViewModel by activityViewModels()
-
     override fun initView(view: View) {
         super.initView(view)
         val layoutManager = FlexboxLayoutManager(mActivity)

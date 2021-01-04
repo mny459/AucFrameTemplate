@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 这里面放的都是静态的颜色 -->
+    <!-- 建议将带有透明度的色值放在 ColorDrawable 上 -->
+    <!-- 颜色的命名最好是带有语义的命名 -->
+    <!--  主题相关的颜色  -->
+
+    <color name="colorPrimary">#2c2c2d</color>
+    <color name="colorOnPrimary">@android:color/white</color>
+    <color name="colorDarkPrimary">#2c2c2d</color>
+    <color name="colorSurface">#141414</color>
+    <color name="colorOnSurface">#FFFFFF</color>
+    <color name="colorWindowBackground">#141414</color>
+    <color name="colorAccent">@color/blue_0c85ff</color>
+    <color name="colorError">@color/color_EA4E3D</color>
+    <color name="appTextPrimaryColor">@android:color/white</color>
+    <color name="appTextSecondColor">@color/color_B6B7BA</color>
+
+</resources>

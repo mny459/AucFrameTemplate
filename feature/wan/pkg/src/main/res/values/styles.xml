@@ -7,11 +7,17 @@
     <!-- 文本样式 的命名规则：TextAppearance.AppName(or module name).控件名字.颜色名字 -->
     <!-- Style 的命名规则：ThemeOverlay.AppName(or module name).控件名字.颜色名字 -->
 
-    <style name="TextAppearance.Wan.ArticleTitle" parent="TextAppearance.MaterialComponents.Body2" />
+    <style name="TextAppearance.Wan.ArticleTitle" parent="TextAppearance.MaterialComponents.Body2">
+        <item name="android:textColor">?attr/app_text_primary_color</item>
+    </style>
 
-    <style name="TextAppearance.Wan.Button" parent="TextAppearance.MaterialComponents.Body1" />
+    <style name="TextAppearance.Wan.Button" parent="TextAppearance.MaterialComponents.Body1">
+        <item name="android:textColor">?attr/app_text_primary_color</item>
+    </style>
     <!--  文本 12sp  -->
-    <style name="TextAppearance.Wan.ArticleDesc" parent="TextAppearance.MaterialComponents.Caption" />
+    <style name="TextAppearance.Wan.ArticleDesc" parent="TextAppearance.MaterialComponents.Caption">
+        <item name="android:textColor">?attr/app_text_secondary_color</item>
+    </style>
     <!-- https://juejin.cn/post/6844904200673968141#heading-22 -->
     <style name="ShapeAppearance.Wan.Button" parent="ShapeAppearance.MaterialComponents.MediumComponent">
         <item name="cornerSize">28dp</item>
@@ -46,7 +52,7 @@
     <!--  Toolbar 上面的搜索的样式  -->
     <style name="Widget.Wan.SearchView" parent="Widget.AppCompat.SearchView">
         <!--修改搜索框左边的搜索按钮图标-->
-        <item name="searchHintIcon">@null</item>
+<!--        <item name="searchHintIcon">@null</item>-->
     </style>
 
     <style name="Widget.Wan.BottomNavigationView" parent="Widget.MaterialComponents.BottomNavigationView">
@@ -81,4 +87,5 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">?attr/listPreferredItemHeight</item>
     </style>
+
 </resources>

@@ -12,6 +12,7 @@ import com.mny.wan.pkg.R
 import com.mny.wan.pkg.base.BaseBindingActivity
 import com.mny.wan.pkg.base.BaseToolbarActivity
 import com.mny.wan.pkg.databinding.ActivityWebViewBinding
+import com.mny.wan.pkg.extension.initToolbar
 import dagger.hilt.android.AndroidEntryPoint
 
 const val KEY_URL = "url"
@@ -31,7 +32,7 @@ class WebViewActivity : BaseBindingActivity<ActivityWebViewBinding>() {
 
     override fun initView(savedInstanceState: Bundle?) {
         super.initView(savedInstanceState)
-        title = ""
+        initToolbar(mBinding.toolbar,"")
         mViewModel.initUrl(mUrl)
     }
 

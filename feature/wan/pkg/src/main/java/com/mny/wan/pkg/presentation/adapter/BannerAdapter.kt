@@ -10,8 +10,10 @@ import com.mny.wan.pkg.presentation.webview.WebViewActivity
 import com.youth.banner.Banner
 import com.youth.banner.config.IndicatorConfig
 import com.youth.banner.listener.OnBannerListener
+import com.youth.banner.util.LogUtils
+import javax.inject.Inject
 
-class BannerAdapter : RecyclerView.Adapter<BannerViewHolder>() {
+class BannerAdapter @Inject constructor() : RecyclerView.Adapter<BannerViewHolder>() {
     private val mBanners = mutableListOf<BeanBanner>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BannerViewHolder {
@@ -34,7 +36,7 @@ class BannerAdapter : RecyclerView.Adapter<BannerViewHolder>() {
 }
 
 class BannerViewHolder(view: View) : RecyclerView.ViewHolder(view), OnBannerListener<String> {
-    val mBanner: Banner<String, BannerImageAdapter> = view.findViewById(R.id.banner)
+    private val mBanner: Banner<String, BannerImageAdapter> = view.findViewById(R.id.banner)
     lateinit var mBannerImageAdapter: BannerImageAdapter
 
     init {
@@ -58,6 +60,7 @@ class BannerViewHolder(view: View) : RecyclerView.ViewHolder(view), OnBannerList
     }
 
     override fun OnBannerClick(data: String?, position: Int) {
+        com.blankj.utilcode.util.LogUtils.d("OnBannerClick $data $position")
         data?.apply {
             WebViewActivity.show(this)
         }

@@ -3,6 +3,22 @@
     <!-- 这里面放的都是静态的颜色 -->
     <!-- 建议将带有透明度的色值放在 ColorDrawable 上 -->
     <!-- 颜色的命名最好是带有语义的命名 -->
+
+    <!--  主题相关的颜色  -->
+
+    <color name="colorPrimary">#0c85ff</color>
+    <color name="colorOnPrimary">@android:color/white</color>
+    <color name="colorDarkPrimary">#2c2c2d</color>
+    <color name="colorSurface">@android:color/white</color>
+    <color name="colorOnSurface">@color/color_0C101B</color>
+    <color name="colorWindowBackground">#f7f7f7</color>
+    <color name="colorAccent">@android:color/holo_green_light</color>
+    <color name="colorError">@color/color_EA4E3D</color>
+    <color name="appTextPrimaryColor">@color/color_0C101B</color>
+    <color name="appTextSecondColor">@color/color_B6B7BA</color>
+
+    <!--  主题相关的颜色  -->
+
     <color name="white">#FFFFFFFF</color>
     <color name="gray_757575">#757575</color>
     <!--辅助颜色 辅助文字等-->
@@ -18,22 +34,7 @@
     <color name="color_B6B7BA">#B6B7BA</color>
     <color name="color_FFFFFF">#FFFFFF</color>
     <color name="color_EA4E3D">#EA4E3D</color>
-    <!--    通用颜色 -->
-    <!--    主题颜色配|置开始 -->
-    <!--     通用主题色    -->
     <color name="colorPrimaryText">#212121</color>
-    <!--    主题 蓝色 -->
     <color name="blue_0c85ff">#0c85ff</color>
-    <color name="colorPrimary">#0c85ff</color>
-    <!--基础主色-->
-    <color name="colorNighPrimary">#2c2c2d</color>
-    <color name="colorNightDarkPrimary">#2c2c2d</color>
-    <color name="colorNightSurface">#141414</color>
-    <color name="colorNightOnSurface">#FFFFFF</color>
-    <color name="colorNightWindowBackground">#141414</color>
-    <color name="colorNightAccent">@color/blue_0c85ff</color>
-    <color name="colorAccent">@android:color/transparent</color>
-
-    <!--背景色-->
-    <color name="windowsBackground">#f7f7f7</color>
+    <color name="color_gray_f7f7f8">#F7F7F8</color>
 </resources>

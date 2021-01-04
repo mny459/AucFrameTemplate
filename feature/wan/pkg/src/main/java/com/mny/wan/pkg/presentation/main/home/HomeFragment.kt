@@ -33,7 +33,6 @@ class HomeFragment : BaseArticleFragment(R.layout.fragment_home) {
     private var mBarView: View? = null
     override fun initView(view: View) {
         super.initView(view)
-        LogUtils.d("initView ============== ")
         mBarView = view.findViewById(R.id.barStatusImageViewFragmentFakeStatusBar)
         view.findViewById<FloatingActionButton>(R.id.floatSearch)
             ?.setOnClickListener {
@@ -47,7 +46,6 @@ class HomeFragment : BaseArticleFragment(R.layout.fragment_home) {
     }
 
     override fun initArticleObserver() {
-        LogUtils.d("initArticleObserver ============== ")
         lifecycleScope.launchWhenCreated {
             @OptIn(ExperimentalCoroutinesApi::class)
             mViewModel.mArticleList.collectLatest {
@@ -75,23 +73,6 @@ class HomeFragment : BaseArticleFragment(R.layout.fragment_home) {
         super.onFirstInit()
         mViewModel.loadData()
     }
-
-//    override fun onResume() {
-//        super.onResume()
-////        mBarView?.apply {
-////            BarUtils.setStatusBarLightMode(this, Color.argb(0, 0, 0, 0))
-////            BarUtils.setStatusBarColor(this, Color.argb(0, 0, 0, 0))
-////        }
-//        enterFullScreen()
-//    }
-//
-//    override fun onPause() {
-//        super.onPause()
-//        quitFullScreen()
-////        mActivity?.apply {
-////            BarUtils.setStatusBarColor(this, ContextCompat.getColor(this, R.color.colorPrimary))
-////        }
-//    }
 
     companion object {
         @JvmStatic

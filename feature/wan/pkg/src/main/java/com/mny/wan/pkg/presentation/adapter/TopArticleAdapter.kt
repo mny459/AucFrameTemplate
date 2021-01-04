@@ -14,8 +14,9 @@ import com.mny.wan.pkg.R
 import com.mny.wan.pkg.data.local.UserHelper
 import com.mny.wan.pkg.data.remote.model.BeanArticle
 import com.mny.wan.pkg.presentation.webview.WebViewActivity
+import javax.inject.Inject
 
-class TopArticleAdapter : RecyclerView.Adapter<TopArticleViewHolder>() {
+class TopArticleAdapter @Inject constructor() : RecyclerView.Adapter<TopArticleViewHolder>() {
     private val mArticles = mutableListOf<BeanArticle>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TopArticleViewHolder {
