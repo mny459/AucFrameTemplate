@@ -11,23 +11,26 @@ import com.mny.wan.pkg.data.local.UserHelper
 import com.mny.wan.pkg.data.remote.model.BeanCoin
 import com.mny.wan.pkg.data.remote.model.BeanUserInfo
 import com.mny.wan.pkg.domain.usecase.UserUseCase
+import com.mny.wan.pkg.presentation.AppViewModel
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 class MineViewModel @ViewModelInject constructor(
     private val mUseCase: UserUseCase,
+    private val mAppViewModel: AppViewModel
 ) : BaseViewModel<MineViewModel.ViewState, MineViewModel.Action>(ViewState()) {
 
     override fun onLoadData() {
         super.onLoadData()
-        fetchUserInfo()
-        fetchCoinInfo()
+//        fetchUserInfo()
+//        fetchCoinInfo()
     }
 
     private fun fetchUserInfo() {
         viewModelScope.launch {
             val user = mUseCase.fetchLocalUserInfo()
-            sendAction(Action.UpdateUser(user))
+            mAppViewModel.updateUserInfo(user)
+//            sendAction(Action.UpdateUser(user))
         }
     }
 
@@ -37,9 +40,8 @@ class MineViewModel @ViewModelInject constructor(
                 .collect {
                     when (it) {
                         is MojitoResult.Success -> {
-                            UserHelper.loginOut()
                             it.data?.apply {
-                                sendAction(Action.UpdateCoin(this))
+                                mAppViewModel.updateCoinInfo(this)
                             }
                         }
                         is MojitoResult.Error -> {
@@ -60,7 +62,8 @@ class MineViewModel @ViewModelInject constructor(
                     when (it) {
                         is MojitoResult.Success -> {
                             ToastUtils.showShort("退出登录成功")
-                            sendAction(Action.LoginOut)
+                            mAppViewModel.updateUserInfo(null)
+                            mAppViewModel.updateCoinInfo(null)
                         }
                         is MojitoResult.Error -> {
                         }

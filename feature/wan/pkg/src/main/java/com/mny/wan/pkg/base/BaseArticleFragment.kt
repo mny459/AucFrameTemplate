@@ -43,7 +43,7 @@ abstract class BaseArticleFragment(@LayoutRes contentLayoutId: Int) :
         mRefresh?.setOnRefreshListener {
             mAdapter.refresh()
         }
-
+        
         mRvArticles?.apply {
             mAdapter.viewLifecycleOwner = this@BaseArticleFragment
             adapter = mAdapter.withLoadStateFooter(ArticleLoadStateAdapter(mAdapter))

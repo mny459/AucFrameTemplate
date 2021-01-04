@@ -8,11 +8,15 @@ import com.mny.mojito.mvvm.BaseAction
 import com.mny.mojito.mvvm.BaseState
 import com.mny.mojito.mvvm.BaseViewModel
 import com.mny.mojito.http.MojitoResult
+import com.mny.wan.pkg.presentation.AppViewModel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
-internal class LoginViewModel @ViewModelInject constructor(private val mUserUseCase: UserUseCase) :
+internal class LoginViewModel @ViewModelInject constructor(
+    private val mAppViewModel: AppViewModel,
+    private val mUserUseCase: UserUseCase
+) :
     BaseViewModel<LoginViewModel.ViewState, LoginViewModel.Action>(ViewState()) {
 
     fun login(username: String, password: String) {
@@ -22,6 +26,7 @@ internal class LoginViewModel @ViewModelInject constructor(private val mUserUseC
                 .collect {
                     when (it) {
                         is MojitoResult.Success -> {
+                            mAppViewModel.updateUserInfo(it.data)
                             sendAction(Action.LoginSuccess)
                         }
                         is MojitoResult.Error -> {
@@ -45,6 +50,7 @@ internal class LoginViewModel @ViewModelInject constructor(private val mUserUseC
                 .collect {
                     when (it) {
                         is MojitoResult.Success -> {
+                            mAppViewModel.updateUserInfo(it.data)
                             sendAction(Action.LoginSuccess)
                         }
                         is MojitoResult.Error -> {

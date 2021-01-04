@@ -6,12 +6,14 @@ import com.mny.wan.pkg.R
 import com.mny.wan.pkg.base.BaseBindingActivity
 import com.mny.wan.pkg.databinding.ActivityMainViewPagerBinding
 import com.mny.wan.pkg.extension.enterFullScreen
+import com.mny.wan.pkg.presentation.AppViewModel
 import com.mny.wan.pkg.presentation.adapter.CommonFragmentViewPagerAdapter
 import com.mny.wan.pkg.presentation.main.home.HomeFragment
 import com.mny.wan.pkg.presentation.main.qa.QAFragment
 import com.mny.wan.pkg.presentation.main.system.SystemFragment
 import com.mny.wan.pkg.presentation.mine.MineFragment
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class MainViewPagerActivity : BaseBindingActivity<ActivityMainViewPagerBinding>() {
@@ -24,7 +26,8 @@ class MainViewPagerActivity : BaseBindingActivity<ActivityMainViewPagerBinding>(
     )
 
     private lateinit var mVpAdapter: CommonFragmentViewPagerAdapter
-
+    @Inject
+    lateinit var mAppViewModel: AppViewModel
     override fun initWindow(savedInstanceState: Bundle?) {
         super.initWindow(savedInstanceState)
         enterFullScreen()
@@ -56,5 +59,6 @@ class MainViewPagerActivity : BaseBindingActivity<ActivityMainViewPagerBinding>(
             }
             true
         }
+        mAppViewModel.fetchUserInfo()
     }
 }
