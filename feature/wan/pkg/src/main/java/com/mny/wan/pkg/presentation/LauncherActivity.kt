@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.lifecycle.lifecycleScope
 import com.mny.mojito.base.BaseActivity
+import com.mny.wan.pkg.presentation.main.MainNavFixActivity
 import com.mny.wan.pkg.presentation.main.MainViewPagerActivity
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch

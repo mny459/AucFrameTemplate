@@ -38,4 +38,6 @@ abstract class BaseBindingActivity<VB : ViewBinding> : BaseActivity() {
     }
 
     override fun layoutId(savedInstanceState: Bundle?): Int = 0
+
+
 }

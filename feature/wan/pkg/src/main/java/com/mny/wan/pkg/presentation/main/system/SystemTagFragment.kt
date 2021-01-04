@@ -24,7 +24,7 @@ class SystemTagFragment : BaseFragment(R.layout.fragment_system_tag) {
 
     private var mTag = TAG_SYSTEM
     private var mRvTags: RecyclerView? = null
-    private val mViewModel: SystemTagViewModel by activityViewModels()
+    private val mViewModel: SystemTagViewModel by viewModels()
 
     override fun initArgs(bundle: Bundle?) {
         super.initArgs(bundle)

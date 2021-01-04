@@ -40,7 +40,7 @@
         <!-- ActionBar、Toolbar的高度 -->
         <item name="actionBarSize">@dimen/dp_48</item>
         <!-- 列表项的标准高度 (最小值) -->
-        <item name="listPreferredItemHeight">@dimen/dp_48</item>
+        <item name="listPreferredItemHeight">@dimen/dp_58</item>
 
         <!-- 主题大小 分割线 -->
         <!--  主题动画分割线     -->

@@ -14,11 +14,13 @@ import androidx.navigation.findNavController
 import com.blankj.utilcode.util.ActivityUtils
 import com.blankj.utilcode.util.LogUtils
 import com.mny.wan.pkg.R
+import com.mny.wan.pkg.base.BaseBindingActivity
 import com.mny.wan.pkg.base.BaseToolbarActivity
+import com.mny.wan.pkg.databinding.ActivitySearchBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class SearchActivity : BaseToolbarActivity() {
+class SearchActivity : BaseBindingActivity<ActivitySearchBinding>() {
 
     private val mViewModel: SearchViewModel by viewModels()
 
@@ -26,7 +28,7 @@ class SearchActivity : BaseToolbarActivity() {
 
     override fun initView(savedInstanceState: Bundle?) {
         super.initView(savedInstanceState)
-        title = "搜索"
+        title = getString(R.string.search)
     }
 
     override fun initObserver() {

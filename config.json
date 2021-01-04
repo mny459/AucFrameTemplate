@@ -49,7 +49,7 @@
     },
     {
       "isApply": true,
-      "useLocal": false,
+      "useLocal": true,
       "localPath": ":lib:mojito",
       "remotePath": "com.github.mny459:mojito:0.0.2"
     }

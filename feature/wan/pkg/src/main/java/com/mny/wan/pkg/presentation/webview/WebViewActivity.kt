@@ -9,13 +9,15 @@ import com.blankj.utilcode.util.LogUtils
 import com.mny.mojito.base.BaseActivity
 import com.mny.mojito.entension.observe
 import com.mny.wan.pkg.R
+import com.mny.wan.pkg.base.BaseBindingActivity
 import com.mny.wan.pkg.base.BaseToolbarActivity
+import com.mny.wan.pkg.databinding.ActivityWebViewBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 const val KEY_URL = "url"
 
 @AndroidEntryPoint
-class WebViewActivity : BaseToolbarActivity() {
+class WebViewActivity : BaseBindingActivity<ActivityWebViewBinding>() {
     private val mViewModel: WebViewViewModel by viewModels()
 
     private var mUrl = ""
@@ -37,7 +39,7 @@ class WebViewActivity : BaseToolbarActivity() {
         super.initObserver()
         observe(mViewModel.stateLiveData) {
             it?.apply {
-                mToolbar?.title = title
+                mBinding.toolbar.title = title
             }
         }
     }

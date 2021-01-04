@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import com.mny.wan.pkg.R
 import com.mny.wan.pkg.base.BaseBindingActivity
 import com.mny.wan.pkg.databinding.ActivityMainViewPagerBinding
+import com.mny.wan.pkg.extension.enterFullScreen
 import com.mny.wan.pkg.presentation.adapter.CommonFragmentViewPagerAdapter
 import com.mny.wan.pkg.presentation.main.home.HomeFragment
 import com.mny.wan.pkg.presentation.main.qa.QAFragment
@@ -23,6 +24,11 @@ class MainViewPagerActivity : BaseBindingActivity<ActivityMainViewPagerBinding>(
     )
 
     private lateinit var mVpAdapter: CommonFragmentViewPagerAdapter
+
+    override fun initWindow(savedInstanceState: Bundle?) {
+        super.initWindow(savedInstanceState)
+        enterFullScreen()
+    }
 
     override fun initView(savedInstanceState: Bundle?) {
         super.initView(savedInstanceState)

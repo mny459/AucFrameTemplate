@@ -2,6 +2,7 @@ package com.mny.mojito.base
 
 import android.os.Bundle
 import android.view.InflateException
+import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import com.blankj.utilcode.util.LogUtils
 import com.mny.mojito.base.delegate.IActivity
@@ -53,4 +54,11 @@ abstract class BaseActivity : AppCompatActivity(), IActivity {
 
     override fun useEventBus(): Boolean = true
 
+    /**
+     * Toolbar 返回键 finish Activity
+     */
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == android.R.id.home) finish()
+        return super.onOptionsItemSelected(item)
+    }
 }

@@ -23,18 +23,14 @@ class SystemFragment : BaseBindingFragment<FragmentSystemBinding>() {
         SystemTagFragment.newInstance(SystemTagFragment.TAG_SYSTEM),
         SystemTagFragment.newInstance(SystemTagFragment.TAG_NAV)
     )
+
     private val mTabs = listOf("体系", "导航")
 
     private lateinit var mVpAdapter: CommonFragmentViewPagerAdapter
 
     override fun initView(view: View) {
         super.initView(view)
-        mVpAdapter =
-            CommonFragmentViewPagerAdapter(
-                this.parentFragmentManager,
-                mFragments.toMutableList(),
-                mTabs
-            )
+        mVpAdapter = CommonFragmentViewPagerAdapter(this.childFragmentManager, mFragments.toMutableList(), mTabs)
         mBinding.tabLayout.apply {
             tabMode = TabLayout.MODE_FIXED
             removeAllTabs()

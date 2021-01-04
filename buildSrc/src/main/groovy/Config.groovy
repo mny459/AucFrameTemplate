@@ -41,7 +41,7 @@ class Config {
             lib_base                   : new DepConfig(true , true , ":lib:base"),
             lib_common                 : new DepConfig(true , true , ":lib:common"),
             lib_lang                   : new DepConfig(true , true , ":lib:lang"),
-            lib_mojito                 : new DepConfig(true , false, ":lib:mojito", "com.github.mny459:mojito:0.0.2"),
+            lib_mojito                 : new DepConfig(true , true , ":lib:mojito", "com.github.mny459:mojito:0.0.2"),
             /*Never delete this line*/
 //            feature_template_app       : new DepConfig(":feature:template:app"),
 //            feature_template_pkg       : new DepConfig(":feature:template:pkg"),
