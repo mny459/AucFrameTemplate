@@ -188,7 +188,7 @@ class Config {
             refresh_footerBall     : new DepConfig("com.scwang.smart:refresh-footer-ball:$version"),   //���������
             refresh_footerClassics : new DepConfig("com.scwang.smart:refresh-footer-classics:$version"),   //�������
 
-            qmui                   : new DepConfig("com.qmuiteam:qmui:2.0.0-alpha10"),
+//            qmui                   : new DepConfig("com.qmuiteam:qmui:2.0.0-alpha10"),
 
             roundedImageView       : new DepConfig("com.makeramen:roundedimageview:2.3.0"),
             circleimageview        : new DepConfig("de.hdodenhof:circleimageview:3.1.0"),

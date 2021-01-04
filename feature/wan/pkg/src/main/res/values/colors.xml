@@ -6,16 +6,17 @@
 
     <!--  主题相关的颜色  -->
 
-    <color name="colorPrimary">#0c85ff</color>
-    <color name="colorOnPrimary">@android:color/white</color>
+    <color name="colorPrimary">#00D394</color>
+    <color name="colorOnPrimary">#FFFFFF</color>
     <color name="colorDarkPrimary">#2c2c2d</color>
     <color name="colorSurface">@android:color/white</color>
     <color name="colorOnSurface">@color/color_0C101B</color>
-    <color name="colorWindowBackground">#f7f7f7</color>
-    <color name="colorAccent">@android:color/holo_green_light</color>
-    <color name="colorError">@color/color_EA4E3D</color>
-    <color name="appTextPrimaryColor">@color/color_0C101B</color>
-    <color name="appTextSecondColor">@color/color_B6B7BA</color>
+    <color name="colorWindowBackground">#F7F7F8</color>
+    <color name="colorAccent">#00D394</color>
+    <color name="colorError">#EA4E3D</color>
+    <color name="appTextPrimaryColor">#0C101B</color>
+    <color name="appTextSecondColor">#B6B7BA</color>
+    <color name="colorDivider">#EEEEEF</color>
 
     <!--  主题相关的颜色  -->
 

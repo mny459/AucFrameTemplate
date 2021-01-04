@@ -101,7 +101,7 @@ dependencies {
     kapt(Config.depConfig.hiltCompiler.dep)
     kapt(Config.depConfig.hiltViewModuleCompiler.dep)
 
-    api(Config.depConfig.qmui.dep)
+//    api(Config.depConfig.qmui.dep)
     api(Config.depConfig.mmkv.dep)
 
 //    //network

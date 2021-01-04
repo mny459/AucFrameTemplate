@@ -8,7 +8,9 @@
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
 
     <application>
-        <activity android:name=".presentation.main.MainViewPagerActivity"></activity>
+        <activity
+            android:name=".presentation.main.MainViewPagerActivity"
+            android:launchMode="singleTop" />
         <activity android:name=".presentation.setting.SettingsActivity" />
         <activity android:name=".presentation.main.system.share.ShareActivity" />
         <activity android:name=".presentation.main.project.ProjectActivity" />

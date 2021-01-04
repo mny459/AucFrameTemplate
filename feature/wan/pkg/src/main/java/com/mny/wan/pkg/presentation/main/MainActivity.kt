@@ -74,7 +74,7 @@ class MainActivity : BaseActivity() {
 
     companion object {
         fun show() {
-            ActivityUtils.startActivity(MainActivity::class.java)
+            ActivityUtils.startActivity(MainViewPagerActivity::class.java)
         }
     }
 }

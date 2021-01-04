@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.lifecycle.lifecycleScope
 import com.mny.mojito.base.BaseActivity
+import com.mny.wan.pkg.presentation.main.MainActivity
 import com.mny.wan.pkg.presentation.main.MainNavFixActivity
 import com.mny.wan.pkg.presentation.main.MainViewPagerActivity
 import com.mny.wan.pkg.presentation.search.SearchActivity
@@ -15,16 +16,17 @@ class LauncherActivity : BaseActivity() {
     override fun initObserver() {
         super.initObserver()
         lifecycleScope.launch {
-            delay(1000)
-            val intent = Intent(
-                this@LauncherActivity,
-//                if (UserHelper.isLogin()) WanMainActivity::class.java else LoginActivity::class.java
-//                if (UserHelper.isLogin()) WanMainActivity::class.java else LoginActivity::class.java
-//                if (UserHelper.isLogin()) MainNavFixActivity::class.java else LoginActivity::class.java
-                SearchActivity::class.java
+//            delay(1000)
+            MainActivity.show()
+//            val intent = Intent(
+//                this@LauncherActivity,
+////                if (UserHelper.isLogin()) WanMainActivity::class.java else LoginActivity::class.java
+////                if (UserHelper.isLogin()) WanMainActivity::class.java else LoginActivity::class.java
+////                if (UserHelper.isLogin()) MainNavFixActivity::class.java else LoginActivity::class.java
+////                SearchActivity::class.java
 //                MainViewPagerActivity::class.java
-            )
-            startActivity(intent)
+//            )
+//            startActivity(intent)
             this@LauncherActivity.finish()
         }
     }
