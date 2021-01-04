@@ -7,15 +7,17 @@ import android.os.Process
 import androidx.hilt.Assisted
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.SavedStateHandle
+import androidx.lifecycle.viewModelScope
 import com.blankj.utilcode.util.ActivityUtils
 import com.blankj.utilcode.util.LogUtils
 import com.mny.mojito.mvvm.BaseAction
 import com.mny.mojito.mvvm.BaseState
 import com.mny.mojito.mvvm.BaseViewModel
-import com.mny.wan.pkg.base.BaseArticleViewModel
 import com.mny.wan.pkg.utils.SettingHelper
 import com.mny.wan.pkg.utils.isNightMode
 import dagger.hilt.android.qualifiers.ApplicationContext
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 class SettingsViewModel @ViewModelInject constructor(
     @ApplicationContext private val context: Context,
@@ -70,12 +72,16 @@ class SettingsViewModel @ViewModelInject constructor(
                 themeFollowSystem = follow,
                 themeDark = context.isNightMode()
             )
+
         )
         val restart = context.isNightMode() != state.themeDark
-        if (follow) {
-            SettingHelper.setThemeFollowSystem()
-        } else {
-            SettingHelper.setThemeFollowAppSetting()
+        viewModelScope.launch {
+            delay(300)
+            if (follow) {
+                SettingHelper.setThemeFollowSystem()
+            } else {
+                SettingHelper.setThemeFollowAppSetting()
+            }
         }
         return restart
     }
@@ -89,8 +95,11 @@ class SettingsViewModel @ViewModelInject constructor(
                 themeDark = dark
             )
         )
-        if (dark) SettingHelper.setThemeDark()
-        else SettingHelper.setThemeLight()
+        viewModelScope.launch {
+            delay(300)
+            if (dark) SettingHelper.setThemeDark()
+            else SettingHelper.setThemeLight()
+        }
         return true
     }
 

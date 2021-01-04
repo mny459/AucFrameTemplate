@@ -51,16 +51,8 @@ class CommonRowView @JvmOverloads constructor(
         }
         updateSubtitle()
         mSwitch.isClickable = false
-        mSwitch.setOnCheckedChangeListener { buttonView: CompoundButton, isChecked: Boolean ->
-            mOnCheckedChangeListener?.onCheckedChanged(buttonView, isChecked)
-            updateSubtitle()
-        }
-//        setPadding(PADDING, 0, PADDING, 0)
+        mSwitch.isFocusable = false
     }
-
-//    override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
-//        setMeasuredDimension(getDefaultSize(suggestedMinimumWidth, widthMeasureSpec), HEIGHT)
-//    }
 
     private fun updateSubtitle() {
         if (!mShowSwitch) {
@@ -68,10 +60,6 @@ class CommonRowView @JvmOverloads constructor(
             return
         }
         mTvSubtitle.text = getSubtitleText(mSwitch.isChecked)
-    }
-
-    fun setOnCheckedChangeListener(listener: CompoundButton.OnCheckedChangeListener) {
-        this.mOnCheckedChangeListener = listener
     }
 
     private fun getSubtitleText(isChecked: Boolean): CharSequence {
@@ -93,10 +81,9 @@ class CommonRowView @JvmOverloads constructor(
 
     fun setChecked(checked: Boolean, log: Boolean) {
         if (isChecked() == checked) return
+        LogUtils.d("更新了状态 $this setChecked $checked ${mSwitch.isChecked}")
         mSwitch.isChecked = checked
-        if (log) {
-            LogUtils.d("$this setChecked $checked ${mSwitch.isChecked}")
-        }
+        updateSubtitle()
     }
 
     fun isChecked() = mSwitch.isChecked

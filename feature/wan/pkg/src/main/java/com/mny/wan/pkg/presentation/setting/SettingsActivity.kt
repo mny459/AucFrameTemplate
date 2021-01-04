@@ -20,8 +20,8 @@ class SettingsActivity : BaseBindingActivity<ActivitySettingsBinding>() {
         super.initObserver()
         observe(mViewModel.stateLiveData) { state ->
             mBinding.rowThemeSwitch.isEnabled = !state.themeFollowSystem
+            LogUtils.d("更新了状态 $state")
             mBinding.rowThemeSwitch.setChecked(state.themeDark, false)
-            LogUtils.d("更新了状态 ${mBinding.rowThemeFollowSystem}")
             mBinding.rowThemeFollowSystem.setChecked(state.themeFollowSystem, true)
         }
     }
