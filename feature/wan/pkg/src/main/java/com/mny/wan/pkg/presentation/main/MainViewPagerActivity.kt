@@ -26,8 +26,10 @@ class MainViewPagerActivity : BaseBindingActivity<ActivityMainViewPagerBinding>(
     )
 
     private lateinit var mVpAdapter: CommonFragmentViewPagerAdapter
+
     @Inject
     lateinit var mAppViewModel: AppViewModel
+
     override fun initWindow(savedInstanceState: Bundle?) {
         super.initWindow(savedInstanceState)
         enterFullScreen()

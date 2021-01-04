@@ -7,7 +7,6 @@ import com.mny.wan.pkg.data.remote.model.BeanArticle
 import com.mny.wan.pkg.data.remote.model.BeanHotKey
 import com.mny.wan.pkg.data.remote.model.BeanMultiType
 import com.mny.wan.pkg.data.remote.model.BeanSystemChildren
-import org.jetbrains.anko.sdk27.coroutines.onClick
 
 /**
  * @Author CaiRj
@@ -28,7 +27,7 @@ class TagChildProvider : BaseItemProvider<BeanMultiType, BaseViewHolder>() {
 
                 }
             }
-            helper.itemView.onClick {
+            helper.itemView.setOnClickListener {
                 mOnChildClicked?.invoke(data.data)
             }
         }

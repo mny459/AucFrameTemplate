@@ -67,7 +67,7 @@ class Config {
             arouter                : new DepConfig("com.alibaba:arouter-api:1.3.1"),
             compiler               : new DepConfig("com.alibaba:arouter-compiler:1.1.4"),
             kotlinReflect          : new DepConfig("org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"),
-            anko                   : new DepConfig("org.jetbrains.anko:anko:$anko_version"),
+//            anko                   : new DepConfig("org.jetbrains.anko:anko:$anko_version"),
             kotlinAndroidExtensions: new DepConfig(false, "org.jetbrains.kotlin:kotlin-android-extensions:$kotlin_version"),
             coroutinesAndroid      : new DepConfig("org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutineVersion"),
             coroutinesCore         : new DepConfig("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutineVersion"),
@@ -179,6 +179,7 @@ class Config {
             eventbus               : new DepConfig("org.greenrobot:eventbus:3.1.1"),
 
 
+            swiperefreshlayout           : new DepConfig("androidx.swiperefreshlayout:swiperefreshlayout:1.0.0"),   //���ı�������
             refresh_core           : new DepConfig("com.scwang.smart:refresh-layout-kernel:$version"),   //���ı�������
             refresh_headerClassics : new DepConfig("com.scwang.smart:refresh-header-classics:$version"), //����ˢ��ͷ
             refresh_headerRadar    : new DepConfig("com.scwang.smart:refresh-header-radar:$version"),   //�״�ˢ��ͷ

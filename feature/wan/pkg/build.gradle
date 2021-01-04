@@ -26,9 +26,10 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation(Config.depConfig.refresh_core.dep)
-    implementation(Config.depConfig.refresh_headerClassics.dep)
-    implementation(Config.depConfig.refresh_footerClassics.dep)
+//    implementation(Config.depConfig.refresh_core.dep)
+//    implementation(Config.depConfig.refresh_headerClassics.dep)
+//    implementation(Config.depConfig.refresh_footerClassics.dep)
+    api(Config.depConfig.swiperefreshlayout.dep)
 
     api(Config.depConfig.banner.dep)
     api(Config.depConfig.brvah.dep)
@@ -36,9 +37,6 @@ dependencies {
     api(Config.depConfig.hilt.dep)
     api(Config.depConfig.hiltViewModule.dep)
     implementation 'androidx.preference:preference-ktx:1.1.1'
-    implementation 'androidx.appcompat:appcompat:1.2.0'
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
     kapt(Config.depConfig.hiltCompiler.dep)
     kapt(Config.depConfig.hiltViewModuleCompiler.dep)
     kapt(Config.depConfig.roomCompiler.dep)

@@ -16,11 +16,8 @@ import com.blankj.utilcode.util.ActivityUtils
 import com.blankj.utilcode.util.LogUtils
 import com.mny.wan.pkg.R
 import com.mny.wan.pkg.base.BaseBindingActivity
-import com.mny.wan.pkg.base.BaseToolbarActivity
 import com.mny.wan.pkg.databinding.ActivitySearchBinding
-import com.mny.wan.pkg.extension.initToolbar
 import dagger.hilt.android.AndroidEntryPoint
-import org.jetbrains.anko.sdk27.coroutines.textChangedListener
 
 @AndroidEntryPoint
 class SearchActivity : BaseBindingActivity<ActivitySearchBinding>() {

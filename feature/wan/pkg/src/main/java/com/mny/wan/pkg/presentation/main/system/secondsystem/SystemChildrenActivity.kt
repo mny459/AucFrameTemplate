@@ -10,7 +10,6 @@ import com.mny.wan.pkg.databinding.ActivitySystemChildrenBinding
 import com.mny.wan.pkg.extension.initToolbar
 import com.mny.wan.pkg.presentation.adapter.CommonFragmentViewPagerAdapter
 import dagger.hilt.android.AndroidEntryPoint
-import org.jetbrains.anko.collections.forEachWithIndex
 
 @AndroidEntryPoint
 class SystemChildrenActivity : BaseBindingActivity<ActivitySystemChildrenBinding>() {
@@ -33,7 +32,7 @@ class SystemChildrenActivity : BaseBindingActivity<ActivitySystemChildrenBinding
                 removeAllTabs()
                 mFragments.clear()
                 var selectedIndex = 0
-                children.forEachWithIndex { index, it ->
+                children.forEachIndexed { index, it ->
                     if (it.id == intent.getIntExtra("TAG_CHILD", 0)) {
                         selectedIndex = index
                     }

@@ -70,7 +70,7 @@ dependencies {
 
     api(Config.depConfig.kotlin.dep)
     api(Config.depConfig.kotlinReflect.dep)
-    api(Config.depConfig.anko.dep)
+//    api(Config.depConfig.anko.dep)
     api(Config.depConfig.coroutinesCore.dep)
     api(Config.depConfig.coroutinesAndroid.dep)
     api(Config.depConfig.material.dep)
