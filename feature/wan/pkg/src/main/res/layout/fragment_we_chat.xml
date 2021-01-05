@@ -18,6 +18,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.appbar.MaterialToolbar
+            app:navigationIcon="@drawable/ic_back"
             android:id="@+id/toolbar"
             style="@style/Widget.Wan.Toolbar"
             android:layout_width="match_parent"

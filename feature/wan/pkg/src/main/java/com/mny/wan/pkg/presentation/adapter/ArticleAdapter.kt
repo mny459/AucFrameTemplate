@@ -117,7 +117,7 @@ class ArticleViewHolder(
             if (superChapterId == 294) {
                 // 开源项目主Tab
                 mIvProject.loadProjectPreview(envelopePic)
-                mTvTitle.text = Html.fromHtml(desc)
+                mTvDesc.text = Html.fromHtml(desc)
                 mGroupProject.visibility = View.VISIBLE
             } else {
                 mGroupProject.visibility = View.GONE

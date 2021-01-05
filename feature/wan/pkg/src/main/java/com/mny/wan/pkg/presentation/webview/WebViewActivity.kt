@@ -12,6 +12,7 @@ import com.mny.wan.pkg.R
 import com.mny.wan.pkg.base.BaseBindingActivity
 import com.mny.wan.pkg.base.BaseToolbarActivity
 import com.mny.wan.pkg.databinding.ActivityWebViewBinding
+import com.mny.wan.pkg.extension.enterFullScreen
 import com.mny.wan.pkg.extension.initToolbar
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -25,6 +26,11 @@ class WebViewActivity : BaseBindingActivity<ActivityWebViewBinding>() {
 
     override fun layoutId(savedInstanceState: Bundle?): Int = R.layout.activity_web_view
 
+    override fun initWindow(savedInstanceState: Bundle?) {
+        super.initWindow(savedInstanceState)
+        enterFullScreen()
+    }
+
     override fun initArgs(bundle: Bundle?, savedInstanceState: Bundle?): Boolean {
         mUrl = bundle?.getString(KEY_URL) ?: mUrl
         return mUrl.isNotEmpty()
@@ -32,7 +38,7 @@ class WebViewActivity : BaseBindingActivity<ActivityWebViewBinding>() {
 
     override fun initView(savedInstanceState: Bundle?) {
         super.initView(savedInstanceState)
-        initToolbar(mBinding.toolbar,"")
+        initToolbar(mBinding.toolbar, "")
         mViewModel.initUrl(mUrl)
     }
 

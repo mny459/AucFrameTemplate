@@ -16,6 +16,7 @@ import kotlinx.coroutines.launch
 @AndroidEntryPoint
 class SettingsActivity : BaseBindingActivity<ActivitySettingsBinding>() {
     private val mViewModel: SettingsViewModel by viewModels()
+    
     override fun initObserver() {
         super.initObserver()
         observe(mViewModel.stateLiveData) { state ->

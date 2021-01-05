@@ -33,7 +33,6 @@ class SystemTagFragment : BaseFragment(R.layout.fragment_system_tag) {
 
     override fun initObserver() {
         super.initObserver()
-        LogUtils.d("initObserver = $mTag")
         when (mTag) {
             TAG_SYSTEM -> {
                 mViewModel.mSystemTree.observe(this) { list ->
@@ -78,11 +77,12 @@ class SystemTagFragment : BaseFragment(R.layout.fragment_system_tag) {
         }
         val adapter = TagAdapter(data) {
             if (it is BeanSystemChildren) {
+                SystemChildrenActivity.show(list?.firstOrNull { parent -> it.parentChapterId == parent.id },it.id)
                 val intent = Intent(mActivity, SystemChildrenActivity::class.java)
                 intent.putExtra(
                     "TAG_PARENT",
                     list?.firstOrNull { parent -> it.parentChapterId == parent.id })
-                intent.putExtra("TAG_CHILD", id)
+                intent.putExtra("TAG_CHILD", it.id)
                 startActivity(intent)
             }
         }

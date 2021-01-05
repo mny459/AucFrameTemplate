@@ -39,9 +39,16 @@ class WeChatFragment : BaseBindingFragment<FragmentWeChatBinding>() {
     override fun initView(view: View) {
         super.initView(view)
         mBinding.toolbar.setTitle(R.string.we_chat_article)
+        mBinding.toolbar.setNavigationOnClickListener {
+            mActivity?.onBackPressed()
+        }
         mBinding.tabLayout.tabMode = TabLayout.MODE_SCROLLABLE
         mVpAdapter =
-            CommonFragmentViewPagerAdapter(this@WeChatFragment.parentFragmentManager, mFragments,mTabs)
+            CommonFragmentViewPagerAdapter(
+                this@WeChatFragment.parentFragmentManager,
+                mFragments,
+                mTabs
+            )
     }
 
     override fun onFirstInit() {

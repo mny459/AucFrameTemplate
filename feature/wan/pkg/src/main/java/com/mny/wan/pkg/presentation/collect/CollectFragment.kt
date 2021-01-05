@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import com.google.android.material.appbar.MaterialToolbar
 import com.mny.wan.pkg.R
 import com.mny.wan.pkg.base.BaseArticleFragment
 import com.mny.wan.pkg.presentation.main.wechat.article.WeChatArticleFragment
@@ -26,6 +27,14 @@ class CollectFragment : BaseArticleFragment(R.layout.fragment_collect) {
             mViewModel.mArticleList.collectLatest {
                 mAdapter.submitData(it)
             }
+        }
+    }
+
+    override fun initView(view: View) {
+        super.initView(view)
+        val toolbar = view.findViewById<MaterialToolbar>(R.id.toolbar)
+        toolbar.setNavigationOnClickListener {
+            mActivity?.onBackPressed()
         }
     }
 
