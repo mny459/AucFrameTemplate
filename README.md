@@ -10,7 +10,6 @@
 - 热门搜索点击搜索
 - 基于 Room 的缓存
 
-
 ## 已知问题
 - Navigation 不保存状态
 - ViewPager2 和 RecyclerView 滑动冲突

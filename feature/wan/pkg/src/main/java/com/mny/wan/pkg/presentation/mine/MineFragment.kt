@@ -30,7 +30,7 @@ class MineFragment : BaseBindingFragment<FragmentMineBinding>() {
         super.initView(view)
 
         mBinding.imgLogout.setOnClickListener {
-            mViewModel.logout()
+            mAppViewModel.logout()
         }
         mBinding.tvLogin.setOnClickListener {
             LoginActivity.show()

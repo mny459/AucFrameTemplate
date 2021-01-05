@@ -1,22 +1,14 @@
 package com.mny.wan.pkg.presentation.main.home
 
-import android.graphics.Color
 import android.view.View
-import androidx.core.content.ContextCompat
 import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.ConcatAdapter
-import com.blankj.utilcode.util.BarUtils
-import com.blankj.utilcode.util.LogUtils
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.mny.mojito.entension.observe
 import com.mny.wan.pkg.R
 import com.mny.wan.pkg.base.BaseArticleFragment
-import com.mny.wan.pkg.data.remote.model.BeanArticle
 import com.mny.wan.pkg.data.remote.model.BeanBanner
-import com.mny.wan.pkg.extension.enterFullScreen
-import com.mny.wan.pkg.extension.quitFullScreen
 import com.mny.wan.pkg.presentation.adapter.BannerAdapter
 import com.mny.wan.pkg.presentation.adapter.TopArticleAdapter
 import com.mny.wan.pkg.presentation.search.SearchActivity

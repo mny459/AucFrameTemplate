@@ -6,6 +6,7 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
+import com.blankj.utilcode.util.ToastUtils
 import com.mny.mojito.http.MojitoResult
 import com.mny.mojito.http.doSuccess
 import com.mny.wan.pkg.data.remote.model.BeanCoin
@@ -91,6 +92,27 @@ class AppViewModel @Inject constructor(
                             it.data?.apply {
                                 updateCoinInfo(this)
                             }
+                        }
+                        is MojitoResult.Error -> {
+                        }
+                        MojitoResult.Loading -> {
+                        }
+                        else -> {
+                        }
+                    }
+                }
+        }
+    }
+
+    fun logout() {
+        viewModelScope.launch {
+            mUserUseCase.logout()
+                .collect {
+                    when (it) {
+                        is MojitoResult.Success -> {
+                            ToastUtils.showShort("退出登录成功")
+                            updateUserInfo(null)
+                            updateCoinInfo(null)
                         }
                         is MojitoResult.Error -> {
                         }
