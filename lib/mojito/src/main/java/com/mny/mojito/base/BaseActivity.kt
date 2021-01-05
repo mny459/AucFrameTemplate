@@ -58,7 +58,7 @@ abstract class BaseActivity : AppCompatActivity(), IActivity {
      * Toolbar 返回键 finish Activity
      */
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if (item.itemId == android.R.id.home) finish()
+        if (item.itemId == android.R.id.home) onBackPressed()
         return super.onOptionsItemSelected(item)
     }
 }

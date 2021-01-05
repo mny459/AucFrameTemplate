@@ -10,6 +10,8 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.blankj.utilcode.util.LogUtils
 import com.mny.mojito.base.BaseFragment
 import com.mny.wan.pkg.R
+import com.mny.wan.pkg.base.BaseBindingFragment
+import com.mny.wan.pkg.databinding.FragmentCoinRankingListBinding
 import com.mny.wan.pkg.presentation.adapter.CoinRankAdapter
 import com.mny.wan.pkg.widget.loadstate.CoinRankLoadStateAdapter
 import dagger.hilt.android.AndroidEntryPoint
@@ -21,22 +23,21 @@ import kotlinx.coroutines.flow.distinctUntilChangedBy
 import kotlinx.coroutines.flow.filter
 
 @AndroidEntryPoint
-class CoinRankingListFragment : BaseFragment(R.layout.fragment_coin_ranking_list) {
+class CoinRankingListFragment : BaseBindingFragment<FragmentCoinRankingListBinding>() {
     private val mViewModel: CoinRankViewModel by viewModels()
-    private var mRvCoins: RecyclerView? = null
-    private var mRefresh: SwipeRefreshLayout? = null
     private lateinit var mAdapter: CoinRankAdapter
 
     override fun initView(view: View) {
         super.initView(view)
         mAdapter = CoinRankAdapter()
-        mRvCoins = view.findViewById(R.id.rv_coin_rank)
-        mRefresh = view.findViewById(R.id.refresh)
-        mRefresh?.setOnRefreshListener {
+        mBinding.toolbar.setNavigationOnClickListener {
+            mActivity?.onBackPressed()
+        }
+        mBinding.refresh.setOnRefreshListener {
             mAdapter.refresh()
         }
 
-        mRvCoins?.apply {
+        mBinding.rvCoinRank.apply {
             adapter = mAdapter.withLoadStateFooter(CoinRankLoadStateAdapter(mAdapter))
         }
         lifecycleScope.launchWhenCreated {
@@ -49,7 +50,7 @@ class CoinRankingListFragment : BaseFragment(R.layout.fragment_coin_ranking_list
             @OptIn(ExperimentalCoroutinesApi::class)
             mAdapter.loadStateFlow.collectLatest { loadStates ->
                 LogUtils.d("Adapter 加载状态 loadStates = $loadStates")
-                mRefresh?.isRefreshing = loadStates.refresh is LoadState.Loading
+                mBinding.refresh.isRefreshing = loadStates.refresh is LoadState.Loading
             }
         }
 
@@ -60,7 +61,7 @@ class CoinRankingListFragment : BaseFragment(R.layout.fragment_coin_ranking_list
                 .distinctUntilChangedBy { it.refresh }
                 // Only react to cases where Remote REFRESH completes i.e., NotLoading.
                 .filter { it.refresh is LoadState.NotLoading }
-                .collect { mRvCoins?.scrollToPosition(0) }
+                .collect { mBinding.rvCoinRank.scrollToPosition(0) }
         }
     }
 

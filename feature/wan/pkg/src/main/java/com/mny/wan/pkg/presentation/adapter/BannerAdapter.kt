@@ -10,7 +10,6 @@ import com.mny.wan.pkg.presentation.webview.WebViewActivity
 import com.youth.banner.Banner
 import com.youth.banner.config.IndicatorConfig
 import com.youth.banner.listener.OnBannerListener
-import com.youth.banner.util.LogUtils
 import javax.inject.Inject
 
 class BannerAdapter @Inject constructor() : RecyclerView.Adapter<BannerViewHolder>() {
@@ -22,7 +21,7 @@ class BannerAdapter @Inject constructor() : RecyclerView.Adapter<BannerViewHolde
 
     override fun onBindViewHolder(holder: BannerViewHolder, position: Int) {
         //设置图片集合
-        holder.bind(mBanners.map { it.imagePath }.toList())
+        holder.bind(mBanners)
 
     }
 
@@ -38,15 +37,19 @@ class BannerAdapter @Inject constructor() : RecyclerView.Adapter<BannerViewHolde
 class BannerViewHolder(view: View) : RecyclerView.ViewHolder(view), OnBannerListener<String> {
     private val mBanner: Banner<String, BannerImageAdapter> = view.findViewById(R.id.banner)
     lateinit var mBannerImageAdapter: BannerImageAdapter
+    private val mBanners = mutableListOf<BeanBanner>()
 
     init {
         mBanner.setIndicatorGravity(IndicatorConfig.Direction.RIGHT)
-        mBanner.setOnBannerListener(this)
     }
 
-    fun bind(banners: List<String>) {
-        mBannerImageAdapter = BannerImageAdapter(banners)
+    fun bind(banners: MutableList<BeanBanner>) {
+        mBanners.clear()
+        mBanners.addAll(banners)
+        val bannerStrs = mBanners.map { it.imagePath }.toList()
+        mBannerImageAdapter = BannerImageAdapter(bannerStrs)
         mBanner.adapter = mBannerImageAdapter
+        mBannerImageAdapter.setOnBannerListener(this)
         //banner设置方法全部调用完毕时最后调用
         mBanner.start()
     }
@@ -60,10 +63,7 @@ class BannerViewHolder(view: View) : RecyclerView.ViewHolder(view), OnBannerList
     }
 
     override fun OnBannerClick(data: String?, position: Int) {
-        com.blankj.utilcode.util.LogUtils.d("OnBannerClick $data $position")
-        data?.apply {
-            WebViewActivity.show(this)
-        }
+        WebViewActivity.show(mBanners[position].url)
     }
 
 

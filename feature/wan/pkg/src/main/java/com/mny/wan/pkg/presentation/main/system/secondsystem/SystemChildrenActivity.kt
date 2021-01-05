@@ -1,12 +1,9 @@
 package com.mny.wan.pkg.presentation.main.system.secondsystem
 
-import android.app.Activity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import com.blankj.utilcode.util.ActivityUtils
-import com.blankj.utilcode.util.LogUtils
 import com.google.android.material.tabs.TabLayout
-import com.mny.mojito.base.BaseActivity
 import com.mny.wan.pkg.base.BaseBindingActivity
 import com.mny.wan.pkg.data.remote.model.BeanSystemParent
 import com.mny.wan.pkg.databinding.ActivitySystemChildrenBinding
