@@ -26,30 +26,17 @@ class MineFragment : BaseBindingFragment<FragmentMineBinding>() {
 
     @Inject
     lateinit var mAppViewModel: AppViewModel
+
     override fun initView(view: View) {
         super.initView(view)
 
-        mBinding.imgLogout.setOnClickListener {
-            mAppViewModel.logout()
-        }
-        mBinding.tvLogin.setOnClickListener {
-            LoginActivity.show()
-        }
-        mBinding.rowCollect.setOnClickListener {
-            CollectActivity.show()
-        }
-        mBinding.rowProject.setOnClickListener {
-            ProjectActivity.show()
-        }
-        mBinding.rowWeChatArticle.setOnClickListener {
-            WeChatActivity.show()
-        }
-        mBinding.rowSquare.setOnClickListener {
-            ShareActivity.show()
-        }
-        mBinding.rowSettings.setOnClickListener {
-            SettingsActivity.show()
-        }
+        mBinding.imgLogout.setOnClickListener { mAppViewModel.logout() }
+        mBinding.tvLogin.setOnClickListener { LoginActivity.show() }
+        mBinding.rowCollect.setOnClickListener { CollectActivity.show() }
+        mBinding.rowProject.setOnClickListener { ProjectActivity.show() }
+        mBinding.rowWeChatArticle.setOnClickListener { WeChatActivity.show() }
+        mBinding.rowSquare.setOnClickListener { ShareActivity.show() }
+        mBinding.rowSettings.setOnClickListener { SettingsActivity.show() }
         mBinding.tvCredits.setOnClickListener { CoinDetailActivity.show() }
     }
 

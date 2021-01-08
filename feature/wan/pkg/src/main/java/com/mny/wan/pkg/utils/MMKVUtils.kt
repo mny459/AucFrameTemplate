@@ -39,7 +39,7 @@ object MMKVUtils : KVHelper {
             val mmkv = MMKV.mmkvWithID(id, "/data/data/${Utils.getApp().packageName}/mmkv/${path}")
                 ?: MMKV.mmkvWithID(id)
             mmkvs[key] = mmkv
-            mmkv.reKey(key)
+            mmkv.removeValueForKey(key)
         }
     }
 

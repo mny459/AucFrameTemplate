@@ -139,7 +139,7 @@ class ArticleViewHolder(
                     viewModel.collect(id)
                 }
             }
-//            observerCollect(this)
+            observerCollect(this)
         }
 
     }

@@ -1,5 +1,6 @@
 package com.mny.wan.pkg.presentation.search
 
+import android.os.StatFs
 import androidx.hilt.Assisted
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.*
@@ -40,6 +41,7 @@ class SearchViewModel @ViewModelInject constructor(
     val mHotKey = MutableLiveData<MutableList<BeanHotKey>>()
 
     private val mSearchStateFlow = MutableStateFlow("")
+    val searchKey: StateFlow<String> = mSearchStateFlow
 
     fun fetchHotKey() {
         viewModelScope.launch {
@@ -55,7 +57,7 @@ class SearchViewModel @ViewModelInject constructor(
 
     fun search(name: String) {
         if (mSearchStateFlow.value == name) return
-        mSearchStateFlow.value = name;
+        mSearchStateFlow.value = name
 //        mClearListCh.offer(Unit)
 //        mSavedStateHandle.set(KEY_ARTICLE, name)
     }
