@@ -21,7 +21,6 @@ class SettingsActivity : BaseBindingActivity<ActivitySettingsBinding>() {
 
     override fun initObserver() {
         super.initObserver()
-        ViewModelProvider.AndroidViewModelFactory
         observe(mViewModel.stateLiveData) { state ->
             mBinding.rowThemeSwitch.isEnabled = !state.themeFollowSystem
             LogUtils.d("更新了状态 $state")
