@@ -25,18 +25,18 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/dp_8"
         android:layout_marginBottom="@dimen/dp_8"
-        android:textColor="@color/gray_757575"
+        android:textColor="?attr/app_text_secondary_color"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvType"
-        tools:text="签到" />
+        tools:text="用户名" />
 
     <TextView
         android:id="@+id/tvCoin"
         style="@style/TextAppearance.Wan.ArticleTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="?attr/colorPrimary"
+        android:textColor="?attr/colorAccent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"

@@ -45,7 +45,7 @@
     <style name="ViewLine">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">@dimen/line</item>
-        <item name="android:background">@color/gray_eceff3</item>
+        <item name="android:background">?attr/app_divider_color</item>
     </style>
 
 

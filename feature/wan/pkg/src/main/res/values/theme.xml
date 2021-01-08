@@ -26,6 +26,7 @@
         <item name="android:textColorPrimary">@color/color_0C101B</item>
         <item name="app_text_primary_color">@color/appTextPrimaryColor</item>
         <item name="app_text_secondary_color">@color/appTextSecondColor</item>
+        <item name="app_divider_color">@color/colorDivider</item>
         <!-- 文字的二级颜色 -->
         <item name="android:textColorSecondary">@color/color_B6B7BA</item>
 
