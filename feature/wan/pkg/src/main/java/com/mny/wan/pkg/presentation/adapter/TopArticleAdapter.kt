@@ -9,6 +9,7 @@ import android.widget.TextView
 import androidx.constraintlayout.widget.Group
 import androidx.recyclerview.widget.RecyclerView
 import com.blankj.utilcode.util.NetworkUtils
+import com.blankj.utilcode.util.StringUtils
 import com.mny.mojito.entension.loadProjectPreview
 import com.mny.wan.pkg.R
 import com.mny.wan.pkg.data.local.UserHelper
@@ -55,7 +56,7 @@ class TopArticleViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
             mTvPublishTime.text = Html.fromHtml(niceDate)
             mTvPin.visibility = View.VISIBLE
             mTvPublisher.text = if (author.isEmpty()) shareUser.trim() else author.trim()
-            mTvUserType.text = if (author.isEmpty()) "分享人" else "作者"
+            mTvUserType.text = if (author.isEmpty()) StringUtils.getString(R.string.wan_share_user) else StringUtils.getString(R.string.wan_author)
             mTvChapter.text = if (superChapterName.isEmpty()) "$chapterName".trim()
             else "$chapterName·$superChapterName".trim()
             if (superChapterId == 294) {

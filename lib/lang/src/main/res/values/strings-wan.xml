@@ -3,7 +3,10 @@
     <string name="wan_nav_qa">问答</string>
     <string name="wan_nav_discover">发现</string>
     <string name="wan_nav_system">体系</string>
+    <string name="wan_nav_guide">导航</string>
     <string name="wan_nav_mine">我的</string>
     <string name="wan_coin_detail">积分详情</string>
     <string name="wan_coin_rank">积分排名</string>
+    <string name="wan_share_user">分享人</string>
+    <string name="wan_author">作者</string>
 </resources>

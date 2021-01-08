@@ -1,0 +1,12 @@
+<resources>
+    <string name="wan_nav_home">Home</string>
+    <string name="wan_nav_qa">QA</string>
+    <string name="wan_nav_discover">Discover</string>
+    <string name="wan_nav_system">System</string>
+    <string name="wan_nav_guide">Guide</string>
+    <string name="wan_nav_mine">Mine</string>
+    <string name="wan_coin_detail">Coin details</string>
+    <string name="wan_coin_rank">Coin rank</string>
+    <string name="wan_share_user">Share</string>
+    <string name="wan_author">Author</string>
+</resources>

@@ -21,7 +21,7 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             app:layout_scrollFlags="scroll|enterAlways"
-            app:title="问答" />
+            app:title="@string/wan_nav_qa" />
 
     </com.google.android.material.appbar.AppBarLayout>
 

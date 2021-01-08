@@ -33,16 +33,24 @@
                 android:id="@+id/row_theme_follow_system"
                 style="@style/Widget.CommonRow"
                 app:showSwitch="true"
-                app:subtitle="开启后，将跟随系统打开或关闭深色模式"
-                app:title="深色模式" />
+                app:subtitle="@string/app_theme_subtitle"
+                app:title="@string/theme_dark" />
 
             <com.mny.wan.pkg.widget.CommonRowView
                 android:id="@+id/row_theme_switch"
                 style="@style/Widget.CommonRow"
                 app:showSwitch="true"
-                app:subtitleOff="浅色模式"
-                app:subtitleOn="深色模式"
-                app:title="App 主题" />
+                app:subtitleOff="@string/theme_light"
+                app:subtitleOn="@string/theme_dark"
+                app:title="@string/app_theme" />
+
+            <com.mny.wan.pkg.widget.CommonRowView
+                android:id="@+id/row_language_switch"
+                style="@style/Widget.CommonRow"
+                app:showSwitch="true"
+                app:subtitleOff="@string/chinese"
+                app:subtitleOn="@string/app_language_subtitle"
+                app:title="@string/language" />
 
             <com.mny.wan.pkg.widget.CommonRowView
                 android:id="@+id/row_about"

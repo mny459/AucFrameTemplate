@@ -9,6 +9,7 @@ import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.viewModelScope
 import com.blankj.utilcode.util.ActivityUtils
+import com.blankj.utilcode.util.LanguageUtils
 import com.blankj.utilcode.util.LogUtils
 import com.mny.mojito.mvvm.BaseAction
 import com.mny.mojito.mvvm.BaseState
@@ -18,6 +19,7 @@ import com.mny.wan.pkg.utils.isNightMode
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import java.util.*
 
 class SettingsViewModel @ViewModelInject constructor(
     @ApplicationContext private val context: Context,
@@ -37,7 +39,8 @@ class SettingsViewModel @ViewModelInject constructor(
         sendAction(
             Action.UpdateTheme(
                 themeFollowSystem = themeFollowSystem,
-                themeDark = themeDark
+                themeDark = themeDark,
+                languageZH = !LanguageUtils.isAppliedLanguage(Locale.ENGLISH)
             )
         )
     }
@@ -52,17 +55,26 @@ class SettingsViewModel @ViewModelInject constructor(
     data class ViewState(
         val themeFollowSystem: Boolean = false,
         val themeDark: Boolean = false,
+        val languageZH: Boolean = false,
     ) : BaseState
 
     sealed class Action : BaseAction {
-        class UpdateTheme(val themeFollowSystem: Boolean, val themeDark: Boolean) : Action()
+        class UpdateTheme(
+            val themeFollowSystem: Boolean? = null,
+            val themeDark: Boolean? = null,
+            val languageZH: Boolean? = null
+        ) : Action()
+
+        class UpdateLanguage(val languageZH: Boolean) : Action()
     }
 
     override fun onReduceState(viewAction: Action): ViewState = when (viewAction) {
         is Action.UpdateTheme -> state.copy(
-            themeFollowSystem = viewAction.themeFollowSystem,
-            themeDark = viewAction.themeDark
+            themeFollowSystem = viewAction.themeFollowSystem ?: state.themeFollowSystem,
+            themeDark = viewAction.themeDark ?: state.themeDark,
+            languageZH = viewAction.themeDark ?: state.languageZH,
         )
+        is Action.UpdateLanguage -> state.copy(languageZH = viewAction.languageZH)
     }
 
     fun switchThemeFollowSystem(): Boolean {
@@ -101,6 +113,20 @@ class SettingsViewModel @ViewModelInject constructor(
             else SettingHelper.setThemeLight()
         }
         return true
+    }
+
+    fun switchLanguage() {
+        val appliedEnglish = LanguageUtils.isAppliedLanguage(Locale.ENGLISH)
+        if (appliedEnglish) {
+            LanguageUtils.applySystemLanguage()
+        } else {
+            LanguageUtils.applyLanguage(Locale.ENGLISH)
+        }
+        sendAction(
+            Action.UpdateTheme(
+                languageZH = !appliedEnglish
+            )
+        )
     }
 
     fun restartApp() {
@@ -156,5 +182,6 @@ class SettingsViewModel @ViewModelInject constructor(
             }
         }
     }
+
 
 }

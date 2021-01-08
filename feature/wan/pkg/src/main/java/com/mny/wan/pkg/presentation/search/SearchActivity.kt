@@ -27,12 +27,12 @@ class SearchActivity : BaseBindingActivity<ActivitySearchBinding>() {
         super.initView(savedInstanceState)
         mBinding.imgBack.setOnClickListener { onBackPressed() }
         mBinding.etContent.addTextChangedListener {
-            val text = it?.toString()?.trim() ?: ""
+            val text = it?.toString()?.trimStart()?.trimEnd() ?: ""
             search(text)
         }
 
         mBinding.imgSearch.setOnClickListener {
-            val text = mBinding.etContent.text.toString().trim()
+            val text = mBinding.etContent.text.toString().trimStart().trimEnd()
             search(text)
         }
     }

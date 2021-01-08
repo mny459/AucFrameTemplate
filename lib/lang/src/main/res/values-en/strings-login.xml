@@ -1,0 +1,9 @@
+<resources>
+    <string name="login_loading">Login</string>
+    <string name="login_success">Login success</string>
+    <string name="login_username">Username</string>
+    <string name="login_pwd">Password</string>
+    <string name="login_confirm_pwd">Confirm password</string>
+    <string name="login_register">Register</string>
+    <string name="login">Login</string>
+</resources>

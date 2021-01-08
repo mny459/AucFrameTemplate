@@ -1,0 +1,7 @@
+<resources>
+    <string name="language">Language</string>
+    <string name="chinese">Chinese</string>
+    <string name="english">English</string>
+    <string name="app_language">App language</string>
+    <string name="app_language_subtitle">Follow system language when on</string>
+</resources>

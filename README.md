@@ -7,7 +7,6 @@
 - SP封装
 - 图片加载封装
 - ViewPager Fragment 懒加载
-- 热门搜索点击搜索
 - 基于 Room 的缓存
 
 ## 已知问题

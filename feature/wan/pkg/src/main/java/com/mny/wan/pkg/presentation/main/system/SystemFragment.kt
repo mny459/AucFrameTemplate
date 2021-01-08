@@ -3,6 +3,7 @@ package com.mny.wan.pkg.presentation.main.system
 import androidx.fragment.app.Fragment
 import android.view.View
 import androidx.viewpager2.widget.ViewPager2
+import com.blankj.utilcode.util.StringUtils
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import com.mny.mojito.base.BaseFragment
@@ -24,7 +25,7 @@ class SystemFragment : BaseBindingFragment<FragmentSystemBinding>() {
         SystemTagFragment.newInstance(SystemTagFragment.TAG_NAV)
     )
 
-    private val mTabs = listOf("体系", "导航")
+    private val mTabs = listOf(StringUtils.getString(R.string.wan_nav_system), StringUtils.getString(R.string.wan_nav_guide))
 
     private lateinit var mVpAdapter: CommonFragmentViewPagerAdapter
 

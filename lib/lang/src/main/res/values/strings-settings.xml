@@ -1,3 +1,7 @@
 <resources>
-
+    <string name="language">语言</string>
+    <string name="chinese">中文</string>
+    <string name="english">英文</string>
+    <string name="app_language">App 语言</string>
+    <string name="app_language_subtitle">开启后，将使用英文</string>
 </resources>
