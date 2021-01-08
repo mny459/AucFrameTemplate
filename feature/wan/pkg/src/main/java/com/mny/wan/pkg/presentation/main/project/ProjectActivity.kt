@@ -14,7 +14,7 @@ class ProjectActivity : BaseBindingActivity<ActivityProjectBinding>() {
 
     override fun initView(savedInstanceState: Bundle?) {
         super.initView(savedInstanceState)
-        initToolbar(        mBinding.toolbar)
+        initToolbar(mBinding.toolbar)
     }
 
     companion object {
