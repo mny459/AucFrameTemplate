@@ -14,7 +14,7 @@ class Config {
     static kotlinVersion = '1.4.10'
     static supportVersion = '27.1.1'
     static nav_version = "2.3.2"
-    static room_version = "2.2.5"
+    static room_version = "2.3.0-alpha03"
     static hiltVersion = "2.28-alpha"
     static hiltViewModuleVersion = "1.0.0-alpha02"
 
@@ -24,7 +24,7 @@ class Config {
     static anko_version = "0.10.8"
     static fragment_version = "1.3.0-beta01"
     static lifecycle_version = "2.2.0"
-    static paging_version = "3.0.0-alpha09"
+    static paging_version = "3.0.0-alpha11"
     static glide_version = "4.11.0"
     static coroutineVersion = "1.4.1"
     static retrofit_version = "2.9.0"

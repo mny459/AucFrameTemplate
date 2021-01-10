@@ -14,9 +14,9 @@ class ArticleUseCase @Inject constructor(
     private val mRepository: WanRepository
 ) {
 
-    fun homeArticlePageSource(): PagingSource<Int, BeanArticle> {
-        return HomeArticlePageSource(mRepository)
-    }
+//    fun homeArticlePageSource(): PagingSource<Int, BeanArticle> {
+//        return HomeArticlePageSource(mRepository)
+//    }
 
     fun searchArticlePageSource(keyword: Any): PagingSource<Int, BeanArticle> {
         return SearchArticlePageSource(mRepository, keyword as String)

@@ -1,5 +1,9 @@
 package com.mny.wan.pkg.data.remote.model
 
+import androidx.room.Entity
+import androidx.room.Ignore
+import androidx.room.Index
+import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 import com.mny.wan.pkg.data.remote.service.WanApi
 import java.io.Serializable
@@ -57,65 +61,71 @@ data class BeanArticleList(
     }
 }
 
+@Entity(
+    tableName = "article",
+    indices = [Index("id", unique = true)]
+)
 data class BeanArticle(
     @SerializedName("apkLink")
-    val apkLink: String = "",
+    var apkLink: String = "",
     @SerializedName("audit")
-    val audit: Int = 0,
+    var audit: Int = 0,
     @SerializedName("author")
-    val author: String = "",
+    var author: String = "",
     @SerializedName("chapterId")
-    val chapterId: Int = 0,
+    var chapterId: Int = 0,
     @SerializedName("chapterName")
-    val chapterName: String = "",
+    var chapterName: String = "",
     @SerializedName("collect")
     var collect: Boolean = false,
     @SerializedName("courseId")
-    val courseId: Int = 0,
+    var courseId: Int = 0,
     @SerializedName("desc")
-    val desc: String = "",
+    var desc: String = "",
     @SerializedName("envelopePic")
-    val envelopePic: String = "",
+    var envelopePic: String = "",
     @SerializedName("fresh")
-    val fresh: Boolean = false,
+    var fresh: Boolean = false,
+    @PrimaryKey()
     @SerializedName("id")
-    val id: Int = 0,
+    var id: Int = 0,
     @SerializedName("link")
-    val link: String = "",
+    var link: String = "",
     @SerializedName("niceDate")
-    val niceDate: String = "",
+    var niceDate: String = "",
     @SerializedName("niceShareDate")
-    val niceShareDate: String = "",
+    var niceShareDate: String = "",
     @SerializedName("origin")
-    val origin: String = "",
+    var origin: String = "",
     @SerializedName("prefix")
-    val prefix: String = "",
+    var prefix: String = "",
     @SerializedName("projectLink")
-    val projectLink: String = "",
+    var projectLink: String = "",
     @SerializedName("publishTime")
-    val publishTime: Long = 0,
+    var publishTime: Long = 0,
     @SerializedName("selfVisible")
-    val selfVisible: Int = 0,
+    var selfVisible: Int = 0,
     @SerializedName("shareDate")
-    val shareDate: Long = 0,
+    var shareDate: Long = 0,
     @SerializedName("shareUser")
-    val shareUser: String = "",
+    var shareUser: String = "",
     @SerializedName("superChapterId")
-    val superChapterId: Int = 0,
+    var superChapterId: Int = 0,
     @SerializedName("superChapterName")
-    val superChapterName: String = "",
+    var superChapterName: String = "",
+    @Ignore
     @SerializedName("tags")
-    val tags: List<Tag> = listOf(),
+    var tags: List<Tag> = emptyList<Tag>(),
     @SerializedName("title")
-    val title: String = "",
+    var title: String = "",
     @SerializedName("type")
-    val type: Int = 0,
+    var type: Int = 0,
     @SerializedName("userId")
-    val userId: Int = 0,
+    var userId: Int = 0,
     @SerializedName("visible")
-    val visible: Int = 0,
+    var visible: Int = 0,
     @SerializedName("zan")
-    val zan: Int = 0
+    var zan: Int = 0
 )
 
 data class Tag(

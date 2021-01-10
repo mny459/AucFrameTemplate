@@ -126,7 +126,6 @@ dependencies {
     kapt(Config.depConfig.glide_compiler.dep) {
         exclude module: 'jsr305'
     }
-    kapt(Config.depConfig.roomCompiler.dep)
 
     testImplementation(Config.depConfig.jUnit.dep)
     androidTestImplementation(Config.depConfig.androidJunit.dep)

@@ -1,5 +1,8 @@
 package com.mny.wan.pkg.domain.repository
 
+import androidx.paging.PagingSource
+import com.mny.wan.pkg.data.local.entity.HomeArticle
+import com.mny.wan.pkg.data.local.entity.UiHomeArticle
 import com.mny.wan.pkg.data.remote.model.*
 import kotlinx.coroutines.flow.Flow
 
@@ -17,4 +20,5 @@ interface WanRepository {
     suspend fun fetchCoinRankList(page: Int): BaseResponse<BaseListData<BeanRanking>>
     suspend fun collectArticle(id: Int): BaseResp
     suspend fun cancelCollectArticle(id: Int): BaseResp
+    fun fetchHomeArticles(): PagingSource<Int, UiHomeArticle>
 }

@@ -3,6 +3,7 @@ package com.mny.wan.pkg.di
 import android.content.Context
 import androidx.paging.PagingConfig
 import com.mny.wan.pkg.data.local.WanDataBase
+import com.mny.wan.pkg.data.local.dao.ArticleDao
 import com.mny.wan.pkg.data.local.dao.UserDao
 import com.mny.wan.pkg.data.remote.service.WanService
 import com.mny.wan.pkg.data.repository.UserRepositoryImpl
@@ -56,6 +57,13 @@ abstract class WanModule {
         @Singleton
         fun provideUserDao(dataBase: WanDataBase): UserDao {
             return dataBase.userDao()
+        }
+
+        @JvmStatic
+        @Provides
+        @Singleton
+        fun provideArticleDao(dataBase: WanDataBase): ArticleDao {
+            return dataBase.articleDao()
         }
 
         @JvmStatic

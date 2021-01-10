@@ -6,19 +6,31 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
 import com.blankj.utilcode.util.LogUtils
+import com.mny.wan.pkg.data.local.dao.ArticleDao
+import com.mny.wan.pkg.data.local.dao.RemoteKeysDao
 import com.mny.wan.pkg.data.local.dao.UserDao
-import com.mny.wan.pkg.data.local.entity.CoinEntity
-import com.mny.wan.pkg.data.local.entity.CollectionEntity
-import com.mny.wan.pkg.data.local.entity.UserEntity
+import com.mny.wan.pkg.data.local.entity.*
+import com.mny.wan.pkg.data.remote.model.BeanArticle
 
 
 @Database(
-    entities = [UserEntity::class, CollectionEntity::class, CoinEntity::class],
+    entities = [
+        UserEntity::class,
+        CollectionEntity::class,
+        CoinEntity::class,
+        BeanArticle::class,
+        RemoteKeys::class,
+        HomeArticle::class,
+        QAArticle::class,
+    ],
     version = 1,
     exportSchema = true
 )
 public abstract class WanDataBase : RoomDatabase() {
+
     abstract fun userDao(): UserDao
+    abstract fun articleDao(): ArticleDao
+    abstract fun remoteKeysDao(): RemoteKeysDao
 
     companion object {
         // Singleton prevents multiple instances of database opening at the

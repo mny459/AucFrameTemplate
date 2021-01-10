@@ -1,12 +1,17 @@
 package com.mny.wan.pkg.data.repository
 
+import androidx.paging.PagingSource
 import com.mny.wan.pkg.base.BaseRepository
+import com.mny.wan.pkg.data.local.dao.ArticleDao
+import com.mny.wan.pkg.data.local.entity.HomeArticle
+import com.mny.wan.pkg.data.local.entity.UiHomeArticle
 import com.mny.wan.pkg.data.remote.model.*
 import com.mny.wan.pkg.data.remote.service.WanService
 import com.mny.wan.pkg.domain.repository.WanRepository
 import javax.inject.Inject
 
-class WanRepositoryImpl @Inject constructor() : BaseRepository(), WanRepository {
+class WanRepositoryImpl @Inject constructor(private val mArticleDao: ArticleDao) : BaseRepository(),
+    WanRepository {
     override suspend fun fetchArticlesByUrl(url: String): BaseResponse<BeanArticleList> {
         return mRepository.obtainRetrofitService(WanService::class.java).fetchArticleList(url)
     }
@@ -67,5 +72,9 @@ class WanRepositoryImpl @Inject constructor() : BaseRepository(), WanRepository 
     override suspend fun cancelCollectArticle(id: Int): BaseResp {
         return mRepository.obtainRetrofitService(WanService::class.java)
             .cancelCollectWanArticle(id)
+    }
+
+    override fun fetchHomeArticles(): PagingSource<Int, UiHomeArticle> {
+        return mArticleDao.queryHomeArticles()
     }
 }

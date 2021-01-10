@@ -11,11 +11,10 @@ import androidx.paging.LoadState
 import androidx.paging.LoadStateAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.mny.wan.pkg.R
-import com.mny.wan.pkg.presentation.adapter.ArticleAdapter
 import com.mny.wan.pkg.presentation.adapter.CoinDetailAdapter
 import com.mny.wan.pkg.presentation.adapter.CoinRankAdapter
 
-class ArticleLoadStateAdapter(private val mArticleAdapter: ArticleAdapter) :
+class ArticleLoadStateAdapter(private val mRetry: () -> Unit) :
     LoadStateAdapter<LoadStateFooterViewHolder>() {
     override fun onBindViewHolder(holder: LoadStateFooterViewHolder, loadState: LoadState) {
         holder.bindTo(loadState)
@@ -25,7 +24,7 @@ class ArticleLoadStateAdapter(private val mArticleAdapter: ArticleAdapter) :
         parent: ViewGroup,
         loadState: LoadState
     ): LoadStateFooterViewHolder {
-        return LoadStateFooterViewHolder.create(parent) { mArticleAdapter.retry() }
+        return LoadStateFooterViewHolder.create(parent) { mRetry.invoke() }
     }
 }
 

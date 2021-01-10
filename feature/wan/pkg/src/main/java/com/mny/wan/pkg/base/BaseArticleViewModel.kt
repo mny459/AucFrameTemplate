@@ -18,8 +18,9 @@ abstract class BaseArticleViewModel<ViewState : BaseState, ViewAction : BaseActi
 ) :
     BaseViewModel<ViewState, ViewAction>(initialState) {
     companion object {
-         const val KEY_ARTICLE = "articles"
+        const val KEY_ARTICLE = "articles"
         protected const val DEFAULT_PAGE = 0
+
     }
 
     protected val mClearListCh = Channel<Unit>(Channel.CONFLATED)
@@ -40,13 +41,13 @@ abstract class BaseArticleViewModel<ViewState : BaseState, ViewAction : BaseActi
 //                        // 初始化加载数量，默认为 pageSize * 3
                         initialLoadSize = 20,
 //                        // 一次应在内存中保存的最大数据
-                        maxSize = 200
+                        maxSize = 200, enablePlaceholders = true
                     )
                 ) {
                     getArticlePageSource(it)
                 }.flow
             }
-            .cachedIn(viewModelScope)
+            .cachedIn(viewModelScope) // 将数据缓存在 CoroutineScope，这里使用 viewModelScope
     ).flattenMerge(2)
 
     override fun onLoadData() {

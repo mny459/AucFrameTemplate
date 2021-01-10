@@ -22,6 +22,11 @@ android {
         viewBinding true
     }
 
+    kotlinOptions {
+        jvmTarget = "1.8"
+        freeCompilerArgs += ["-Xopt-in=kotlin.RequiresOptIn"]
+    }
+
 }
 
 dependencies {
@@ -37,9 +42,6 @@ dependencies {
     api(Config.depConfig.hilt.dep)
     api(Config.depConfig.hiltViewModule.dep)
     implementation 'androidx.preference:preference-ktx:1.1.1'
-    implementation 'androidx.appcompat:appcompat:1.2.0'
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
     kapt(Config.depConfig.hiltCompiler.dep)
     kapt(Config.depConfig.hiltViewModuleCompiler.dep)
     kapt(Config.depConfig.roomCompiler.dep)
