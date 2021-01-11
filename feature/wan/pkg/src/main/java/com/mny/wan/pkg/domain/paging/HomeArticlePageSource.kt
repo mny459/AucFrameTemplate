@@ -23,37 +23,36 @@ class HomeArticlePageSource @Inject constructor(
         loadType: LoadType,
         state: PagingState<Int, UiHomeArticle>
     ): MediatorResult {
+        LogUtils.d("load $loadType")
         val page: Int = when (loadType) {
-            LoadType.REFRESH -> {
-                val remoteKeys = getRemoteKeyClosestToCurrentPosition(state)
-                remoteKeys?.nextKey?.minus(1) ?: 0
-            }
+            LoadType.REFRESH -> 0
             LoadType.PREPEND -> {
+                // 不支持下拉加载
                 return MediatorResult.Success(endOfPaginationReached = true)
             }
             LoadType.APPEND -> {
-//                0
                 val remoteKeys = getRemoteKeyForLastItem(state)
-                if (remoteKeys?.nextKey == null) {
-                    throw InvalidObjectException("Remote key should not be null for $loadType")
-                }
-                remoteKeys.nextKey!!
+                LogUtils.d("load 下一页 $remoteKeys")
+                remoteKeys?.nextKey ?: return MediatorResult.Success(endOfPaginationReached = true)
             }
         }
         // 如果key是null，那就加载第0页的数据
         return try {
             val suffixUrl = UrlManager.urlHomeArticleList(page)
-            LogUtils.d("HomeArticlePageSource $suffixUrl")
+            LogUtils.d("load HomeArticlePageSource $suffixUrl")
             val response = mRepository.fetchArticlesByUrl(suffixUrl)
 
             if (response.isSuccess()) {
                 val data = response.data
+                LogUtils.d("load data $data")
                 val endOfPaginationReached = data.isLastPage()
                 mDataBase.withTransaction {
                     // clear all tables in the database
                     if (loadType == LoadType.REFRESH) {
                         mDataBase.remoteKeysDao().clearRemoteKeys()
-//                        mDataBase.articleDao().clearRepos()
+                        mDataBase.articleDao().clearHomeArticles()
+                        mDataBase.articleDao().clearHomeArticles()
+                        mDataBase.articleDao().clearQaArticles()
                     }
                     val prevKey = data.curPage - 1
                     val nextKey = data.curPage + 1
@@ -68,7 +67,7 @@ class HomeArticlePageSource @Inject constructor(
                     mDataBase.remoteKeysDao().insertAll(keys)
                 }
 
-                MediatorResult.Success(endOfPaginationReached)
+                MediatorResult.Success(true)
             } else {
                 MediatorResult.Error(Exception(response.errorMsg))
             }

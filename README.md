@@ -7,7 +7,7 @@
 - SP封装
 - 图片加载封装
 - ViewPager Fragment 懒加载
-- 基于 Room 的缓存
+- 缓存: DiskLruCache、Room
 - 在搜索的时候取消上一个搜索请求
 - 做状态保存
 

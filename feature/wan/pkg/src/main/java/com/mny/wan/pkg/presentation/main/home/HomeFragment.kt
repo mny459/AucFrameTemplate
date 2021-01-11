@@ -81,6 +81,9 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
         mAllAdapter.addAdapter(1, mTopArticleAdapter)
         mAllAdapter.addAdapter(2, mAdapter)
         mRvArticles?.adapter = mAllAdapter
+        mAdapter?.addLoadStateListener {
+            LogUtils.d("addLoadStateListener $it")
+        }
     }
 
     override fun initObserver() {

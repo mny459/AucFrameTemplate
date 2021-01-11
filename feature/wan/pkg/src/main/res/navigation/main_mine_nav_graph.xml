@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/mineFragment"
         android:name="com.mny.wan.pkg.presentation.mine.MineFragment"
-        android:label="我的"
+        android:label="@string/wan_nav_mine"
         tools:layout="@layout/fragment_mine" />
 
 </navigation>

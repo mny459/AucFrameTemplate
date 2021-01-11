@@ -7,16 +7,6 @@
     android:orientation="vertical"
     tools:context=".presentation.main.MainActivity">
 
-    <!--    <fragment-->
-    <!--        android:id="@+id/nav_host_fragment"-->
-    <!--        android:name="androidx.navigation.fragment.NavHostFragment"-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="match_parent"-->
-    <!--        android:layout_marginBottom="@dimen/dp_52"-->
-    <!--        app:defaultNavHost="true"-->
-    <!--        app:layout_behavior="@string/appbar_scrolling_view_behavior"-->
-    <!--        app:navGraph="@navigation/main_nav_graph" />-->
-
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/nav_host_container"
         android:layout_width="match_parent"

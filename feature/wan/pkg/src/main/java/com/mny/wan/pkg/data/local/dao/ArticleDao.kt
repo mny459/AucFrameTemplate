@@ -35,4 +35,13 @@ interface ArticleDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertHomeArticles(homes: List<HomeArticle>)
+
+    @Query("DELETE FROM article")
+    suspend fun clearArticles()
+
+    @Query("DELETE FROM home_article")
+    suspend fun clearHomeArticles()
+
+    @Query("DELETE FROM qa_article")
+    suspend fun clearQaArticles()
 }

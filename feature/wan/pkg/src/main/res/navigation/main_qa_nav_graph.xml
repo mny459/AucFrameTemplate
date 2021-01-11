@@ -8,6 +8,6 @@
     <fragment
         android:id="@+id/QAFragment"
         android:name="com.mny.wan.pkg.presentation.main.qa.QAFragment"
-        android:label="问答"
+        android:label="@string/wan_nav_qa"
         tools:layout="@layout/fragment_q_a" />
 </navigation>

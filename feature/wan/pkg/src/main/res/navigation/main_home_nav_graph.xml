@@ -8,6 +8,6 @@
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.mny.wan.pkg.presentation.main.home.HomeFragment"
-        android:label="首页"
+        android:label="@string/wan_nav_home"
         tools:layout="@layout/fragment_home" />
 </navigation>
