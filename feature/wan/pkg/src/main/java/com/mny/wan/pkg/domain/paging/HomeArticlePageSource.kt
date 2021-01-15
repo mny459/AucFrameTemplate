@@ -67,7 +67,7 @@ class HomeArticlePageSource @Inject constructor(
                     mDataBase.remoteKeysDao().insertAll(keys)
                 }
 
-                MediatorResult.Success(true)
+                MediatorResult.Success(false)
             } else {
                 MediatorResult.Error(Exception(response.errorMsg))
             }
@@ -79,11 +79,14 @@ class HomeArticlePageSource @Inject constructor(
 
     private suspend fun getRemoteKeyForLastItem(state: PagingState<Int, UiHomeArticle>): RemoteKeys? {
         // 获取当前数据的最后一页的最后一个数据
-        return state.pages.lastOrNull { it.data.isNotEmpty() }?.data?.lastOrNull()
-            ?.let { repo ->
-                // Get the remote keys of the last item retrieved
-                mDataBase.remoteKeysDao().remoteKeysRepoId(repo.article.id.toLong())
-            }
+        val lastPage = state.pages.lastOrNull()
+        val lastItem = lastPage?.data?.lastOrNull()
+        LogUtils.d("最后一个 Item 是 id ${lastItem?.article?.id} title ${lastItem?.article?.title}")
+        return if (lastItem != null) {
+            mDataBase.remoteKeysDao().remoteKeysRepoId(lastItem.article.id.toLong())
+        } else {
+            null
+        }
     }
 
     private suspend fun getRemoteKeyForFirstItem(state: PagingState<Int, UiHomeArticle>): RemoteKeys? {
