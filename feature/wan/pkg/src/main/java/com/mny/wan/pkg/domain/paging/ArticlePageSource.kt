@@ -146,10 +146,10 @@ class CoinRankPageSource constructor(val mRepository: WanRepository) :
     }
 }
 
-class QAArticlePageSource constructor(mRepository: WanRepository) :
-    ArticlePageSource(mRepository, 0) {
-    override fun getUrlWithPage(page: Int): String = UrlManager.qaArticleList(page)
-}
+//class QAArticlePageSource constructor(mRepository: WanRepository) :
+//    ArticlePageSource(mRepository, 0) {
+//    override fun getUrlWithPage(page: Int): String = UrlManager.qaArticleList(page)
+//}
 
 class CollectArticlePageSource constructor(mRepository: WanRepository) :
     ArticlePageSource(mRepository, 0) {

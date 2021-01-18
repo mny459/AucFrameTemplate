@@ -9,7 +9,6 @@ import com.mny.wan.pkg.data.local.entity.HomeArticle
 import com.mny.wan.pkg.data.local.entity.RemoteKeys
 import com.mny.wan.pkg.data.local.entity.UiHomeArticle
 import com.mny.wan.pkg.domain.repository.WanRepository
-import java.io.InvalidObjectException
 import javax.inject.Inject
 
 @OptIn(ExperimentalPagingApi::class)
@@ -51,7 +50,6 @@ class HomeArticlePageSource @Inject constructor(
                     if (loadType == LoadType.REFRESH) {
                         mDataBase.remoteKeysDao().clearRemoteKeys()
                         mDataBase.articleDao().clearHomeArticles()
-                        mDataBase.articleDao().clearHomeArticles()
                         mDataBase.articleDao().clearQaArticles()
                     }
                     val prevKey = data.curPage - 1
@@ -83,7 +81,7 @@ class HomeArticlePageSource @Inject constructor(
         val lastItem = lastPage?.data?.lastOrNull()
         LogUtils.d("最后一个 Item 是 id ${lastItem?.article?.id} title ${lastItem?.article?.title}")
         return if (lastItem != null) {
-            mDataBase.remoteKeysDao().remoteKeysRepoId(lastItem.article.id.toLong())
+            mDataBase.remoteKeysDao().remoteKeysRepoId(lastItem.article.id.toLong(),homeArticle = true)
         } else {
             null
         }
@@ -95,7 +93,7 @@ class HomeArticlePageSource @Inject constructor(
         return state.pages.firstOrNull { it.data.isNotEmpty() }?.data?.firstOrNull()
             ?.let { repo ->
                 // Get the remote keys of the first items retrieved
-                mDataBase.remoteKeysDao().remoteKeysRepoId(repo.article.id.toLong())
+                mDataBase.remoteKeysDao().remoteKeysRepoId(repo.article.id.toLong(),homeArticle = true)
             }
     }
 
@@ -106,7 +104,7 @@ class HomeArticlePageSource @Inject constructor(
         // Get the item closest to the anchor position
         return state.anchorPosition?.let { position ->
             state.closestItemToPosition(position)?.article?.id?.let { articleId ->
-                mDataBase.remoteKeysDao().remoteKeysRepoId(articleId.toLong())
+                mDataBase.remoteKeysDao().remoteKeysRepoId(articleId.toLong(),homeArticle = true)
             }
         }
     }

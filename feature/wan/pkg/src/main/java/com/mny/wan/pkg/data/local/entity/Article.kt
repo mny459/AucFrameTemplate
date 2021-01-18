@@ -108,8 +108,11 @@ data class QAArticle(
 
 @Entity(tableName = "remote_keys")
 data class RemoteKeys(
-    @PrimaryKey
     var articleId: Long,
+    var home: Boolean = true,
     var prevKey: Int?,
     var nextKey: Int?
-)
+) {
+    @PrimaryKey(autoGenerate = true)
+    var id: Long = 0
+}

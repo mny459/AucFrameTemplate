@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "9484ba04c30b12db47e8ae35c2139542",
+    "identityHash": "1768dfe5b4e453832078c15d2f19fc8f",
     "entities": [
       {
         "tableName": "user",
@@ -374,11 +374,23 @@
       },
       {
         "tableName": "remote_keys",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`articleId` INTEGER NOT NULL, `prevKey` INTEGER, `nextKey` INTEGER, PRIMARY KEY(`articleId`))",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `articleId` INTEGER NOT NULL, `home` INTEGER NOT NULL, `prevKey` INTEGER, `nextKey` INTEGER)",
         "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
           {
             "fieldPath": "articleId",
             "columnName": "articleId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "home",
+            "columnName": "home",
             "affinity": "INTEGER",
             "notNull": true
           },
@@ -397,9 +409,9 @@
         ],
         "primaryKey": {
           "columnNames": [
-            "articleId"
+            "id"
           ],
-          "autoGenerate": false
+          "autoGenerate": true
         },
         "indices": [],
         "foreignKeys": []
@@ -502,7 +514,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '9484ba04c30b12db47e8ae35c2139542')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '1768dfe5b4e453832078c15d2f19fc8f')"
     ]
   }
 }

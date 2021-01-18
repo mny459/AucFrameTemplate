@@ -18,6 +18,7 @@ import com.mny.mojito.entension.loadProjectPreview
 import com.mny.wan.pkg.R
 import com.mny.wan.pkg.data.local.UserHelper
 import com.mny.wan.pkg.data.local.entity.UiHomeArticle
+import com.mny.wan.pkg.data.local.entity.UiQaArticle
 import com.mny.wan.pkg.data.remote.model.BeanArticle
 import com.mny.wan.pkg.event.CollectEvent
 import com.mny.wan.pkg.presentation.AppViewModel
@@ -104,6 +105,61 @@ class HomeArticleAdapter @Inject constructor(private val mAppViewModel: AppViewM
                 newItem == oldItem || newItem.article.id == oldItem.article.id
 
             override fun getChangePayload(oldItem: UiHomeArticle, newItem: UiHomeArticle): Any? =
+                PAYLOAD_SCORE
+        }
+    }
+
+    override fun onBindViewHolder(holder: ArticleViewHolder, position: Int) {
+        getItem(position)?.apply {
+            holder.bind(this.article)
+        }
+    }
+
+    override fun onBindViewHolder(
+        holder: ArticleViewHolder,
+        position: Int,
+        payloads: MutableList<Any>
+    ) {
+        if (payloads.isNotEmpty()) {
+            // 更新收藏
+            val item = getItem(position)
+//            holder.updateScore(item)
+        } else {
+            onBindViewHolder(holder, position)
+        }
+    }
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ArticleViewHolder =
+        ArticleViewHolder.create(parent, mAppViewModel, viewLifecycleOwner!!)
+
+    override fun onViewDetachedFromWindow(holder: ArticleViewHolder) {
+        super.onViewDetachedFromWindow(holder)
+        holder.cancelObserverCollect()
+    }
+
+    fun notifyCollectStateChanged(event: CollectEvent) {
+
+    }
+}
+
+
+class QAArticleAdapter @Inject constructor(private val mAppViewModel: AppViewModel) :
+    PagingDataAdapter<UiQaArticle, ArticleViewHolder>(COMPARATOR) {
+    var viewLifecycleOwner: LifecycleOwner? = null
+
+    companion object {
+        private val PAYLOAD_SCORE = Any()
+        val COMPARATOR = object : DiffUtil.ItemCallback<UiQaArticle>() {
+            override fun areContentsTheSame(oldItem: UiQaArticle, newItem: UiQaArticle): Boolean =
+                // 显示的内容是否一样，主要判断 名字，头像，性别，是否已经关注
+                newItem == oldItem || (Objects.equals(newItem.article.collect, oldItem.article.collect))
+
+            override fun areItemsTheSame(oldItem: UiQaArticle, newItem: UiQaArticle): Boolean =
+
+                // 主要关注Id即可
+                newItem == oldItem || newItem.article.id == oldItem.article.id
+
+            override fun getChangePayload(oldItem: UiQaArticle, newItem: UiQaArticle): Any? =
                 PAYLOAD_SCORE
         }
     }

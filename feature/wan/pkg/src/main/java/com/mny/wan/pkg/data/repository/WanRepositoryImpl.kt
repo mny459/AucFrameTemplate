@@ -5,6 +5,7 @@ import com.mny.wan.pkg.base.BaseRepository
 import com.mny.wan.pkg.data.local.dao.ArticleDao
 import com.mny.wan.pkg.data.local.entity.HomeArticle
 import com.mny.wan.pkg.data.local.entity.UiHomeArticle
+import com.mny.wan.pkg.data.local.entity.UiQaArticle
 import com.mny.wan.pkg.data.remote.model.*
 import com.mny.wan.pkg.data.remote.service.WanService
 import com.mny.wan.pkg.domain.repository.WanRepository
@@ -76,5 +77,9 @@ class WanRepositoryImpl @Inject constructor(private val mArticleDao: ArticleDao)
 
     override fun fetchHomeArticles(): PagingSource<Int, UiHomeArticle> {
         return mArticleDao.queryHomeArticles()
+    }
+
+    override fun fetchQAArticles(): PagingSource<Int, UiQaArticle> {
+        return mArticleDao.queryQAArticles()
     }
 }
