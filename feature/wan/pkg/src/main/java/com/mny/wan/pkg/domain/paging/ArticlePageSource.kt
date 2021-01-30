@@ -1,6 +1,7 @@
 package com.mny.wan.pkg.domain.paging
 
 import androidx.paging.PagingSource
+import androidx.paging.PagingState
 import com.blankj.utilcode.util.LogUtils
 import com.mny.wan.pkg.data.UrlManager
 import com.mny.wan.pkg.data.remote.model.BeanArticle

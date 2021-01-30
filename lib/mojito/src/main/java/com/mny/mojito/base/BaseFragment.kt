@@ -12,7 +12,7 @@ import com.mny.mojito.base.delegate.IFragment
 /**
  *@author mny on 2020/5/17.
  *        Email：mny9@outlook.com
- *        Desc:
+ *        Desc: 从 Fragment 的生命周期的角度去作延迟加载是显然行不通的
  */
 abstract class BaseFragment(@LayoutRes contentLayoutId: Int) : Fragment(contentLayoutId),
     IFragment {
@@ -49,6 +49,15 @@ abstract class BaseFragment(@LayoutRes contentLayoutId: Int) : Fragment(contentL
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        initData(savedInstanceState)
+    }
+
+    /**
+     * 新版本的数据延迟初始化要移到 onResume 了
+     */
+    override fun onResume() {
+        super.onResume()
         if (mIsFirstInitData) {
             initObserver()
             // 触发一次以后就不会触发
@@ -56,7 +65,6 @@ abstract class BaseFragment(@LayoutRes contentLayoutId: Int) : Fragment(contentL
             // 触发
             onFirstInit()
         }
-        initData(savedInstanceState)
     }
 
     override fun onDestroyView() {

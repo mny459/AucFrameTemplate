@@ -19,13 +19,13 @@ interface ArticleDao {
     /**
      */
     @Transaction
-    @Query("select * from home_article ORDER BY homePublishTime")
+    @Query("select * from home_article ORDER BY homePublishTime desc")
     fun queryHomeArticles(): PagingSource<Int, UiHomeArticle>
 
     /**
      */
     @Transaction
-    @Query("select * from qa_article order by qaPublishTime")
+    @Query("select * from qa_article order by qaPublishTime desc")
     fun queryQAArticles(): PagingSource<Int, UiQaArticle>
 
     @Update(entity = BeanArticle::class)

@@ -11,35 +11,35 @@ import com.mny.wan.pkg.data.local.entity.UiQaArticle
 import com.mny.wan.pkg.domain.repository.WanRepository
 import javax.inject.Inject
 
-
+/**
+ * 由于使用 RemoteMediator 的目的是为了使用 Room 数据的实时更新特性
+ * 来实现文章的收藏多页面同步问题，所以这里就没有不使用 RemoteKeys 了
+ */
 @OptIn(ExperimentalPagingApi::class)
 class QAArticlePageSource @Inject constructor(
     private val mRepository: WanRepository,
     private val mDataBase: WanDataBase
 ) :
     RemoteMediator<Int, UiQaArticle>() {
+    private val firstPage = 1
+    private var curPage = firstPage
 
     override suspend fun load(
         loadType: LoadType,
         state: PagingState<Int, UiQaArticle>
     ): MediatorResult {
-        LogUtils.d("load $loadType")
+        LogUtils.d("load $loadType ${state.pages.lastOrNull() { it.data.isNotEmpty() }?.data?.last()?.article?.title}")
         val page: Int = when (loadType) {
-            LoadType.REFRESH -> 0
+            LoadType.REFRESH -> firstPage
             LoadType.PREPEND -> {
                 // 不支持下拉加载
                 return MediatorResult.Success(endOfPaginationReached = true)
             }
-            LoadType.APPEND -> {
-                val remoteKeys = getRemoteKeyForLastItem(state)
-                LogUtils.d("load 下一页 $remoteKeys")
-                remoteKeys?.nextKey ?: 1 // return MediatorResult.Success(endOfPaginationReached = true)
-            }
+            LoadType.APPEND -> ++curPage
         }
-        // 如果key是null，那就加载第0页的数据
+        val suffixUrl = UrlManager.qaArticleList(page)
+        LogUtils.d("load QAArticlePageSource $suffixUrl")
         return try {
-            val suffixUrl = UrlManager.qaArticleList(page)
-            LogUtils.d("load HomeArticlePageSource $suffixUrl")
             val response = mRepository.fetchArticlesByUrl(suffixUrl)
 
             if (response.isSuccess()) {
@@ -51,24 +51,13 @@ class QAArticlePageSource @Inject constructor(
                     if (loadType == LoadType.REFRESH) {
                         mDataBase.articleDao().clearQaArticles()
                     }
-                    val prevKey = data.curPage - 1
-                    val nextKey = data.curPage + 1
+                    curPage = data.curPage
                     val qaList = data.articles.map {
                         QAArticle(articleId = it.id, qaPublishTime = it.publishTime)
                     }
-                    val keys = data.articles.map {
-                        RemoteKeys(
-                            articleId = it.id.toLong(),
-                            prevKey = prevKey,
-                            nextKey = nextKey,
-                            home = false
-                        )
-                    }
                     mDataBase.articleDao().insertArticles(data.articles)
                     mDataBase.articleDao().insertQAArticles(qaList)
-                    mDataBase.remoteKeysDao().insertAll(keys)
                 }
-
                 MediatorResult.Success(endOfPaginationReached)
             } else {
                 MediatorResult.Error(Exception(response.errorMsg))
@@ -76,42 +65,6 @@ class QAArticlePageSource @Inject constructor(
         } catch (e: Exception) {
             e.printStackTrace()
             MediatorResult.Error(Exception(e))
-        }
-    }
-
-    private suspend fun getRemoteKeyForLastItem(state: PagingState<Int, UiQaArticle>): RemoteKeys? {
-        // 获取当前数据的最后一页的最后一个数据
-        val lastPage = state.pages.lastOrNull()
-        val lastItem = lastPage?.data?.lastOrNull()
-        LogUtils.d("最后一个 Item 是 id ${lastItem?.article?.id} title ${lastItem?.article?.title}")
-        return if (lastItem != null) {
-            mDataBase.remoteKeysDao()
-                .remoteKeysRepoId(lastItem.article.id.toLong(), homeArticle = false)
-        } else {
-            null
-        }
-    }
-
-    private suspend fun getRemoteKeyForFirstItem(state: PagingState<Int, UiQaArticle>): RemoteKeys? {
-        // Get the first page that was retrieved, that contained items.
-        // From that first page, get the first item
-        return state.pages.firstOrNull { it.data.isNotEmpty() }?.data?.firstOrNull()
-            ?.let { repo ->
-                // Get the remote keys of the first items retrieved
-                mDataBase.remoteKeysDao()
-                    .remoteKeysRepoId(repo.article.id.toLong(), homeArticle = false)
-            }
-    }
-
-    private suspend fun getRemoteKeyClosestToCurrentPosition(
-        state: PagingState<Int, UiQaArticle>
-    ): RemoteKeys? {
-        // The paging library is trying to load data after the anchor position
-        // Get the item closest to the anchor position
-        return state.anchorPosition?.let { position ->
-            state.closestItemToPosition(position)?.article?.id?.let { articleId ->
-                mDataBase.remoteKeysDao().remoteKeysRepoId(articleId.toLong(), homeArticle = false)
-            }
         }
     }
 }

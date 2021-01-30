@@ -19,9 +19,9 @@ import javax.inject.Inject
 class MainViewPagerActivity : BaseBindingActivity<ActivityMainViewPagerBinding>() {
 
     private val mFragments = listOf<Fragment>(
-        HomeFragment.newInstance(),
         QAFragment.newInstance(),
-        SystemFragment.newInstance(),
+        MineFragment.newInstance(),
+        MineFragment.newInstance(),
         MineFragment.newInstance()
     )
 

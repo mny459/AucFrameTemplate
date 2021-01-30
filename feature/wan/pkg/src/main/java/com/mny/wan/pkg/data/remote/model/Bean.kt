@@ -54,7 +54,7 @@ data class BeanArticleList(
     @SerializedName("total")
     val total: Int = 0
 ) {
-    fun isLastPage(): Boolean = curPage >= 5
+    fun isLastPage(): Boolean = over
 
     override fun toString(): String {
         return "BeanArticleList(curPage=$curPage, offset=$offset, over=$over, pageCount=$pageCount, size=$size, total=$total)"

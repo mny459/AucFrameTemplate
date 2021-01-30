@@ -66,6 +66,7 @@ class ArticleAdapter @Inject constructor(private val mAppViewModel: AppViewModel
         position: Int,
         payloads: MutableList<Any>
     ) {
+        LogUtils.d("onBindViewHolder payloads $payloads")
         if (payloads.isNotEmpty()) {
             // 更新收藏
             val item = getItem(position)
@@ -245,12 +246,12 @@ class ArticleViewHolder(
                     return@setOnClickListener
                 }
                 if (item.collect) {
-                    viewModel.cancelCollect(id)
+                    viewModel.cancelCollect(item)
                 } else {
-                    viewModel.collect(id)
+                    viewModel.collect(item)
                 }
             }
-            observerCollect(this)
+//            observerCollect(this)
         }
 
     }

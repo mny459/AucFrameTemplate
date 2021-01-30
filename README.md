@@ -10,7 +10,7 @@
 - 缓存: DiskLruCache、Room
 - 在搜索的时候取消上一个搜索请求
 - 做状态保存
-
+- Bugly+升级
 ## 已知问题
 - Navigation 不保存状态
 - ViewPager2 和 RecyclerView 滑动冲突

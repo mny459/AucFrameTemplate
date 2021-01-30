@@ -36,11 +36,11 @@ class QAViewModel @ViewModelInject constructor(
         config = PagingConfig(
             // 每页显示的数据的大小。对应 PagingSource 里 LoadParams.loadSize
             pageSize = 20,
-//                        // 预刷新的距离，距离最后一个 item 多远时加载数据
+            // 预刷新的距离，距离最后一个 item 多远时加载数据
             prefetchDistance = 1,
-//                        // 初始化加载数量，默认为 pageSize * 3
+            // 初始化加载数量，默认为 pageSize * 3
             initialLoadSize = 20,
-//                        // 一次应在内存中保存的最大数据
+            // 一次应在内存中保存的最大数据
             maxSize = 200,
             enablePlaceholders = false,
         ),

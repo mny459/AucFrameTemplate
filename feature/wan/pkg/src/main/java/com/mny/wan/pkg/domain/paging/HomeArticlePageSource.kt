@@ -65,7 +65,7 @@ class HomeArticlePageSource @Inject constructor(
                     mDataBase.remoteKeysDao().insertAll(keys)
                 }
 
-                MediatorResult.Success(false)
+                MediatorResult.Success(endOfPaginationReached)
             } else {
                 MediatorResult.Error(Exception(response.errorMsg))
             }
