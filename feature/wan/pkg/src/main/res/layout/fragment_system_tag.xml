@@ -10,7 +10,6 @@
         android:id="@+id/rv_tags"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:nestedScrollingEnabled="false"
         android:overScrollMode="never"
         tools:itemCount="5"
         tools:listitem="@layout/cell_article" />
