@@ -196,7 +196,7 @@ class Config {
             banner                 : new DepConfig("com.youth.banner:banner:2.1.0"),
             datastore              : new DepConfig("androidx.datastore:datastore:1.0.0-alpha03"),
             flexbox                : new DepConfig("com.google.android:flexbox:1.1.1"),
-            brvah                  : new DepConfig("com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.50"),
+            brvah                  : new DepConfig("com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.4"),
             liveEventBus           : new DepConfig("com.jeremyliao:live-event-bus-x:1.7.3"),
     ]
 }

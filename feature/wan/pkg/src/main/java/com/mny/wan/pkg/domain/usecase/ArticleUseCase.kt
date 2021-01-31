@@ -1,11 +1,13 @@
 package com.mny.wan.pkg.domain.usecase
 
 import androidx.paging.PagingSource
-import com.mny.wan.pkg.data.remote.model.BeanArticle
-import com.mny.wan.pkg.data.remote.model.BeanCoinOpDetail
-import com.mny.wan.pkg.data.remote.model.BeanRanking
+import com.mny.mojito.http.MojitoResult
+import com.mny.wan.pkg.data.remote.model.*
 import com.mny.wan.pkg.domain.paging.*
 import com.mny.wan.pkg.domain.repository.WanRepository
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.*
+import java.lang.Exception
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -17,6 +19,22 @@ class ArticleUseCase @Inject constructor(
 //    fun homeArticlePageSource(): PagingSource<Int, BeanArticle> {
 //        return HomeArticlePageSource(mRepository)
 //    }
+
+    suspend fun articlesByUrl(url: String): Flow<MojitoResult<BeanArticleList>> {
+        return flow {
+            val response = mRepository.fetchArticlesByUrl(url)
+            if (response.isSuccess()) {
+                emit(MojitoResult.Success(response.data))
+            } else {
+                emit(MojitoResult.Error(Exception(response.errorMsg)))
+            }
+        }.onStart {
+            emit(MojitoResult.Loading)
+        }
+            .catch { error ->
+                emit(MojitoResult.Error(Exception(error)))
+            }.flowOn(Dispatchers.IO)
+    }
 
     fun searchArticlePageSource(keyword: Any): PagingSource<Int, BeanArticle> {
         return SearchArticlePageSource(mRepository, keyword as String)
@@ -45,10 +63,6 @@ class ArticleUseCase @Inject constructor(
     fun weChatArticlePageSource(cid: Int): PagingSource<Int, BeanArticle> {
         return WeChatArticlePageSource(mRepository, cid)
     }
-
-//    fun qAArticlePageSource(): PagingSource<Int, BeanArticle> {
-//        return QAArticlePageSource(mRepository)
-//    }
 
     fun coinDetailPageSource(): PagingSource<Int, BeanCoinOpDetail> {
         return CoinDetailPageSource(mRepository)

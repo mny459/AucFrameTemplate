@@ -31,9 +31,9 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-//    implementation(Config.depConfig.refresh_core.dep)
-//    implementation(Config.depConfig.refresh_headerClassics.dep)
-//    implementation(Config.depConfig.refresh_footerClassics.dep)
+    api(Config.depConfig.refresh_core.dep)
+    api(Config.depConfig.refresh_headerClassics.dep)
+    api(Config.depConfig.refresh_footerClassics.dep)
     api(Config.depConfig.swiperefreshlayout.dep)
 
     api(Config.depConfig.banner.dep)

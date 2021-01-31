@@ -19,9 +19,9 @@ import javax.inject.Inject
 class MainViewPagerActivity : BaseBindingActivity<ActivityMainViewPagerBinding>() {
 
     private val mFragments = listOf<Fragment>(
+        HomeFragment.newInstance(),
         QAFragment.newInstance(),
-        MineFragment.newInstance(),
-        MineFragment.newInstance(),
+        SystemFragment.newInstance(),
         MineFragment.newInstance()
     )
 
@@ -55,8 +55,6 @@ class MainViewPagerActivity : BaseBindingActivity<ActivityMainViewPagerBinding>(
                 }
                 R.id.mineFragment -> {
                     mBinding.viewPager.currentItem = 3
-                }
-                else -> {
                 }
             }
             true

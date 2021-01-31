@@ -1,7 +1,7 @@
 package com.mny.wan.pkg.presentation.adapter.tag
 
-import com.chad.library.adapter.base.BaseViewHolder
 import com.chad.library.adapter.base.provider.BaseItemProvider
+import com.chad.library.adapter.base.viewholder.BaseViewHolder
 import com.mny.wan.pkg.R
 import com.mny.wan.pkg.data.remote.model.BeanArticle
 import com.mny.wan.pkg.data.remote.model.BeanHotKey
@@ -13,11 +13,18 @@ import com.mny.wan.pkg.data.remote.model.BeanSystemChildren
  * @Date 2019/10/18 17:10
  * @Desc
  */
-class TagChildProvider : BaseItemProvider<BeanMultiType, BaseViewHolder>() {
+class TagChildProvider : BaseItemProvider<BeanMultiType>() {
     private var mOnChildClicked: ((data: Any) -> Unit)? = null
-    override fun layout(): Int = R.layout.cell_tag_child
-    override fun viewType(): Int = BeanMultiType.TYPE_CHILD
-    override fun convert(helper: BaseViewHolder, data: BeanMultiType?, position: Int) {
+    fun setOnChildClickListener(onChildClickListener: ((data: Any) -> Unit)?) {
+        this.mOnChildClicked = onChildClickListener
+    }
+
+    override val itemViewType: Int
+        get() = BeanMultiType.TYPE_CHILD
+    override val layoutId: Int
+        get() = R.layout.cell_tag_child
+
+    override fun convert(helper: BaseViewHolder, data: BeanMultiType) {
         data?.data?.apply {
             when (this) {
                 is BeanSystemChildren -> helper.setText(R.id.tvTagChild, name)
@@ -31,10 +38,5 @@ class TagChildProvider : BaseItemProvider<BeanMultiType, BaseViewHolder>() {
                 mOnChildClicked?.invoke(data.data)
             }
         }
-
-    }
-
-    fun setOnChildClickListener(onChildClickListener: ((data: Any) -> Unit)?) {
-        this.mOnChildClicked = onChildClickListener
     }
 }

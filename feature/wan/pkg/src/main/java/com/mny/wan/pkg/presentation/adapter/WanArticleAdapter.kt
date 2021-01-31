@@ -1,34 +1,27 @@
 package com.mny.wan.pkg.presentation.adapter
 
 import android.text.Html
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.constraintlayout.widget.Group
-import androidx.lifecycle.LifecycleOwner
-import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.DiffUtil
-import androidx.recyclerview.widget.RecyclerView
+import com.blankj.utilcode.util.LogUtils
 import com.blankj.utilcode.util.NetworkUtils
-import com.blankj.utilcode.util.StringUtils
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.viewholder.BaseViewHolder
 import com.mny.mojito.entension.loadProjectPreview
 import com.mny.wan.pkg.R
 import com.mny.wan.pkg.data.local.UserHelper
 import com.mny.wan.pkg.data.remote.model.BeanArticle
-import com.mny.wan.pkg.presentation.AppViewModel
 import com.mny.wan.pkg.presentation.webview.WebViewActivity
 import kotlinx.coroutines.Job
-import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.launch
 import java.util.*
 import javax.inject.Inject
 
-class TopArticleAdapter @Inject constructor() :
-    BaseQuickAdapter<BeanArticle, TopArticleViewHolder>(R.layout.cell_article) {
+class WanArticleAdapter @Inject constructor() :
+    BaseQuickAdapter<BeanArticle, WanArticleViewHolder>(R.layout.cell_article) {
+
     init {
         setDiffCallback(COMPARATOR)
     }
@@ -56,11 +49,11 @@ class TopArticleAdapter @Inject constructor() :
         this.mCollectListener = collectListener
     }
 
-    override fun convert(holder: TopArticleViewHolder, item: BeanArticle) {
+    override fun convert(holder: WanArticleViewHolder, item: BeanArticle) {
         holder.bind(item, mCollectListener)
     }
 
-    override fun convert(holder: TopArticleViewHolder, item: BeanArticle, payloads: List<Any>) {
+    override fun convert(holder: WanArticleViewHolder, item: BeanArticle, payloads: List<Any>) {
         super.convert(holder, item, payloads)
         if (payloads.isNotEmpty()) {
             val collect = payloads.first() as? Boolean
@@ -69,10 +62,10 @@ class TopArticleAdapter @Inject constructor() :
             }
         }
     }
-
 }
 
-class TopArticleViewHolder(
+
+class WanArticleViewHolder(
     private val view: View,
 ) : BaseViewHolder(view) {
     private var mGroupProject: Group = view.findViewById(R.id.groupProject)
@@ -85,6 +78,7 @@ class TopArticleViewHolder(
     private var mTvChapter: TextView = view.findViewById(R.id.tvChapter)
     private var mIvProject: ImageView = view.findViewById(R.id.imgProject)
     private var mIvCollect: ImageView = view.findViewById(R.id.imgCollect)
+    private var mItem: BeanArticle? = null
     private var mCollectListener: ((item: BeanArticle, isCollect: Boolean) -> Unit)? =
         null
 
@@ -93,21 +87,18 @@ class TopArticleViewHolder(
         collectListener: ((item: BeanArticle, isCollect: Boolean) -> Unit)?
     ) {
         mCollectListener = collectListener
+        mItem = item
         item.apply {
             mTvTitle.text = Html.fromHtml(title)
             mTvPublishTime.text = Html.fromHtml(niceDate)
-            mTvPin.visibility = View.VISIBLE
             mTvPublisher.text = if (author.isEmpty()) shareUser.trim() else author.trim()
-            mTvUserType.text =
-                if (author.isEmpty()) StringUtils.getString(R.string.wan_share_user) else StringUtils.getString(
-                    R.string.wan_author
-                )
+            mTvUserType.text = if (author.isEmpty()) "分享人" else "作者"
             mTvChapter.text = if (superChapterName.isEmpty()) "$chapterName".trim()
             else "$chapterName·$superChapterName".trim()
             if (superChapterId == 294) {
                 // 开源项目主Tab
                 mIvProject.loadProjectPreview(envelopePic)
-                mTvTitle.text = Html.fromHtml(desc)
+                mTvDesc.text = Html.fromHtml(desc)
                 mGroupProject.visibility = View.VISIBLE
             } else {
                 mGroupProject.visibility = View.GONE
@@ -124,8 +115,8 @@ class TopArticleViewHolder(
                     return@setOnClickListener
                 }
                 mCollectListener?.invoke(item, !mIvCollect.isSelected)
-
             }
         }
+
     }
 }

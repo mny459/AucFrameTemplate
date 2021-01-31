@@ -83,10 +83,6 @@ class ArticleAdapter @Inject constructor(private val mAppViewModel: AppViewModel
         super.onViewDetachedFromWindow(holder)
         holder.cancelObserverCollect()
     }
-
-    fun notifyCollectStateChanged(event: CollectEvent) {
-
-    }
 }
 
 class HomeArticleAdapter @Inject constructor(private val mAppViewModel: AppViewModel) :
@@ -96,9 +92,15 @@ class HomeArticleAdapter @Inject constructor(private val mAppViewModel: AppViewM
     companion object {
         private val PAYLOAD_SCORE = Any()
         val COMPARATOR = object : DiffUtil.ItemCallback<UiHomeArticle>() {
-            override fun areContentsTheSame(oldItem: UiHomeArticle, newItem: UiHomeArticle): Boolean =
+            override fun areContentsTheSame(
+                oldItem: UiHomeArticle,
+                newItem: UiHomeArticle
+            ): Boolean =
                 // 显示的内容是否一样，主要判断 名字，头像，性别，是否已经关注
-                newItem == oldItem || (Objects.equals(newItem.article.collect, oldItem.article.collect));
+                newItem == oldItem || (Objects.equals(
+                    newItem.article.collect,
+                    oldItem.article.collect
+                ));
 
             override fun areItemsTheSame(oldItem: UiHomeArticle, newItem: UiHomeArticle): Boolean =
 
@@ -137,10 +139,6 @@ class HomeArticleAdapter @Inject constructor(private val mAppViewModel: AppViewM
         super.onViewDetachedFromWindow(holder)
         holder.cancelObserverCollect()
     }
-
-    fun notifyCollectStateChanged(event: CollectEvent) {
-
-    }
 }
 
 
@@ -153,7 +151,10 @@ class QAArticleAdapter @Inject constructor(private val mAppViewModel: AppViewMod
         val COMPARATOR = object : DiffUtil.ItemCallback<UiQaArticle>() {
             override fun areContentsTheSame(oldItem: UiQaArticle, newItem: UiQaArticle): Boolean =
                 // 显示的内容是否一样，主要判断 名字，头像，性别，是否已经关注
-                newItem == oldItem || (Objects.equals(newItem.article.collect, oldItem.article.collect))
+                newItem == oldItem || (Objects.equals(
+                    newItem.article.collect,
+                    oldItem.article.collect
+                ))
 
             override fun areItemsTheSame(oldItem: UiQaArticle, newItem: UiQaArticle): Boolean =
 
@@ -251,7 +252,7 @@ class ArticleViewHolder(
                     viewModel.collect(item)
                 }
             }
-//            observerCollect(this)
+            observerCollect(this)
         }
 
     }

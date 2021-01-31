@@ -1,7 +1,6 @@
 package com.mny.wan.pkg.presentation.adapter.tag
 
-import com.chad.library.adapter.base.BaseViewHolder
-import com.chad.library.adapter.base.MultipleItemRvAdapter
+import com.chad.library.adapter.base.BaseProviderMultiAdapter
 import com.mny.wan.pkg.data.remote.model.BeanMultiType
 
 /**
@@ -9,19 +8,21 @@ import com.mny.wan.pkg.data.remote.model.BeanMultiType
  * @Date 2019/10/18 16:38
  * @Desc
  */
-class TagAdapter(data: List<BeanMultiType>, var onChildClickListener: ((data: Any) -> Unit)? = null) :
-    MultipleItemRvAdapter<BeanMultiType, BaseViewHolder>(data) {
+class TagAdapter(
+    data: MutableList<BeanMultiType>,
+    var onChildClickListener: ((data: Any) -> Unit)? = null
+) :
+    BaseProviderMultiAdapter<BeanMultiType>(data) {
     init {
-        finishInitialize()
-    }
-
-    override fun registerItemProvider() {
         val childProvider = TagChildProvider()
         childProvider.setOnChildClickListener(onChildClickListener)
-        mProviderDelegate.registerProvider(TagParentProvider())
-        mProviderDelegate.registerProvider(childProvider)
+        addItemProvider(TagParentProvider())
+        addItemProvider(childProvider)
+
     }
 
-    override fun getViewType(t: BeanMultiType?): Int = t?.type ?: BeanMultiType.TYPE_PARENT
+    override fun getItemType(data: List<BeanMultiType>, position: Int): Int {
+        return data[position].type
+    }
 
 }

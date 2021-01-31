@@ -7,6 +7,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.blankj.utilcode.util.ToastUtils
+import com.jeremyliao.liveeventbus.LiveEventBus
 import com.mny.mojito.http.MojitoResult
 import com.mny.mojito.http.doSuccess
 import com.mny.wan.pkg.data.local.dao.ArticleDao
@@ -15,6 +16,7 @@ import com.mny.wan.pkg.data.remote.model.BeanCoin
 import com.mny.wan.pkg.data.remote.model.BeanUserInfo
 import com.mny.wan.pkg.domain.usecase.CollectUseCase
 import com.mny.wan.pkg.domain.usecase.UserUseCase
+import com.mny.wan.pkg.event.CollectEvent
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -53,9 +55,7 @@ class AppViewModel @Inject constructor(
                         mCollectIds.value = article.id
                         mCollectIds.value = 0
                         article.collect = false
-                        withContext(Dispatchers.IO){
-                            mArticleDao.collect(article)
-                        }
+                        CollectEvent.collect(article.id)
                     }
                 }
         }
@@ -69,9 +69,7 @@ class AppViewModel @Inject constructor(
                         mCancelCollectIds.value = article.id
                         mCancelCollectIds.value = 0
                         article.collect = false
-                        withContext(Dispatchers.IO){
-                            mArticleDao.cancelCollect(article)
-                        }
+                        CollectEvent.cancelCollect(article.id)
                     }
                 }
         }

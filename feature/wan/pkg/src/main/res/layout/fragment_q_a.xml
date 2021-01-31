@@ -11,8 +11,8 @@
         style="@style/Widget.Wan.AppBarLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fitsSystemWindows="true"
         android:elevation="@dimen/dp_2"
+        android:fitsSystemWindows="true"
         android:outlineProvider="bounds">
 
         <com.google.android.material.appbar.MaterialToolbar
@@ -20,25 +20,32 @@
             style="@style/Widget.Wan.Toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            app:layout_scrollFlags="scroll|enterAlways"
+            app:layout_scrollFlags="noScroll"
             app:title="@string/wan_nav_qa" />
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+    <com.scwang.smart.refresh.layout.SmartRefreshLayout
         android:id="@+id/refresh"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
+        <com.scwang.smart.refresh.header.ClassicsHeader
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_articles"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:nestedScrollingEnabled="false"
             android:overScrollMode="never"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            tools:itemCount="5"
+            tools:itemCount="3"
             tools:listitem="@layout/cell_article" />
-    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+        <com.scwang.smart.refresh.footer.ClassicsFooter
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </com.scwang.smart.refresh.layout.SmartRefreshLayout>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

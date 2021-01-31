@@ -1,5 +1,6 @@
 package com.mny.mojito.event
 
+import com.blankj.utilcode.util.LogUtils
 import com.jeremyliao.liveeventbus.LiveEventBus
 import java.io.Serializable
 
